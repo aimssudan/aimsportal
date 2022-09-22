@@ -5,15 +5,15 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="/projects">Projects</a>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >Projects</a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="/projects">Project List</a>
-                          <a class="dropdown-item" href="/reports">Reports</a>
+                          <a class="dropdown-item" @click="navigate('projects')">Project List</a>
+                          <a class="dropdown-item" @click="navigate('reports')">Reports</a>
                         </div>
                     </li>
                     
                     
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">Organisations</a>
+                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">Organisations</a>
                         <div class="dropdown-menu">
                           <a v-if="isadmin" class="dropdown-item" role="button" @click="navigate('organisation-categories')">Categories</a>
                           <a class="dropdown-item" role="button" @click="navigate('organisations')">Organisations</a>

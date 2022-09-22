@@ -15,6 +15,8 @@ import About from '../views/About.vue'
 import Faq from '../views/Faq.vue'
 import Unauthorized from '../views/Unauthorized.vue'
 import Organisations from '../views/Organisations.vue'
+import OrganisationCategories from '../views/OrganisationCategories.vue'
+import OrganisationCategory from '../views/OrganisationCategory.vue'
 import Projects from '../views/Projects.vue'
 
 const routes = [
@@ -92,6 +94,24 @@ const routes = [
     component: Organisations,
     meta: {
       title: "AIMS ⇾ Organisations",
+      middleware: [auth,verified],
+    },
+  },
+  {
+    path: '/organisation-categories',
+    name: 'organisation-categories',
+    component: OrganisationCategories,
+    meta: {
+      title: "AIMS ⇾ Organisation Categories",
+      middleware: [auth,verified],
+    },
+  },
+  {
+    path: '/organisation-category/:id?',
+    name: 'organisation-category',
+    component: OrganisationCategory,
+    meta: {
+      title: "AIMS ⇾ Organisation Category",
       middleware: [auth,verified],
     },
   },

@@ -18,10 +18,10 @@ export default {
       return state.user && state.user.organisation && state.user.organisation.name ? state.user.organisation.name: null;
     },
     superadmin(state) {
-      return state.user && state.user.roles && state.user.roles.findIndex(role => role.name == 'Super Administrator');
+      return state.user && state.user.roles && state.user.roles[0].name == 'Super Administrator';
     },
     contributor(state) {
-      return state.user && state.user.roles && state.user.roles.findIndex(role => role.name === 'Contributor');
+      return state.user && state.user.roles && state.user.roles[0].name === 'Contributor';
     },
     user(state) {
       return state.user
@@ -67,6 +67,9 @@ export default {
       } catch (e) {
         commit('SET_TOKEN', null)
         commit('SET_USER', null)
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        //this.$router.push({ name: "login" });
       }
 
     },

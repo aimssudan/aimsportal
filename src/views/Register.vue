@@ -16,19 +16,7 @@
               <div v-if="isLoading" class="spinner-border text-warning" role="status">
                 <span class="visually-hidden">Loading...</span>
               </div>
-              <div v-if="apiErrors" class="alert alert-danger" @click="apiErrors=false">
-                  <ul>
-                      <li v-for="(verrors, field) in errors" :key="field">
-                          {{ field }} 
-                          
-                          <ul>
-                              <li v-for="error in verrors" :key="error.message">
-                                  {{ error }}
-                              </li>
-                          </ul>
-                      </li>
-                  </ul>
-              </div>
+              <flash-error :hasError="apiErrors" :errors="errors"></flash-error>
               <div class="row">
                   <div class="col-md-6 mb-3">
                       <div class="form-floating">
@@ -38,22 +26,44 @@
                   </div>
                   <div class="col-md-6 mb-3">
                       <div class="form-floating">
-                          <input type="email" v-model="form.email" class="form-control" id="floatingPassword" placeholder="Password" required>
-                          <label for="floatingPassword">Email Address</label>
+                          <input type="email" v-model="form.email" class="form-control" id="floatingEmail" placeholder="Email Address" required>
+                          <label for="floatingEmail">Email Address</label>
                       </div>
                   </div>
                   <div class="col-md-6 mb-3">
                       <div class="form-floating">
-                        <multiselect @input="updateSelectedOrganisation" class="form-select" :value="form._o"  track-by="id" label="name" placeholder="Select one" :options="organisations" :searchable="false" :allow-empty="false"></multiselect>
+                          <input type="password" v-model="form.password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                          <label for="floatingPassword">Password</label>
+                      </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                      <div class="form-floating">
+                          <input type="password" v-model="form.password_confirmation" class="form-control" id="floatingPasswordConfirmation" placeholder="Password Confirmation" required>
+                          <label for="floatingPasswordConfirmation">Password Confirmation</label>
+                      </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                      <div class="form-floating">
+                        <multiselect @input="updateSelectedOrganisation" class="form-select" v-model="form._o"  track-by="id" label="name" placeholder="Select one" :options="organisations" :searchable="false" :allow-empty="false"></multiselect>
                           <label for="floatingPassword">Organisation</label>
                       </div>
                   </div>
                   <div class="col-md-6 mb-3">
                       <div class="form-floating">
-                          <input type="text"  v-model="form.otp" class="form-control" id="floatingPassword" placeholder="Password" required>
-                          <label for="floatingPassword">OTP</label>
+                          <input type="text"  v-model="form.code" class="form-control" id="floatingOtp" placeholder="OTP CODE" required>
+                          <label for="floatingOtp">OTP CODE</label>
                       </div>
-                      <span> <button class="btn btn-sm btn-warning" @click="sendOtp">Resend OTP </button></span>
+                      <span> <button class="btn btn-sm btn-warning" @click="sendOtp">Resend OTP CODE</button></span>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                      <div class="form-floating">
+                        <select class="form-select" v-model="form.role" placeholder="Role">
+                            <option value="Subscriber" selected>Subscriber</option>
+                            <option value="Contributor">Contributor</option>
+                            <option value="Manager">Manager</option>
+                        </select>
+                          <label for="floatingPassword">Role</label>
+                      </div>
                   </div>
                </div> 
                <button class="btn btn-primary" @click="register">Submit</button>
@@ -66,13 +76,15 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
+import flashError from '../components/flashError.vue'
 import Multiselect from 'vue-multiselect'
 
 
 export default {
   name: 'login',
   components: {
-    Multiselect
+    Multiselect,
+    flashError
   },
   data() {
     return {
@@ -87,9 +99,11 @@ export default {
       form: {
         email: "",
         password: "",
-        otp: "",
+        password_confirmation: "",
+        code: "",
         name: "",
         _o: '',
+        role: 'Subscriber',
         organisation: '',
         device_name: "browser"
       },
@@ -125,7 +139,7 @@ export default {
           (response) => {
             //
             this.isLoading = false;
-            let apiMessage = response.data.message ?? 'success'
+            let apiMessage = response.data.message ?? 'Successfully sent otp code'
             this.$store.commit('showSnackbar',apiMessage);
             //this.$router.push({ name: "login" });
           },
@@ -150,11 +164,12 @@ export default {
        this.generalError = false;
        this.isLoading = true;
        this.validationErrors = false;
+       this.form.organisation = this.form._o.id
        this.signup(this.form).then(
           (response) => {
             //
             this.isLoading = false;
-            let apiMessage = response ?? 'success'
+            let apiMessage = response.data.data ?? 'success'
             this.$store.commit('showSnackbar',apiMessage);
             this.$router.push({ name: "login" });
           },
@@ -179,8 +194,9 @@ export default {
         
     },
     updateSelectedOrganisation(_o) {
-      
+      console.log(_o)
       this.form.organisation = _o.id;
+      this.form._o = _o.name
   },
   }
 }
