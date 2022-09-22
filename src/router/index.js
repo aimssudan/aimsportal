@@ -4,6 +4,7 @@ import auth from '../middleware/auth'
 import guest from '../middleware/guest'
 import verified from '../middleware/verified'
 import unverified from '../middleware/unverified'
+import admin from '../middleware/admin'
 import middlewarePipeline from '../middleware/middlewarePipeline'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
@@ -15,6 +16,7 @@ import About from '../views/About.vue'
 import Faq from '../views/Faq.vue'
 import Unauthorized from '../views/Unauthorized.vue'
 import Organisations from '../views/Organisations.vue'
+import Organisation from '../views/Organisation.vue'
 import OrganisationCategories from '../views/OrganisationCategories.vue'
 import OrganisationCategory from '../views/OrganisationCategory.vue'
 import Projects from '../views/Projects.vue'
@@ -34,7 +36,7 @@ const routes = [
     component: Dashboard,
     meta: {
       title: "AIMS ⇾ Dashboard",
-      middleware: [auth,verified],
+      middleware: [auth, verified],
     },
   },
   {
@@ -85,7 +87,7 @@ const routes = [
     component: Unauthorized,
     meta: {
       title: "AIMS ⇾ Error",
-      middleware: [auth,unverified],
+      middleware: [auth, unverified],
     },
   },
   {
@@ -94,7 +96,16 @@ const routes = [
     component: Organisations,
     meta: {
       title: "AIMS ⇾ Organisations",
-      middleware: [auth,verified],
+      middleware: [auth, verified],
+    },
+  },
+  {
+    path: '/organisation/:id?',
+    name: 'organisation',
+    component: Organisation,
+    meta: {
+      title: "AIMS ⇾ Organisation",
+     // middleware: [auth, verified],
     },
   },
   {
@@ -103,7 +114,7 @@ const routes = [
     component: OrganisationCategories,
     meta: {
       title: "AIMS ⇾ Organisation Categories",
-      middleware: [auth,verified],
+      middleware: [auth, verified, admin],
     },
   },
   {
@@ -112,7 +123,7 @@ const routes = [
     component: OrganisationCategory,
     meta: {
       title: "AIMS ⇾ Organisation Category",
-      middleware: [auth,verified],
+      middleware: [auth, verified],
     },
   },
   {

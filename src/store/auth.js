@@ -80,7 +80,11 @@ export default {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
       })
-    }
+    },
+
+    updateUserStatus(_, payload) {
+      return axios.post(`/users/update-status/${payload.id}`, payload);
+     }
 
   }
 }

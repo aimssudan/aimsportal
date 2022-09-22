@@ -16,19 +16,7 @@
               <div v-if="isLoading" class="spinner-border text-warning" role="status">
                 <span class="visually-hidden">Loading...</span>
               </div>
-              <div v-if="apiErrors" class="alert alert-danger" @click="apiErrors=false">
-                  <ul>
-                      <li v-for="(verrors, field) in errors" :key="field">
-                          {{ field }} 
-                          
-                          <ul>
-                              <li v-for="error in verrors" :key="error.message">
-                                  {{ error }}
-                              </li>
-                          </ul>
-                      </li>
-                  </ul>
-              </div>
+              <flash-error :hasError="apiErrors" :errors="errors" @dismissError="apiErrors = false"></flash-error>
               <form class="needs-validation" novalidate>
                 <div class="form-floating mb-3">
                         <input type="email"  v-model="form.email" class="form-control" id="floatingInput" placeholder="email@example.com">
@@ -53,11 +41,12 @@
 
 <script>
 import { mapActions} from 'vuex'
+import flashError from '../components/flashError.vue'
 
 export default {
   name: 'login',
   components: {
-    
+    flashError
   },
   data() {
     return {
@@ -96,10 +85,10 @@ export default {
 
     submit() {
 
-       this.apiErrors = false;
-       this.generalError = false;
-       this.isLoading = true;
-       this.validationErrors = false;
+      //  this.apiErrors = false;
+      //  this.generalError = false;
+        this.isLoading = true;
+      //  this.validationErrors = false;
        
         this.login(this.form).then(
           (response) => {
@@ -111,15 +100,14 @@ export default {
           },
           (error) => {
             const resMessage =
-                    (error.response &&
-                      error.response.data &&
-                      error.response.data.errors) ||
-                    error.message ||
-                    error.toString();
-             this.isLoading = false;
-             this.apiErrors = true;
-             this.generalError = true;
-             this.errors = resMessage;
+                      (error.response &&
+                        error.response.data &&
+                        error.response.data.errors) ||
+                      error.message ||
+                      error.toString();
+              this.isLoading = false;
+              this.apiErrors = true;
+              this.errors = resMessage;
              
 
           }

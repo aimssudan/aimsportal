@@ -20,7 +20,7 @@
             <div v-if="isLoading" class="spinner-border text-warning" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
-            <flash-error :hasError="apiErrors" :errors="errors"></flash-error>
+            <flash-error :hasError="apiErrors" :errors="errors" @dismissError="apiErrors = false"></flash-error>
               <div class="row">
                 <div class="col-md-6 mb-3">
                     <div class="form-floating">
@@ -63,7 +63,7 @@ export default {
     ...mapActions({
       addCat: 'global/addOrganisationCategory',
       updateCat: 'global/updateOrganisationCategory',
-      getCategory: 'global/fetchOrganisationCategory'
+      getCategory: 'global/fetchOrganisationCategory',      
       }),
      
 
@@ -75,7 +75,7 @@ export default {
               //
               this.isLoading = false;
               let newCategory = response.data.data 
-              this.$store.commit('ADD_CATEGORY', newCategory);
+              this.$store.commit('global/ADD_CATEGORY', newCategory);
               this.category = newCategory;
               this.$store.commit('showSnackbar', 'Success');
               this.isEdit = true
@@ -104,7 +104,7 @@ export default {
               //
               this.isLoading = false;
               let newCategory = response.data.data 
-              this.$store.commit('UPDATE_CATEGORY', newCategory);
+              this.$store.commit('global/UPDATE_CATEGORY', newCategory);
               this.category = newCategory;
               this.$store.commit('showSnackbar', 'Success');
               this.isEdit = true

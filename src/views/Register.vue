@@ -16,7 +16,7 @@
               <div v-if="isLoading" class="spinner-border text-warning" role="status">
                 <span class="visually-hidden">Loading...</span>
               </div>
-              <flash-error :hasError="apiErrors" :errors="errors"></flash-error>
+              <flash-error :hasError="apiErrors" :errors="errors" @dismissError="apiErrors = false"></flash-error>
               <div class="row">
                   <div class="col-md-6 mb-3">
                       <div class="form-floating">
@@ -47,6 +47,7 @@
                         <multiselect @input="updateSelectedOrganisation" class="form-select" v-model="form._o"  track-by="id" label="name" placeholder="Select one" :options="organisations" :searchable="false" :allow-empty="false"></multiselect>
                           <label for="floatingPassword">Organisation</label>
                       </div>
+                      <span><router-link :to="{name: 'organisation'}">Add New</router-link></span>
                   </div>
                   <div class="col-md-6 mb-3">
                       <div class="form-floating">

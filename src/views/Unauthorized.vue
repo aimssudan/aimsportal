@@ -4,7 +4,7 @@
       <h1 class="text-primary"> Error - Unauthorized</h1>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+          <li class="breadcrumb-item"><router-link :to="{name: 'dashboard'}">Dashboard</router-link></li>
           <li class="breadcrumb-item active" aria-current="page">Error</li>
         </ol>
       </nav>
@@ -15,7 +15,7 @@
           </div>
             
           <div class="card-body">
-              <p> Sorry you are not permitted to use system, kindly contact <strong> {{profile.organisation?.name ?? 'Administrator'}}  </strong> to grant you access </p>
+              <p> Sorry you are not permitted to use system or access requested resource, kindly contact <strong> {{profile.organisation?.name ?? 'Administrator'}}  </strong> to grant you access </p>
             </div>
         </div>
      </div>

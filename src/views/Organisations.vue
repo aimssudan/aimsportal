@@ -12,9 +12,13 @@
         <div class="card">
             <div class="card-header">
                 <h5 class="float-start"> Organisations</h5>
-                <router-link :to="{name: 'organisation-category'}"><button class="float-end btn btn-warning">New</button></router-link>
+                <router-link :to="{name: 'organisation'}"><button class="float-end btn btn-warning">New</button></router-link>
             </div>
           <div class="card-body">
+            <div v-if="isLoading" class="spinner-border text-warning" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <flash-error :hasError="apiErrors" :errors="errors" @dismissError="apiErrors = false"></flash-error>
               <table class="table table-hover table-striped">
                 <thead>
                     <tr>
@@ -41,9 +45,8 @@
                     <td>{{(org.approved) ? 'Yes' : 'No'}}</td>
                     <td>
                       <div class="btn-group" role="group" aria-label="Actions">
-                        <button type="button" class="btn btn-primary">View</button>
-                        <button v-if="admin" type="button" class="btn btn-warning">Edit</button>
-                        <button v-if="admin" type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-primary" @click="this.$router.push({ name: 'organisation', params: { id: org.id} })">View</button>                        
+                        <button v-if="admin" type="button" class="btn btn-danger" @click="deleteItem(org)">Delete</button>
                       </div>
                     </td>
                   </tr>
@@ -59,12 +62,48 @@
 </template>
 
 <script>
-import {mapState, mapGetters} from 'vuex'
+import {mapState, mapGetters, mapActions} from 'vuex'
+import flashError from '../components/flashError.vue'
 
 export default {
+  components: {
+    flashError
+  },
   data() {
     return {
+      isLoading: false,
+      apiErrors: false,
+      errors: []
 
+    }
+  },
+  methods: {
+    ...mapActions({
+      deleteOrg: 'global/deleteOrganisation'
+    }),
+    deleteItem (organisation) {
+      if (confirm('Are you sure ?')) {
+        this.isLoading = true
+        this.deleteOrg(organisation.id).then(
+          (response) => {
+            this.isLoading = false;
+            let message = response.data.data.message ?? 'Successfully Deleted'
+            this.$store.commit('global/DELETE_ORGANISATION', organisation)
+            this.$store.commit('showSnackbar', message)
+          },
+          (error) => {
+            const resMessage =
+                      (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                      error.message ||
+                      error.toString();
+              this.isLoading = false;
+              this.apiErrors = true;
+              this.errors = resMessage;
+          }
+        )
+      }
     }
   },
   computed: {
@@ -73,6 +112,7 @@ export default {
         admin: "auth/superadmin",
         contributor: "auth/contributor"
       }),
+      
       
   },
   created() {
