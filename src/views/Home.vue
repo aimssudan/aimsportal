@@ -1,6 +1,6 @@
 <template>
   <main class="page home">
-    <div class="container">
+    <div class="container pb-3" style="min-height: 50vh;">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">

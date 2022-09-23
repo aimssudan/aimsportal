@@ -1,6 +1,6 @@
 <template>
   <main class="page contact-page">
-    <div class="container">
+    <div class="container" style="min-height: 50vh;">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">

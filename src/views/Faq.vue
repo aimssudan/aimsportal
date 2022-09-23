@@ -1,13 +1,15 @@
 <template>
-  <main class="page about-page">
+  <main class="page faq-page">
     <div class="row">
+      <div class="container" style="min-height: 50vh;">
         <div class="col-md-12">
             <div class="card">
-            <div class="card-body">
-                <h2 class="text-primary">About us </h2>
-                </div>
+              <div class="card-body">
+                <h2 class="text-primary">FAQs </h2>
+              </div>
             </div>
         </div>
+      </div>
     </div>
     </main>
 </template>
@@ -26,3 +28,9 @@ created() {
   },
 }
 </script>
+
+<style>
+  .faq-page {
+    padding-top: 5em;
+  } 
+</style>

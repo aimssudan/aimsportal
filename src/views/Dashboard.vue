@@ -1,6 +1,6 @@
 <template>
   <main class="page">
-    <div class="container">
+    <div class="container" style="min-height: 50vh;">
       <h1 class="text-primary"> Dashboard</h1>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -10,9 +10,9 @@
       <div class="row">
           <div class="col-md-12">
               <div class="card">
-              <div class="card-body">
+                <div class="card-body">
                   <h5 class="text-primary">Welcome, {{profile.name}}</h5>
-                  </div>
+                </div>
               </div>
           </div>
         </div>
