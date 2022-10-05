@@ -1,6 +1,6 @@
 <template>
   <main class="page">
-    <div class="container" style="min-height: 50vh;">
+    <div class="container" style="min-height: 80vh;">
       <h1 class="text-primary"> Error - Unauthorized</h1>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
