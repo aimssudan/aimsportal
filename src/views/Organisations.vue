@@ -14,7 +14,7 @@
                 <h5 class="float-start"> Organisations</h5>
                 <router-link :to="{name: 'organisation'}"><button class="float-end btn btn-warning">New</button></router-link>
             </div>
-          <div class="card-body">
+          <div class="card-body table-responsive">
             <div v-if="isLoading" class="spinner-border text-warning" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
@@ -46,7 +46,7 @@
                     <td>
                       <div class="btn-group" role="group" aria-label="Actions">
                         <button type="button" class="btn btn-primary" @click="this.$router.push({ name: 'organisation', params: { id: org.id} })">View</button>                        
-                        <button v-if="admin" type="button" class="btn btn-danger" @click="deleteItem(org)">Delete</button>
+                        <button v-if="admin" type="button" class="btn btn-danger btn-sm" @click="deleteItem(org)">Delete</button>
                       </div>
                     </td>
                   </tr>

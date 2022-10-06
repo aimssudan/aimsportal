@@ -20,6 +20,7 @@ import Organisation from '../views/Organisation.vue'
 import OrganisationCategories from '../views/OrganisationCategories.vue'
 import OrganisationCategory from '../views/OrganisationCategory.vue'
 import Projects from '../views/Projects.vue'
+import NewProject from '../views/NewProject.vue'
 
 const routes = [
   {
@@ -140,6 +141,15 @@ const routes = [
     component: Profile,
     meta: {
       title: "AIMS ⇾ Profile",
+      middleware: [auth]
+    },
+  },
+  {
+    path: '/newproject',
+    name: 'new-project',
+    component: NewProject,
+    meta: {
+      title: "AIMS ⇾ New Profile",
       middleware: [auth]
     },
   },

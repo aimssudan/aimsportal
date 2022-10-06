@@ -61,7 +61,6 @@
                 <div class="col-sm-3">
                     <h5>Legal</h5>
                     <ul>
-                        <li></li>
                         <li><a href="#">Terms of Use</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
@@ -198,6 +197,9 @@ export default {
     text-align: center;
     margin-top: 50px;
     
+}
+li a {
+  text-decoration: none;
 }
 
 </style>
