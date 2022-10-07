@@ -304,7 +304,7 @@
                                 <div class="row mx-3 mt-3">
                                   <div class="form-check">
                                     <label class="form-check-label" for="isThisTheLeadingAgency">
-                                      Iss Lead Executing Agency?
+                                      Is Lead Executing Agency?
                                     </label>
                                     <input class="form-check-input" type="checkbox" value="Yes" id="isThisTheLeadingAgency">
                                   </div>
