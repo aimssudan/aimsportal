@@ -1,5 +1,5 @@
 <template>
-  <main class="page project-page">    
+  <main class="page project-page" style="min-height: 80vh;">    
     <div class="container">
       <h1 class="text-primary"> Projects </h1>
       <nav aria-label="breadcrumb">

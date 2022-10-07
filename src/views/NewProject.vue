@@ -222,13 +222,101 @@
                           </div>
                           <div class="col-sm-4">
                             <div class="row">
-                              <label for="end-date" class="col-sm-6 col-form-label"> <small>Planned End Date*</small></label>
+                              <label for="end-date" class="col-sm-6 col-form-label"> <small>Planned Completion Date*</small></label>
                               <div class="col-sm-6">
                                 <input type="date" name="end-date" class="form-control" id="end-date">
                               </div>
                             </div>
                           </div>
                         </div>
+
+                        <div class="mb-3 row mt-3">
+                          <div class="col-sm-4">
+                            <div class="row">
+                              <label for="revision-status" class="col-sm-4 col-form-label"><small>Revision Status</small></label>
+                              <div class="col-sm-8">
+                                <select name="revision-status" id="revision-status" class="form-select">
+                                  <option value="On-going">On-going</option>
+                                  <option value="On-pause">On-pause</option>
+                                  <option value="Complete">Complete</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="row">
+                              <label for="actual-start-date" class="col-sm-5 col-form-label"> <small> Actual Start Date*</small></label>
+                              <div class="col-sm-7">
+                                <input type="date" name="actual-start-date" class="form-control" id="actual-start-date">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="row">
+                              <label for="revised-completion-date" class="col-sm-6 col-form-label"> <small>Revised Completion Date*</small></label>
+                              <div class="col-sm-6">
+                                <input type="date" name="completiondate" class="form-control" id=" completiondate">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#executiveAgency"> Add Executing/Implementing Agency </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="executiveAgency" tabindex="-1" aria-labelledby="executiveAgencyLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="executiveAgencyLabel">Add Executing/Implementing Agency</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <div class="row mx-3 mt-3">
+                                  <label for="executing-agency-type" class="col-sm-4 col-form-label"><small>Executing Agency Type</small></label>
+                                  <div class="col-sm-8">
+                                    <select name="executing-agency-type" id="executing-agency-type" class="form-select">
+                                      <option value="Government">Government</option>
+                                      <option value="Organisation">Organisation</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="row mx-3 mt-3">
+                                  <label for="organization-type" class="col-sm-4 col-form-label"><small>Organization Type / Ministry</small></label>
+                                  <div class="col-sm-8">
+                                    <select name="organization-type" id="organization-type" class="form-select">
+                                      <option value="Ministry of Environment and Forest">Ministry of Environment and Forest</option>
+                                      <option value="Ministry of Lands">Ministry of Lands</option>
+                                      <option value="Ministry of Health">Ministry of Health</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="row mx-3 mt-3">
+                                  <label for="executing-agency-type" class="col-sm-4 col-form-label"><small>Exectuing Agency Name</small></label>
+                                  <div class="col-sm-8">
+                                    <select name="executing-agency-type" id="executing-agency-type" class="form-select">
+                                      <option value="Department of Environment">Department of Environment</option>
+                                      <option value="Department of Lands">Department of Lands</option>
+                                      <option value="Departnment of Disaster Preparedness">Departnment of Disaster Preparedness</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="row mx-3 mt-3">
+                                  <div class="form-check">
+                                    <label class="form-check-label" for="isThisTheLeadingAgency">
+                                      Iss Lead Executing Agency?
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" value="Yes" id="isThisTheLeadingAgency">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary">Add</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>   
 
                         <div class="mb-3 row mt-3">
                           <div class="accordion" id="focalpoint">
