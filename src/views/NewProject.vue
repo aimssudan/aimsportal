@@ -27,7 +27,7 @@
                     </div>
                   </nav>
                   <div class="tab-content" id="nav-tabContent">
-                    <form action="" method="post">
+                    <!-- <form action="" method="post"> -->
                       <div class="tab-pane fade show active" id="nav-basic" role="tabpanel" aria-labelledby="nav-basic-tab">
                         
                         <div class="mb-3 row mt-3 bg-light pt-3 pb-3">
@@ -452,9 +452,98 @@
                       </div><!-- Project Basic Info -->
 
                       <div class="tab-pane fade" id="nav-funding" role="tabpanel" aria-labelledby="nav-funding-tab">
+
+                        <div class="mb-3 row mt-3 pt-3 pb-3">
+                          <label for="agreementtype" class="col-sm-3 col-form-label">Agreement Type</label>
+                          <div class="col-sm-6">
+                            <select name="agreementtype" id="agreementtype" class="form-select">
+                              <option value="Project Document">Project Document</option>
+                              <option value="Project Document">Project Document</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="mb-3 row mt-3 bg-light pt-3 pb-3">
+                          <label for="aidagreementtitle" class="col-sm-3 col-form-label">Aid Agreement Title</label>
+                          <div class="col-sm-9">
+                            <textarea name="aidagreementtitle" id="aidagreementtitle" class="form-control" cols="30" rows="10"></textarea>
+                          </div>
+                        </div>
+
+                        <div class="mb-3 row mt-3 bg-light pt-3 pb-3">
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="cofundedproject" class="col-sm-6 col-form-label">Is Co-funded Project</label> 
+                              <div class="col-sm-6">
+                                <input class="form-check-input" type="checkbox" value="Yes" id="cofundedproject">[Check if Yes]
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="dpcontributioninusd" class="col-sm-6 col-form-label">DP Contrubution in USD</label>
+                              <div class="col-sm-6">
+                                <input type="number" min="1" name="dpcontributioninusd" id="dpcontributioninusd" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mb-3 row mt-3 pt-3 pb-3">
+
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="dpcontributioninowncurrency" class="col-sm-6 col-form-label">DP Contrubution in Own Currency *</label>
+                              <div class="col-sm-6">
+                                <input type="number" min="1" name="dpcontributioninowncurrency" id="dpcontributioninowncurrency" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="dpcontributioncurrency" class="col-sm-6 col-form-label">DP Contrubution Currency *</label>
+                              <div class="col-sm-6">
+                                <select name="dpcontributioncurrency" class="form-select" id="dpcontributioncurrency">
+                                  <option value="US Dollar">US Dollar</option>
+                                  <option value="Euros">Euros</option>
+                                  <option value="Pound">Pound</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="mb-3 row mt-3 pt-3 pb-3">
+
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="dpcontributioninowncurrency" class="col-sm-6 col-form-label">Exchange Rate to USD</label>
+                              <small class="text-success">(1 USD = ? DP Currrency)</small>
+                              <div class="col-sm-6">
+                                <input type="number" min="1" name="dpcontributioninowncurrency" id="dpcontributioninowncurrency" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="dpcontributioncurrency" class="col-sm-6 col-form-label">Total DP Contrubution in USD</label>
+                              <div class="col-sm-6">
+                                <input type="number" min="1" name="dpcontributioninowncurrency" id="dpcontributioninowncurrency" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+
                         
 
-                      </div>
+
+                      </div><!-- Funding Info -->
+
                       <div class="tab-pane fade" id="nav-sector" role="tabpanel" aria-labelledby="nav-sector-tab">
                         Sector Contribution
 
@@ -475,7 +564,7 @@
                         Notes & Attachments
 
                       </div>
-                    </form>
+                    <!-- </form> -->
                   </div>
                 </div>
             </div>
