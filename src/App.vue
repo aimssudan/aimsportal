@@ -1,11 +1,11 @@
-<template>  
+<template class="d-flex flex-column h-100">  
 
   <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
         <div class="container"><a class="navbar-brand logo" href="#">AIMS - South Sudan</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >Projects</a>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >Projects</a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" @click="navigate('projects')">Project List</a>
                           <a class="dropdown-item" @click="navigate('reports')">Reports</a>
@@ -35,7 +35,7 @@
   <snackbar />
   <router-view/>
 
-  <footer class="page-footer dark" style="background: rgb(22,42,81);">        
+  <footer class="page-footer dark footer mt-auto" style="background: rgb(22,42,81);">        
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
