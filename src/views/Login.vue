@@ -1,5 +1,5 @@
 <template>
-  <main class="page login-page" style="min-height: 80vh">
+  <main class="page px-3 login-page" style="min-height: 80vh">
         <div class="col-md-6 offset-md-3">
           <h1 class="text-primary"> Login</h1>
           <nav aria-label="breadcrumb">
