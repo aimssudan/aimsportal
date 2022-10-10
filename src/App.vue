@@ -39,6 +39,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
+                  <!-- <logo /> -->
+                    <!-- <center><img src="@/assets/court.png" class="img-fluid" alt=""></center> -->
                     <h5>AIMS Platform</h5>
                     <p style="color: rgba(255,255,255,0.43);font-size: 16px;">This platform is managed by the Ministry of Finance and Planning - Government of South Sudan.<br></p>
                 </div>
@@ -76,6 +78,7 @@
 
 <script>
 import {mapState, mapGetters, mapActions } from 'vuex'
+// import Logo from './views/Logo.vue';
 export default {
   name: 'App',
   components: {
