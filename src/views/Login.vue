@@ -8,32 +8,44 @@
             <li class="breadcrumb-item active" aria-current="page">Login</li>
             </ol>
           </nav>
-          <div class="card">
-            <div class="card-header">
-                <h5>Authenticate</h5>
-            </div>
-            <div class="card-body">
-              <div v-if="isLoading" class="spinner-border text-warning" role="status">
-                <span class="visually-hidden">Loading...</span>
+          <div class="row">
+            <div class="col-md-1">&nbsp;</div>
+            <div class="col-md-10">
+              <div class="card">
+                <div class="card-header">
+                    <h5>Authenticate</h5>
+                </div>
+                <div class="card-body">
+                  <div v-if="isLoading" class="spinner-border text-warning" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                  <flash-error :hasError="apiErrors" :errors="errors" @dismissError="apiErrors = false"></flash-error>
+                  <form class="needs-validation" novalidate>
+                    <!-- <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
+                      </svg>
+                    </div> -->
+
+                    <div class="form-floating mb-3">
+                            <input type="email"  v-model="form.email" class="form-control" id="floatingInput" placeholder="email@example.com">
+                            <label for="floatingInput">Email Address</label>
+                    </div>
+                    <div class="form-floating mb-3 mt-4">
+                          <input type="password"  v-model="form.password" class="form-control" id="floatingInput" placeholder="*******">
+                          <label for="floatingInput">Password</label>
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">Keep me logged in or <router-link :to="{name: 'register'}">Register</router-link></label>
+                    </div>
+                    <button  class="btn btn-primary" @click.prevent="submit">Submit</button>
+                  </form>
+                </div>
               </div>
-              <flash-error :hasError="apiErrors" :errors="errors" @dismissError="apiErrors = false"></flash-error>
-              <form class="needs-validation" novalidate>
-                <div class="form-floating mb-3">
-                        <input type="email"  v-model="form.email" class="form-control" id="floatingInput" placeholder="email@example.com">
-                        <label for="floatingInput">Email Address</label>
-                </div>
-                <div class="form-floating mb-3">
-                      <input type="password"  v-model="form.password" class="form-control" id="floatingInput" placeholder="*******">
-                      <label for="floatingInput">Password</label>
-                </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Keep me logged in or <router-link :to="{name: 'register'}">Register</router-link></label>
-                </div>
-                <button  class="btn btn-primary" @click.prevent="submit">Submit</button>
-              </form>
             </div>
           </div>
+          
         </div>
        
     </main>
