@@ -5,7 +5,7 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >Projects</a>
+                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >Projects</a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" @click="navigate('projects')">Project List</a>
                           <a class="dropdown-item" @click="navigate('reports')">Reports</a>
@@ -19,7 +19,7 @@
                           <a class="dropdown-item" role="button" @click="navigate('organisations')">Organisations</a>
                         </div>
                     </li>
-                    <li class="nav-item" @click="navigate('contact')"><a class="nav-link" role="button" >Contact Us</a></li>
+                    <!-- <li class="nav-item" @click="navigate('contact')"><a class="nav-link" role="button" >Contact Us</a></li> -->
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">Account</a>
                         <div class="dropdown-menu">
                           <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('login')">Login</a>
@@ -35,7 +35,7 @@
   <snackbar />
   <router-view/>
 
-  <footer class="page-footer dark " style="background: rgb(22,42,81);">        
+  <footer class="page-footer dark" style="background: rgb(22,42,81);">        
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-sm-3">
                     <h5>About us</h5>
-                    <ul>
+                    <ul class="list-unstyled">
                         <li><a href="#">MoFP (GOSS)</a></li>
                         <li><a href="#">Organizations</a></li>
                         <li><a href="#">Donors</a></li>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-sm-3">
                     <h5>Support</h5>
-                    <ul>
+                    <ul class="list-unstyled">
                         <li><a href="contact-us.html">Inquiries</a></li>
                         <li><a href="#">Help desk</a></li>
                         <li><a href="faq.html">FAQs</a></li>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="col-sm-3">
                     <h5>Legal</h5>
-                    <ul>
+                    <ul class="list-unstyled">
                         <li><a href="#">Terms of Use</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>

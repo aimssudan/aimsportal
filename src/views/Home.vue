@@ -16,7 +16,7 @@
                         <h4>Feedback</h4>
                         <p>Your feedback on data fields and others related issues of this web portal are highly appreciated. Please send your valuable feedback to: <a href="mailto:aimssouthsudan@gmail.com">AIMS</a></p>
                         
-                        <center><a href="/login" class="btn btn-primary">Log In</a></center>
+                        <center><a href="/login" class="btn btn-primary">Log In</a></center> <center><a href="/register" class="btn btn-success mt-4">Register</a></center>
                       </div>
                       
                     </div>
