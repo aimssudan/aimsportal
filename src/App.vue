@@ -77,7 +77,7 @@
     
 </template>
 <script>
-import $ from 'jquery'
+// import $ from 'jquery'
 import {mapState, mapGetters, mapActions } from 'vuex'
 // import Logo from './views/Logo.vue';
 export default {
@@ -142,17 +142,6 @@ export default {
           }
         );
     }
-  },
-  mounted() {
-    $(document).ready(function () { 
-      $(document).click(function () {
-        // if($(".navbar-collapse").hasClass("in")){
-          console.log('Click detected')
-          $('.navbar-collapse').collapse('toggle');
-        // }
-      });
-    });
-
   }
 }
 </script>
