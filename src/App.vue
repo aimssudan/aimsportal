@@ -1,3 +1,4 @@
+
 <template class="d-flex flex-column h-100">  
 
   <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
@@ -75,8 +76,8 @@
     </footer>
     
 </template>
-
 <script>
+import $ from 'jquery'
 import {mapState, mapGetters, mapActions } from 'vuex'
 // import Logo from './views/Logo.vue';
 export default {
@@ -141,6 +142,17 @@ export default {
           }
         );
     }
+  },
+  mounted() {
+    $(document).ready(function () { 
+      $(document).click(function () {
+        // if($(".navbar-collapse").hasClass("in")){
+          console.log('Click detected')
+          $('.navbar-collapse').collapse('toggle');
+        // }
+      });
+    });
+
   }
 }
 </script>

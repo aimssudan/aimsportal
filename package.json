@@ -13,12 +13,14 @@
     "bootstrap": "^5.2.0",
     "core-js": "^3.6.5",
     "dotenv": "^16.0.2",
+    "jquery": "^3.6.1",
     "vue": "^3.0.0",
     "vue-multiselect": "^3.0.0-alpha.2",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.14",
     "@vue/cli-plugin-babel": "~4.5.19",
     "@vue/cli-plugin-eslint": "~4.5.19",
     "@vue/cli-plugin-router": "^4.5.19",
