@@ -11,7 +11,7 @@
             <div class="row">
               <div class="col-md-7">
                 <h4><b>Welcome to South Sudan AIMS</b></h4>
-                <p>Aid Information Management System (AIMS) web portal from Economics Relations Division, Ministry of Finance, Government of South Sudan</p>
+                <p>The Aid Information Management System (AIMS) web portal from the Ministry of Finance and Planning - Government of South Sudan.</p>
 
                 <!-- <div id="carouselExampleIndicators" class="carousel slide mt-3" data-bs-ride="true">
                   <div class="carousel-indicators">
@@ -48,8 +48,8 @@
 
                   </div>
                   <div class="col-md-6" style="text-align: justify;">
-                    <p><b>Access to aid information</b><br>
-                      AIMS is a publicly-accessible internet tool which is part of the Government of South Sudan's transparency initiative. Anybody can view the information of aid flow in South Sudan, simply by clicking "Enter As Public User" button. However, only authorized user of development partner can enter or update the aid information in the web portal.</p>
+                    <p><b>Access to Aid Information</b><br>
+                      AIMS is a publicly-accessible internet tool which is part of the Government of South Sudan's transparency initiative. Anybody can view the information of aid flow in South Sudan, simply by clicking the "Public User" button. However, only authorized user of development partner can enter or update the aid information in the web portal.</p>
                   </div>
                 </div>
 
