@@ -490,7 +490,7 @@
                           </div>
                         </div>
 
-                        <div class="mb-3 row mt-3 pt-3 pb-3">
+                        <div class="mb-3 row mt-3 pt-3 pb-3 bg-light">
 
                           <div class="col-sm-6">
                             <div class="row">
@@ -516,31 +516,180 @@
 
                         </div>
 
-                        <div class="mb-3 row mt-3 pt-3 pb-3">
+                        <div class="mb-3 row pt-3 pb-3 bg-light">
 
                           <div class="col-sm-6">
                             <div class="row">
-                              <label for="dpcontributioninowncurrency" class="col-sm-6 col-form-label">Exchange Rate to USD</label>
-                              <small class="text-success">(1 USD = ? DP Currrency)</small>
+                              <label for="exchangeratetousd" class="col-sm-6 col-form-label">Exchange Rate to USD <small class="text-success">(1 USD = ? DP Currrency)</small></label>
+                              
                               <div class="col-sm-6">
-                                <input type="number" min="1" name="dpcontributioninowncurrency" id="dpcontributioninowncurrency" class="form-control">
+                                <input type="number" min="1" name="exchangeratetousd" id="exchangeratetousd" class="form-control">
                               </div>
                             </div>
                           </div>
 
                           <div class="col-sm-6">
                             <div class="row">
-                              <label for="dpcontributioncurrency" class="col-sm-6 col-form-label">Total DP Contrubution in USD</label>
+                              <label for="totaldpcontributioninusd" class="col-sm-6 col-form-label">Total DP Contrubution in USD</label>
                               <div class="col-sm-6">
-                                <input type="number" min="1" name="dpcontributioninowncurrency" id="dpcontributioninowncurrency" class="form-control">
+                                <input type="number" min="1" name="totaldpcontributioninusd" id="totaldpcontributioninusd" class="form-control">
                               </div>
                             </div>
                           </div>
                           
                         </div>
 
-                        
+                        <div class="mb-3 row pt-3 pb-3 mt-3 bg-light">
 
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="gobsharinginsdg" class="col-sm-6 col-form-label">GoB Sharing in SDG </label>
+                              
+                              <div class="col-sm-6">
+                                <input type="number" min="1" name="gobsharinginsdg" id="gobsharinginsdg" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="exhangerateofsdg" class="col-sm-6 col-form-label">Exchange Rate of SDG <small class="text-success">(1 USD = ? DP Currrency)</small></label>
+                              <div class="col-sm-6">
+                                <input type="number" min="1" name="exhangerateofsdg" id="exhangerateofsdg" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="mb-3 row pt-3 pb-3 mt-3 bg-light">
+
+                          <div class="col-sm-12">
+                            <div class="row">
+                              <label for="othercontributionby" class="col-sm-3 col-form-label">Other Contribution By </label>
+                              <div class="col-sm-9">
+                                <input type="text" name="othercontributionby" id="othercontributionby" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        
+                        <div class="mb-3 row mt-3 pt-3 pb-3 bg-light">
+
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="othercontribution" class="col-sm-6 col-form-label">Other Contribution </label>
+                              <div class="col-sm-6">
+                                <input type="number" min="1" name="othercontribution" id="othercontribution" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="dpcontributioncurrency" class="col-sm-6 col-form-label">DP Contrubution Currency *</label>
+                              <div class="col-sm-6">
+                                <select name="dpcontributioncurrency" class="form-select" id="dpcontributioncurrency">
+                                  <option value="US Dollar">US Dollar</option>
+                                  <option value="Euros">Euros</option>
+                                  <option value="Pound">Pound</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="mb-3 row mt-3 pt-3 pb-3 bg-light">
+
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="otherexchangeratetousd" class="col-sm-6 col-form-label">Other Exchange Rate to USD <small class="text-success">(1 USD =? Other Currency)</small> </label>
+                              <div class="col-sm-6">
+                                <input type="text" name="otherexchangeratetousd" id="otherexchangeratetousd" placeholder="1 USD = ? Other Currency" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="othercontributioninusd" class="col-sm-6 col-form-label">Other Contribution in USD</label>
+                              <div class="col-sm-6">
+                                <input type="number" min="1" name="othercontributioninusd" id="othercontributioninusd" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+
+                        <div class="mb-3 row mt-3 pt-3 pb-3 bg-light">
+
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="dateofexchangerate" class="col-sm-6 col-form-label">Date Of Exchange Rate </label>
+                              <div class="col-sm-6">
+                                <input type="date" name="dateofexchangerate" id="dateofexchangerate" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6">
+                            <div class="row">
+                              <label for="othercontributioninusd" class="col-sm-6 col-form-label">Project Cost in USD</label>
+                              <div class="col-sm-6">
+                                <input type="number" min="1" name="othercontributioninusd" id="othercontributioninusd" class="form-control">
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="accordion" id="CommitmentInformation">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="CommitmentInformation-HeadOne">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#CommitmentInformation" aria-expanded="true" aria-controls="CommitmentInformation">
+                                Commitment Information
+                              </button>
+                            </h2>
+                            <div id="CommitmentInformation" class="accordion-collapse collapse show" aria-labelledby="CommitmentInformation-HeadOne">
+                              <div class="accordion-body">
+                                #Commitment Information
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="accordion mt-4" id="plannedDisbursementInformation">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="plannedDisbursementInformation-HeadOne">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#plannedDisbursementInformation" aria-expanded="true" aria-controls="plannedDisbursementInformation">
+                                Planned Disbursement Information
+                              </button>
+                            </h2>
+                            <div id="plannedDisbursementInformation" class="accordion-collapse collapse show" aria-labelledby="plannedDisbursementInformation-HeadOne">
+                              <div class="accordion-body">
+                                #Planned Disbursement Information
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="accordion mt-4" id="actualDisbursementInformation">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="actualDisbursementInformation-HeadOne">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#actualDisbursementInformation" aria-expanded="true" aria-controls="actualDisbursementInformation">
+                                Actual Disbursement Information
+                              </button>
+                            </h2>
+                            <div id="actualDisbursementInformation" class="accordion-collapse collapse show" aria-labelledby="actualDisbursementInformation-HeadOne">
+                              <div class="accordion-body">
+                                #Actual Disbursement Information
+                              </div>
+                            </div>
+                          </div>
+                        </div>
 
                       </div><!-- Funding Info -->
 
