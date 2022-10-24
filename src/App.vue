@@ -10,6 +10,7 @@
                         <div class="dropdown-menu">
                           <a class="dropdown-item" @click="navigate('projects')">Project List</a>
                           <a class="dropdown-item" @click="navigate('reports')">Reports</a>
+                          <a v-if="profile" class="dropdown-item" role="button" @click="navigate('newproject')">Add Project</a>
                         </div>
                     </li>
                     

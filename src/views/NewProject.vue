@@ -265,7 +265,7 @@
 
                         <!-- Modal -->
                         <div class="modal fade" id="executiveAgency" tabindex="-1" aria-labelledby="executiveAgencyLabel" aria-hidden="true">
-                          <div class="modal-dialog">
+                          <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                               <div class="modal-header">
                                 <h5 class="modal-title" id="executiveAgencyLabel">Add Executing/Implementing Agency</h5>
@@ -649,13 +649,229 @@
                         <div class="accordion" id="CommitmentInformation">
                           <div class="accordion-item">
                             <h2 class="accordion-header" id="CommitmentInformation-HeadOne">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#CommitmentInformation" aria-expanded="true" aria-controls="CommitmentInformation">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#CommitmentInformation" aria-expanded="false" aria-controls="CommitmentInformation">
                                 Commitment Information
                               </button>
                             </h2>
                             <div id="CommitmentInformation" class="accordion-collapse collapse show" aria-labelledby="CommitmentInformation-HeadOne">
                               <div class="accordion-body">
-                                #Commitment Information
+                                
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCommitmentInformation"> + Add  </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="addCommitmentInformation" tabindex="-1" aria-labelledby="addCommitmentInformationLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="addCommitmentInformationLabel">Add/Edit Commitment</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row mx-3 mt-3">
+                                          <label for="development_partner" class="col-sm-4 col-form-label"><small>Executing Agency Type</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="development_partner" id="development_partner" placeholder="United Nations Development programme">
+                                          </div>
+                                        </div>
+                                        <div class="row mx-3 mt-3">
+                                          <label for="aid_category" class="col-sm-4 col-form-label"><small>Aid Category</small></label>
+                                          <div class="col-sm-8">
+                                            <div class="row">
+                                              <div class="col-sm-4">
+                                                <select name="aid_category" id="aid_category" class="form-select">
+                                                  <option value="Grant">Grant</option>
+                                                  <option value="Donation">Donation</option>
+                                                  <option value="Loan">Loan</option>
+                                                </select>
+                                              </div>
+                                              <div class="col-sm-8">
+                                                <div class="row">
+                                                  <label for="comes_from_trust_fund" class="col-sm-6 col-form-label"><small>Does this money come fom Trust Fund? (if yes, select TF identifier)</small></label>
+                                                  <div class="col-sm-6">
+                                                    <div class="form-check form-check-inline">
+                                                      <input class="form-check-input" type="radio" name="comes_from_trust_fund" id="comes_from_trust_fund_yes" value="option1">
+                                                      <label class="form-check-label" for="comes_from_trust_fund_yes">Yes</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                      <input class="form-check-input" type="radio" name="comes_from_trust_fund" id="comes_from_trust_fund_no" value="option2">
+                                                      <label class="form-check-label" for="comes_from_trust_fund_no">No</label>
+                                                    </div>
+                                                    <select name="aid_category" id="aid_category" class="form-select">
+                                                      <option selected disabled>- Select One -</option>
+                                                      <option value="Grant">Grant</option>
+                                                      <option value="Donation">Donation</option>
+                                                      <option value="Loan">Loan</option>
+                                                    </select>
+                                                  </div>
+
+                                                </div>
+                                              </div>
+                                            </div>  
+                                      
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 pt-3 pb-3 mt-3 bg-light">
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label for="commitment_amount" class="col-sm-5 col-form-label"><small>Commitment Amount</small></label>
+                                              <div class="col-sm-6">
+                                                <input type="number" class="form-control" min="1" name="commitment_amount" placeholder="1000000" id="commitment_amount">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label for="commitment_currency" class="col-sm-4 col-form-label"><small>Currency</small></label>
+                                              <div class="col-sm-6">
+                                                <select name="commitment_currency" id="commitment_currency" class="form-select">
+                                                  <option value="US Dollar">US Dollar</option>
+                                                  <option value="Pounds">Pounds</option>
+                                                  <option value="Canadian Dollar">Canadian Dollar</option>
+                                                </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-6" for="commitment_exchange_rate">
+                                                <small>Exchange Rate To USD <br> <span class="text-success">(1 USD = ? DP Cuurrency)</span>  </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="text" id="commitment_exchange_rate">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-4" for="amount_in_usd">
+                                                <small>Amount in USD </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="number" min="1" name="amount_in_usd" id="amount_in_usd">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-6" for="commitment_exchange_rate_to_sp">
+                                                <small>Exchange Rate To SSP <br> <span class="text-success">(1 USD = ? SSP Cuurrency)</span>  </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="number" id="commitment_exchange_rate">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-4" for="amount_in_usd">
+                                                <small>Amount in BDT </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="text" id="amount_in_usd">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary">Add</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+
+                                <table class="table table-responsive">
+                                  <thead>
+                                    <tr>
+                                      <th>Development Partner</th>
+                                      <th>Aid Category</th>
+                                      <th>Loan/Grant Number</th>
+                                      <th>Agreement Date (dd/MM/yyyy)</th>
+                                      <th>Amount in DP's Currency</th>
+                                      <th>Amount in USD</th>
+                                      <th>Actions</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>UNDP</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>14/09/2011</td>
+                                      <td>1,000,000.00</td>
+                                      <td>1,000,000.00</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>DANIDA</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>14/09/2011</td>
+                                      <td>2,000,000.00</td>
+                                      <td>351,493.85</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>DFID</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>08/09/2011</td>
+                                      <td>650,000.00</td>
+                                      <td>1,031,746.03</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Australian Aid</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>01/12/2011</td>
+                                      <td>750,000.00</td>
+                                      <td>730,283.03</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>Total</td>
+                                      <td>&nbsp;</td>
+                                      <td>3,113,522.97</td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                              <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                          </li>
+                                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                              <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                          </li>
+                                        </ul>
+                                      </nav>
+                                    </tr>
+                                  </tbody>
+                                  
+                                </table>
                               </div>
                             </div>
                           </div>
@@ -664,7 +880,7 @@
                         <div class="accordion mt-4" id="plannedDisbursementInformation">
                           <div class="accordion-item">
                             <h2 class="accordion-header" id="plannedDisbursementInformation-HeadOne">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#plannedDisbursementInformation" aria-expanded="true" aria-controls="plannedDisbursementInformation">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#plannedDisbursementInformation" aria-expanded="false" aria-controls="plannedDisbursementInformation">
                                 Planned Disbursement Information
                               </button>
                             </h2>
@@ -679,7 +895,7 @@
                         <div class="accordion mt-4" id="actualDisbursementInformation">
                           <div class="accordion-item">
                             <h2 class="accordion-header" id="actualDisbursementInformation-HeadOne">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#actualDisbursementInformation" aria-expanded="true" aria-controls="actualDisbursementInformation">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#actualDisbursementInformation" aria-expanded="false" aria-controls="actualDisbursementInformation">
                                 Actual Disbursement Information
                               </button>
                             </h2>
