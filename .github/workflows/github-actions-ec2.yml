@@ -29,8 +29,8 @@ jobs:
       - name: Deploy to Anton
         uses: easingthemes/ssh-deploy@main
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.ANTON_PUBLIC_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.HENDRICKS_KEY }}
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
+          REMOTE_USER: 'root'
           TARGET: ${{ secrets.TARGET_DIR }}
           EXCLUDE: ".git, .github"
