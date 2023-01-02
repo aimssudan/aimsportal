@@ -880,13 +880,227 @@
                         <div class="accordion mt-4" id="plannedDisbursementInformation">
                           <div class="accordion-item">
                             <h2 class="accordion-header" id="plannedDisbursementInformation-HeadOne">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#plannedDisbursementInformation" aria-expanded="false" aria-controls="plannedDisbursementInformation">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#plannedDisbursementInformation" aria-expanded="true" aria-controls="plannedDisbursementInformation">
                                 Planned Disbursement Information
                               </button>
                             </h2>
                             <div id="plannedDisbursementInformation" class="accordion-collapse collapse show" aria-labelledby="plannedDisbursementInformation-HeadOne">
                               <div class="accordion-body">
-                                #Planned Disbursement Information
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPlannedDisbursementInformation"> + Add  </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="addPlannedDisbursementInformation" tabindex="-1" aria-labelledby="addPlannedDisbursementInformationLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="addPlannedDisbursementInformationLabel">Add/Edit Planned Disbursement</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row mx-3 mt-3">
+                                          <label for="development_partner" class="col-sm-4 col-form-label"><small>Development Partner</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="development_partner" id="development_partner" placeholder="United Nations Development programme">
+                                          </div>
+                                        </div>
+                                        <div class="row mx-3 mt-3">
+                                          <label for="aid_category" class="col-sm-4 col-form-label"><small>Aid Category</small></label>
+                                          <div class="col-sm-8">
+                                            <div class="row">
+                                              <div class="col-sm-4">
+                                                <select name="aid_category" id="aid_category" class="form-select">
+                                                  <option value="Grant">Grant</option>
+                                                  <option value="Donation">Donation</option>
+                                                  <option value="Loan">Loan</option>
+                                                </select>
+                                              </div>
+                                              <div class="col-sm-8">
+                                                <div class="row">
+                                                  <label for="comes_from_trust_fund" class="col-sm-6 col-form-label"><small>Does this money come fom Trust Fund? (if yes, select TF identifier)</small></label>
+                                                  <div class="col-sm-6">
+                                                    <div class="form-check form-check-inline">
+                                                      <input class="form-check-input" type="radio" name="comes_from_trust_fund" id="comes_from_trust_fund_yes" value="option1">
+                                                      <label class="form-check-label" for="comes_from_trust_fund_yes">Yes</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                      <input class="form-check-input" type="radio" name="comes_from_trust_fund" id="comes_from_trust_fund_no" value="option2">
+                                                      <label class="form-check-label" for="comes_from_trust_fund_no">No</label>
+                                                    </div>
+                                                    <select name="aid_category" id="aid_category" class="form-select">
+                                                      <option selected disabled>- Select One -</option>
+                                                      <option value="Grant">Grant</option>
+                                                      <option value="Donation">Donation</option>
+                                                      <option value="Loan">Loan</option>
+                                                    </select>
+                                                  </div>
+
+                                                </div>
+                                              </div>
+                                            </div>  
+                                      
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 pt-3 pb-3 mt-3 bg-light">
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label for="planned_amount" class="col-sm-5 col-form-label"><small>Planned Amount</small></label>
+                                              <div class="col-sm-6">
+                                                <input type="number" class="form-control" min="1" name="planned_amount" placeholder="1000000" id="planned_amount">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label for="planned_currency" class="col-sm-4 col-form-label"><small>Currency</small></label>
+                                              <div class="col-sm-6">
+                                                <select name="planned_currency" id="planned_currency" class="form-select">
+                                                  <option value="US Dollar">US Dollar</option>
+                                                  <option value="Pounds">Pounds</option>
+                                                  <option value="Canadian Dollar">Canadian Dollar</option>
+                                                </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-6" for="commitment_exchange_rate">
+                                                <small>Exchange Rate To USD <br> <span class="text-success">(1 USD = ? DP Currency)</span>  </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="text" id="commitment_exchange_rate">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-4" for="amount_in_usd">
+                                                <small>Amount in USD </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="number" min="1" name="amount_in_usd" id="amount_in_usd">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-6" for="commitment_exchange_rate_to_sp">
+                                                <small>Exchange Rate To SSP <br> <span class="text-success">(1 USD = ? SSP Cuurrency)</span>  </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="number" id="commitment_exchange_rate">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-4" for="amount_in_usd">
+                                                <small>Amount in SSP </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="number" id="amount_in_usd">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary">Save</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <table class="table table-responsive">
+                                  <thead>
+                                    <tr>
+                                      <th>Development Partner</th>
+                                      <th>Aid Category</th>
+                                      <th>Loan/Grant Number</th>
+                                      <th>Planned Disbursement Period (dd/MM/yyyy)</th>
+                                      <th>Amount in DP's Currency</th>
+                                      <th>Amount in USD</th>
+                                      <th>Actions</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>UNDP</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>14/09/2011 - 30/08/2012</td>
+                                      <td>1,000,000.00</td>
+                                      <td>1,000,000.00</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>DANIDA</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>14/09/2011 - 12/08/2012</td>
+                                      <td>2,000,000.00</td>
+                                      <td>351,493.85</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>DFID</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>08/09/2011 - 15/10/2011</td>
+                                      <td>650,000.00</td>
+                                      <td>1,031,746.03</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Australian Aid</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>01/12/2011 - 14/12/2011</td>
+                                      <td>750,000.00</td>
+                                      <td>730,283.03</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>Total</td>
+                                      <td>&nbsp;</td>
+                                      <td>3,113,522.97</td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                              <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                          </li>
+                                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                              <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                          </li>
+                                        </ul>
+                                      </nav>
+                                    </tr>
+                                  </tbody>
+                                  
+                                </table>
                               </div>
                             </div>
                           </div>
@@ -901,7 +1115,476 @@
                             </h2>
                             <div id="actualDisbursementInformation" class="accordion-collapse collapse show" aria-labelledby="actualDisbursementInformation-HeadOne">
                               <div class="accordion-body">
-                                #Actual Disbursement Information
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addActualDisbursementInformation"> + Add  </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="addActualDisbursementInformation" tabindex="-1" aria-labelledby="addActualDisbursementInformationLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="addActualDisbursementInformationLabel">Add/Edit Actual Disbursement</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row mx-3 mt-3">
+                                          <label for="development_partner" class="col-sm-4 col-form-label"><small>Development Partner</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="development_partner" id="development_partner" placeholder="United Nations Development programme">
+                                          </div>
+                                        </div>
+                                        <div class="row mx-3 mt-3">
+                                          <label for="aid_category" class="col-sm-2 col-form-label"><small>Aid Category</small></label>
+                                          <div class="col-sm-10">
+                                            <div class="row">
+                                              <div class="col-sm-4">
+                                                <select name="aid_category" id="aid_category" class="form-select">
+                                                  <option value="Grant">Grant</option>
+                                                  <option value="Donation">Donation</option>
+                                                  <option value="Loan">Loan</option>
+                                                </select>
+                                              </div>
+                                              <div class="col-sm-8">
+                                                <div class="row">
+                                                  <label for="comes_from_trust_fund" class="col-sm-6 col-form-label"><small>Does this money come fom Trust Fund? (if yes, select TF identifier)</small></label>
+                                                  <div class="col-sm-6">
+                                                    <div class="form-check form-check-inline">
+                                                      <input class="form-check-input" type="radio" name="comes_from_trust_fund" id="comes_from_trust_fund_yes" value="option1">
+                                                      <label class="form-check-label" for="comes_from_trust_fund_yes">Yes</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                      <input class="form-check-input" type="radio" name="comes_from_trust_fund" id="comes_from_trust_fund_no" value="option2">
+                                                      <label class="form-check-label" for="comes_from_trust_fund_no">No</label>
+                                                    </div>
+                                                    <select name="aid_category" id="aid_category" class="form-select">
+                                                      <option selected disabled>- Select One -</option>
+                                                      <option value="Grant">Grant</option>
+                                                      <option value="Donation">Donation</option>
+                                                      <option value="Loan">Loan</option>
+                                                    </select>
+                                                  </div>
+
+                                                </div>
+                                              </div>
+                                            </div>  
+                                      
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 pt-3 pb-3 mt-3 bg-light">
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label for="planned_amount" class="col-sm-5 col-form-label"><small>Planned Amount</small></label>
+                                              <div class="col-sm-6">
+                                                <input type="number" class="form-control" min="1" name="planned_amount" placeholder="1000000" id="planned_amount">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label for="planned_currency" class="col-sm-4 col-form-label"><small>Currency</small></label>
+                                              <div class="col-sm-6">
+                                                <select name="planned_currency" id="planned_currency" class="form-select">
+                                                  <option value="US Dollar">US Dollar</option>
+                                                  <option value="Pounds">Pounds</option>
+                                                  <option value="Canadian Dollar">Canadian Dollar</option>
+                                                </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-6" for="commitment_exchange_rate">
+                                                <small>Exchange Rate To USD <br> <span class="text-success">(1 USD = ? DP Currency)</span>  </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="text" id="commitment_exchange_rate">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-4" for="amount_in_usd">
+                                                <small>Amount in USD </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="number" min="1" name="amount_in_usd" id="amount_in_usd">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-6" for="commitment_exchange_rate_to_sp">
+                                                <small>Exchange Rate To SSP <br> <span class="text-success">(1 USD = ? SSP Cuurrency)</span>  </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="number" id="commitment_exchange_rate">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-4" for="amount_in_usd">
+                                                <small>Amount in SSP </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="number" id="amount_in_usd">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-sm-12">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-2" for="remarks">
+                                                <small>Remarks </small>
+                                              </label>
+                                              <div class="col-sm-8">
+                                                <textarea name="remarks" id="remarks" class="form-control" cols="30" rows="5"></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary">Save</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <table class="table table-responsive">
+                                  <thead>
+                                    <tr>
+                                      <th>Development Partner</th>
+                                      <th>Aid Category</th>
+                                      <th>Loan/Grant Number</th>
+                                      <th>Disbursement Period (dd/MM/yyyy)</th>
+                                      <th>Amount in DP's Currency</th>
+                                      <th>Amount in USD</th>
+                                      <th>Actions</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>UNDP</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>14/09/2011 - 14/09/2011</td>
+                                      <td>1,000,000.00</td>
+                                      <td>1,000,000.00</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>DANIDA</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>14/09/2011 - 14/09/2011</td>
+                                      <td>2,000,000.00</td>
+                                      <td>351,493.85</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>DFID</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>08/09/2011 - 08/09/2011</td>
+                                      <td>650,000.00</td>
+                                      <td>1,031,746.03</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Australian Aid</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>01/12/2011 - 01/12/2011</td>
+                                      <td>750,000.00</td>
+                                      <td>730,283.03</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>Total</td>
+                                      <td>&nbsp;</td>
+                                      <td>3,113,522.97</td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                              <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                          </li>
+                                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                              <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                          </li>
+                                        </ul>
+                                      </nav>
+                                    </tr>
+                                  </tbody>
+                                  
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="accordion mt-4" id="expenditureofAidInformation">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="expenditureofAidInformation-HeadOne">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#expenditureofAidInformation" aria-expanded="false" aria-controls="expenditureofAidInformation">
+                                Expenditure on Aid Information
+                              </button>
+                            </h2>
+                            <div id="expenditureofAidInformation" class="accordion-collapse collapse show" aria-labelledby="expenditureofAidInformation-HeadOne">
+                              <div class="accordion-body">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addexpenditureofAidInformation"> + Add  </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="addexpenditureofAidInformation" tabindex="-1" aria-labelledby="addexpenditureofAidInformationLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="addexpenditureofAidInformationLabel">Add/Edit Actual Disbursement</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row mx-3 mt-3">
+                                          <label for="development_partner" class="col-sm-4 col-form-label"><small>Development Partner</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="development_partner" id="development_partner" placeholder="United Nations Development programme">
+                                          </div>
+                                        </div>
+                                        <div class="row mx-3 mt-3">
+                                          <label for="aid_category" class="col-sm-2 col-form-label"><small>Aid Category</small></label>
+                                          <div class="col-sm-10">
+                                            <div class="row">
+                                              <div class="col-sm-4">
+                                                <select name="aid_category" id="aid_category" class="form-select">
+                                                  <option value="Grant">Grant</option>
+                                                  <option value="Donation">Donation</option>
+                                                  <option value="Loan">Loan</option>
+                                                </select>
+                                              </div>
+                                              <div class="col-sm-8">
+                                                <div class="row">
+                                                  <label for="comes_from_trust_fund" class="col-sm-6 col-form-label"><small>Does this money come fom Trust Fund? (if yes, select TF identifier)</small></label>
+                                                  <div class="col-sm-6">
+                                                    <div class="form-check form-check-inline">
+                                                      <input class="form-check-input" type="radio" name="comes_from_trust_fund" id="comes_from_trust_fund_yes" value="option1">
+                                                      <label class="form-check-label" for="comes_from_trust_fund_yes">Yes</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                      <input class="form-check-input" type="radio" name="comes_from_trust_fund" id="comes_from_trust_fund_no" value="option2">
+                                                      <label class="form-check-label" for="comes_from_trust_fund_no">No</label>
+                                                    </div>
+                                                    <select name="aid_category" id="aid_category" class="form-select">
+                                                      <option selected disabled>- Select One -</option>
+                                                      <option value="Grant">Grant</option>
+                                                      <option value="Donation">Donation</option>
+                                                      <option value="Loan">Loan</option>
+                                                    </select>
+                                                  </div>
+
+                                                </div>
+                                              </div>
+                                            </div>  
+                                      
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 pt-3 pb-3 mt-3 bg-light">
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label for="planned_amount" class="col-sm-5 col-form-label"><small>Planned Amount</small></label>
+                                              <div class="col-sm-6">
+                                                <input type="number" class="form-control" min="1" name="planned_amount" placeholder="1000000" id="planned_amount">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label for="planned_currency" class="col-sm-4 col-form-label"><small>Currency</small></label>
+                                              <div class="col-sm-6">
+                                                <select name="planned_currency" id="planned_currency" class="form-select">
+                                                  <option value="US Dollar">US Dollar</option>
+                                                  <option value="Pounds">Pounds</option>
+                                                  <option value="Canadian Dollar">Canadian Dollar</option>
+                                                </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-6" for="commitment_exchange_rate">
+                                                <small>Exchange Rate To USD <br> <span class="text-success">(1 USD = ? DP Currency)</span>  </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="text" id="commitment_exchange_rate">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-4" for="amount_in_usd">
+                                                <small>Amount in USD </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="number" min="1" name="amount_in_usd" id="amount_in_usd">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-6" for="commitment_exchange_rate_to_sp">
+                                                <small>Exchange Rate To SSP <br> <span class="text-success">(1 USD = ? SSP Cuurrency)</span>  </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="number" id="commitment_exchange_rate">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-sm-6">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-4" for="amount_in_usd">
+                                                <small>Amount in SSP </small>
+                                              </label>
+                                              <div class="col-sm-6">
+                                                <input class="form-control" type="number" id="amount_in_usd">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-sm-12">
+                                            <div class="row">
+                                              <label class="form-check-label col-sm-2" for="remarks">
+                                                <small>Remarks </small>
+                                              </label>
+                                              <div class="col-sm-8">
+                                                <textarea name="remarks" id="remarks" class="form-control" cols="30" rows="5"></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary">Save</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <table class="table table-responsive">
+                                  <thead>
+                                    <tr>
+                                      <th>Development Partner</th>
+                                      <th>Aid Category</th>
+                                      <th>Loan/Grant Number</th>
+                                      <th>Reporting Period (dd/MM/yyyy)</th>
+                                      <th>Amount in DP's Currency</th>
+                                      <th>Amount in USD</th>
+                                      <th>Actions</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>UNDP</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>14/09/2011 - 14/09/2012</td>
+                                      <td>1,000,000.00</td>
+                                      <td>1,000,000.00</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>DANIDA</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>14/09/2011 - 14/09/2012</td>
+                                      <td>2,000,000.00</td>
+                                      <td>351,493.85</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>DFID</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>08/09/2011 - 08/09/2012</td>
+                                      <td>650,000.00</td>
+                                      <td>1,031,746.03</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Australian Aid</td>
+                                      <td>Grant</td>
+                                      <td>&nbsp;</td>
+                                      <td>01/12/2011 - 01/12/2012</td>
+                                      <td>750,000.00</td>
+                                      <td>730,283.03</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>Total</td>
+                                      <td>&nbsp;</td>
+                                      <td>3,113,522.97</td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                              <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                          </li>
+                                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                              <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                          </li>
+                                        </ul>
+                                      </nav>
+                                    </tr>
+                                  </tbody>
+                                  
+                                </table>
                               </div>
                             </div>
                           </div>
@@ -910,13 +1593,430 @@
                       </div><!-- Funding Info -->
 
                       <div class="tab-pane fade" id="nav-sector" role="tabpanel" aria-labelledby="nav-sector-tab">
-                        Sector Contribution
 
-                      </div>
+                        <div class="accordion" id="sectorContributionCollapse">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="sectorsHeading">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sectorsCollapse" aria-expanded="true" aria-controls="sectorsCollapse">
+                                Sectors
+                              </button>
+                            </h2>
+                            <div id="sectorsCollapse" class="accordion-collapse collapse" aria-labelledby="sectorsHeading" data-bs-parent="#sectorContributionCollapse">
+                              <div class="accordion-body">
+                                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#sectorContribution"> + Add  </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="sectorContribution" tabindex="-1" aria-labelledby="sectorContributionLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-md modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="sectorContributionLabel">Add Sector Information</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row mx-3 mt-3">
+                                          <label for="sector" class="col-sm-4 col-form-label"><small>Sector</small></label>
+                                          <div class="col-sm-8">
+                                            <select name="sector" id="sector" class="form-control">
+                                              <option value="Public Administration">Public Administration</option>
+                                              <option value="Public Health">Public Health</option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="sub_sector" class="col-sm-4 col-form-label"><small>Sub-Sector</small></label>
+                                          <div class="col-sm-8">
+                                            <select name="sub_sector" id="sub_sector" class="form-control">
+                                              <option value="N/A" selected>Not Applicable</option>
+                                              <option value="Public Administration">Public Administration</option>
+                                              <option value="Public Health">Public Health</option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="allocation" class="col-sm-4 col-form-label"><small>Allocation (%)</small></label>
+                                          <div class="col-sm-4">
+                                            <input type="number" class="form-control" name="allocation" id="allocation" placeholder="100.00">
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary">Save</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> <!-- modal -->
+
+                                <table class="table table-responsive">
+                                  <thead>
+                                    <tr>
+                                      <th>Sector Name</th>
+                                      <th>Sub-Sector Name</th>
+                                      <th>Percentage of Allocation(%)</th>
+                                      <th>Actions</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>Public Administration</td>
+                                      <td>Not Applicable</td>
+                                      <td>100.00</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr class="text-muted">
+                                      <td>Total</td>
+                                      <td>&nbsp;</td>
+                                      <td>100.00</td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                              <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                          </li>
+                                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                              <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                          </li>
+                                        </ul>
+                                      </nav>
+                                    </tr>
+                                  </tbody>
+                                  
+                                </table>
+                              </div>
+                            </div> <!-- sectorsCollapse -->
+
+                            
+
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="thematicHeading">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#thematicArea" aria-expanded="false" aria-controls="thematicArea">
+                                Thematic Area
+                              </button>
+                            </h2>
+                            <div id="thematicArea" class="accordion-collapse collapse" aria-labelledby="thematicHeading" data-bs-parent="#sectorContributionCollapse">
+                              <div class="accordion-body">
+                                <table class="table-bordered table-stripped table-responsive table">
+                                  <thead>
+                                    <tr>
+                                      <th>Thematic Area</th>
+                                      <th>Percentage of Allocation(%)</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>Income and Poverty</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Human Resource</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Water and Sanitation</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Gender Equality</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Environmental Sustainability</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Information Communication Technology(ICT)</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Urban Development</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Governance</td>
+                                      <td>100.00</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Others</td>
+                                      <td>0.00</td>
+                                    </tr>
+                                    <tr class="text-muted">
+                                      <td>Total:</td>
+                                      <td>100.00</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+
+                          <button class="btn-primary btn mt-2 float-right">Save</button>
+                        </div> <!-- sectorContributionCollapse -->
+
+                      </div><!-- Sector Contribution -->
+
                       <div class="tab-pane fade" id="nav-geographic" role="tabpanel" aria-labelledby="nav-geographic-tab">
-                        Geographic Contribution
 
-                      </div>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="countrywide" class="form-control-label col-md-2">Country Wide?</label>
+                          <div class="col-md-5">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="countryWideOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="countryWideOptions" id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="accordion" id="accordionExample">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="geographic_allocation_list">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#geographic_allocation_collapse" aria-expanded="true" aria-controls="geographic_allocation_collapse">
+                                Geographic Allocation List
+                              </button>
+                            </h2>
+                            <div id="geographic_allocation_collapse" class="accordion-collapse collapse show" aria-labelledby="geographic_allocation_list" data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#geographic_allocation_"> + Add  </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="geographic_allocation_" tabindex="-1" aria-labelledby="geographic_allocation_Label" aria-hidden="true">
+                                  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="geographic_allocation_Label">Add Geographic Allocation Information</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row mx-3 mt-3">
+
+                                          <div class="col-md-3">
+                                            &nbsp;
+                                            <table class="table table-bordered table-responsive">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col"><input type="checkbox" name="" id=""></th>
+                                                  <th scope="col">Division Name</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Barisal</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Houston</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Brazil</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Mexico</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Sylhet</td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+
+                                          <div class="col-md-3">
+                                            &nbsp;
+                                            <table class="table table-bordered table-responsive">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col"><input type="checkbox" name="" id=""></th>
+                                                  <th scope="col">District Name</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Kampala</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Jinja</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Arua</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Gulu</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Mbale</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Kabale</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Bushenyi</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Kamuli</td>
+                                                </tr>
+                                                
+                                              </tbody>
+                                            </table>
+                                          </div>
+
+                                          <div class="col-md-6">
+                                            &nbsp;
+                                            <table class="table table-bordered table-responsive">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col"><input type="checkbox" name="" id=""></th>
+                                                  <th scope="col">Type</th>
+                                                  <th scope="col">District</th>
+                                                  <th scope="col">Upazila</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Upazila</td>
+                                                  <td>Bargain</td>
+                                                  <td>Amatail</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Upazila</td>
+                                                  <td>Bargain</td>
+                                                  <td>Amatail</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Upazila</td>
+                                                  <td>Bargain</td>
+                                                  <td>Amatail</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Upazila</td>
+                                                  <td>Bargain</td>
+                                                  <td>Amatail</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Upazila</td>
+                                                  <td>Bargain</td>
+                                                  <td>Amatail</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Upazila</td>
+                                                  <td>Bargain</td>
+                                                  <td>Amatail</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Upazila</td>
+                                                  <td>Bargain</td>
+                                                  <td>Amatail</td>
+                                                </tr>
+                                                <tr>
+                                                  <td><input type="checkbox" name="" id=""></td>
+                                                  <td>Upazila</td>
+                                                  <td>Bargain</td>
+                                                  <td>Amatail</td>
+                                                </tr>
+                                                
+                                              </tbody>
+                                            </table>
+                                          </div>
+
+                                        </div>
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary">Save</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> <!-- modal -->
+
+
+                                <table class="table table-bordered table-responsive mt-2">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">Division Name</th>
+                                      <th scope="col">District Name</th>
+                                      <th scope="col">Upazila Name</th>
+                                      <th scope="col">Percentage of Allocation(%)</th>
+                                      <th scope="col">Actions</th>
+
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>Bartal</td>
+                                      <td>Barguma</td>
+                                      <td>Amatail</td>
+                                      <td>20.00</td>
+                                      <td>delete</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Bartal</td>
+                                      <td>Barguma</td>
+                                      <td>Amatail</td>
+                                      <td>20.00</td>
+                                      <td>delete</td>
+                                    </tr>
+                                    <tr>
+                                      <td>Bartal</td>
+                                      <td>Barguma</td>
+                                      <td>Amatail</td>
+                                      <td>20.00</td>
+                                      <td>delete</td>
+                                    </tr>
+                                   
+                                    <tr class="text-muted">
+                                      <td colspan="3">Total</td>
+                                      <td>100.00</td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    
+                                  </tbody>
+                                </table>
+                                
+                                
+                              </div>
+                            </div>
+                          </div>
+
+                        </div> <!-- Geographic Allocation List -->
+
+                      </div> <!-- nav-geographic -->
+
+
                       <div class="tab-pane fade" id="nav-effectiveness" role="tabpanel" aria-labelledby="nav-effectiveness-tab">
                         Aid Effectiveness Indictators
 
