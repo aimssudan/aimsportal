@@ -1784,14 +1784,14 @@
                           </div>
                         </div>
 
-                        <div class="accordion" id="accordionExample">
+                        <div class="accordion" id="geographic_allocation_accordion">
                           <div class="accordion-item">
                             <h2 class="accordion-header" id="geographic_allocation_list">
                               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#geographic_allocation_collapse" aria-expanded="true" aria-controls="geographic_allocation_collapse">
                                 Geographic Allocation List
                               </button>
                             </h2>
-                            <div id="geographic_allocation_collapse" class="accordion-collapse collapse show" aria-labelledby="geographic_allocation_list" data-bs-parent="#accordionExample">
+                            <div id="geographic_allocation_collapse" class="accordion-collapse collapse show" aria-labelledby="geographic_allocation_list" data-bs-parent="#geographic_allocation_accordion">
                               <div class="accordion-body">
                                 <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#geographic_allocation_"> + Add  </button>
 
@@ -2018,7 +2018,72 @@
 
 
                       <div class="tab-pane fade" id="nav-effectiveness" role="tabpanel" aria-labelledby="nav-effectiveness-tab">
-                        Aid Effectiveness Indictators
+                        <h3>Aid Effectiveness Indicators</h3>
+                        <hr>
+                        <div class="row mt-3">
+                          <label for="survey_year" class="form-control-label col-sm-2">Survey Year</label>
+                          <div class="col-md-4">
+                            <select class="form-control" name="survey_year" id="survey_year">
+                              <option selected disabled>-- Select One --</option>
+                              <option value="2023">2023</option>
+                              <option value="2022">2022</option>
+                              <option value="2021">2021</option>
+                              <option value="2020">2020</option>
+                              <option value="2019">2019</option>
+                              <option value="2018">2018</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <h4 class="mt-4">1. Use of National Public Financial Management System (Busan Indicator 9b)</h4>
+                        <hr>
+                        <br>
+                        <h5>a) Use of national budget execution procedures</h5>
+                        <hr>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="inBudget" class="form-control-label col-md-10">i) Are your funds included in the annual budget approved by country legislature?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="inBudgetOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="inBudgetOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="budgetExecutionProcedure" class="form-control-label col-md-10">ii) Are your funds subject to established country budget execution procedures?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="budgetExecutionProcedureOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="budgetExecutionProcedureOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="budgetExecutionProcedure" class="form-control-label col-md-10">iii) Are your funds processed (e.g. deposited & disbursed) through the established country treasury system?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="budgetExecutionProcedureOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="budgetExecutionProcedureOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+
 
                       </div>
                       <div class="tab-pane fade" id="nav-analytical" role="tabpanel" aria-labelledby="nav-analytical-tab">
