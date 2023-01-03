@@ -2083,17 +2083,223 @@
                           </div>
                         </div>
 
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="seperateBankAccounts" class="form-control-label col-md-10">iv) You do NOT require the opening of seperate bank accounts for your funds?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="seperateBankAccountsOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="seperateBankAccountsOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
 
+                        <br>
+                        <h5>b) Use of national budget execution procedures</h5>
+                        <hr>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="seperateAccountingSystem" class="form-control-label col-md-10">i) You do NOT require maintenance of a separate accountinf system to satisfy your own reporting requirements?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="seperateAccountingSystemOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="seperateAccountingSystemOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
 
-                      </div>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="requireCountryFinancialReportingArrangements" class="form-control-label col-md-10">ii) You ONLY require financial reports prepared using country's establshed financial reporting arrangements?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="requireCountryFinancialReportingArrangementsOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="requireCountryFinancialReportingArrangementsOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <br>
+                        <h5>c) Use of national auditng procedures</h5>
+                        <hr>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="subjectToAudit" class="form-control-label col-md-10">i) Are your funds subject to audit carried out under the responsibility of the Supreme Audit Instituition?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="subjectToAuditOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="subjectToAuditOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="additionalAudit" class="form-control-label col-md-10">ii) You do NOT under normal circumstances request additional audit arrangements?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="additionalAuditOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="additionalAuditOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="differentAuditStandards" class="form-control-label col-md-10">iii) You do NOT require audit standards different from those adopted by the Supreme Audit Institution?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="differentAuditStandardsOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="differentAuditStandardsOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="differentAuditStandards" class="form-control-label col-md-10">iv) You do NOT require the Supreme Audit Institution to change it's audit cycle to audit your funds?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="differentAuditStandardsOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="differentAuditStandardsOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <br>
+                        <h5>d) Use of national procurement systems</h5>
+                        <hr>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="governmentProcurementSystem" class="form-control-label col-md-10">i) Does this project use the Government's procurement system?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="governmentProcurementSystemOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="governmentProcurementSystemOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <h4 class="mt-3">II. Do you use Project Implementation Unit(Paris Indicator 6)</h4>
+                        <hr>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="projectImplementUnit" class="form-control-label col-md-10">Does this Project implementation Unit?<br> <small>(If answer is 'Yes' then amswer the following questionnaires)</small> </label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="projectImplementUnitOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="projectImplementUnitOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="piusaccountable" class="form-control-label col-md-10">i) Are the PIUs accountable to the external funding agencies/donors rather than to the country implementing agencies (ministries, departments, agencies etc)? </label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="piusaccountableOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="piusaccountableOptions" id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="torsforexternallyappointedstaff" class="form-control-label col-md-10">ii) Are the terms of reference externally appointed staff determined by the donor (rather than by the country implementing agencies)? </label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="torsforexternallyappointedstaffOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="torsforexternallyappointedstaffOptions" id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="isproffessionalstaffappointedByDonor" class="form-control-label col-md-10">iii) Is most of the professional staff appointed by the donor(rather than by the country implementing agencies)? </label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="isproffessionalstaffappointedByDonorOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="isproffessionalstaffappointedByDonorOptions" id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="isproffessionalstaffappointedByDonor" class="form-control-label col-md-10">iv) Is the salary structure of national staff(including benefits) higher than those of civil serice personnel? </label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="isproffessionalstaffappointedByDonorOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="isproffessionalstaffappointedByDonorOptions" id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <h4 class="mt-3">III. Tied Aid(Busan Indicator 10)</h4>
+                        <hr>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="projectresourcesfullytied" class="form-control-label col-md-10">Are the program/project resources fully or patially tied </label>
+                          <div class="col-md-2">
+                            <select class="form-control" name="projectresourcesfullytied">
+                              <option selected disabled>- Select One -</option>
+                              <option value="fully">Fully Tied</option>
+                              <option value="paid">Partial Tied</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <a href="#" class="btn btn-primary ml-auto ms-auto">Save</a>
+
+                      </div> <!-- Aid effectiveness indicators -->
                       <div class="tab-pane fade" id="nav-analytical" role="tabpanel" aria-labelledby="nav-analytical-tab">
                         Analytical Work & Mission
 
-                      </div>
+                      </div><!-- Analytical Work & Mission -->
                       <div class="tab-pane fade" id="nav-attachments" role="tabpanel" aria-labelledby="nav-attachments-tab">
                         Notes & Attachments
 
-                      </div>
+                      </div> <!-- Notes & Attachments -->
                     <!-- </form> -->
                   </div>
                 </div>
