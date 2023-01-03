@@ -2083,17 +2083,567 @@
                           </div>
                         </div>
 
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="seperateBankAccounts" class="form-control-label col-md-10">iv) You do NOT require the opening of seperate bank accounts for your funds?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="seperateBankAccountsOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="seperateBankAccountsOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
 
+                        <br>
+                        <h5>b) Use of national budget execution procedures</h5>
+                        <hr>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="seperateAccountingSystem" class="form-control-label col-md-10">i) You do NOT require maintenance of a separate accountinf system to satisfy your own reporting requirements?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="seperateAccountingSystemOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="seperateAccountingSystemOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
 
-                      </div>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="requireCountryFinancialReportingArrangements" class="form-control-label col-md-10">ii) You ONLY require financial reports prepared using country's establshed financial reporting arrangements?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="requireCountryFinancialReportingArrangementsOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="requireCountryFinancialReportingArrangementsOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <br>
+                        <h5>c) Use of national auditng procedures</h5>
+                        <hr>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="subjectToAudit" class="form-control-label col-md-10">i) Are your funds subject to audit carried out under the responsibility of the Supreme Audit Instituition?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="subjectToAuditOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="subjectToAuditOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="additionalAudit" class="form-control-label col-md-10">ii) You do NOT under normal circumstances request additional audit arrangements?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="additionalAuditOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="additionalAuditOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="differentAuditStandards" class="form-control-label col-md-10">iii) You do NOT require audit standards different from those adopted by the Supreme Audit Institution?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="differentAuditStandardsOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="differentAuditStandardsOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="differentAuditStandards" class="form-control-label col-md-10">iv) You do NOT require the Supreme Audit Institution to change it's audit cycle to audit your funds?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="differentAuditStandardsOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="differentAuditStandardsOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <br>
+                        <h5>d) Use of national procurement systems</h5>
+                        <hr>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="governmentProcurementSystem" class="form-control-label col-md-10">i) Does this project use the Government's procurement system?</label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="governmentProcurementSystemOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="governmentProcurementSystemOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <h4 class="mt-3">II. Do you use Project Implementation Unit(Paris Indicator 6)</h4>
+                        <hr>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="projectImplementUnit" class="form-control-label col-md-10">Does this Project implementation Unit?<br> <small>(If answer is 'Yes' then amswer the following questionnaires)</small> </label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="projectImplementUnitOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="projectImplementUnitOptions" checked id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="piusaccountable" class="form-control-label col-md-10">i) Are the PIUs accountable to the external funding agencies/donors rather than to the country implementing agencies (ministries, departments, agencies etc)? </label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="piusaccountableOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="piusaccountableOptions" id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="torsforexternallyappointedstaff" class="form-control-label col-md-10">ii) Are the terms of reference externally appointed staff determined by the donor (rather than by the country implementing agencies)? </label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="torsforexternallyappointedstaffOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="torsforexternallyappointedstaffOptions" id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="isproffessionalstaffappointedByDonor" class="form-control-label col-md-10">iii) Is most of the professional staff appointed by the donor(rather than by the country implementing agencies)? </label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="isproffessionalstaffappointedByDonorOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="isproffessionalstaffappointedByDonorOptions" id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="isproffessionalstaffappointedByDonor" class="form-control-label col-md-10">iv) Is the salary structure of national staff(including benefits) higher than those of civil serice personnel? </label>
+                          <div class="col-md-2">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="isproffessionalstaffappointedByDonorOptions" id="yesRadioBtn" value="Yes">
+                              <label class="form-check-label" for="yesRadioBtn">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="isproffessionalstaffappointedByDonorOptions" id="noRadioBtn" value="No">
+                              <label class="form-check-label" for="noRadioBtn">No</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <h4 class="mt-3">III. Tied Aid(Busan Indicator 10)</h4>
+                        <hr>
+                        <div class="row mx-2 mt-2 mb-2">
+                          <label for="projectresourcesfullytied" class="form-control-label col-md-10">Are the program/project resources fully or patially tied </label>
+                          <div class="col-md-2">
+                            <select class="form-control" name="projectresourcesfullytied">
+                              <option selected disabled>- Select One -</option>
+                              <option value="fully">Fully Tied</option>
+                              <option value="paid">Partial Tied</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <a href="#" class="btn btn-primary ml-auto ms-auto">Save</a>
+
+                      </div> <!-- Aid effectiveness indicators -->
                       <div class="tab-pane fade" id="nav-analytical" role="tabpanel" aria-labelledby="nav-analytical-tab">
-                        Analytical Work & Mission
+                        
+                        <h4>Analytical Work & Mission</h4>
 
-                      </div>
+                        <div class="accordion" id="AnalyticalWorksCollapse">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="AnalyticalWorksInfoHeading">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#AnalyticalWorksInfoCollapse" aria-expanded="true" aria-controls="AnalyticalWorksInfoCollapse">
+                                Analytical Works Info
+                              </button>
+                            </h2>
+                            <div id="AnalyticalWorksInfoCollapse" class="accordion-collapse collapse" aria-labelledby="AnalyticalWorksInfoHeading" data-bs-parent="#AnalyticalWorksCollapse">
+                              <div class="accordion-body">
+                                <button type="button" class="btn btn-primary mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#AnalyticalWorks"> + Add  </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="AnalyticalWorks" tabindex="-1" aria-labelledby="AnalyticalWorksLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="AnalyticalWorksLabel">Add/Edit Info</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row mx-3 mt-3">
+                                          <label for="title" class="col-sm-4 col-form-label"><small>Title</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" name="title" class="form-control">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="job_analytical_works" class="col-sm-4 col-form-label"><small>Job Analytical Works</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="checkbox" class="form-control-checkbox">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="devt_partners" class="col-sm-4 col-form-label"><small>Development Partners</small></label>
+                                          <div class="col-sm-8">
+                                            <select class="form-control" id="devt_partners">
+                                              <option selected disabled>- Select One -</option>
+                                              <option value="USAID">USAID</option>
+                                              <option value="UN">UN</option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="allocation" class="col-sm-4 col-form-label"><small>Other Development Partners</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" name="title" class="form-control">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="devt_partners" class="col-sm-4 col-form-label"><small>Government Agency</small></label>
+                                          <div class="col-sm-8">
+                                            <select class="form-control" id="devt_partners">
+                                              <option selected disabled>- Select One -</option>
+                                              <option value="Ministry of Finance">Ministry of Finance</option>
+                                              <option value="Ministry of Lands">Ministry of Lands</option>
+                                              <option value="Ministry of Education">Ministry of Education</option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="document_publication_date" class="col-sm-4 col-form-label"><small>Document Publication Date</small></label>
+                                          <div class="col-sm-4">
+                                            <input type="date" class="form-control" name="document_publication_date">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="description_of_authors" class="col-sm-4 col-form-label"><small>Brief description of author(s)</small></label>
+                                              <div class="col-sm-8">
+                                                <textarea class="form-control" name="description_of_authors"></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="geographic_location" class="col-sm-4 col-form-label"><small>Geographic Location of the Study</small></label>
+                                              <div class="col-sm-8">
+                                                <textarea class="form-control" name="geographic_location"></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div> <!-- row -->
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="contact_name" class="col-sm-4 col-form-label"><small>Contact Name</small></label>
+                                              <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="contact_name">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="title" class="col-sm-4 col-form-label"><small>Geographic Location of the Study</small></label>
+                                              <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="title">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div> <!-- row -->
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="designation" class="col-sm-4 col-form-label"><small>Designation</small></label>
+                                              <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="designation">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="email" class="col-sm-4 col-form-label"><small>Email</small></label>
+                                              <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="email">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div> <!-- row -->
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="address" class="col-sm-4 col-form-label"><small>Address</small></label>
+                                              <div class="col-sm-8">
+                                                <textarea class="form-control" name="address"></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="remarks" class="col-sm-4 col-form-label"><small>Remarks</small></label>
+                                              <div class="col-sm-8">
+                                                <textarea class="form-control" name="remarks"></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div> <!-- row -->
+
+                                        <button type="button" class="btn btn-primary mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#AnalyticalWorksInnerModal"> + Add  </button>
+
+                                        
+
+
+                                        <table class="table table-bordered table-responsive">
+                                          <thead>
+                                            <tr>
+                                              <th>Title of Analytical Work</th>
+                                              <th>Document Publication Date</th>
+                                              <th>GoB Lead Agenct</th>
+                                              <th>Joint with Other Partners</th>
+                                              <th>Actions</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              <td>edit and delete icons</td>
+                                            </tr>
+                                            <tr class="text-muted">
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <nav aria-label="Page navigation example">
+                                                <ul class="pagination">
+                                                  <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Previous">
+                                                      <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                  </li>
+                                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                  <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Next">
+                                                      <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                  </li>
+                                                </ul>
+                                              </nav>
+                                            </tr>
+                                          </tbody>
+                                          
+                                        </table>
+
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary">Save</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> <!-- modal -->
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="AnalyticalWorksInnerModal" tabindex="-1" aria-labelledby="AnalyticalWorksInnerModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="AnalyticalWorksInnerModalLabel">Add / Edit Attachments</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+
+                                        <div class="row mt-2">
+                                          <label for="title" class="col-sm-4 col-form-label"><small>Title</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="title">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                          <label for="document_number" class="col-sm-4 col-form-label"><small>Document Number</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="document_number">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                          <label for="document_type" class="col-sm-4 col-form-label"><small>Document Type</small></label>
+                                          <div class="col-sm-8">
+                                            <select class="form-control" name="document_type">
+                                              <option selected disabled>- Select One -</option>
+                                              <option value="pdf">PDF</option>
+                                              <option value="word">Word Document</option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                          <label for="tags" class="col-sm-4 col-form-label"><small>Tags</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="tags">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                          <label for="reference_url" class="col-sm-4 col-form-label"><small>Reference URL</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="reference_url">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                          <label for="filename" class="col-sm-4 col-form-label"><small>File Name</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="filename">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                          <label for="filepath" class="col-sm-4 col-form-label"><small>File Path</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="file" class="form-control" name="filepath">
+                                          </div>
+                                        </div>
+
+
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div><!-- Analytical Works Inner Modal -->
+
+                                <table class="table table-bordered table-responsive">
+                                  <thead>
+                                    <tr>
+                                      <th>Title of Analytical Work</th>
+                                      <th>Document Publication Date</th>
+                                      <th>GoB Lead Agenct</th>
+                                      <th>Joint with Other Partners</th>
+                                      <th>Actions</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr class="text-muted">
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                              <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                          </li>
+                                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                              <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                          </li>
+                                        </ul>
+                                      </nav>
+                                    </tr>
+                                  </tbody>
+                                  
+                                </table>
+                              </div>
+                            </div> <!-- AnalyticalWorksInfoCollapse -->
+
+                          </div>
+
+                          <button class="btn-primary btn mt-2 float-right">Save</button>
+                        </div> <!-- AnalyticalWorksCollapse -->
+
+                      </div><!-- Analytical Work & Mission -->
                       <div class="tab-pane fade" id="nav-attachments" role="tabpanel" aria-labelledby="nav-attachments-tab">
                         Notes & Attachments
 
-                      </div>
+                      </div> <!-- Notes & Attachments -->
                     <!-- </form> -->
                   </div>
                 </div>
