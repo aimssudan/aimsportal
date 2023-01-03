@@ -2293,7 +2293,351 @@
 
                       </div> <!-- Aid effectiveness indicators -->
                       <div class="tab-pane fade" id="nav-analytical" role="tabpanel" aria-labelledby="nav-analytical-tab">
-                        Analytical Work & Mission
+                        
+                        <h4>Analytical Work & Mission</h4>
+
+                        <div class="accordion" id="AnalyticalWorksCollapse">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="AnalyticalWorksInfoHeading">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#AnalyticalWorksInfoCollapse" aria-expanded="true" aria-controls="AnalyticalWorksInfoCollapse">
+                                Analytical Works Info
+                              </button>
+                            </h2>
+                            <div id="AnalyticalWorksInfoCollapse" class="accordion-collapse collapse" aria-labelledby="AnalyticalWorksInfoHeading" data-bs-parent="#AnalyticalWorksCollapse">
+                              <div class="accordion-body">
+                                <button type="button" class="btn btn-primary mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#AnalyticalWorks"> + Add  </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="AnalyticalWorks" tabindex="-1" aria-labelledby="AnalyticalWorksLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="AnalyticalWorksLabel">Add/Edit Info</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row mx-3 mt-3">
+                                          <label for="title" class="col-sm-4 col-form-label"><small>Title</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" name="title" class="form-control">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="job_analytical_works" class="col-sm-4 col-form-label"><small>Job Analytical Works</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="checkbox" class="form-control-checkbox">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="devt_partners" class="col-sm-4 col-form-label"><small>Development Partners</small></label>
+                                          <div class="col-sm-8">
+                                            <select class="form-control" id="devt_partners">
+                                              <option selected disabled>- Select One -</option>
+                                              <option value="USAID">USAID</option>
+                                              <option value="UN">UN</option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="allocation" class="col-sm-4 col-form-label"><small>Other Development Partners</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" name="title" class="form-control">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="devt_partners" class="col-sm-4 col-form-label"><small>Government Agency</small></label>
+                                          <div class="col-sm-8">
+                                            <select class="form-control" id="devt_partners">
+                                              <option selected disabled>- Select One -</option>
+                                              <option value="Ministry of Finance">Ministry of Finance</option>
+                                              <option value="Ministry of Lands">Ministry of Lands</option>
+                                              <option value="Ministry of Education">Ministry of Education</option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="document_publication_date" class="col-sm-4 col-form-label"><small>Document Publication Date</small></label>
+                                          <div class="col-sm-4">
+                                            <input type="date" class="form-control" name="document_publication_date">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="description_of_authors" class="col-sm-4 col-form-label"><small>Brief description of author(s)</small></label>
+                                              <div class="col-sm-8">
+                                                <textarea class="form-control" name="description_of_authors"></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="geographic_location" class="col-sm-4 col-form-label"><small>Geographic Location of the Study</small></label>
+                                              <div class="col-sm-8">
+                                                <textarea class="form-control" name="geographic_location"></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div> <!-- row -->
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="contact_name" class="col-sm-4 col-form-label"><small>Contact Name</small></label>
+                                              <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="contact_name">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="title" class="col-sm-4 col-form-label"><small>Geographic Location of the Study</small></label>
+                                              <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="title">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div> <!-- row -->
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="designation" class="col-sm-4 col-form-label"><small>Designation</small></label>
+                                              <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="designation">
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="email" class="col-sm-4 col-form-label"><small>Email</small></label>
+                                              <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="email">
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div> <!-- row -->
+
+                                        <div class="row mx-3 mt-3">
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="address" class="col-sm-4 col-form-label"><small>Address</small></label>
+                                              <div class="col-sm-8">
+                                                <textarea class="form-control" name="address"></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-md-6">
+                                            <div class="row">
+                                              <label for="remarks" class="col-sm-4 col-form-label"><small>Remarks</small></label>
+                                              <div class="col-sm-8">
+                                                <textarea class="form-control" name="remarks"></textarea>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div> <!-- row -->
+
+                                        <button type="button" class="btn btn-primary mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#AnalyticalWorksInnerModal"> + Add  </button>
+
+                                        
+
+
+                                        <table class="table table-bordered table-responsive">
+                                          <thead>
+                                            <tr>
+                                              <th>Title of Analytical Work</th>
+                                              <th>Document Publication Date</th>
+                                              <th>GoB Lead Agenct</th>
+                                              <th>Joint with Other Partners</th>
+                                              <th>Actions</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              <td>edit and delete icons</td>
+                                            </tr>
+                                            <tr class="text-muted">
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                              <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                              <nav aria-label="Page navigation example">
+                                                <ul class="pagination">
+                                                  <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Previous">
+                                                      <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                  </li>
+                                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                  <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Next">
+                                                      <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                  </li>
+                                                </ul>
+                                              </nav>
+                                            </tr>
+                                          </tbody>
+                                          
+                                        </table>
+
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary">Save</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> <!-- modal -->
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="AnalyticalWorksInnerModal" tabindex="-1" aria-labelledby="AnalyticalWorksInnerModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="AnalyticalWorksInnerModalLabel">Add / Edit Attachments</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+
+                                        <div class="row mt-2">
+                                          <label for="title" class="col-sm-4 col-form-label"><small>Title</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="title">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                          <label for="document_number" class="col-sm-4 col-form-label"><small>Document Number</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="document_number">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                          <label for="document_type" class="col-sm-4 col-form-label"><small>Document Type</small></label>
+                                          <div class="col-sm-8">
+                                            <select class="form-control" name="document_type">
+                                              <option selected disabled>- Select One -</option>
+                                              <option value="pdf">PDF</option>
+                                              <option value="word">Word Document</option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                          <label for="tags" class="col-sm-4 col-form-label"><small>Tags</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="tags">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                          <label for="reference_url" class="col-sm-4 col-form-label"><small>Reference URL</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="reference_url">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                          <label for="filename" class="col-sm-4 col-form-label"><small>File Name</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="filename">
+                                          </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                          <label for="filepath" class="col-sm-4 col-form-label"><small>File Path</small></label>
+                                          <div class="col-sm-8">
+                                            <input type="file" class="form-control" name="filepath">
+                                          </div>
+                                        </div>
+
+
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div><!-- Analytical Works Inner Modal -->
+
+                                <table class="table table-bordered table-responsive">
+                                  <thead>
+                                    <tr>
+                                      <th>Title of Analytical Work</th>
+                                      <th>Document Publication Date</th>
+                                      <th>GoB Lead Agenct</th>
+                                      <th>Joint with Other Partners</th>
+                                      <th>Actions</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>edit and delete icons</td>
+                                    </tr>
+                                    <tr class="text-muted">
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                      <nav aria-label="Page navigation example">
+                                        <ul class="pagination">
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                              <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                          </li>
+                                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                          <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                              <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                          </li>
+                                        </ul>
+                                      </nav>
+                                    </tr>
+                                  </tbody>
+                                  
+                                </table>
+                              </div>
+                            </div> <!-- AnalyticalWorksInfoCollapse -->
+
+                          </div>
+
+                          <button class="btn-primary btn mt-2 float-right">Save</button>
+                        </div> <!-- AnalyticalWorksCollapse -->
 
                       </div><!-- Analytical Work & Mission -->
                       <div class="tab-pane fade" id="nav-attachments" role="tabpanel" aria-labelledby="nav-attachments-tab">
