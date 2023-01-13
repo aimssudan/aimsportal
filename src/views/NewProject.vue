@@ -1791,7 +1791,7 @@ export default {
 
   },
   computed: {
-    ...mapState('project', ['project']),
+    ...mapState('project', ['projects']),
     ...mapState('global', ['organisations'])
 
   },
@@ -1799,7 +1799,6 @@ export default {
 
     ...mapActions({
       createProject : 'project/addProject',
-      otp: 'auth/sendOtp'
     }),
 
     addParticipatingOrg() {
