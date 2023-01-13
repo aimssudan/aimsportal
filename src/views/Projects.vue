@@ -15,6 +15,10 @@
                 <h5>Project list</h5>
               </div>
                 <div class="card-body table-responsive">
+                  <div v-if="isLoading" class="spinner-border text-warning" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                  <flash-error :hasError="apiErrors" :errors="errors" @dismissError="apiErrors = false"></flash-error>
                     <table class="table table-hover table-striped">
                       <thead>
                           <tr>
@@ -22,10 +26,23 @@
                               <th>Name</th>
                               <th>Funder</th>
                               <th>Implemetor</th>
-                              <th>Value</th>
+                              <th>Budget</th>
                               <th>Progress</th>
                           </tr>
                       </thead>
+                      <tbody>
+                        <tr v-for="activity in projects" :key="activity.id">
+                          <td>{{activity.id}}</td>
+                          <td>{{activity.default_title}}</td>
+                          <td></td>
+                          <td></td>
+                          <td>{{activity.budget
+                                        .map(obj => obj.iati_value_amount)
+                                        .reduce((accumulator, current) => accumulator + current, 0)}}</td>
+                          <td>{{activity.status}}</td>
+
+                        </tr>
+                      </tbody>
 
               </table>
                 </div>
@@ -37,7 +54,27 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
+import flashError from '../components/flashError.vue'
+
 export default {
+  
+  name: 'project-listing',
+  components: {
+    flashError
+  },
+
+  computed: {
+    ...mapState('project', ['projects']),
+    ...mapState('global', ['organisations'])
+
+  },
+  methods: {
+
+    ...mapActions({
+      fetchProjects : 'project/getProjects',
+    }),
+  },
 
   created() {
     let isLoggedIn = !!localStorage.getItem("token");
@@ -47,6 +84,7 @@ export default {
       let loggedInUser = JSON.parse(localStorage.getItem('user'))
       this.$store.commit('auth/SET_TOKEN', token);
       this.$store.commit('auth/SET_USER', loggedInUser);
+      this.fetchProjects()
     }
   },
     
