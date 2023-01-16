@@ -242,15 +242,13 @@
                                                 <div class="col-sm-6">
                                                   <label>Status (indicative or commited)</label>
                                                     <select v-model="form_budget.status" class="form-control">
-                                                      <option value="1">Indicative</option>
-                                                      <option value="2">Committed</option>
+                                                      <option v-for="status in budget_statuses" :key="status.code" :value="status.code">{{status.name}}</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-sm-6">
                                                   <label>Type (original or revised)</label>
                                                     <select v-model="form_budget.type" class="form-control">
-                                                      <option value="1">Original</option>
-                                                      <option value="2">Revised</option>
+                                                      <option v-for="type in budget_types" :key="type.code" :value="type.code">{{type.name}}</option>
                                                     </select>
                                                 </div>
                                               </div>
@@ -288,9 +286,7 @@
                                               <label for="commitment_currency" class="col-sm-4 col-form-label"><small>Currency</small></label>
                                               <div class="col-sm-6">
                                                 <select v-model="form_budget.value_currency" id="commitment_currency" class="form-select">
-                                                  <option value="USD">US Dollar</option>
-                                                  <option value="SSP">South Sudanese Pound</option>
-                                                  <option value="EUR">Euro</option>
+                                                  <option v-for="currency in currencies" :key="currency.code" :value="currency.code">{{currency.name}}</option>
                                                 </select>
                                               </div>
                                             </div>
@@ -1122,7 +1118,7 @@
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="sectorContribution" tabindex="-1" aria-labelledby="sectorContributionLabel" aria-hidden="true">
-                                  <div class="modal-dialog modal-md modal-dialog-scrollable">
+                                  <div class="modal-dialog modal-lg modal-dialog-scrollable">
                                     <div class="modal-content">
                                       <div class="modal-header">
                                         <h5 class="modal-title" id="sectorContributionLabel">Add Sector Information</h5>
@@ -1131,10 +1127,9 @@
                                       <div class="modal-body">
                                         <div class="row mx-3 mt-3">
                                           <label for="sector" class="col-sm-4 col-form-label"><small>Vocabulary</small></label>
-                                          <div class="col-sm-8">
-                                            <select name="sector" id="sector" class="form-control">
-                                              <option value="Public Administration">Public Administration</option>
-                                              <option value="Public Health">Public Health</option>
+                                          <div class="col-sm-8"> 
+                                            <select v-model="form_sector.sector_vocabulary" @change="updateSectorCodeList()" class="form-control">
+                                              <option v-for="vocabulary in sector_vocabularies" :key="vocabulary.code" :value="vocabulary.code">{{vocabulary.name}}</option>
                                             </select>
                                           </div>
                                         </div>
@@ -1142,9 +1137,8 @@
                                         <div class="row mx-3 mt-3">
                                           <label for="sector" class="col-sm-4 col-form-label"><small>Sector</small></label>
                                           <div class="col-sm-8">
-                                            <select name="sector" id="sector" class="form-control">
-                                              <option value="Public Administration">Public Administration</option>
-                                              <option value="Public Health">Public Health</option>
+                                            <select v-model="form_sector.sector_code" class="form-control">
+                                              <option v-for="sector_code in sector_codes" :key="sector_code.code" :value="sector_code.code">{{sector_code.name}}</option>
                                             </select>
                                           </div>
                                         </div>
@@ -1152,21 +1146,21 @@
                                         <div class="row mx-3 mt-3">
                                           <label for="sub_sector" class="col-sm-4 col-form-label"><small>Narrative (optional)</small></label>
                                           <div class="col-sm-8">
-                                            <textarea class="form-control"></textarea>
+                                            <textarea v-model="form_sector.sector_narrative" class="form-control"></textarea>
                                           </div>
                                         </div>
 
                                         <div class="row mx-3 mt-3">
                                           <label for="allocation" class="col-sm-4 col-form-label"><small>Allocation (%)</small></label>
                                           <div class="col-sm-4">
-                                            <input type="number" class="form-control" name="allocation" id="allocation" placeholder="100.00">
+                                            <input type="number" v-model="form_sector.sector_percentage" class="form-control"  id="allocation" min="0" max="100">
                                           </div>
                                         </div>
 
                                       </div>
                                       <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-primary">Save</button>
+                                        <button id="close-add-sector-modal" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <button @click="addSectorContribution()" type="button" class="btn btn-primary">Save</button>
                                       </div>
                                     </div>
                                   </div>
@@ -1182,16 +1176,19 @@
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr>
-                                      <td>NDA</td>
-                                      <td>Not Applicable</td>
-                                      <td>100.00</td>
-                                      <td>edit and delete icons</td>
+                                    <tr v-for="(sector, index) in sectors" :key="index">
+                                      <td>{{sector.sector_vocabulary}}</td>
+                                      <td>{{sector.sector_code}}</td>
+                                      <td>{{sector.sector_percentage}}</td>
+                                      <td><button @click="removeSectorContribution(index)" class="btn btn-sm btn-danger">X</button></td>
                                     </tr>
                                     <tr class="text-muted">
                                       <td>Total</td>
                                       <td>&nbsp;</td>
-                                      <td>100.00</td>
+                                      <td>{{sectors
+                                        .map(obj => obj.sector_percentage)
+                                        .reduce((accumulator, current) => accumulator + current, 0)}}
+                                        </td>
                                       <td>&nbsp;</td>
                                     </tr>
                                     
@@ -1725,81 +1722,79 @@ export default {
         value_date: null
       },
 
-      organisation_types: [
-        {
-          code: 10,
-          name: 'Government'
-        },
-        {
-          code: 11,
-          name: 'Local Government'
-        },
-        {
-          code: 15,
-          name: 'International NGO'
-        },
-        {
-          code: 22,
-          name: 'National NGO'
-        },
-        {
-          code: 23,
-          name: 'Regional NGO'
-        },
-        {
-          code: 24,
-          name: 'Partner Country based NGO'
-        },
-        {
-          code: 30,
-          name: 'Public Private Partnership'
-        },
-        {
-          code: 40,
-          name: 'Multilateral'
-        },
-        {
-          code: 60,
-          name: 'Foundation'
-        },
-        {
-          code: 70,
-          name: 'Private Sector'
-        },
-        {
-          code: 71,
-          name: 'Private Sector in Provider Country'
-        },
-        {
-          code: 72,
-          name: 'Private Sector in Aid Recipient Country'
-        },
-        {
-          code: 73,
-          name: 'Private Sector in Third Country'
-        },
-        {
-          code: 80,
-          name: 'Academic, Training and Research'
-        },
-        {
-          code: 90,
-          name: 'Other'
-        },
-      ]
+      form_sector: {
+        sector_vocabulary: null,
+        sector_code: null,
+        sector_percentage: 100,
+        sector_narrative: [],
+      },
+      organisation_types: [],
+      organisation_roles: [],
+      budget_statuses: [],
+      budget_types: [],
+      currencies: [],
+      sector_vocabularies: [],
+      sector_codes: [],
+
     }
 
   },
   computed: {
     ...mapState('project', ['projects']),
-    ...mapState('global', ['organisations'])
+    ...mapState('global', ['organisations']),
+    ...mapState('auth', ['user'])
 
   },
   methods: {
 
     ...mapActions({
       createProject : 'project/addProject',
+      getCodelistOptions: 'codelists/fetchCodelistOptions',
+      getCodelistValue: 'codelists/fetchCodelistValue'
     }),
+
+    updateSectorCodeList() {
+      let codelist = this.sector_vocabularies.find(element => element.code === this.form_sector.sector_vocabulary)?.related_codelist
+      this.getCodelistOptions({codelist: codelist, language: this.user?.language}).then(
+          (response) => {
+            //
+            this.sector_codes = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+    },
+
+    addSectorContribution() {
+      if (this.form_sector.sector_vocabulary != null &&
+          this.form_sector.sector_code !=null &&
+          this.form_sector.sector_percentage != null){
+          // abort if already 100%
+          let currentPercentage = this.sectors.map(obj => obj.sector_percentage).reduce((accumulator, current) => accumulator + current, 0)
+          if (currentPercentage >= 100) return
+          if (undefined !== this.sectors.find(element => element.sector_vocabulary === this.form_sector.sector_vocabulary && element.sector_code == this.form_sector.sector_code)) return;
+            this.sectors.push({...this.form_sector})
+            this.form_sector.sector_vocabulary = null
+            this.form_sector.sector_code = null
+            this.form_sector.sector_percentage = 100
+            this.form_sector.sector_narrative = []
+            document.getElementById("close-add-sector-modal").click();
+          
+        }
+    },
+    removeSectorContribution(index) {
+      if (this.sectors[index] !== undefined) this.sectors.splice(index, 1); 
+    },
 
     addParticipatingOrg() {
       if (this.form_participating_org.type != null &&
@@ -1915,6 +1910,120 @@ export default {
       this.$store.commit('auth/SET_TOKEN', token);
       this.$store.commit('auth/SET_USER', loggedInUser);
     }
+    
+    this.getCodelistOptions({codelist: 'OrganisationType', language: this.user?.language}).then(
+          (response) => {
+            //
+            this.organisation_types = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+
+    this.getCodelistOptions({codelist: 'OrganisationRole', language: this.user?.language}).then(
+          (response) => {
+            //
+            this.organisation_roles = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+
+    this.getCodelistOptions({codelist: 'BudgetType', language: this.user?.language}).then(
+          (response) => {
+            //
+            this.budget_types = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+
+    this.getCodelistOptions({codelist: 'BudgetStatus', language: this.user?.language}).then(
+          (response) => {
+            //
+            this.budget_statuses = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+
+    this.getCodelistOptions({codelist: 'Currency', language: this.user?.language}).then(
+          (response) => {
+            //
+            this.currencies = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+
+    this.getCodelistOptions({codelist: 'SectorVocabulary', language: this.user?.language}).then(
+          (response) => {
+            //
+            this.sector_vocabularies = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
   },
     
 }
