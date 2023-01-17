@@ -1,7 +1,7 @@
 
 <template class="d-flex flex-column h-100">  
 
-  <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+  <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" id="app-header">
         <div class="container"><a class="navbar-brand logo" href="#"> <img src="@/assets/court.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"> AIMS - South Sudan</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
@@ -34,10 +34,12 @@
             </div>
         </div>
     </nav>
+    <div id="app-content">
   <snackbar />
   <router-view/>
+    </div>
 
-  <footer class="page-footer dark footer mt-auto" style="background: rgb(22,42,81);">        
+  <footer class="page-footer dark footer mt-auto" style="background: rgb(22,42,81);" id="main-footer">        
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
@@ -75,7 +77,7 @@
             <p style="color: rgba(126,149,208,0.68);font-size: 12px;">© 2022 AIMS - South Sudan</p>
         </div>
     </footer>
-    
+
 </template>
 <script>
 // import $ from 'jquery'
@@ -206,5 +208,15 @@ export default {
 li a {
   text-decoration: none;
 }
+#app-content {
+  margin-bottom: 250px;
+}
+#main-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
 
 </style>

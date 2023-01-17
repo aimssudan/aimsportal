@@ -1,5 +1,5 @@
 <template>
-  <main class="page login-page container">
+  <main class="page login-page" style="min-height: 80vh;">
         <div class="col-md-6 offset-md-3">
           <h1 class="text-primary"> Register</h1>
           <nav aria-label="breadcrumb">

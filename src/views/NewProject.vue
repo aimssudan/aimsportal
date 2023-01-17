@@ -1,5 +1,5 @@
 <template>
-  <main class="page project-page" style="min-height: 80vh;">    
+  <main class="page project-page" style="min-height: 80vh;" >    
     <div class="container">
       <h1 class="text-primary"> Add Project </h1>
       <nav aria-label="breadcrumb">
@@ -1754,6 +1754,7 @@ export default {
     }),
 
     updateSectorCodeList() {
+      this.sector_codes = [];
       let codelist = this.sector_vocabularies.find(element => element.code === this.form_sector.sector_vocabulary)?.related_codelist
       this.getCodelistOptions({codelist: codelist, language: this.user?.language}).then(
           (response) => {
