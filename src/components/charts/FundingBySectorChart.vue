@@ -20,11 +20,7 @@ export default {
               }]
           },
           options: {
-              scales: {
-                  y: {
-                      beginAtZero: true
-                  }
-              }
+            
           }
       },
     }
