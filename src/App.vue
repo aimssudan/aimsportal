@@ -219,7 +219,6 @@ li a {
 }
 @media screen and (max-width: 450px) {
   .footer-links {
-    height: 100px;
     display: none !important;
   }
 }
