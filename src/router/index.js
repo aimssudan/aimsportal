@@ -21,6 +21,7 @@ import OrganisationCategories from '../views/OrganisationCategories.vue'
 import OrganisationCategory from '../views/OrganisationCategory.vue'
 import Projects from '../views/Projects.vue'
 import NewProject from '../views/NewProject.vue'
+import Project from '../views/Project.vue'
 
 const routes = [
   {
@@ -133,6 +134,15 @@ const routes = [
     component: Projects,
     meta: {
       title: "AIMS ⇾ Projects",
+    },
+  },
+  {
+    path: '/project/:id?',
+    name: 'project',
+    component: Project,
+    meta: {
+      title: "AIMS ⇾ Project",
+     // middleware: [auth, verified],
     },
   },
   {

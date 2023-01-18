@@ -4,8 +4,8 @@
       <h1 class="text-primary"> Projects </h1>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-          <li class="breadcrumb-item"><a href="#">Projects</a></li>
+          <li class="breadcrumb-item"><router-link :to="{name: 'dashboard'}"> Dashboard</router-link></li>
+          <li class="breadcrumb-item"><router-link :to="{name: 'projects'}"> Projects</router-link></li>
           <li class="breadcrumb-item active" aria-current="page">List</li>
         </ol>
       </nav>
@@ -26,8 +26,9 @@
                               <th>Name</th>
                               <th>Funder</th>
                               <th>Implemetor</th>
-                              <th>Budget</th>
+                              <th>Budget(USD)</th>
                               <th>Progress</th>
+                              <th>Actions</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -36,11 +37,14 @@
                           <td>{{activity.default_title}}</td>
                           <td></td>
                           <td></td>
-                          <td>{{activity.budget
+                          <td>{{Intl.NumberFormat().format(activity.budget
                                         .map(obj => obj.iati_value_amount)
-                                        .reduce((accumulator, current) => accumulator + current, 0)}}</td>
+                                        .reduce((accumulator, current) => accumulator + current, 0))}}</td>
                           <td>{{activity.status}}</td>
-
+                          <td>
+                            <button @click="this.$router.push({ name: 'project', params: { id: activity.id} })" class="btn btn-warning btn-sm">View</button>
+                            <button class="btn btn-danger btn-sm">Delete</button>
+                          </td>
                         </tr>
                       </tbody>
 
@@ -74,6 +78,10 @@ export default {
     ...mapActions({
       fetchProjects : 'project/getProjects',
     }),
+
+    navigate(link) {
+      this.$router.push({ name: link });
+    },
   },
 
   created() {

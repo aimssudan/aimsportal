@@ -1,18 +1,18 @@
 <template>
   <main class="page project-page" style="min-height: 80vh;" >    
     <div class="container">
-      <h1 class="text-primary"> Add Project </h1>
+      <h1 class="text-primary"> View Project </h1>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><router-link :to="{name: 'dashboard'}"> Dashboard</router-link></li>
           <li class="breadcrumb-item"><router-link :to="{name: 'projects'}"> Projects</router-link></li>
-          <li class="breadcrumb-item active" aria-current="page">Add Project</li>
+          <li class="breadcrumb-item active" aria-current="page">View Project</li>
         </ol>
       </nav>
         <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5>Add New Project</h5>
+                <h5>View Project</h5>
               </div>
                 <div class="card-body">
                   <div v-if="isLoading" class="spinner-border text-warning" role="status">
@@ -1549,8 +1549,7 @@ import { mapActions, mapState } from 'vuex'
 import flashError from '../components/flashError.vue'
 
 export default {
-
-  name: 'new-project',
+  name: 'project',
   components: {
     flashError
   },
