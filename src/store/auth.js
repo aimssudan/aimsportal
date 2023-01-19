@@ -18,10 +18,13 @@ export default {
       return state.user && state.user.organisation && state.user.organisation.name ? state.user.organisation.name: null;
     },
     superadmin(state) {
-      return state.user && state.user.roles && state.user.roles[0].name == 'Super Administrator';
+      return state.user && state.user.roles && state.user.roles[0]?.name == 'Super Administrator';
     },
     contributor(state) {
-      return state.user && state.user.roles && state.user.roles[0].name === 'Contributor';
+      return state.user && state.user.roles && state.user.roles[0]?.name === 'Contributor';
+    },
+    manager(state) {
+      return state.user && state.user.roles && state.user.roles[0]?.name === 'Manager';
     },
     user(state) {
       return state.user
@@ -84,6 +87,18 @@ export default {
 
     updateUserStatus(_, payload) {
       return axios.post(`/users/update-status/${payload.id}`, payload);
+     },
+
+     updateUser(_, payload) {
+      return axios.post(`/users/update-user/${payload.id}`, payload);
+     },
+
+     async guestLogin({dispatch}) {
+      let credentials = {
+        app_token : process.env.VUE_APP_APP_KEY
+      }
+      let response = await axios.post('/users/guest-login', credentials)
+      return dispatch('attempt', response.data.data.token)
      }
 
   }
