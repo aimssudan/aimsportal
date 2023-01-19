@@ -185,11 +185,11 @@
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr v-for="org in participating_organisations" :key="org.id">
+                                    <tr v-for="(org,index) in participating_organisations" :key="index">
                                       <td>{{organisations.find(element => element.id === org.organisation_id)?.name}}</td>
                                       <td>{{organisation_types.find(element => element.code === org.type)?.name}}</td>
                                       <td>{{org.role}}</td>
-                                      <td><button @click="removeParticipatingOrg(org.organisation_id)" class="btn-xs btn btn-danger">x</button></td>
+                                      <td><button @click="removeParticipatingOrg(index)" class="btn-xs btn btn-danger">x</button></td>
                                     </tr>
                                     
                                     
@@ -1721,7 +1721,7 @@ export default {
         }
     },
     removeRecipientRegion(index) {
-      if (this.sectors[index] !== undefined) this.sectors.splice(index, 1); 
+      if (this.recipient_regions[index] !== undefined) this.recipient_regions.splice(index, 1); 
     },
 
     addParticipatingOrg() {
@@ -1745,9 +1745,8 @@ export default {
           }
         }
     },
-    removeParticipatingOrg(id) {
-      const index = this.participating_organisations.findIndex(org => org.organisation_id === id);
-      if (index !== -1) this.participating_organisations.splice(index, 1); 
+    removeParticipatingOrg(index) {
+      if (this.participating_organisations[index] !== undefined) this.participating_organisations.splice(index, 1); 
     },
 
     addBudget() {
@@ -1826,6 +1825,7 @@ export default {
              this.apiErrors = true;
              this.generalError = true;
              this.errors = resMessage;
+             this.$store.commit('showSnackbar',"Error Saving Project");
              
 
           }

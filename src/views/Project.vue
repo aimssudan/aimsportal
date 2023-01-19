@@ -12,7 +12,7 @@
         <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5>View Project</h5>
+                <h5>{{componentAction}}</h5>
               </div>
                 <div class="card-body">
                   <div v-if="isLoading" class="spinner-border text-warning" role="status">
@@ -185,11 +185,11 @@
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr v-for="org in participating_organisations" :key="org.id">
+                                    <tr v-for="(org,index) in participating_organisations" :key="index">
                                       <td>{{organisations.find(element => element.id === org.organisation_id)?.name}}</td>
                                       <td>{{organisation_types.find(element => element.code === org.type)?.name}}</td>
-                                      <td>{{org.role}}</td>
-                                      <td><button @click="removeParticipatingOrg(org.organisation_id)" class="btn-xs btn btn-danger">x</button></td>
+                                      <td>{{organisation_roles.find(element => element.code === org.role)?.name}}</td>
+                                      <td><button @click="removeParticipatingOrg(index)" class="btn-xs btn btn-danger">x</button></td>
                                     </tr>
                                     
                                     
@@ -371,7 +371,7 @@
                                       <td>{{budget.value_currency}}</td>
                                       <td>{{budget.value_amount}}</td>
                                       <td>{{budget.value_date}}</td>
-                                      <td><button @click="removeBudget(index)" class="btn-sm btn-danger">X</button></td>
+                                      <td><button @click="removeBudget(index)" class="btn btn-sm btn-danger">X</button></td>
                                     </tr>
                                     
                                     <tr>
@@ -1617,6 +1617,8 @@ export default {
       region_codes: [],
       recipient_countries: [],
       countrywide_contribution: 0,
+      currentProject: null,
+      componentAction: "",
 
     }
 
@@ -1630,9 +1632,14 @@ export default {
   methods: {
 
     ...mapActions({
-      createProject : 'project/addProject',
+      updateProject : 'project/updateProject',
+      getProject: 'project/fetchProject',
       getCodelistOptions: 'codelists/fetchCodelistOptions',
-      getCodelistValue: 'codelists/fetchCodelistValue'
+      getCodelistValue: 'codelists/fetchCodelistValue',
+      deleteParticipatingOrg: 'project/deleteParticipatingOrg',
+      deleteBudget: 'project/deleteBudget',
+      deleteSector: 'project/deleteSector',
+      deleteRecipientRegion: 'project/deleteRecipientRegion'
     }),
 
     updateSectorCodeList() {
@@ -1676,7 +1683,33 @@ export default {
         }
     },
     removeSectorContribution(index) {
-      if (this.sectors[index] !== undefined) this.sectors.splice(index, 1); 
+      if (confirm("Are you sure you want to delete?")) {
+        if (this.sectors[index] !== undefined) {
+          const sid = this.sectors[index]?.sid
+          if (sid !== null) {
+            this.deleteSector(sid).then(
+              (response) => {
+                //
+                let responseMessage = response.data.data;
+                this.$store.commit('showSnackbar', responseMessage)
+              },
+              (error) => {
+                const resMessage =
+                        (error.response &&
+                          error.response.data &&
+                          error.response.data.message) ||
+                        error.message ||
+                        error.toString();
+                
+                console.log(resMessage)
+                
+
+              }
+            );
+          } 
+          this.sectors.splice(index, 1); 
+        }
+      }
     },
 
     updateRegionCodeList() {
@@ -1720,7 +1753,34 @@ export default {
         }
     },
     removeRecipientRegion(index) {
-      if (this.sectors[index] !== undefined) this.sectors.splice(index, 1); 
+      
+      if (confirm("Are you sure you want to delete?")) {
+        if (this.recipient_regions[index] !== undefined) {
+          const sid = this.recipient_regions[index]?.sid
+          if (sid !== null) {
+            this.deleteRecipientRegion(sid).then(
+              (response) => {
+                //
+                let responseMessage = response.data.data;
+                this.$store.commit('showSnackbar', responseMessage)
+              },
+              (error) => {
+                const resMessage =
+                        (error.response &&
+                          error.response.data &&
+                          error.response.data.message) ||
+                        error.message ||
+                        error.toString();
+                
+                console.log(resMessage)
+                
+
+              }
+            );
+          } 
+          this.recipient_regions.splice(index, 1); 
+        }
+      }
     },
 
     addParticipatingOrg() {
@@ -1744,9 +1804,34 @@ export default {
           }
         }
     },
-    removeParticipatingOrg(id) {
-      const index = this.participating_organisations.findIndex(org => org.organisation_id === id);
-      if (index !== -1) this.participating_organisations.splice(index, 1); 
+    removeParticipatingOrg(index) {
+      if (confirm("Are you sure you want to delete?")) {
+        if (this.participating_organisations[index] !== undefined) {
+          const sid = this.participating_organisations[index]?.sid
+          if (sid !== null) {
+            this.deleteParticipatingOrg(sid).then(
+              (response) => {
+                //
+                let responseMessage = response.data.data;
+                this.$store.commit('showSnackbar', responseMessage)
+              },
+              (error) => {
+                const resMessage =
+                        (error.response &&
+                          error.response.data &&
+                          error.response.data.message) ||
+                        error.message ||
+                        error.toString();
+                
+                console.log(resMessage)
+                
+
+              }
+            );
+          } 
+          this.participating_organisations.splice(index, 1); 
+        }
+      }
     },
 
     addBudget() {
@@ -1774,7 +1859,65 @@ export default {
         }
     },
     removeBudget(index) {      
-      if (this.budgets[index] !== undefined) this.budgets.splice(index, 1); 
+      if (confirm("Are you sure you want to delete?")) {
+        if (this.budgets[index] !== undefined) {
+          const sid = this.budgets[index]?.sid
+          if (sid !== null) {
+            this.deleteBudget(sid).then(
+              (response) => {
+                //
+                let responseMessage = response.data.data;
+                this.$store.commit('showSnackbar', responseMessage)
+              },
+              (error) => {
+                const resMessage =
+                        (error.response &&
+                          error.response.data &&
+                          error.response.data.message) ||
+                        error.message ||
+                        error.toString();
+                
+                console.log(resMessage)
+                
+
+              }
+            );
+          } 
+          this.budgets.splice(index, 1); 
+        }
+      }
+    },
+
+    fillFormModels() {
+      if(this.currentProject !== undefined || this.currentProject !== null)
+      {
+        
+        this.project_title = this.currentProject.default_title;
+        this.project_objective = this.currentProject.description[0].narratives.find(element => element.lang == 'en')?.narrative
+        this.project_planned_start_date = this.currentProject.activity_date.find(element => element.iati_type == 1)?.iati_iso_date
+        this.project_planned_end_date = this.currentProject.activity_date.find(element => element.iati_type == 3)?.iati_iso_date
+        this.project_actual_start_date = this.currentProject.activity_date.find(element => element.iati_type == 2)?.iati_iso_date
+        this.project_actual_end_date = this.currentProject.activity_date.find(element => element.iati_type == 4)?.iati_iso_date
+        this.activity_status = this.currentProject.activity_status
+        this.participating_organisations = this.currentProject.participating_org.map(function(element){
+            return {sid:element.id, organisation_id:element.organisation_id, role:element.iati_role, type:element.iati_type}
+        })
+        this.budgets = this.currentProject.budget.map(function(element) {
+          return {sid:element.id, type:element.iati_type, status:element.iati_status, period_start:element.iati_period_start_iso_date, period_end:element.iati_period_end_iso_date, value_currency:element.iati_value_currency, value_amount:element.iati_value_amount, value_date:element.iati_value_date}
+        })
+        this.sectors = this.currentProject.sector.map(function(element) {
+          return {sid:element.id, sector_code: element.iati_code, sector_vocabulary:element.iati_vocabulary, sector_percentage:element.iati_percentage, sector_narrative:element.narratives, in_database:true}
+        })
+        this.recipient_countries = this.currentProject.recipient_country.map(function(element) {
+          return {sid:element.id, country_code:element.iati_code, country_percentage:element.iati_percentage, narratives:element.narratives, in_database:true}
+        })
+        this.countrywide_contribution = this.recipient_countries.findIndex(element => element.country_code == "SS" && element.country_percentage == 100) !== -1 ? 1 : 0
+        
+        this.recipient_regions = this.currentProject.recipient_region.map(function(element) {
+          return {sid:element.id, region_vocabulary:element.iati_vocabulary, region_code:element.iati_code, region_percentage:element.iati_percentage, region_narrative:element.narratives, in_database:true}
+        })
+
+      }
     },
     saveProject() {
        this.apiErrors = false;
@@ -1789,6 +1932,7 @@ export default {
        this.recipient_countries.push(recipient_country)
 
        let payload = {
+        id: this.currentProject.id,
         sectors: this.sectors,
         recipient_countries: this.recipient_countries,
         recipient_regions: this.recipient_regions,
@@ -1805,11 +1949,11 @@ export default {
         activity_status: this.activity_status,
         status: this.status,
        }
-       this.createProject(payload).then(
+       this.updateProject(payload).then(
           (response) => {
             //
             this.isLoading = false;
-            let savedProject = response.data.data 
+            let savedProject = JSON.parse(response.data.data) 
             this.$store.commit('project/ADD_PROJECT', savedProject)
             this.$store.commit('showSnackbar', 'success');
             this.$router.push({ name: "projects" });
@@ -1845,6 +1989,39 @@ export default {
       this.$store.commit('auth/SET_TOKEN', token);
       this.$store.commit('auth/SET_USER', loggedInUser);
     }
+
+    let idParam = this.$route.params.id
+  if (idParam) {
+    
+    this.getProject(idParam).then(
+            (response) => {
+              //
+              this.isLoading = false;
+              let currentProject = response.data.data
+              this.currentProject = currentProject
+              this.componentAction = "Project: "+currentProject.default_title
+              this.isLoading = false
+              this.fillFormModels();
+            },
+            (error) => {
+              const resMessage =
+                      (error.response &&
+                        error.response.data &&
+                        error.response.data.errors) ||
+                      error.message ||
+                      error.toString();
+              this.isLoading = false;
+              this.apiErrors = true;
+              this.errors = resMessage;
+              this.$store.commit('showSnackbar', "Error Fetching Project")
+              
+              
+
+            }
+    );
+    
+    
+  }
     
     this.getCodelistOptions({codelist: 'OrganisationType', language: this.user?.language}).then(
           (response) => {

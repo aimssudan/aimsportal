@@ -52,6 +52,18 @@ export default {
     deleteProject(_, id) {
       return axios.delete(`/projects/${id}`);
     },
+    deleteParticipatingOrg(_, id) {
+      return axios.delete(`/projects/participating-org/${id}`);
+    },
+    deleteBudget(_, id) {
+      return axios.delete(`/projects/budget/${id}`);
+    },
+    deleteSector(_, id) {
+      return axios.delete(`/projects/sector/${id}`);
+    },
+    deleteRecipientRegion(_, id) {
+      return axios.delete(`/projects/recipient-region/${id}`);
+    },
 
   }
 }
