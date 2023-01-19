@@ -5,29 +5,29 @@
         <div class="container"><a class="navbar-brand logo" href="#"> <img src="@/assets/court.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"> AIMS - South Sudan</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >Projects</a>
+                    <li class="nav-item"><a class="nav-link active"  @click="navigate('landing')">{{this.getTranslation("home")}}</a></li>
+                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >{{this.getTranslation("projects")}}</a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" @click="navigate('projects')">Project List</a>
-                          <a class="dropdown-item" @click="navigate('reports')">Reports</a>
-                          <a v-if="profile" class="dropdown-item" role="button" @click="navigate('new-project')">Add Project</a>
+                          <a class="dropdown-item" @click="navigate('projects')">{{this.getTranslation("project")}} {{this.getTranslation("list")}}</a>
+                          <a class="dropdown-item" @click="navigate('reports')">{{this.getTranslation("reports")}}</a>
+                          <a v-if="isEditor" class="dropdown-item" role="button" @click="navigate('new-project')">{{this.getTranslation("add")}} {{this.getTranslation("project")}}</a>
                         </div>
                     </li>
                     
                     
-                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">Organisations</a>
+                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("organisations")}}</a>
                         <div class="dropdown-menu">
-                          <a v-if="isadmin" class="dropdown-item" role="button" @click="navigate('organisation-categories')">Categories</a>
-                          <a class="dropdown-item" role="button" @click="navigate('organisations')">Organisations</a>
+                          <a v-if="isadmin" class="dropdown-item" role="button" @click="navigate('organisation-categories')">{{this.getTranslation("categories")}}</a>
+                          <a class="dropdown-item" role="button" @click="navigate('organisations')">{{this.getTranslation("organisations")}}</a>
                         </div>
                     </li>
                     <!-- <li class="nav-item" @click="navigate('contact')"><a class="nav-link" role="button" >Contact Us</a></li> -->
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">Account</a>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("account")}}</a>
                         <div class="dropdown-menu">
-                          <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('login')">Login</a>
-                          <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('register')">Register</a>
-                          <a v-if="profile" class="dropdown-item" role="button" @click="navigate('profile')">Profile</a>
-                          <a v-if="profile" class="dropdown-item" role="button" @click="signout">Logout</a>
+                          <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('login')">{{this.getTranslation("login")}}</a>
+                          <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('register')">{{this.getTranslation("register")}}</a>
+                          <a v-if="profile" class="dropdown-item" role="button" @click="navigate('profile')">{{this.getTranslation("profile")}}</a>
+                          <a v-if="profile" class="dropdown-item" role="button" @click="signout">{{this.getTranslation("logout")}}</a>
                         </div>
                     </li>
                 </ul>
@@ -49,26 +49,26 @@
                     <p style="color: rgba(255,255,255,0.43);font-size: 16px;">This platform is managed by the Ministry of Finance and Planning - Government of South Sudan.<br></p>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <h5>About us</h5>
+                    <h5>{{this.getTranslation("about-us")}}</h5>
                     <ul class="list-unstyled">
                         <li><a href="#">MoFP (GOSS)</a></li>
-                        <li><a href="#">Organizations</a></li>
-                        <li><a href="#">Donors</a></li>
+                        <li><a href="#">{{this.getTranslation("organisations")}}</a></li>
+                        <li><a href="#">{{this.getTranslation("donors")}}</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <h5>Support</h5>
+                    <h5>{{this.getTranslation("support")}}</h5>
                     <ul class="list-unstyled">
-                        <li><a href="contact-us.html">Inquiries</a></li>
-                        <li><a href="#">Help desk</a></li>
-                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="contact-us.html">{{this.getTranslation("inquiries")}}</a></li>
+                        <li><a href="#">{{this.getTranslation("help-desk")}}</a></li>
+                        <li><a href="faq.html">{{this.getTranslation("faqs")}}</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <h5>Legal</h5>
+                    <h5>{{this.getTranslation("legal")}}</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">{{this.getTranslation("terms-of-use")}}</a></li>
+                        <li><a href="#">{{this.getTranslation("privacy-policy")}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -107,20 +107,27 @@ export default {
       },
       ...mapGetters({
         admin: "auth/superadmin",
-        contributor: "auth/contributor"
+        contributor: "auth/contributor",
+        manager: "auth/manager",
+        authenticated: "auth/authenticated",
+        getTranslation: "global/getTranslation"
       }),
       isadmin() {
         return this.admin
+      },
+      isAuthenticated() {
+        return this.authenticated
+      },
+      isEditor() {
+        return this.contributor || this.admin || this.manager
       }
   },
   methods: {
-    ...mapGetters({
-      authenticated: 'auth/authenticated'
-    }),
     ...mapActions({
       logout: 'auth/logOut',
       getOrganisations : 'global/getOrganisations',
       getCategories: 'global/getOrganisationCategories',
+      getTranslations: 'global/getTranslations',
     }),
     navigate(link) {
       this.$router.push({ name: link });
