@@ -5,6 +5,7 @@ import guest from '../middleware/guest'
 import verified from '../middleware/verified'
 import unverified from '../middleware/unverified'
 import admin from '../middleware/admin'
+//import editor from '../middleware/editor'
 import middlewarePipeline from '../middleware/middlewarePipeline'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
@@ -21,6 +22,7 @@ import OrganisationCategories from '../views/OrganisationCategories.vue'
 import OrganisationCategory from '../views/OrganisationCategory.vue'
 import Projects from '../views/Projects.vue'
 import NewProject from '../views/NewProject.vue'
+import Project from '../views/Project.vue'
 
 const routes = [
   {
@@ -106,7 +108,7 @@ const routes = [
     component: Organisation,
     meta: {
       title: "AIMS ⇾ Organisation",
-     // middleware: [auth, verified],
+      middleware: [auth],
     },
   },
   {
@@ -133,6 +135,16 @@ const routes = [
     component: Projects,
     meta: {
       title: "AIMS ⇾ Projects",
+      middleware: [auth],
+    },
+  },
+  {
+    path: '/project/:id?',
+    name: 'project',
+    component: Project,
+    meta: {
+      title: "AIMS ⇾ Project",
+      middleware: [auth],
     },
   },
   {
@@ -149,8 +161,8 @@ const routes = [
     name: 'new-project',
     component: NewProject,
     meta: {
-      title: "AIMS ⇾ New Profile",
-      middleware: [auth]
+      title: "AIMS ⇾ New Project",
+      middleware: [auth, verified]
     },
   },
 ]

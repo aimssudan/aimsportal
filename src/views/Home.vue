@@ -63,7 +63,7 @@
                     <p>Proceed to access public information</p>
                   </div>
                   <div class="col-md-6">
-                    <a href="" style="background-color: #f7f7f7; color: black; border: 1px solid #f7f7f7;" class="btn btn-success btn-rounded">PUBLIC USER</a>
+                    <button @click="loginAsGuest()" style="background-color: #f7f7f7; color: black; border: 1px solid #f7f7f7;" class="btn btn-success btn-rounded">PUBLIC USER</button>
                   </div>
                 </div><!-- row -->
 
@@ -150,16 +150,12 @@ export default {
 
   methods: {
     ...mapActions({
-      login: 'auth/login'
+      login: 'auth/login',
+      guestLogin: 'auth/guestLogin'
     }),
 
     submit() {
-
-      //  this.apiErrors = false;
-      //  this.generalError = false;
-        this.isLoading = true;
-      //  this.validationErrors = false;
-       
+        this.isLoading = true;      
         this.login(this.form).then(
           (response) => {
             //
@@ -178,6 +174,34 @@ export default {
               this.isLoading = false;
               this.apiErrors = true;
               this.errors = resMessage;
+             
+
+          }
+        );
+          
+        
+    },
+
+    loginAsGuest() {
+        this.isLoading = true;      
+        this.guestLogin().then(
+          (response) => {
+            //
+            this.isLoading = false;
+            let apiMessage = response ?? 'success'
+            this.$store.commit('showSnackbar',apiMessage);
+            this.$router.push({ name: "dashboard" });
+          },
+          (error) => {
+            const resMessage =
+                      (error.response &&
+                        error.response.message) ||
+                      error.message ||
+                      error.toString();
+              this.isLoading = false;
+              this.apiErrors = true;
+              this.errors = resMessage;
+              this.$store.commit('showSnackbar',"Unauthorized");
              
 
           }

@@ -5,15 +5,19 @@ export default {
 
   state: {
     organisations: [],
-    organisationCategories: []
+    organisationCategories: [],
+    languages: [],
+    translations: {},
   },
   getters: {
-    authenticated(state) {
-      return state.token && state.user
-    },    
-    category: (state) => (id) => {
-      return state.organisationCategories.find(item => item.id === id)
-    }
+    getTranslation: (state) => (key) =>{
+      if(state.translations.length == 0){
+          return key.replace(/-/g, ' ').replace(/_/g, ' ');
+      }
+      
+      return state.translations[key] !== undefined ? state.translations[key] : key.replace(/-/g, ' ').replace(/_/g, ' ');
+      
+   },
   },
   mutations: {
     SET_ORGANISATIONS (state, payload) {
@@ -21,6 +25,12 @@ export default {
     },
     SET_ORGANISATION_CATEGORIES (state, payload) {
       state.organisationCategories = payload
+    },
+    SET_LANGUAGES (state, payload) {
+      state.languages = payload
+    },
+    SET_TRANSLATIONS (state, payload) {
+      state.translations = payload
     },
     ADD_CATEGORY (state, newCategory) {
       state.organisationCategories.push(newCategory);
@@ -55,6 +65,16 @@ export default {
         axios.get(`/organisation-categories`).then((response) => {
             commit("SET_ORGANISATION_CATEGORIES", response.data.data);
         });
+    },
+    getLanguages({commit}) {
+      axios.get(`/general/languages`).then((response) => {
+          commit("SET_LANGUAGES", response.data.data);
+      });
+    },
+    getTranslations({commit}) {
+      axios.get(`/general/languages/get-translations`).then((response) => {
+          commit("SET_TRANSLATIONS", response.data.data);
+      });
     },
     addOrganisationCategory(_, payload) {
      return axios.post(`/organisation-categories`, payload);
