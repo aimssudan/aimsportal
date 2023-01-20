@@ -5,7 +5,7 @@ import guest from '../middleware/guest'
 import verified from '../middleware/verified'
 import unverified from '../middleware/unverified'
 import admin from '../middleware/admin'
-import editor from '../middleware/editor'
+//import editor from '../middleware/editor'
 import middlewarePipeline from '../middleware/middlewarePipeline'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
@@ -162,7 +162,7 @@ const routes = [
     component: NewProject,
     meta: {
       title: "AIMS ⇾ New Project",
-      middleware: [auth, verified, editor]
+      middleware: [auth, verified]
     },
   },
 ]
