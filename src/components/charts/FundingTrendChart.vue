@@ -4,6 +4,7 @@
 
 <script>
 import  Chart  from 'chart.js/auto';
+import { mapActions} from 'vuex'
 
 export default {
   name: 'FundingTrendChart',
@@ -14,8 +15,8 @@ export default {
           data: {
               labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
               datasets: [{
-                  label: 'past 6 years in USD (m)',
-                  data: [12, 19, 3, 5, 2, 3],                  
+                  label: 'past years',
+                  data: [12, 19, 3, 5, 2, 3],
                   borderWidth: 1
               }]
           },
@@ -29,9 +30,33 @@ export default {
       },
     }
   },
+  methods: {
+    ...mapActions({
+      fetchData : 'reports/getFundingTrendReport'
+    })
+  },
   mounted() {
-    const ctx = document.getElementById('funding-trend-chart').getContext('2d');
-    new Chart(ctx, this.chartData);
+    this.fetchData().then(
+      (response) => {
+          let chartData = response.data
+          this.chartData.data.labels = chartData.map(value => value.year)
+          this.chartData.data.datasets[0].data = chartData.map(value => value.data)
+          this.chartData.data.datasets[0].label = 'Past '+chartData.length+' years (USD)'
+          const ctx = document.getElementById('funding-trend-chart').getContext('2d');
+          new Chart(ctx, this.chartData);
+      },
+      (error) => {
+        const errorMessage =
+              (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+              error.message ||
+              error.toString();
+             
+        this.$store.commit("showSnackbar", errorMessage)
+      }
+    )
+    
   }
 }
 </script>

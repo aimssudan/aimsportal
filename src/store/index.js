@@ -3,6 +3,8 @@ import auth from './auth'
 import global from './global';
 import project from './project';
 import codelists from './codelists';
+import reports from './reports';
+
 
 export default createStore({
   state: {
@@ -72,6 +74,7 @@ export default createStore({
     auth,
     global,
     project,
-    codelists
+    codelists,
+    reports
   }
 })
