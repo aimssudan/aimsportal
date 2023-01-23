@@ -17,6 +17,7 @@ export default {
               datasets: [{
                   label: 'past years',
                   data: [12, 19, 3, 5, 2, 3],
+                  backgroundColor: [],
                   borderWidth: 1
               }]
           },
@@ -39,9 +40,15 @@ export default {
     this.fetchData().then(
       (response) => {
           let chartData = response.data
+          let colors = [];
+
+          for (let i = 0; i < chartData.length; i++) {
+              colors.push("#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase())
+          }
           this.chartData.data.labels = chartData.map(value => value.year)
           this.chartData.data.datasets[0].data = chartData.map(value => value.data)
           this.chartData.data.datasets[0].label = 'Past '+chartData.length+' years (USD)'
+          this.chartData.data.datasets[0].backgroundColor = colors
           const ctx = document.getElementById('funding-trend-chart').getContext('2d');
           new Chart(ctx, this.chartData);
       },
