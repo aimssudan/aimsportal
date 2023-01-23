@@ -26,5 +26,9 @@ export default {
       return axios.post(`/reports/funding-by-sector`, payload);
      },
 
+     getFundingBySourceReport(_, payload) {
+      return axios.post(`/reports/funding-by-source`, payload);
+     },
+
   }
 }

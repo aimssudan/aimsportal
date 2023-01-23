@@ -15,7 +15,7 @@ export default {
           data: {
               labels: [],
               datasets: [{
-                  label: 'this year',
+                  label: 'By Sector',
                   data: [],
                   backgroundColor: [],
                   hoverOffset: 4
@@ -37,7 +37,7 @@ export default {
       (response) => {
           let chartData = response.data
           let colors = [];
-          
+
           for (let i = 0; i < chartData.length; i++) {
               colors.push("#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase())
           }
