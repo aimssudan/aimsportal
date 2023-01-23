@@ -43,7 +43,7 @@
                           <td>{{activity.status}}</td>
                           <td>
                             <button @click="this.$router.push({ name: 'project', params: { id: activity.id} })" class="btn btn-warning btn-sm">View</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button @click="deleteAProject(activity.id)" class="btn btn-danger btn-sm">Delete</button>
                           </td>
                         </tr>
                       </tbody>
@@ -77,11 +77,33 @@ export default {
 
     ...mapActions({
       fetchProjects : 'project/getProjects',
+      deleteProject: 'project/deleteProject'
     }),
 
     navigate(link) {
       this.$router.push({ name: link });
     },
+
+    deleteAProject(id) {
+      if (confirm("Are you sure ?")) {
+        this.deleteProject(id).then(
+          (response) => {
+            this.$store.commit("showSnackbar", response.data.data)
+            this.fetchProjects()
+          },
+          (error) => {
+            const errorMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             this.$store.commit("showSnackbar", errorMessage)
+          }
+        )
+      }
+    }
   },
 
   created() {

@@ -64,6 +64,9 @@ export default {
     deleteRecipientRegion(_, id) {
       return axios.delete(`/projects/recipient-region/${id}`);
     },
+    deleteTransaction(_, id) {
+      return axios.delete(`/projects/transaction/${id}`);
+    },
 
   }
 }

@@ -369,7 +369,7 @@
                                       <td>{{budget.period_end}}</td>
                                       <td>{{budget.type}}</td>
                                       <td>{{budget.value_currency}}</td>
-                                      <td>{{budget.value_amount}}</td>
+                                      <td>{{Intl.NumberFormat().format(budget.value_amount)}}</td>
                                       <td>{{budget.value_date}}</td>
                                       <td><button @click="removeBudget(index)" class="btn-sm btn-danger">X</button></td>
                                     </tr>
@@ -379,9 +379,9 @@
                                       <td>Total</td>
                                       <td>&nbsp;</td>
                                       <td>&nbsp;</td>
-                                      <td>{{budgets
+                                      <td>{{Intl.NumberFormat().format(budgets
                                         .map(obj => obj.value_amount)
-                                        .reduce((accumulator, current) => accumulator + current, 0)}}
+                                        .reduce((accumulator, current) => accumulator + current, 0))}}
                                         </td>
                                       <td>&nbsp;</td>
                                       <td>&nbsp;</td>
@@ -418,51 +418,41 @@
                                         <div class="row mx-3 mt-3"> 
                                           <label for="development_partner" class="col-sm-4 col-form-label"><small>Funding Organisation</small></label>
                                           <div class="col-sm-4">
-                                            <select name="aid_category" id="aid_category" class="form-select">
-                                                  <option value="Grant">UN</option>
-                                                  <option value="Donation">USA</option>
-                                                  <option value="Loan">UK</option>
-                                                </select>
+                                            <select v-model="form_transactions.provider_org.organisation_id"  class="form-select">
+                                                  <option v-for="org in organisations" :key="org.id" :value="org.id">{{org.name}}</option>
+                                            </select>
                                           </div>
                                           <div class="col-sm-4">
-                                            <select name="aid_category" id="aid_category" class="form-select">
-                                                  <option >Organisation Type</option>
-                                                  <option value="Donation">Government</option>
-                                                  <option value="Loan">Private</option>
+                                            <select v-model="form_transactions.provider_org.type" class="form-select">
+                                                  <option v-for="orgType in organisation_types" :key="orgType.code" :value="orgType.code">{{orgType.name}}</option>
+                                                  
                                                 </select>
                                           </div>
                                         </div>
                                         <div class="row mx-3 mt-3"> 
                                           <label for="development_partner" class="col-sm-4 col-form-label"><small>Receiving Organisation</small></label>
                                           <div class="col-sm-4">
-                                            <select name="aid_category" id="aid_category" class="form-select">
-                                                  <option value="Grant">Olive International</option>
-                                                  <option value="Donation">Save the Children</option>
-                                                  <option value="Loan">MTN</option>
+                                            <select v-model="form_transactions.receiver_org.organisation_id" class="form-select">
+                                                  <option v-for="org in organisations" :key="org.id" :value="org.id">{{org.name}}</option>
                                                 </select>
                                           </div>
                                           <div class="col-sm-4">
-                                            <select name="aid_category" id="aid_category" class="form-select">
+                                            <select v-model="form_transactions.receiver_org.type" class="form-select">
                                                   <option >Organisation Type</option>
-                                                  <option value="Donation">Government</option>
-                                                  <option value="Loan">Private</option>
+                                                  <option v-for="orgType in organisation_types" :key="orgType.code" :value="orgType.code">{{orgType.name}}</option>
                                                 </select>
                                           </div>
                                         </div>
                                         <div class="row mx-3 mt-3"> 
                                           <label for="development_partner" class="col-sm-4 col-form-label"><small>Aid Category</small></label>
                                           <div class="col-sm-4">
-                                            <select name="aid_category" id="aid_category" class="form-select">
-                                                  <option value="Grant">Vocabulary</option>
-                                                  <option value="Donation">Donation</option>
-                                                  <option value="Loan">Loan</option>
+                                            <select v-model="form_transactions.aid_types[0].vocabulary" @change="updateAidTypes" class="form-select">
+                                                  <option v-for="voc in aid_type_vocabularies" :key="voc.code" :value="voc.code">{{voc.name}}</option>
                                                 </select>
                                           </div>
                                           <div class="col-sm-4">
-                                            <select name="aid_category" id="aid_category" class="form-select">
-                                                  <option >Aid Type</option>
-                                                  <option value="Donation">Donation</option>
-                                                  <option value="Loan">Loan</option>
+                                            <select v-model="form_transactions.aid_types[0].code" class="form-select">                                                  
+                                                  <option v-for="code in aid_type_codes" :key="code.code" :value="code.code">{{code.name}}</option>
                                             </select>
                                           </div>
                                         </div>
@@ -474,11 +464,11 @@
                                                 <div class="row">                                                  
                                                   <div class="col-sm-6">
                                                       <label class="" >Transaction Date</label>
-                                                      <input class="form-control" type="date" name="comes_from_trust_fund" id="comes_from_trust_fund_yes" >
+                                                      <input class="form-control" type="date" v-model="form_transactions.transaction_date" >
                                                   </div>
                                                   <div class="col-sm-6">
                                                     <label class="" >Value Date</label>
-                                                    <input class="form-control" type="date" name="comes_from_trust_fund" id="comes_from_trust_fund_yes" >
+                                                    <input class="form-control" type="date"  v-model="form_transactions.value_date">
                                                   </div>
                                                 </div>
                                               </div>
@@ -495,31 +485,26 @@
                                                 <div class="row">                                                  
                                                   <div class="col-sm-6">
                                                       <label class="" >Disbursement Channel</label>
-                                                      <select name="aid_category" id="aid_category" class="form-select">                                                  
-                                                        <option value="Donation">Ministry of Finance</option>
-                                                        <option value="Loan">Directyp</option>
+                                                      <select v-model="form_transactions.disbursement_channel_code" class="form-select">                                                  
+                                                        <option v-for="code in disbursement_channels" :key="code.code" :value="code.code">{{code.name}}</option>
                                                       </select>
                                                   </div>
                                                   <div class="col-sm-6">
                                                     <label class="" >Flow Type</label>
-                                                    <select name="aid_category" id="aid_category" class="form-select">                                                  
-                                                        <option value="Donation">Official Development Assistance</option>
-                                                        <option value="Loan">Non Flow</option>
+                                                    <select v-model="form_transactions.flow_type_code" class="form-select">                                                  
+                                                        <option v-for="code in flow_types" :key="code.code" :value="code.code">{{code.name}}</option>
                                                       </select>
                                                   </div>
                                                   <div class="col-sm-6">
                                                     <label class="" >Finance Type</label>
-                                                    <select name="aid_category" id="aid_category" class="form-select">                                                  
-                                                        <option value="Donation">Standard Grant</option>
-                                                        <option value="Loan">Standard Loan</option>
+                                                    <select v-model="form_transactions.finance_type_code" class="form-select">                                                  
+                                                        <option v-for="code in finance_types" :key="code.code" :value="code.code">{{code.name}}</option>
                                                       </select>
                                                   </div>
                                                   <div class="col-sm-6">
                                                     <label class="" >Tied Status</label>
-                                                    <select name="aid_category" id="aid_category" class="form-select">                                                  
-                                                        <option value="Donation">Tied</option>
-                                                        <option value="Loan">Partially Tied</option>
-                                                        <option value="Loan">UnTied</option>
+                                                    <select v-model="form_transactions.tied_status_code" class="form-select">
+                                                        <option v-for="code in tied_status_codes" :key="code.code" :value="code.code">{{code.name}}</option>
                                                       </select>
                                                   </div>
                                                 </div>
@@ -530,23 +515,29 @@
                                         </div>
 
                                         <div class="row mx-3 pt-3 pb-3 mt-3 bg-light">
-                                          <div class="col-sm-6">
+                                          <div class="col-sm-4">
                                             <div class="row">
                                               <label for="commitment_amount" class="col-sm-5 col-form-label"><small>Commitment Amount</small></label>
                                               <div class="col-sm-6">
-                                                <input type="number" class="form-control" min="1" name="commitment_amount" placeholder="1000000" id="commitment_amount">
+                                                <input v-model="form_transactions.value_amount" class="form-control" type="number" min="1"  placeholder="1000000" >
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="col-sm-6">
+                                          <div class="col-sm-4">
                                             <div class="row">
                                               <label for="commitment_currency" class="col-sm-4 col-form-label"><small>Currency</small></label>
                                               <div class="col-sm-6">
-                                                <select name="commitment_currency" id="commitment_currency" class="form-select">
-                                                  <option value="US Dollar">US Dollar</option>
-                                                  <option value="Pounds">Pounds</option>
-                                                  <option value="Canadian Dollar">Canadian Dollar</option>
+                                                <select v-model="form_transactions.value_currency" class="form-select">
+                                                  <option v-for="currency in currencies" :key="currency.code" :value="currency.code">{{currency.name}}</option>
                                                 </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <div class="row">
+                                              <label for="commitment_currency" class="col-sm-4 col-form-label"><small>Reference</small></label>
+                                              <div class="col-sm-6">
+                                                <input type="text" v-model="form_transactions.ref" class="form-control">
                                               </div>
                                             </div>
                                           </div>
@@ -591,7 +582,7 @@
                                           <div class="col-sm-6">
                                             <div class="row">
                                               <label class="form-check-label col-sm-4" for="amount_in_usd">
-                                                <small>Amount in BDT </small>
+                                                <small>Amount in SSP </small>
                                               </label>
                                               <div class="col-sm-6">
                                                 <input class="form-control" type="text" id="amount_in_usd">
@@ -602,41 +593,55 @@
 
                                       </div>
                                       <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-primary">Add</button>
+                                        <button id="close-add-incoming-funds-modal" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <button @click="addIncomingFunds" type="button" class="btn btn-primary">Add</button>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
 
+                                <div class="table-responsive">
+                                  <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th>Development Partner</th>
+                                        <th>Aid Category</th>
+                                        <th>Transaction Ref</th>
+                                        <th>Transaction Date </th>
+                                        <th>Amount in DP's Currency</th>
+                                        <th>Amount in USD</th>
+                                        <th>Actions</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr v-for="funding in incomingTransactions" :key="funding.id">
+                                        <td>{{organisations.find(element => element.id === funding.provider_org.organisation_id)?.name}}</td>
+                                        <td>{{aid_type_codes.find(element => element.code === funding.aid_types[0].code)?.name}}</td>
+                                        <td>{{funding.ref}}</td>
+                                        <td>{{funding.transaction_date}} </td>
+                                        <td>{{Intl.NumberFormat().format(funding.value_amount)}}</td>
+                                        <td>{{Intl.NumberFormat().format(funding.value_amount)}}</td>
+                                        <td><button @click="removeIncomingFunds(funding.id)" class="btn btn-sm btn-danger">X
+                                          </button>
+                                          </td>
 
-                                <table class="table table-responsive">
-                                  <thead>
-                                    <tr>
-                                      <th>Development Partner</th>
-                                      <th>Aid Category</th>
-                                      <th>Loan/Grant Number</th>
-                                      <th>Agreement Date (dd/MM/yyyy)</th>
-                                      <th>Amount in DP's Currency</th>
-                                      <th>Amount in USD</th>
-                                      <th>Actions</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
+                                      </tr>
+                                      <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>Total</td>
+                                        <td>&nbsp;</td>
+                                        <td>{{incomingTransactions
+                                          .map(obj => obj.value_amount)
+                                          .reduce((accumulator, current) => accumulator + current, 0)}}</td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      
+                                    </tbody>
                                     
-                                    <tr>
-                                      <td>&nbsp;</td>
-                                      <td>&nbsp;</td>
-                                      <td>&nbsp;</td>
-                                      <td>Total</td>
-                                      <td>&nbsp;</td>
-                                      <td>0</td>
-                                      <td>&nbsp;</td>
-                                    </tr>
-                                    
-                                  </tbody>
-                                  
-                                </table>
+                                  </table>
+                                </div>
                               </div>
 
                             </div> 
@@ -663,51 +668,40 @@
                                         <div class="row mx-3 mt-3"> 
                                           <label for="development_partner" class="col-sm-4 col-form-label"><small>Funding Organisation</small></label>
                                           <div class="col-sm-4">
-                                            <select name="aid_category" id="aid_category" class="form-select">
-                                                  <option value="Grant">UN</option>
-                                                  <option value="Donation">USA</option>
-                                                  <option value="Loan">UK</option>
-                                                </select>
+                                            <select v-model="form_transactions.provider_org.organisation_id"  class="form-select">
+                                                  <option v-for="org in organisations" :key="org.id" :value="org.id">{{org.name}}</option>
+                                            </select>
                                           </div>
                                           <div class="col-sm-4">
-                                            <select name="aid_category" id="aid_category" class="form-select">
-                                                  <option >Organisation Type</option>
-                                                  <option value="Donation">Government</option>
-                                                  <option value="Loan">Private</option>
+                                            <select v-model="form_transactions.provider_org.type" class="form-select">
+                                                  <option v-for="orgType in organisation_types" :key="orgType.code" :value="orgType.code">{{orgType.name}}</option>
+                                                  
                                                 </select>
                                           </div>
                                         </div>
                                         <div class="row mx-3 mt-3"> 
                                           <label for="development_partner" class="col-sm-4 col-form-label"><small>Receiving Organisation</small></label>
                                           <div class="col-sm-4">
-                                            <select name="aid_category" id="aid_category" class="form-select">
-                                                  <option value="Grant">Olive International</option>
-                                                  <option value="Donation">Save the Children</option>
-                                                  <option value="Loan">MTN</option>
+                                            <select v-model="form_transactions.receiver_org.organisation_id" class="form-select">
+                                                  <option v-for="org in organisations" :key="org.id" :value="org.id">{{org.name}}</option>
                                                 </select>
                                           </div>
                                           <div class="col-sm-4">
-                                            <select name="aid_category" id="aid_category" class="form-select">
-                                                  <option >Organisation Type</option>
-                                                  <option value="Donation">Government</option>
-                                                  <option value="Loan">Private</option>
+                                            <select v-model="form_transactions.receiver_org.type" class="form-select">
+                                                  <option v-for="orgType in organisation_types" :key="orgType.code" :value="orgType.code">{{orgType.name}}</option>
                                                 </select>
                                           </div>
                                         </div>
                                         <div class="row mx-3 mt-3"> 
                                           <label for="development_partner" class="col-sm-4 col-form-label"><small>Aid Category</small></label>
                                           <div class="col-sm-4">
-                                            <select name="aid_category" id="aid_category" class="form-select">
-                                                  <option value="Grant">Vocabulary</option>
-                                                  <option value="Donation">Donation</option>
-                                                  <option value="Loan">Loan</option>
+                                            <select v-model="form_transactions.aid_types[0].vocabulary" @change="updateAidTypes" class="form-select">
+                                                  <option v-for="voc in aid_type_vocabularies" :key="voc.code" :value="voc.code">{{voc.name}}</option>
                                                 </select>
                                           </div>
                                           <div class="col-sm-4">
-                                            <select name="aid_category" id="aid_category" class="form-select">
-                                                  <option >Aid Type</option>
-                                                  <option value="Donation">Donation</option>
-                                                  <option value="Loan">Loan</option>
+                                            <select v-model="form_transactions.aid_types[0].code" class="form-select">
+                                                  <option v-for="code in aid_type_codes" :key="code.code" :value="code.code">{{code.name}}</option>
                                             </select>
                                           </div>
                                         </div>
@@ -719,11 +713,11 @@
                                                 <div class="row">                                                  
                                                   <div class="col-sm-6">
                                                       <label class="" >Transaction Date</label>
-                                                      <input class="form-control" type="date" name="comes_from_trust_fund" id="comes_from_trust_fund_yes" >
+                                                      <input class="form-control" type="date" v-model="form_transactions.transaction_date" >
                                                   </div>
                                                   <div class="col-sm-6">
                                                     <label class="" >Value Date</label>
-                                                    <input class="form-control" type="date" name="comes_from_trust_fund" id="comes_from_trust_fund_yes" >
+                                                    <input class="form-control" type="date"  v-model="form_transactions.value_date">
                                                   </div>
                                                 </div>
                                               </div>
@@ -740,31 +734,26 @@
                                                 <div class="row">                                                  
                                                   <div class="col-sm-6">
                                                       <label class="" >Disbursement Channel</label>
-                                                      <select name="aid_category" id="aid_category" class="form-select">                                                  
-                                                        <option value="Donation">Ministry of Finance</option>
-                                                        <option value="Loan">Directyp</option>
+                                                      <select v-model="form_transactions.disbursement_channel_code" class="form-select">                                                  
+                                                        <option v-for="code in disbursement_channels" :key="code.code" :value="code.code">{{code.name}}</option>
                                                       </select>
                                                   </div>
                                                   <div class="col-sm-6">
                                                     <label class="" >Flow Type</label>
-                                                    <select name="aid_category" id="aid_category" class="form-select">                                                  
-                                                        <option value="Donation">Official Development Assistance</option>
-                                                        <option value="Loan">Non Flow</option>
+                                                    <select v-model="form_transactions.flow_type_code" class="form-select">                                                  
+                                                        <option v-for="code in flow_types" :key="code.code" :value="code.code">{{code.name}}</option>
                                                       </select>
                                                   </div>
                                                   <div class="col-sm-6">
                                                     <label class="" >Finance Type</label>
-                                                    <select name="aid_category" id="aid_category" class="form-select">                                                  
-                                                        <option value="Donation">Standard Grant</option>
-                                                        <option value="Loan">Standard Loan</option>
+                                                    <select v-model="form_transactions.finance_type_code" class="form-select">                                                  
+                                                        <option v-for="code in finance_types" :key="code.code" :value="code.code">{{code.name}}</option>
                                                       </select>
                                                   </div>
                                                   <div class="col-sm-6">
                                                     <label class="" >Tied Status</label>
-                                                    <select name="aid_category" id="aid_category" class="form-select">                                                  
-                                                        <option value="Donation">Tied</option>
-                                                        <option value="Loan">Partially Tied</option>
-                                                        <option value="Loan">UnTied</option>
+                                                    <select v-model="form_transactions.tied_status_code" class="form-select">
+                                                        <option v-for="code in tied_status_codes" :key="code.code" :value="code.code">{{code.name}}</option>
                                                       </select>
                                                   </div>
                                                 </div>
@@ -775,23 +764,29 @@
                                         </div>
 
                                         <div class="row mx-3 pt-3 pb-3 mt-3 bg-light">
-                                          <div class="col-sm-6">
+                                          <div class="col-sm-4">
                                             <div class="row">
                                               <label for="commitment_amount" class="col-sm-5 col-form-label"><small>Commitment Amount</small></label>
                                               <div class="col-sm-6">
-                                                <input type="number" class="form-control" min="1" name="commitment_amount" placeholder="1000000" id="commitment_amount">
+                                                <input v-model="form_transactions.value_amount" class="form-control" type="number" min="1"  placeholder="1000000" >
                                               </div>
                                             </div>
                                           </div>
-                                          <div class="col-sm-6">
+                                          <div class="col-sm-4">
                                             <div class="row">
                                               <label for="commitment_currency" class="col-sm-4 col-form-label"><small>Currency</small></label>
                                               <div class="col-sm-6">
-                                                <select name="commitment_currency" id="commitment_currency" class="form-select">
-                                                  <option value="US Dollar">US Dollar</option>
-                                                  <option value="Pounds">Pounds</option>
-                                                  <option value="Canadian Dollar">Canadian Dollar</option>
+                                                <select v-model="form_transactions.value_currency" class="form-select">
+                                                  <option v-for="currency in currencies" :key="currency.code" :value="currency.code">{{currency.name}}</option>
                                                 </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <div class="row">
+                                              <label for="commitment_currency" class="col-sm-4 col-form-label"><small>Reference</small></label>
+                                              <div class="col-sm-6">
+                                                <input type="text" v-model="form_transactions.ref" class="form-control">
                                               </div>
                                             </div>
                                           </div>
@@ -836,7 +831,7 @@
                                           <div class="col-sm-6">
                                             <div class="row">
                                               <label class="form-check-label col-sm-4" for="amount_in_usd">
-                                                <small>Amount in BDT </small>
+                                                <small>Amount in SSP </small>
                                               </label>
                                               <div class="col-sm-6">
                                                 <input class="form-control" type="text" id="amount_in_usd">
@@ -847,40 +842,55 @@
 
                                       </div>
                                       <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-primary">Save</button>
+                                        <button id="close-add-expense-modal" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <button @click="addExpense" type="button" class="btn btn-primary">Save</button>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
 
-                                <table class="table table-responsive">
-                                  <thead>
-                                    <tr>
-                                      <th>Development Partner</th>
-                                      <th>Aid Category</th>
-                                      <th>Loan/Grant Number</th>
-                                      <th>Reporting Period (dd/MM/yyyy)</th>
-                                      <th>Amount in DP's Currency</th>
-                                      <th>Amount in USD</th>
-                                      <th>Actions</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
+                                <div class="table-responsive">
+                                  <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th>Development Partner</th>
+                                        <th>Aid Category</th>
+                                        <th>Transaction Ref</th>
+                                        <th>Transaction Date </th>
+                                        <th>Amount in DP's Currency</th>
+                                        <th>Amount in USD</th>
+                                        <th>Actions</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr v-for="funding in expenditures" :key="funding.id">
+                                        <td>{{organisations.find(element => element.id === funding.provider_org.organisation_id)?.name}}</td>
+                                        <td>{{aid_type_codes.find(element => element.code === funding.aid_types[0].code)?.name}}</td>
+                                        <td>{{funding.ref}}</td>
+                                        <td>{{funding.transaction_date}} </td>
+                                        <td>{{Intl.NumberFormat().format(funding.value_amount)}}</td>
+                                        <td>{{Intl.NumberFormat().format(funding.value_amount)}}</td>
+                                        <td><button @click="removeExpense(funding.id)" class="btn btn-sm btn-danger">X
+                                          </button>
+                                          </td>
+
+                                      </tr>
+                                      <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>Total</td>
+                                        <td>&nbsp;</td>
+                                        <td>{{expenditures
+                                          .map(obj => obj.value_amount)
+                                          .reduce((accumulator, current) => accumulator + current, 0)}}</td>
+                                        <td>&nbsp;</td>
+                                      </tr>
+                                      
+                                    </tbody>
                                     
-                                    <tr>
-                                      <td>&nbsp;</td>
-                                      <td>&nbsp;</td>
-                                      <td>&nbsp;</td>
-                                      <td>Total</td>
-                                      <td>&nbsp;</td>
-                                      <td>0</td>
-                                      <td>&nbsp;</td>
-                                    </tr>
-                                    
-                                  </tbody>
-                                  
-                                </table>
+                                  </table>
+                                </div>
                               </div>
                             </div>
                           </div><!-- Actual Disbursement -->
@@ -938,7 +948,7 @@
                                         <div class="row mx-3 mt-3">
                                           <label for="sub_sector" class="col-sm-4 col-form-label"><small>Narrative (optional)</small></label>
                                           <div class="col-sm-8">
-                                            <textarea v-model="form_sector.sector_narrative" class="form-control"></textarea>
+                                            <textarea v-model="sector_narrative_field" class="form-control"></textarea>
                                           </div>
                                         </div>
 
@@ -1115,7 +1125,7 @@
                                         <div class="row mx-3 mt-3">
                                           <label for="sub_sector" class="col-sm-4 col-form-label"><small>Narrative (optional)</small></label>
                                           <div class="col-sm-8">
-                                            <textarea v-model="form_recipient_region.region_narrative" class="form-control"></textarea>
+                                            <textarea v-model="region_narrative_field" class="form-control"></textarea>
                                           </div>
                                         </div>
 
@@ -1393,13 +1403,58 @@ export default {
         sector_percentage: 100,
         sector_narrative: [],
       },
+      sector_narrative_field: null,
+      region_narrative_field: null,
       form_recipient_region: {
         region_vocabulary: null,
         region_code: null,
         region_percentage: 100,
         region_narrative: [],
       },
+      form_transactions: {
+        id: null,
+        ref: null,
+        humanitarian: 0,
+        transaction_type_code: null,
+        transaction_date: null,
+        value_currency: "USD",
+        value_date: null,
+        value_amount: 0,
+        disbursement_channel_code: null,
+        recipient_country_code: "SS",
+        recipient_region_code: 1,
+        recipient_region_vocabulary: null,
+        flow_type_code: null,
+        finance_type_code: null,
+        tied_status_code: null,
+        aid_types: [
+        {
+          vocabulary: null,
+          code: null
+        }
+        ],
+        sectors: [],
+        provider_org: 
+        {
+          organisation_id: null,
+          type: null,
+          narrative: ""
+        },
+        receiver_org: 
+        {
+          organisation_id: null,
+          type: null,
+          narrative: ""
+        }
+      },
       organisation_types: [],
+      aid_type_vocabularies: [],
+      aid_type_codes: [],
+      flow_types: [],
+      tied_status_codes: [],
+      disbursement_channels: [],
+      transaction_types: [],
+      finance_types: [],
       organisation_roles: [],
       budget_statuses: [],
       budget_types: [],
@@ -1468,11 +1523,13 @@ export default {
           let currentPercentage = this.sectors.map(obj => obj.sector_percentage).reduce((accumulator, current) => accumulator + current, 0)
           if (currentPercentage >= 100) return
           if (undefined !== this.sectors.find(element => element.sector_vocabulary === this.form_sector.sector_vocabulary && element.sector_code == this.form_sector.sector_code)) return;
+            this.form_sector.sector_narrative.push({narrative:this.sector_narrative_field})
             this.sectors.push({...this.form_sector})
             this.form_sector.sector_vocabulary = null
             this.form_sector.sector_code = null
             this.form_sector.sector_percentage = 100
             this.form_sector.sector_narrative = []
+            this.sector_narrative_field = null
             document.getElementById("close-add-sector-modal").click();
           
         }
@@ -1504,6 +1561,29 @@ export default {
     );
     },
 
+    updateAidTypes() {
+      this.aid_type_codes = [];
+      let codelist = this.aid_type_vocabularies.find(element => element.code === this.form_transactions.aid_types[0].vocabulary)?.related_codelist
+      this.getCodelistOptions({codelist: codelist, language: this.user?.language}).then(
+          (response) => {
+            //
+            this.aid_type_codes= response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+    },
+
     addRecipientRegion() {
       if (this.form_recipient_region.region_vocabulary != null &&
           this.form_recipient_region.region_code !=null &&
@@ -1512,11 +1592,13 @@ export default {
           let currentPercentage = this.recipient_regions.map(obj => obj.region_percentage).reduce((accumulator, current) => accumulator + current, 0)
           if (currentPercentage >= 100) return
           if (undefined !== this.recipient_regions.find(element => element.region_vocabulary === this.form_recipient_region.region_vocabulary && element.region_code == this.form_recipient_region.region_code)) return;
+            this.form_recipient_region.region_narrative.push({narrative:this.region_narrative_field})
             this.recipient_regions.push({...this.form_recipient_region})
             this.form_recipient_region.region_vocabulary = null
             this.form_recipient_region.region_code = null
             this.form_recipient_region.region_percentage = 100
             this.form_recipient_region.region_narrative = []
+            this.region_narrative_field = null,
             document.getElementById("close-add-recipient-region-modal").click();
           
         }
@@ -1576,6 +1658,76 @@ export default {
     },
     removeBudget(index) {      
       if (this.budgets[index] !== undefined) this.budgets.splice(index, 1); 
+    },
+
+    clearTransactionForm()
+    {
+        this.form_transactions.id = null
+        this.form_transactions.ref = null
+        this.form_transactions.humanitarian = 0
+        this.form_transactions.transaction_type_code = null
+        this.form_transactions.transaction_date = null
+        this.form_transactions.value_currency = "USD"
+        this.form_transactions.value_date = null
+        this.form_transactions.value_amount = 0,
+        this.form_transactions.disbursement_channel_code = null
+        this.form_transactions.aid_types[0].vocabulary = null
+        this.form_transactions.aid_types[0].code = null
+        this.form_transactions.provider_org.organisation_id = null
+        this.form_transactions.provider_org.type = null
+        this.form_transactions.provider_org.narrative = ""
+        this.form_transactions.receiver_org.organisation_id = null
+        this.form_transactions.receiver_org.type = null
+        this.form_transactions.receiver_org.narrative = ""
+    },
+
+    areRequiredTransactionFieldsFilled()
+    {
+      if(this.form_transactions.value_amount !=0 &&
+          this.form_transactions.transaction_date !=null &&
+          this.form_transactions.aid_types[0].code !=null &&
+          this.form_transactions.aid_types[0].vocabulary != null &&
+          this.form_transactions.provider_org.organisation_id != null &&
+          this.form_transactions.provider_org.type != null &&
+          this.form_transactions.receiver_org.organisation_id != null &&
+          this.form_transactions.receiver_org.type != null)
+          {
+            return true
+          }
+
+        return false
+    },
+
+    addIncomingFunds() {
+      if (this.areRequiredTransactionFieldsFilled()){
+            this.form_transactions.transaction_type_code = 1
+            this.form_transactions.id = Date.now()
+            //check if already added
+            this.transactions.push(JSON.parse(JSON.stringify(this.form_transactions)))
+            this.clearTransactionForm()
+            document.getElementById("close-add-incoming-funds-modal").click();
+          
+        }
+    },
+    removeIncomingFunds(id) {
+      const index = this.transactions.findIndex(element => element.id === id)
+      if (index !== -1) this.transactions.splice(index, 1); 
+    },
+
+    addExpense() {
+      if (this.areRequiredTransactionFieldsFilled()){
+            this.form_transactions.transaction_type_code = 4
+            this.form_transactions.id = Date.now()
+            //check if already added
+            this.transactions.push(JSON.parse(JSON.stringify(this.form_transactions)))
+            this.clearTransactionForm()
+            document.getElementById("close-add-expense-modal").click();
+          
+        }
+    },
+    removeExpense(id) {
+      const index = this.transactions.findIndex(element => element.id === id)
+      if (index !== -1) this.transactions.splice(index, 1); 
     },
     saveProject() {
        this.apiErrors = false;
@@ -1653,6 +1805,120 @@ export default {
           (response) => {
             //
             this.organisation_types = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+
+    this.getCodelistOptions({codelist: 'AidTypeVocabulary', language: this.user?.language}).then(
+          (response) => {
+            //
+            this.aid_type_vocabularies = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+
+    this.getCodelistOptions({codelist: 'TiedStatus', language: this.user?.language}).then(
+          (response) => {
+            //
+            this.tied_status_codes = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+
+    this.getCodelistOptions({codelist: 'TransactionType', language: this.user?.language}).then(
+          (response) => {
+            //
+            this.transaction_types = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+
+    this.getCodelistOptions({codelist: 'FlowType', language: this.user?.language}).then(
+          (response) => {
+            //
+            this.flow_types = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+
+    this.getCodelistOptions({codelist: 'DisbursementChannel', language: this.user?.language}).then(
+          (response) => {
+            //
+            this.disbursement_channels = response.data;
+          },
+          (error) => {
+            const resMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(resMessage)
+             
+
+          }
+    );
+
+    this.getCodelistOptions({codelist: 'FinanceType', language: this.user?.language}).then(
+          (response) => {
+            //
+            this.finance_types = response.data;
           },
           (error) => {
             const resMessage =
