@@ -10,7 +10,7 @@
             </div> -->
             <div class="row">
               <div class="col-md-7">
-                <h4><b>Welcome to South Sudan AIMS</b></h4>
+                <h4><b>Welcome To The South Sudan AIMS</b></h4>
                 <p>The Aid Information Management System (AIMS) web portal from the Ministry of Finance and Planning - Government of South Sudan.</p>
 
                 <!-- <div id="carouselExampleIndicators" class="carousel slide mt-3" data-bs-ride="true">
