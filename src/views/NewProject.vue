@@ -1523,7 +1523,10 @@ export default {
           let currentPercentage = this.sectors.map(obj => obj.sector_percentage).reduce((accumulator, current) => accumulator + current, 0)
           if (currentPercentage >= 100) return
           if (undefined !== this.sectors.find(element => element.sector_vocabulary === this.form_sector.sector_vocabulary && element.sector_code == this.form_sector.sector_code)) return;
-            this.form_sector.sector_narrative.push({narrative:this.sector_narrative_field})
+            
+            if (this.sector_narrative_field !== null) {
+              this.form_sector.sector_narrative.push({narrative:this.sector_narrative_field})
+            }
             this.sectors.push({...this.form_sector})
             this.form_sector.sector_vocabulary = null
             this.form_sector.sector_code = null
@@ -1592,7 +1595,10 @@ export default {
           let currentPercentage = this.recipient_regions.map(obj => obj.region_percentage).reduce((accumulator, current) => accumulator + current, 0)
           if (currentPercentage >= 100) return
           if (undefined !== this.recipient_regions.find(element => element.region_vocabulary === this.form_recipient_region.region_vocabulary && element.region_code == this.form_recipient_region.region_code)) return;
-            this.form_recipient_region.region_narrative.push({narrative:this.region_narrative_field})
+            if (this.region_narrative_field) {
+              this.form_recipient_region.region_narrative.push({narrative:this.region_narrative_field})
+            }
+            
             this.recipient_regions.push({...this.form_recipient_region})
             this.form_recipient_region.region_vocabulary = null
             this.form_recipient_region.region_code = null
