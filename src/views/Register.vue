@@ -58,7 +58,7 @@
                               <input type="text"  v-model="form.code" class="form-control" id="floatingOtp" placeholder="OTP CODE" required>
                               <label for="floatingOtp">OTP CODE</label>
                           </div>
-                          <span> <button class="btn btn-sm btn-warning mt-2" @click="sendOtp">Resend OTP CODE</button></span>
+                          <span> <button class="btn btn-sm btn-warning mt-2" @click="sendOtp">Send OTP CODE</button></span>
                       </div>
                       <div class="col-md-6 mb-3">
                           <div class="form-floating">
