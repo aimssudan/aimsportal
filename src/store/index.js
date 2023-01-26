@@ -4,6 +4,7 @@ import global from './global';
 import project from './project';
 import codelists from './codelists';
 import reports from './reports';
+import admin from './admin';
 
 
 export default createStore({
@@ -75,6 +76,7 @@ export default createStore({
     global,
     project,
     codelists,
-    reports
+    reports,
+    admin
   }
 })
