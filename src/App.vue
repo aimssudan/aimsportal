@@ -21,6 +21,12 @@
                           <a class="dropdown-item" role="button" @click="navigate('organisations')">{{this.getTranslation("organisations")}}</a>
                         </div>
                     </li>
+                    <li v-if="isadmin" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("administation")}}</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" role="button" @click="navigate('system-settings')">{{this.getTranslation("system-settings")}}</a>
+                          
+                        </div>
+                    </li>
                     <!-- <li class="nav-item" @click="navigate('contact')"><a class="nav-link" role="button" >Contact Us</a></li> -->
                     <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("account")}}</a>
                         <div class="dropdown-menu">

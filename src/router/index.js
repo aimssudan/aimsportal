@@ -23,6 +23,7 @@ import OrganisationCategory from '../views/OrganisationCategory.vue'
 import Projects from '../views/Projects.vue'
 import NewProject from '../views/NewProject.vue'
 import Project from '../views/Project.vue'
+import SystemSettings from '../views/SystemSettings.vue'
 
 const routes = [
   {
@@ -163,6 +164,15 @@ const routes = [
     meta: {
       title: "AIMS ⇾ New Project",
       middleware: [auth, verified]
+    },
+  },
+  {
+    path: '/system-settings',
+    name: 'system-settings',
+    component: SystemSettings,
+    meta: {
+      title: "AIMS ⇾ System Settings",
+      middleware: [auth, verified, admin],
     },
   },
 ]

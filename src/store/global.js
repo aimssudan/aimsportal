@@ -103,6 +103,9 @@ export default {
     deleteOrganisation(_, id) {
       return axios.delete(`/organisations/${id}`);
     },
+    convertCurrency(_, payload) {
+      return axios.put(`/general/currency/convert`, payload);
+    }
 
   }
 }

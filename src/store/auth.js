@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { AXIOS_HEADERS } from '../globals/constants';
 
 export default {
   namespaced: true,
@@ -93,11 +94,8 @@ export default {
       return axios.post(`/users/update-user/${payload.id}`, payload);
      },
 
-     async guestLogin({dispatch}) {
-      let credentials = {
-        app_token : process.env.VUE_APP_APP_KEY
-      }
-      let response = await axios.post('/users/guest-login', credentials)
+     async guestLogin({dispatch}) {      
+      let response = await axios.post('/users/guest-login', {}, AXIOS_HEADERS)
       return dispatch('attempt', response.data.data.token)
      }
 
