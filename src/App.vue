@@ -51,7 +51,7 @@
                 <div class="col-md-3 col-sm-6">
                   <!-- <logo /> -->
                     <!-- <center><img src="@/assets/court.png" class="img-fluid" alt=""></center> -->
-                    <h5>AIMS Platform</h5>
+                    <h5>AIMS Portal</h5>
                     <p style="color: rgba(255,255,255,0.43);font-size: 16px;">This platform is managed by the Ministry of Finance and Planning - Government of South Sudan.<br></p>
                 </div>
                 <div class="col-md-3 col-sm-6">
@@ -215,17 +215,17 @@ export default {
     padding-top: 1em;
     padding-bottom: 3px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 10px;
     
 }
 li a {
   text-decoration: none;
 }
 #app-content {
-  margin-bottom: 250px;
+  /* margin-bottom: 250px; */
 }
 #main-footer {
-  position: fixed;
+  /* position: fixed; */
   left: 0;
   bottom: 0;
   width: 100%;
