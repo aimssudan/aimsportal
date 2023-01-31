@@ -300,7 +300,7 @@
                                                 <small>Exchange Rate To USD <br> <span class="text-success">(1 USD = ? DP Cuurrency)</span>  </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input class="form-control" type="text" id="commitment_exchange_rate">
+                                                <input readonly class="form-control" type="text" :value="exchange_rate_usd">
                                               </div>
                                             </div>
                                           </div>
@@ -311,7 +311,7 @@
                                                 <small>Amount in USD </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input class="form-control" type="number" min="1" name="amount_in_usd" id="amount_in_usd">
+                                                <input readonly class="form-control" type="number" min="0" :value="BudgetValueAmountUSD">
                                               </div>
                                             </div>
                                           </div>
@@ -321,10 +321,10 @@
                                           <div class="col-sm-6">
                                             <div class="row">
                                               <label class="form-check-label col-sm-6" for="commitment_exchange_rate_to_sp">
-                                                <small>Exchange Rate To SSP <br> <span class="text-success">(1 USD = ? SSP Cuurrency)</span>  </small>
+                                                <small>Exchange Rate To SSP <br> <span class="text-success">(1 USD = ? SSP Currency)</span>  </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input class="form-control" type="number" id="commitment_exchange_rate">
+                                                <input readonly class="form-control" type="text" :value="exchange_rate_ssp">
                                               </div>
                                             </div>
                                           </div>
@@ -335,7 +335,7 @@
                                                 <small>Amount in SSP </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input class="form-control" type="text" id="amount_in_usd">
+                                                <input readonly class="form-control" type="number" min="0" :value="BudgetValueAmountSSP">
                                               </div>
                                             </div>
                                           </div>
@@ -519,7 +519,7 @@
                                             <div class="row">
                                               <label for="commitment_amount" class="col-sm-5 col-form-label"><small>Commitment Amount</small></label>
                                               <div class="col-sm-6">
-                                                <input v-model="form_transactions.value_amount" class="form-control" type="number" min="1"  placeholder="1000000" >
+                                                <input v-model="form_transactions.value_amount" @keyup="updateExchangeRates(false)" class="form-control" type="number" min="1"  >
                                               </div>
                                             </div>
                                           </div>
@@ -527,7 +527,7 @@
                                             <div class="row">
                                               <label for="commitment_currency" class="col-sm-4 col-form-label"><small>Currency</small></label>
                                               <div class="col-sm-6">
-                                                <select v-model="form_transactions.value_currency" class="form-select">
+                                                <select v-model="form_transactions.value_currency" @change="updateExchangeRates(false)" class="form-select">
                                                   <option v-for="currency in currencies" :key="currency.code" :value="currency.code">{{currency.name}}</option>
                                                 </select>
                                               </div>
@@ -547,10 +547,10 @@
                                           <div class="col-sm-6">
                                             <div class="row">
                                               <label class="form-check-label col-sm-6" for="commitment_exchange_rate">
-                                                <small>Exchange Rate To USD <br> <span class="text-success">(1 USD = ? DP Cuurrency)</span>  </small>
+                                                <small>Exchange Rate To USD <br> <span class="text-success">(1 USD = ? DP Currency)</span>  </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input class="form-control" type="text" id="commitment_exchange_rate">
+                                                <input readonly class="form-control" type="text" :value="exchange_rate_usd">
                                               </div>
                                             </div>
                                           </div>
@@ -561,7 +561,7 @@
                                                 <small>Amount in USD </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input class="form-control" type="number" min="1" name="amount_in_usd" id="amount_in_usd">
+                                                <input readonly class="form-control" type="number" min="0" :value="TransactionValueAmountUSD">
                                               </div>
                                             </div>
                                           </div>
@@ -574,7 +574,7 @@
                                                 <small>Exchange Rate To SSP <br> <span class="text-success">(1 USD = ? SSP Cuurrency)</span>  </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input class="form-control" type="number" id="commitment_exchange_rate">
+                                                <input readonly class="form-control" type="text" :value="exchange_rate_ssp">
                                               </div>
                                             </div>
                                           </div>
@@ -585,7 +585,7 @@
                                                 <small>Amount in SSP </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input class="form-control" type="text" id="amount_in_usd">
+                                                <input readonly class="form-control" type="number" min="0" :value="TransactionValueAmountSSP">
                                               </div>
                                             </div>
                                           </div>
@@ -770,7 +770,7 @@
                                             <div class="row">
                                               <label for="commitment_amount" class="col-sm-5 col-form-label"><small>Commitment Amount</small></label>
                                               <div class="col-sm-6">
-                                                <input v-model="form_transactions.value_amount" class="form-control" type="number" min="1"  placeholder="1000000" >
+                                                <input v-model="form_transactions.value_amount" @keyup="updateExchangeRates" class="form-control" type="number" min="1"  placeholder="1000000" >
                                               </div>
                                             </div>
                                           </div>
@@ -778,7 +778,7 @@
                                             <div class="row">
                                               <label for="commitment_currency" class="col-sm-4 col-form-label"><small>Currency</small></label>
                                               <div class="col-sm-6">
-                                                <select v-model="form_transactions.value_currency" class="form-select">
+                                                <select v-model="form_transactions.value_currency" @change="updateExchangeRates" class="form-select">
                                                   <option v-for="currency in currencies" :key="currency.code" :value="currency.code">{{currency.name}}</option>
                                                 </select>
                                               </div>
@@ -801,7 +801,7 @@
                                                 <small>Exchange Rate To USD <br> <span class="text-success">(1 USD = ? DP Cuurrency)</span>  </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input class="form-control" type="text" id="commitment_exchange_rate">
+                                                <input readonly class="form-control" type="text" :value="exchange_rate_usd">
                                               </div>
                                             </div>
                                           </div>
@@ -812,7 +812,7 @@
                                                 <small>Amount in USD </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input class="form-control" type="number" min="1" name="amount_in_usd" id="amount_in_usd">
+                                                <input readonly class="form-control" type="number" min="0" :value="TransactionValueAmountUSD" >
                                               </div>
                                             </div>
                                           </div>
@@ -822,10 +822,10 @@
                                           <div class="col-sm-6">
                                             <div class="row">
                                               <label class="form-check-label col-sm-6" for="commitment_exchange_rate_to_sp">
-                                                <small>Exchange Rate To SSP <br> <span class="text-success">(1 USD = ? SSP Cuurrency)</span>  </small>
+                                                <small>Exchange Rate To SSP <br> <span class="text-success">(1 USD = ? SSP Currency)</span>  </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input class="form-control" type="number" id="commitment_exchange_rate">
+                                                <input readonly class="form-control" type="number" :value="exchange_rate_ssp">
                                               </div>
                                             </div>
                                           </div>
@@ -836,7 +836,7 @@
                                                 <small>Amount in SSP </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input class="form-control" type="text" id="amount_in_usd">
+                                                <input readonly class="form-control" type="text" :value="TransactionValueAmountSSP">
                                               </div>
                                             </div>
                                           </div>
@@ -1395,6 +1395,8 @@ export default {
         period_end: null,
         value_currency: 'USD',
         value_amount: 0,
+        value_amount_usd: 0,
+        value_amount_ssp: 0,
         value_date: null
       },
 
@@ -1413,6 +1415,8 @@ export default {
         value_currency: "USD",
         value_date: null,
         value_amount: 0,
+        value_amount_usd: 0,
+        value_amount_ssp: 0,
         disbursement_channel_code: null,
         recipient_country_code: "SS",
         recipient_region_code: 1,
@@ -1467,6 +1471,8 @@ export default {
       countrywide_contribution: 0,
       currentProject: null,
       componentAction: "",
+      exchange_rate_usd: 1,
+      exchange_rate_ssp: 1,
 
     }
 
@@ -1482,6 +1488,22 @@ export default {
 
     incomingTransactions () {
       return this.transactions.filter(element => element.transaction_type_code ==1)
+    },
+
+    TransactionValueAmountUSD () {
+      return this.form_transactions.value_amount / this.exchange_rate_usd 
+    },
+
+    TransactionValueAmountSSP () {
+      return this.exchange_rate_ssp * this.TransactionValueAmountUSD
+    },
+
+    BudgetValueAmountUSD () {
+      return this.form_budget.value_amount / this.exchange_rate_usd 
+    },
+
+    BudgetValueAmountSSP () {
+      return this.exchange_rate_ssp * this.BudgetValueAmountUSD
     }
 
   },
@@ -1497,7 +1519,68 @@ export default {
       deleteSector: 'project/deleteSector',
       deleteRecipientRegion: 'project/deleteRecipientRegion',
       deleteTransaction: 'project/deleteTransaction',
+      convertCurrency: 'global/convertCurrency',
     }),
+
+    getUSDExchangeRate(isBudget) {
+      this.exchange_rate_usd = 1
+      if(this.form_transactions.value_currency !== null || this.form_budget.value_currency !== null)
+      {
+        let payload = {
+          source_currency: "USD",
+          destination_currency: isBudget == true ? this.form_budget.value_currency : this.form_transactions.value_currency,
+          amount: 1
+        }
+        this.convertCurrency(payload).then(
+          (response) => {
+            this.exchange_rate_usd = response.data.data
+          },
+          (error) => {
+            const errorMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(errorMessage)
+          }
+        );
+      }
+      
+    },
+
+    getSSPExchangeRate() {
+      if(this.form_transactions.value_currency !== null || this.form_budget.value_currency !== null)
+      {
+        let payload = {
+          source_currency: "USD",
+          destination_currency: "SSP",
+          amount: 1
+        }
+        this.convertCurrency(payload).then(
+          (response) => {
+            this.exchange_rate_ssp = response.data.data
+          },
+          (error) => {
+            const errorMessage =
+                    (error.response &&
+                      error.response.data &&
+                      error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+             
+             console.log(errorMessage)
+          }
+        );
+      }
+      
+    },
+
+    updateExchangeRates(isBudget) {
+      this.getUSDExchangeRate(isBudget)
+      this.getSSPExchangeRate()
+    },
 
     updateSectorCodeList() {
       this.sector_codes = [];

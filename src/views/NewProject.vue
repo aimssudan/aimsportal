@@ -820,7 +820,7 @@
                                           <div class="col-sm-6">
                                             <div class="row">
                                               <label class="form-check-label col-sm-6" for="commitment_exchange_rate_to_sp">
-                                                <small>Exchange Rate To SSP <br> <span class="text-success">(1 USD = ? SSP Cuurrency)</span>  </small>
+                                                <small>Exchange Rate To SSP <br> <span class="text-success">(1 USD = ? SSP Currency)</span>  </small>
                                               </label>
                                               <div class="col-sm-6">
                                                 <input readonly class="form-control" type="number" :value="exchange_rate_ssp">
@@ -834,7 +834,7 @@
                                                 <small>Amount in SSP </small>
                                               </label>
                                               <div class="col-sm-6">
-                                                <input readonly class="form-control" type="text" :value="TransactionValueAmountUSD">
+                                                <input readonly class="form-control" type="text" :value="TransactionValueAmountSSP">
                                               </div>
                                             </div>
                                           </div>
@@ -1731,7 +1731,9 @@ export default {
               period_end: this.form_budget.period_end,
               value_currency: this.form_budget.value_currency,
               value_date: this.form_budget.value_date,
-              value_amount: this.form_budget.value_amount
+              value_amount: this.form_budget.value_amount,
+              value_amount_ssp: this.BudgetValueAmountSSP,
+              value_amount_usd: this.BudgetValueAmountUSD
             }
             this.budgets.push(budget)
             this.form_budget.type = 1
@@ -1789,6 +1791,8 @@ export default {
       if (this.areRequiredTransactionFieldsFilled()){
             this.form_transactions.transaction_type_code = 1
             this.form_transactions.id = Date.now()
+            this.form_transactions.value_amount_usd = this.TransactionValueAmountUSD
+            this.form_transactions.value_amount_ssp = this.TransactionValueAmountSSP
             //check if already added
             this.transactions.push(JSON.parse(JSON.stringify(this.form_transactions)))
             this.clearTransactionForm()

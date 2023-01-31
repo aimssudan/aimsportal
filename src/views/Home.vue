@@ -40,8 +40,24 @@
                   </button>
                 </div> -->
 
-                <img src="@/assets/img/0001.png" class="img-fluid rounded" alt="Imgae">
-
+                <!--<img src="@/assets/img/0001.png" class="img-fluid rounded" alt="Imgae"> -->
+                <div class="card border-light">
+              <div class="card-header d-flex justify-content-between">
+                <h5 class="text-primary">State Map Distibution </h5>
+                <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-chart-trends" aria-expanded="false" aria-controls="collapse-chart-trends">
+                    &nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
+                </button>
+              </div>
+              <div id="collapse-chart-trends" class="collapse show" aria-labelledby="heading-collapsed">
+                <div class="card-body ">
+                  <h5><span class="badge bg-secondary">Projects Geographic Impact Summary {{new Date().getFullYear()}}</span></h5>
+                  <project-distribution-by-state class="text-primary"></project-distribution-by-state>
+                </div>
+              </div>
+              <div class="card-footer"> Map of South Sudan</div>
+          </div>
                 <div class="row mt-4 mb-4" id="additional_text">
                   <div class="col-md-6" style="text-align: justify;">
                     <p><b>The Aid Information Management System (AIMS)</b> is your one-stop-shop for all information related to foreign assistance in South Sudan. AIMS records and processes information provided by donors on development activities and related aid flows in the country. The overall objective of this AIMS is to increase aid transparency, strengthen accountability, facilitate coordination and allow for more efficient aid management.</p>
@@ -112,11 +128,12 @@
 <script>
 import { mapActions} from 'vuex'
 import flashError from '../components/flashError.vue'
+import ProjectDistributionByState from '../components/maps/ProjectDistributionByState.vue'
 
 export default {
   name: 'Home',
   components: {
-    flashError
+    flashError, ProjectDistributionByState
     
   },
   data() {
