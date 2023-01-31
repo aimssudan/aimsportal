@@ -24,6 +24,7 @@ import Projects from '../views/Projects.vue'
 import NewProject from '../views/NewProject.vue'
 import Project from '../views/Project.vue'
 import SystemSettings from '../views/SystemSettings.vue'
+import Reports from '../views/Reports.vue'
 
 const routes = [
   {
@@ -163,6 +164,15 @@ const routes = [
     component: NewProject,
     meta: {
       title: "AIMS ⇾ New Project",
+      middleware: [auth, verified]
+    },
+  },
+  {
+    path: '/reports',
+    name: 'reports',
+    component: Reports,
+    meta: {
+      title: "AIMS ⇾ Reports",
       middleware: [auth, verified]
     },
   },
