@@ -105,6 +105,8 @@ export default {
     }
     this.getOrganisations()
     this.getCategories();
+    this.getLanguages();
+    this.getTranslations();
   },
   computed: {
       ...mapState('auth', ['user']),
@@ -135,6 +137,7 @@ export default {
       getOrganisations : 'global/getOrganisations',
       getCategories: 'global/getOrganisationCategories',
       getTranslations: 'global/getTranslations',
+      getLanguages: 'global/getLanguages',
     }),
     navigate(link) {
       this.$router.push({ name: link });
