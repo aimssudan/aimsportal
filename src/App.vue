@@ -108,6 +108,7 @@ export default {
   },
   computed: {
       ...mapState('auth', ['user']),
+      ...mapState('global', ['languages', 'translations']),
       profile() {
           return this.user;
       },
