@@ -55,7 +55,7 @@
                     <p style="color: rgba(255,255,255,0.43);font-size: 16px;">This platform is managed by the Ministry of Finance and Planning - Government of South Sudan.<br></p>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <h5>{{this.getTranslation("about-us")}}</h5>
+                    <h5>{{this.getTranslation("about-us")}} </h5>
                     <ul class="list-unstyled">
                         <li><a href="#">MoFP (GOSS)</a></li>
                         <li><a href="#">{{this.getTranslation("organisations")}}</a></li>
