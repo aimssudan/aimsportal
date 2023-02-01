@@ -64,13 +64,13 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="form-floating">
-                        <textarea :disabled="editingDisabled" maxlength="200" class="form-control" v-model="organisation.address" placeholder="Address" id="floatingTextarea"></textarea>
-                        <label for="floatingAddress">Address</label>
+                        <textarea :disabled="editingDisabled" maxlength="20" class="form-control" v-model="organisation.contact_person_phone" placeholder="Phone" id="floatingTextarea"></textarea>
+                        <label for="floatingAddress">Contact Person Phone</label>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="form-floating">
-                        <textarea :disabled="editingDisabled" maxlength="200" class="form-control" v-model="organisation.description" placeholder="Leave Company description here" id="floatingTextarea"></textarea>
+                        <textarea  :disabled="editingDisabled" maxlength="100" class="form-control" v-model="organisation.description" placeholder="Leave Company description here" id="floatingTextarea"></textarea>
                         <label for="floatingTextarea">Description</label>
                     </div>
                 </div>
@@ -132,7 +132,8 @@ export default {
         id: null,
         name: '',
         acronym: '',
-        address: '',
+        address: 'none',
+        contact_person_phone: '',
         contact_person_name: '',
         contact_person_email: '',
         description: '',

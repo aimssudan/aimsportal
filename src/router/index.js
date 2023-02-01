@@ -110,7 +110,7 @@ const routes = [
     component: Organisation,
     meta: {
       title: "AIMS ⇾ Organisation",
-      middleware: [auth],
+      //middleware: [auth],
     },
   },
   {
