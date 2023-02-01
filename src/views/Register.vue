@@ -47,10 +47,10 @@
                           </div>
                       </div>
                       <div class="col-md-6 mb-3">
-                          <div class="form-floating">
-                            <multiselect @input="updateSelectedOrganisation" class="form-select" v-model="form._o"  track-by="id" label="name" placeholder="Select one" :options="organisations" :searchable="false" :allow-empty="false"></multiselect>
-                              <label for="floatingPassword">Organisation</label>
-                          </div>
+                          
+                            <multiselect @input="updateSelectedOrganisation" class="form-select" v-model="form._o"  track-by="id" label="name" placeholder="Select organisation" :options="organisations" :searchable="true" :allow-empty="false"></multiselect>
+                              <label for="floatingPassword">Or </label>
+                          
                           <span><router-link :to="{name: 'organisation'}">Add New</router-link></span>
                       </div>
                       <div class="col-md-6 mb-3">
