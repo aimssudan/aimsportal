@@ -1,6 +1,6 @@
 <template>
   <main class="page home">
-    <div class="" style="min-height: 80vh; padding-top:7em; color: whitesmoke; background-color: rgba(9, 162, 255, 0.85); font-weight: 400;">
+    <div class="" style="min-height: 80vh; padding-top:7em; _color: whitesmoke; _background-color: rgba(9, 162, 255, 0.85); font-weight: 400;">
       <div class="container">
         <div class="col-md-12">
             <!-- <div class="card">
@@ -232,7 +232,7 @@ export default {
 <style scoped>
   .home {
     /* padding-top:3.5em; */
-    background-image: url("../assets/img/4266.webp");
+    /* background-image: url("../assets/img/4266.webp"); */
   }
 
   @media only screen and (min-width:320px) and (max-width:480px)  { /* smartphones, iPhone, portrait 480x320 phones */ 
