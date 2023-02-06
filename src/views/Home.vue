@@ -12,35 +12,6 @@
               <div class="col-md-7">
                 <h4><b>Welcome To AIMS South Sudan</b></h4>
                 <p>The Aid Information Management System (AIMS) web portal from the Ministry of Finance and Planning - Government of South Sudan.</p>
-
-                <!-- <div id="carouselExampleIndicators" class="carousel slide mt-3" data-bs-ride="true">
-                  <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  </div>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="@/assets/img/0001.jpg" class="d-block w-100" alt="Baby being Fed">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="@/assets/img/0001.jpg" class="d-block w-100" alt="Community crossing River">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="@/assets/img/0001.jpg" class="d-block w-100" alt="Settlement Camp ">
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div> -->
-
-                <!--<img src="@/assets/img/0001.png" class="img-fluid rounded" alt="Imgae"> -->
                 <div class="card border-light">
               <div class="card-header d-flex justify-content-between">
                 <h5 class="text-primary">State Map Distibution </h5>
@@ -75,11 +46,13 @@
 
               <div class="col-md-4">
                 <div class="row">
-                  <div class="col-md-6">
-                    <p>Proceed to access public information</p>
+                  <div class="col-md-4">
+                    <p>Log in as</p>
                   </div>
-                  <div class="col-md-6">
-                    <button @click="loginAsGuest()" style="background-color: #f7f7f7; color: black; border: 1px solid #f7f7f7;" class="btn btn-success btn-rounded">PUBLIC USER</button>
+                  <div class="col-md-8">
+                    <button @click="loginAsGuest()" style="background-color: #f7f7f7; color: black; border: 1px solid #f7f7f7; margin-right: 5px;" class=" btn btn-success btn-rounded">PUBLIC USER</button>
+
+                    <button @click="navigate('login')" style="_color: black;" class="btn btn-primary btn-rounded ml-4">LOG IN</button>
                   </div>
                 </div><!-- row -->
 
@@ -108,6 +81,10 @@
                       <button  class="btn btn-primary" @click.prevent="submit">Sign in</button>
                     </form>
                   </div>
+                </div>
+
+                <div>
+
                 </div>
 
 
@@ -170,6 +147,10 @@ export default {
       login: 'auth/login',
       guestLogin: 'auth/guestLogin'
     }),
+
+    navigate(link) {
+      this.$router.push({ name: link });
+    },
 
     submit() {
         this.isLoading = true;      
