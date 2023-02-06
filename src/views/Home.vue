@@ -12,35 +12,6 @@
               <div class="col-md-7">
                 <h4><b>Welcome To AIMS South Sudan</b></h4>
                 <p>The Aid Information Management System (AIMS) web portal from the Ministry of Finance and Planning - Government of South Sudan.</p>
-
-                <!-- <div id="carouselExampleIndicators" class="carousel slide mt-3" data-bs-ride="true">
-                  <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  </div>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="@/assets/img/0001.jpg" class="d-block w-100" alt="Baby being Fed">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="@/assets/img/0001.jpg" class="d-block w-100" alt="Community crossing River">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="@/assets/img/0001.jpg" class="d-block w-100" alt="Settlement Camp ">
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div> -->
-
-                <!--<img src="@/assets/img/0001.png" class="img-fluid rounded" alt="Imgae"> -->
                 <div class="card border-light">
               <div class="card-header d-flex justify-content-between">
                 <h5 class="text-primary">State Map Distibution </h5>
@@ -76,38 +47,83 @@
               <div class="col-md-4">
                 <div class="row">
                   <div class="col-md-6">
-                    <p>Proceed to access public information</p>
+                    <center><button @click="loginAsGuest()" style="background-color: #f7f7f7; color: black; border: 1px solid #f7f7f7; margin-right: 5px;" class=" btn btn-success btn-rounded">PUBLIC USER</button><br>
+                      <small>View Information</small></center>
                   </div>
                   <div class="col-md-6">
-                    <button @click="loginAsGuest()" style="background-color: #f7f7f7; color: black; border: 1px solid #f7f7f7;" class="btn btn-success btn-rounded">PUBLIC USER</button>
+                    <center><button @click="navigate('login')" style="_color: black;" class="btn btn-primary btn-rounded ml-4">LOG IN</button><br>
+                    <small>Administrator</small></center>
+
                   </div>
                 </div><!-- row -->
 
                 <div class="card text-black mt-4">
                   <div class="card-header">
-                      <center><h5>Sign in</h5></center>
+                      <center><h5>Sector Statistics</h5></center>
                   </div>
                   <div class="card-body">
                     <div v-if="isLoading" class="spinner-border text-warning" role="status">
                       <span class="visually-hidden">Loading...</span>
                     </div>
                     <flash-error :hasError="apiErrors" :errors="errors" @dismissError="apiErrors = false"></flash-error>
-                    <form class="needs-validation" novalidate>
-                      <div class="form-floating mb-3">
-                              <input type="email"  v-model="form.email" class="form-control" id="floatingInput" placeholder="email@example.com">
-                              <label for="floatingInput">Email Address</label>
-                      </div>
-                      <div class="form-floating mb-3 mt-4">
-                            <input type="password"  v-model="form.password" class="form-control" id="floatingInput" placeholder="*******">
-                            <label for="floatingInput">Password</label>
-                      </div>
-                      <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Keep me logged in or <router-link :to="{name: 'register'}">Register</router-link></label>
-                      </div>
-                      <button  class="btn btn-primary" @click.prevent="submit">Sign in</button>
-                    </form>
+
+                    <!-- Other Graphs -->
+                    <project-distribution-by-state class="text-primary"></project-distribution-by-state>
                   </div>
+                </div>
+
+                <div class="row" style="margin-top: 3rem;">
+                  <div class="col-md-6">
+                    <h1>54</h1>
+                    <small>Total Organizations</small>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <h4>26</h4>
+                        <span class="badge badge-dark" style="color: gray">Local</span>
+                      </div>
+
+                      <div class="col-md-4">
+                        <h4>12</h4>
+                        <span class="badge badge-dark" style="color: gray">GOV'T</span>
+                      </div>
+
+                      <div class="col-md-4">
+                        <h4>14</h4>
+                        <span class="badge badge-dark" style="color: gray">INT'L</span>
+                      </div>
+
+                    </div>
+                  </div>
+                  <hr style="margin-top: 1rem;">
+                </div>
+
+                <div class="row">
+                  <div class="col-md-5">
+                    <h1>$72M</h1>
+                    <small>Total Funds</small>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <h5>$5M</h5>
+                        <span class="badge badge-dark" style="color: gray">2023</span>
+                      </div>
+
+                      <div class="col-md-4">
+                        <h5>$24M</h5>
+                        <span class="badge badge-dark" style="color: gray">2022</span>
+                      </div>
+
+                      <div class="col-md-4">
+                        <h5>$30M</h5>
+                        <span class="badge badge-dark" style="color: gray">2021</span>
+                      </div>
+
+                    </div>
+                  </div>
+                  <hr style="margin-top: 1rem;">
                 </div>
 
 
@@ -170,6 +186,10 @@ export default {
       login: 'auth/login',
       guestLogin: 'auth/guestLogin'
     }),
+
+    navigate(link) {
+      this.$router.push({ name: link });
+    },
 
     submit() {
         this.isLoading = true;      
