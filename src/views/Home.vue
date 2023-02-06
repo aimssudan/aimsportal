@@ -59,33 +59,71 @@
 
                 <div class="card text-black mt-4">
                   <div class="card-header">
-                      <center><h5>Sign in</h5></center>
+                      <center><h5>Sector Statistics</h5></center>
                   </div>
                   <div class="card-body">
                     <div v-if="isLoading" class="spinner-border text-warning" role="status">
                       <span class="visually-hidden">Loading...</span>
                     </div>
                     <flash-error :hasError="apiErrors" :errors="errors" @dismissError="apiErrors = false"></flash-error>
-                    <form class="needs-validation" novalidate>
-                      <div class="form-floating mb-3">
-                              <input type="email"  v-model="form.email" class="form-control" id="floatingInput" placeholder="email@example.com">
-                              <label for="floatingInput">Email Address</label>
-                      </div>
-                      <div class="form-floating mb-3 mt-4">
-                            <input type="password"  v-model="form.password" class="form-control" id="floatingInput" placeholder="*******">
-                            <label for="floatingInput">Password</label>
-                      </div>
-                      <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Keep me logged in or <router-link :to="{name: 'register'}">Register</router-link></label>
-                      </div>
-                      <button  class="btn btn-primary" @click.prevent="submit">Sign in</button>
-                    </form>
+
+                    <!-- Other Graphs -->
+                    <project-distribution-by-state class="text-primary"></project-distribution-by-state>
                   </div>
                 </div>
 
-                <div>
+                <div class="row" style="margin-top: 3rem;">
+                  <div class="col-md-6">
+                    <h1>54</h1>
+                    <small>Total Organizations</small>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <h4>26</h4>
+                        <span class="badge badge-dark" style="color: gray">Local</span>
+                      </div>
 
+                      <div class="col-md-4">
+                        <h4>12</h4>
+                        <span class="badge badge-dark" style="color: gray">GOV'T</span>
+                      </div>
+
+                      <div class="col-md-4">
+                        <h4>14</h4>
+                        <span class="badge badge-dark" style="color: gray">INT'L</span>
+                      </div>
+
+                    </div>
+                  </div>
+                  <hr style="margin-top: 1rem;">
+                </div>
+
+                <div class="row">
+                  <div class="col-md-5">
+                    <h1>$72M</h1>
+                    <small>Total Funds</small>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <h5>$5M</h5>
+                        <span class="badge badge-dark" style="color: gray">2023</span>
+                      </div>
+
+                      <div class="col-md-4">
+                        <h5>$24M</h5>
+                        <span class="badge badge-dark" style="color: gray">2022</span>
+                      </div>
+
+                      <div class="col-md-4">
+                        <h5>$30M</h5>
+                        <span class="badge badge-dark" style="color: gray">2021</span>
+                      </div>
+
+                    </div>
+                  </div>
+                  <hr style="margin-top: 1rem;">
                 </div>
 
 
