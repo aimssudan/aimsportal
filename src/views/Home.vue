@@ -46,13 +46,14 @@
 
               <div class="col-md-4">
                 <div class="row">
-                  <div class="col-md-4">
-                    <p>Log in as</p>
+                  <div class="col-md-6">
+                    <center><button @click="loginAsGuest()" style="background-color: #f7f7f7; color: black; border: 1px solid #f7f7f7; margin-right: 5px;" class=" btn btn-success btn-rounded">PUBLIC USER</button><br>
+                      <small>View Information</small></center>
                   </div>
-                  <div class="col-md-8">
-                    <button @click="loginAsGuest()" style="background-color: #f7f7f7; color: black; border: 1px solid #f7f7f7; margin-right: 5px;" class=" btn btn-success btn-rounded">PUBLIC USER</button>
+                  <div class="col-md-6">
+                    <center><button @click="navigate('login')" style="_color: black;" class="btn btn-primary btn-rounded ml-4">LOG IN</button><br>
+                    <small>Administrator</small></center>
 
-                    <button @click="navigate('login')" style="_color: black;" class="btn btn-primary btn-rounded ml-4">LOG IN</button>
                   </div>
                 </div><!-- row -->
 
