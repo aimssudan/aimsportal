@@ -85,6 +85,7 @@
     </footer>
 
 </template>
+
 <script>
 // import $ from 'jquery'
 import {mapState, mapGetters, mapActions } from 'vuex'

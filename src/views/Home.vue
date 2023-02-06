@@ -1,3 +1,5 @@
+
+<!-- <script type='module' src='https://10ax.online.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js'></script> -->
 <template>
   <main class="page home">
     <div class="" style="min-height: 80vh; padding-top:7em; _color: whitesmoke; _background-color: rgba(9, 162, 255, 0.85); font-weight: 400;">
@@ -41,6 +43,12 @@
                 </div> -->
 
                 <!--<img src="@/assets/img/0001.png" class="img-fluid rounded" alt="Imgae"> -->
+                
+                <!-- <script type='module' src='https://10ax.online.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js'></script><tableau-viz id='tableau-viz' src='https://10ax.online.tableau.com/t/marshud/views/Updated-aims-data/Sheet2' width='1046' height='585' hide-tabs toolbar='bottom' ></tableau-viz> -->
+
+
+                <!-- <script type='module' src='https://10ax.online.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js'></script><tableau-viz id='tableau-viz' src='https://10ax.online.tableau.com/t/marshud/views/Updated-aims-data/Sheet1' width='1046' height='585' hide-tabs toolbar='bottom' ></tableau-viz> -->
+                <!-- <script type='module' src='https://10ax.online.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js'></script><tableau-viz id='tableau-viz' src='https://10ax.online.tableau.com/t/marshud/views/Updated-aims-data/Sheet2' width='1600' height='897' hide-tabs toolbar='bottom' ></tableau-viz> -->
                 <div class="card border-light">
               <div class="card-header d-flex justify-content-between">
                 <h5 class="text-primary">State Map Distibution </h5>
@@ -53,7 +61,10 @@
               <div id="collapse-chart-trends" class="collapse show" aria-labelledby="heading-collapsed">
                 <div class="card-body ">
                   <h5><span class="badge bg-secondary">Projects Geographic Impact Summary {{new Date().getFullYear()}}</span></h5>
-                  <project-distribution-by-state class="text-primary"></project-distribution-by-state>
+                  <!-- <script type='module' src='https://10ax.online.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js'></script><tableau-viz id='tableau-viz' src='https://10ax.online.tableau.com/t/marshud/views/Updated-aims-data/Sheet1' width='1046' height='585' hide-tabs toolbar='bottom' ></tableau-viz> -->
+
+                  <project-distribution-by-state style="display:none" class="text-primary"></project-distribution-by-state>
+                  <home-map class="text-primary"></home-map>
                 </div>
               </div>
               <div class="card-footer"> Map of South Sudan</div>
@@ -129,11 +140,12 @@
 import { mapActions} from 'vuex'
 import flashError from '../components/flashError.vue'
 import ProjectDistributionByState from '../components/maps/ProjectDistributionByState.vue'
+import HomeMap from '../components/maps/HomeMap.vue'
 
 export default {
   name: 'Home',
   components: {
-    flashError, ProjectDistributionByState
+    flashError, ProjectDistributionByState, HomeMap
     
   },
   data() {
