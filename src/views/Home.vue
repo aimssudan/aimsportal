@@ -14,7 +14,7 @@
                 <p>The Aid Information Management System (AIMS) web portal from the Ministry of Finance and Planning - Government of South Sudan.</p>
                 <div class="card border-light">
               <div class="card-header d-flex justify-content-between">
-                <h5 class="text-primary">State Map Distibution </h5>
+                <h5 class="text-primary">Reports on Projects </h5>
                 <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-chart-trends" aria-expanded="false" aria-controls="collapse-chart-trends">
                     &nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                           <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
@@ -23,8 +23,7 @@
               </div>
               <div id="collapse-chart-trends" class="collapse show" aria-labelledby="heading-collapsed">
                 <div class="card-body ">
-                  <h5><span class="badge bg-secondary">Projects Geographic Impact Summary {{new Date().getFullYear()}}</span></h5>
-                  
+                                    
                   <home-map></home-map>
                 </div>
               </div>
