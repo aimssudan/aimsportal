@@ -26,9 +26,9 @@
             
 
             const placeholderDiv = document.getElementById("vizContainer");
-            const url = "https://public.tableau.com/views/aims-south-sudan-sample-1/Sheet1"
+            const url = "https://public.tableau.com/views/aims-south-sudan-sample-1/ProjectvsProgress"
             const options = {
-               // hideTabs: true,
+            //    hideTabs: true,
                 hideToolbar: true,
                 // onFirstInteractive: function () {
                 //  let workbook = this.viz.getWorkbook();
