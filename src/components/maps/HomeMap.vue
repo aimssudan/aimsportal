@@ -4,6 +4,7 @@
     </div>
 </template>
 <script>
+/*eslint no-restricted-imports: ["error", "fs"]*/
  import * as Tableau from '../../globals/tableau-api'
 
 
