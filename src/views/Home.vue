@@ -24,7 +24,8 @@
               <div id="collapse-chart-trends" class="collapse show" aria-labelledby="heading-collapsed">
                 <div class="card-body ">
                   <h5><span class="badge bg-secondary">Projects Geographic Impact Summary {{new Date().getFullYear()}}</span></h5>
-                  <project-distribution-by-state class="text-primary"></project-distribution-by-state>
+                  
+                  <home-map></home-map>
                 </div>
               </div>
               <div class="card-footer"> Map of South Sudan</div>
@@ -145,11 +146,12 @@
 import { mapActions} from 'vuex'
 import flashError from '../components/flashError.vue'
 import ProjectDistributionByState from '../components/maps/ProjectDistributionByState.vue'
+import HomeMap from '../components/maps/HomeMap.vue'
 
 export default {
   name: 'Home',
   components: {
-    flashError, ProjectDistributionByState
+    flashError, ProjectDistributionByState, HomeMap
     
   },
   data() {
