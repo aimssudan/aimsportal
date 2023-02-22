@@ -20,7 +20,9 @@
               </div>
               <div id="collapse-chart-trends" class="collapse show" aria-labelledby="heading-collapsed">
                 <div class="card-body ">
-                  <funding-trend-chart/>
+                  <!-- <funding-trend-chart/> -->
+                  <funding-by-sector-chart></funding-by-sector-chart>
+
                 </div>
               </div>
               
@@ -49,7 +51,10 @@
 
         
           
-        </div>
+        </div> <!-- row -->
+
+        <project-list></project-list>
+
       </div>
     </main>
 </template>
@@ -57,11 +62,15 @@
 <script>
 import {mapState} from 'vuex'
 import ProjectDistributionByState from '../components/maps/ProjectDistributionByState.vue'
+import FundingBySectorChart from '../components/charts/FundingBySectorChart.vue'
+import ProjectList from '../components/reports/ProjectList.vue'
 
 export default {
   name : 'dashboard',
   components: {
-    ProjectDistributionByState, 
+    ProjectDistributionByState,
+    FundingBySectorChart,  
+    ProjectList,
   },
 created() {
     let isLoggedIn = !!localStorage.getItem("token");
