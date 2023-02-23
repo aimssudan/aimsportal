@@ -138,7 +138,7 @@
 
 
                 <h5 class="mt-4">Feedback</h5>
-                <p><small>Your feedback on data fields and others related issues of this web portal are highly appreciated. Please send your valuable feedback to: <a href="mailto:aimssouthsudan@gmail.com" style="color:#a8ecff">AIMS</a></small></p>
+                <p><small>Your feedback on data fields and others related issues of this web portal are highly appreciated. Please send your valuable feedback to: <a href="mailto:aimssouthsudan@gmail.com" style="color:blue">AIMS</a></small></p>
 
 
               </div>
