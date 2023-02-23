@@ -24,7 +24,8 @@
               <div id="collapse-chart-trends" class="collapse show" aria-labelledby="heading-collapsed">
                 <div class="card-body ">
                                     
-                  <home-map></home-map>
+                  <project-distribution-by-state class="text-primary"></project-distribution-by-state>
+
                 </div>
               </div>
               <div class="card-footer"> Map of South Sudan</div>
@@ -68,7 +69,8 @@
                     <flash-error :hasError="apiErrors" :errors="errors" @dismissError="apiErrors = false"></flash-error>
 
                     <!-- Other Graphs -->
-                    <project-distribution-by-state class="text-primary"></project-distribution-by-state>
+                    <funding-by-source-chart></funding-by-source-chart>
+
                   </div>
                 </div>
 
@@ -145,12 +147,14 @@
 import { mapActions} from 'vuex'
 import flashError from '../components/flashError.vue'
 import ProjectDistributionByState from '../components/maps/ProjectDistributionByState.vue'
-import HomeMap from '../components/maps/HomeMap.vue'
+// import HomeMap from '../components/maps/HomeMap.vue'
+
+import FundingBySourceChart from '../components/charts/FundingBySourceChart.vue'
 
 export default {
   name: 'Home',
   components: {
-    flashError, ProjectDistributionByState, HomeMap
+    flashError, ProjectDistributionByState, FundingBySourceChart
     
   },
   data() {
