@@ -13,23 +13,31 @@
                 <h4><b>Welcome To AIMS South Sudan</b></h4>
                 <p>The Aid Information Management System (AIMS) web portal from the Ministry of Finance and Planning - Government of South Sudan.</p>
                 <div class="card border-light">
-              <div class="card-header d-flex justify-content-between">
-                <h5 class="text-primary">Reports on Projects </h5>
-                <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-chart-trends" aria-expanded="false" aria-controls="collapse-chart-trends">
-                    &nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                        </svg>
-                </button>
-              </div>
-              <div id="collapse-chart-trends" class="collapse show" aria-labelledby="heading-collapsed">
-                <div class="card-body ">
-                                    
-                  <project-distribution-by-state class="text-primary"></project-distribution-by-state>
+                  <div class="card-header d-flex justify-content-between">
+                    <h5 class="text-primary">Project Overview </h5>
+                    
+                  </div>
+                  <div id="collapse-chart-trends" class="collapse show" aria-labelledby="heading-collapsed">
+                    <div class="card-body ">
+                                        
+                      <project-distribution-by-state class="text-primary"></project-distribution-by-state>
 
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="card-footer"> Map of South Sudan</div>
-          </div>
+
+                <div class="row mt-4">
+                  <h4>In Detail</h4>
+                  <div class="col-md-6">
+                    <!-- Line Graph -->
+                    <total-projects-trend-chart></total-projects-trend-chart>
+                  </div>
+                  <div class="col-md-6">
+                    <!-- Bar Graph -->
+                    <funding-trend-chart></funding-trend-chart>
+                  </div>
+                </div>
+
                 <div class="row mt-4 mb-4" id="additional_text">
                   <div class="col-md-6" style="text-align: justify;">
                     <p><b>The Aid Information Management System (AIMS)</b> is your one-stop-shop for all information related to foreign assistance in South Sudan. AIMS records and processes information provided by donors on development activities and related aid flows in the country. The overall objective of this AIMS is to increase aid transparency, strengthen accountability, facilitate coordination and allow for more efficient aid management.</p>
@@ -60,7 +68,7 @@
 
                 <div class="card text-black mt-4">
                   <div class="card-header">
-                      <center><h5>Sector Statistics</h5></center>
+                      <center><h5>Funding by Source</h5></center>
                   </div>
                   <div class="card-body">
                     <div v-if="isLoading" class="spinner-border text-warning" role="status">
@@ -130,7 +138,7 @@
 
 
                 <h5 class="mt-4">Feedback</h5>
-                <p><small>Your feedback on data fields and others related issues of this web portal are highly appreciated. Please send your valuable feedback to: <a href="mailto:aimssouthsudan@gmail.com" style="color:#a8ecff">AIMS</a></small></p>
+                <p><small>Your feedback on data fields and others related issues of this web portal are highly appreciated. Please send your valuable feedback to: <a href="mailto:aimssouthsudan@gmail.com" style="color:blue">AIMS</a></small></p>
 
 
               </div>
@@ -147,14 +155,14 @@
 import { mapActions} from 'vuex'
 import flashError from '../components/flashError.vue'
 import ProjectDistributionByState from '../components/maps/ProjectDistributionByState.vue'
-// import HomeMap from '../components/maps/HomeMap.vue'
-
+import TotalProjectsTrendChart from '../components/charts/TotalProjectsTrendChart.vue'
 import FundingBySourceChart from '../components/charts/FundingBySourceChart.vue'
+import FundingTrendChart from '../components/charts/FundingTrendChart.vue'
 
 export default {
   name: 'Home',
   components: {
-    flashError, ProjectDistributionByState, FundingBySourceChart
+    flashError, ProjectDistributionByState, FundingBySourceChart, TotalProjectsTrendChart, FundingTrendChart, 
     
   },
   data() {
