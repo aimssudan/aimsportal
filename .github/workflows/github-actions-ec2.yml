@@ -23,8 +23,8 @@ jobs:
       - name: Install npm dependencies
         run: npm install
 
-      - name: Export Legacy
-        run: export NODE_OPTIONS=--openssl-legacy-provider
+      # - name: Export Legacy
+      #   run: export NODE_OPTIONS=--openssl-legacy-provider
 
       - name: Run Build
         run: npm run build --if-present     
