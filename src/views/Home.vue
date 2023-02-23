@@ -180,7 +180,11 @@ export default {
         password: "",
         device_name: "browser"
       },
-      errors: []
+      errors: [],
+      allTimeFundingTotal: 0,
+      thisYearFundingTotal: 0,
+      lastYearFundingTotal: 0,
+      previousYearFundingTotal: 0,
     };
   }, 
   created() {
@@ -192,16 +196,100 @@ export default {
       this.$store.commit('auth/SET_TOKEN', token);
       this.$store.commit('auth/SET_USER', loggedInUser);
     }
+    this.calculateFundingTotals();
   },
 
   methods: {
     ...mapActions({
       login: 'auth/login',
-      guestLogin: 'auth/guestLogin'
+      guestLogin: 'auth/guestLogin',
+      getFundingTotal: 'reports/getFundingTotal',
     }),
 
     navigate(link) {
       this.$router.push({ name: link });
+    },
+
+    calculateFundingTotals() {
+      const currentYear = new Date().getFullYear();
+      const lastYear = currentYear-1;
+      const previousYear = currentYear-2;
+
+      this.getFundingTotal().then(
+        (result) => {
+          console.log(result.data)
+          this.allTimeFundingTotal = result.data;
+        },
+        (error) => {
+            const resMessage =
+                      (error.response &&
+                        error.response.data &&
+                        error.response.data.errors) ||
+                      error.message ||
+                      error.toString();
+              
+              console.log(resMessage);
+             
+
+          }
+      );
+
+      this.getFundingTotal(currentYear).then(
+        (result) => {
+          console.log(result.data)
+          this.thisYearFundingTotal = result.data;
+        },
+        (error) => {
+            const resMessage =
+                      (error.response &&
+                        error.response.data &&
+                        error.response.data.errors) ||
+                      error.message ||
+                      error.toString();
+              
+              console.log(resMessage);
+             
+
+          }
+      );
+
+      this.getFundingTotal(lastYear).then(
+        (result) => {
+          console.log(result.data)
+          this.lastYearFundingTotal = result.data;
+        },
+        (error) => {
+            const resMessage =
+                      (error.response &&
+                        error.response.data &&
+                        error.response.data.errors) ||
+                      error.message ||
+                      error.toString();
+              
+              console.log(resMessage);
+             
+
+          }
+      );
+
+      this.getFundingTotal(previousYear).then(
+        (result) => {
+          console.log(result.data)
+          this.previousYearFundingTotal = result.data;
+        },
+        (error) => {
+            const resMessage =
+                      (error.response &&
+                        error.response.data &&
+                        error.response.data.errors) ||
+                      error.message ||
+                      error.toString();
+              
+              console.log(resMessage);
+             
+
+          }
+      );
     },
 
     submit() {
