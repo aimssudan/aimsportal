@@ -61,6 +61,24 @@
               </div>
           </div>
         </div>
+
+        <div class="col-md-4">
+          <div class="card border-light">
+              <div class="card-header d-flex justify-content-between">
+                <h5>Trend of Total Projects</h5>
+                <button class="btn btn-light btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-chart-trends" aria-expanded="false" aria-controls="collapse-chart-trends">
+                    &nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                          <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
+                </button>
+              </div>
+              <div id="collapse-chart-trends" class="collapse show" aria-labelledby="heading-collapsed">
+                <div class="card-body ">
+                  <total-projects-trend-chart></total-projects-trend-chart>
+                </div>
+              </div>
+          </div>
+        </div>
           
         </div>
       </div>
@@ -72,11 +90,12 @@ import {mapState} from 'vuex'
 import FundingTrendChart from '../components/charts/FundingTrendChart.vue'
 import FundingBySectorChart from '../components/charts/FundingBySectorChart.vue'
 import FundingBySourceChart from '../components/charts/FundingBySourceChart.vue'
+import TotalProjectsTrendChart from '../components/charts/TotalProjectsTrendChart.vue'
 
 export default {
   name : 'dashboard',
   components: {
-    FundingTrendChart, FundingBySectorChart, FundingBySourceChart
+    FundingTrendChart, FundingBySectorChart, FundingBySourceChart, TotalProjectsTrendChart
   },
 created() {
     let isLoggedIn = !!localStorage.getItem("token");

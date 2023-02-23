@@ -24,10 +24,14 @@ export default {
 
     getFundingBySectorReport(_, payload) {
       return axios.post(`/reports/funding-by-sector`, payload);
-     },
+    },
 
-     getFundingBySourceReport(_, payload) {
-      return axios.post(`/reports/funding-by-source`, payload);
+    getFundingBySourceReport(_, payload) {
+    return axios.post(`/reports/funding-by-source`, payload);
+    },
+
+    getTotalProjectsTrendReport(_, payload) {
+      return axios.post(`/reports/total-projects-trend`, payload);
      },
 
   }
