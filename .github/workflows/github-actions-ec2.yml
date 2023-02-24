@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Run Build
-        run: npm run build --openssl-legacy-provider --if-present     
+        run: npm run build --if-present     
 
       - name: Deploy to Anton
         uses: easingthemes/ssh-deploy@main
