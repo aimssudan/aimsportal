@@ -33,6 +33,18 @@ export default {
     getTotalProjectsTrendReport(_, payload) {
       return axios.post(`/reports/total-projects-trend`, payload);
      },
+     
+     getTotalProjectsInProgressTrendReport(_, payload) {
+      return axios.post(`/reports/total-projects-inprogress-trend`, payload);
+     },
+
+     getTotalProjectsCompletedTrendReport(_, payload) {
+      return axios.post(`/reports/total-projects-completed-trend`, payload);
+     },
+
+     getBudgetingTrendReport(_, payload) {
+      return axios.post(`/reports/budgets-trend`, payload);
+     },
     
      getFundingTotal(_, year = 1) {
         const payload = (year == 1) ? {} : {year: year}
