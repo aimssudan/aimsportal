@@ -30,11 +30,11 @@
                   <h4>In Detail</h4>
                   <div class="col-md-6">
                     <!-- Line Graph -->
-                    <total-projects-trend-chart></total-projects-trend-chart>
+                    <stacked-line-chart></stacked-line-chart>
                   </div>
                   <div class="col-md-6">
                     <!-- Bar Graph -->
-                    <funding-trend-chart></funding-trend-chart>
+                    <stacked-trend-chart></stacked-trend-chart>
                   </div>
                 </div>
 
@@ -155,14 +155,15 @@
 import { mapActions} from 'vuex'
 import flashError from '../components/flashError.vue'
 import ProjectDistributionByState from '../components/maps/ProjectDistributionByState.vue'
-import TotalProjectsTrendChart from '../components/charts/TotalProjectsTrendChart.vue'
 import FundingBySourceChart from '../components/charts/FundingBySourceChart.vue'
-import FundingTrendChart from '../components/charts/FundingTrendChart.vue'
+import StackedTrendChart from '../components/charts/StackedTrendChart.vue'
+import StackedLineChart from '../components/charts/StackedLineChart.vue'
 
 export default {
   name: 'Home',
   components: {
-    flashError, ProjectDistributionByState, FundingBySourceChart, TotalProjectsTrendChart, FundingTrendChart, 
+    flashError, ProjectDistributionByState, FundingBySourceChart, 
+    StackedTrendChart, StackedLineChart
     
   },
   data() {
