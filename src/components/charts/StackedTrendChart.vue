@@ -1,5 +1,5 @@
 <template>  
-  <canvas id="stacked-trend-chart"></canvas>
+  <canvas id="stacked-trend-chart"  style="background-color: white;"></canvas>
 </template>
 
 <script>
