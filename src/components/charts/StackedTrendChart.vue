@@ -1,5 +1,5 @@
 <template>  
-  <canvas id="stacked-trend-chart"  style="background-color: white;"></canvas>
+  <canvas id="stacked-trend-chart" ></canvas>
 </template>
 
 <script>
@@ -8,6 +8,7 @@ import { mapActions} from 'vuex'
 
 export default {
   name: 'StackedTrendChart',
+  props: {chartTitle: String},
   data() {
     return {
       chartData: {
@@ -30,12 +31,29 @@ export default {
               ]
           },
           options: {
+              plugins: {
+                  title: {
+                      display: true,
+                      text: this.chartTitle,
+                      position: 'top',
+                      align: 'start',
+                  },
+                  legend: {
+                    display: true,
+                    position: 'top',
+                    align: 'start'
+                }
+              },
               scales: {
                   y: {
                       stacked: true,
+                      
                   },
                   x: {
                     stacked: true,
+                    grid: {
+                      display: false
+                    }
                   }
               }
           }
