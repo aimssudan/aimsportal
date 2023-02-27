@@ -29,16 +29,16 @@
 
                 <div class="row mt-4">
                   <h4>In Detail</h4>
-                  <div class="col-md-6">
-                    <div class="card">
-                      <div class="card-body">
+                  <div class="col-md-12">
+                    <div class="card" style=" min-height: 50%;">
+                      <div class="card-body" >
                         <!-- Line Graph -->
                         <stacked-line-chart chartTitle="IMPLEMENTED VS TOTAL PROJECTS"></stacked-line-chart>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="card">
+                  <div class="col-md-12 mt-3 mb-3">
+                    <div class="card"  style=" min-height: 50%;">
                       <div class="card-body">
                         <!-- Bar Graph -->
                         <stacked-trend-chart chartTitle="COMMITTED VS BUDGETED"></stacked-trend-chart>
@@ -47,16 +47,6 @@
                   </div>
                 </div>
 
-                <div class="row mt-4 mb-4" id="additional_text">
-                  <div class="col-md-6" style="text-align: justify;">
-                    <p><b>The Aid Information Management System (AIMS)</b> is your one-stop-shop for all information related to foreign assistance in South Sudan. AIMS records and processes information provided by donors on development activities and related aid flows in the country. The overall objective of this AIMS is to increase aid transparency, strengthen accountability, facilitate coordination and allow for more efficient aid management.</p>
-
-                  </div>
-                  <div class="col-md-6" style="text-align: justify;">
-                    <p><b>Access to Aid Information</b><br>
-                      AIMS is a publicly-accessible internet tool which is part of the Government of South Sudan's transparency initiative. Anybody can view the information of aid flow in South Sudan, simply by clicking the "Public User" button. However, only authorized user of development partner can enter or update the aid information in the web portal.</p>
-                  </div>
-                </div>
 
                 <!-- <center><a href="/login" class="btn btn-primary">Log In</a></center> <center><a href="/register" class="btn btn-success mt-4 mb-4">Register</a></center> -->
               </div>
@@ -151,10 +141,22 @@
                   <hr style="margin-top: 1rem;">
                 </div>
 
+                <div class="row mt-4" id="additional_text">
+                  <div class="col-md-12" style="text-align: justify;">
+                    <p><b>The Aid Information Management System (AIMS)</b> is your one-stop-shop for all information related to foreign assistance in South Sudan. AIMS records and processes information provided by donors on development activities and related aid flows in the country. The overall objective of this AIMS is to increase aid transparency, strengthen accountability, facilitate coordination and allow for more efficient aid management.</p>
 
-                <h5 class="mt-4">Feedback</h5>
+                  </div>
+                  <div class="col-md-12" style="text-align: justify;">
+                    <p><b>Access to Aid Information</b><br>
+                      AIMS is a publicly-accessible internet tool which is part of the Government of South Sudan's transparency initiative. Anybody can view the information of aid flow in South Sudan, simply by clicking the "Public User" button. However, only authorized user of development partner can enter or update the aid information in the web portal.</p>
+                  </div>
+                </div>
+
+                <h5 class="mt-3">Feedback</h5>
                 <p><small>Your feedback on data fields and others related issues of this web portal are highly appreciated. Please send your valuable feedback to: <a href="mailto:aimssouthsudan@gmail.com" style="color:blue">AIMS</a></small></p>
 
+
+                
 
               </div>
               
