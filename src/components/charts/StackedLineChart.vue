@@ -8,6 +8,7 @@ import { mapActions} from 'vuex'
 
 export default {
   name: 'StackedLineChart',
+  props: {chartTitle: String},
   data() {
     return {
       chartData: {
@@ -30,6 +31,19 @@ export default {
               ]
           },
           options: {
+            plugins: {
+                  title: {
+                      display: true,
+                      text: this.chartTitle,
+                      position: 'top',
+                      align: 'start',
+                  },
+                  legend: {
+                    display: true,
+                    position: 'top',
+                    align: 'start'
+                }
+              },
               scales: {
                   y: {
                     beginAtZero: true
