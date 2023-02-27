@@ -13,12 +13,13 @@
                 <h4><b>Welcome To AIMS South Sudan</b></h4>
                 <p>The Aid Information Management System (AIMS) web portal from the Ministry of Finance and Planning - Government of South Sudan.</p>
                 <div class="card border-light">
-                  <div class="card-header d-flex justify-content-between">
-                    <h5 class="text-primary">Project Overview </h5>
+                  <!-- <div class="card-header d-flex justify-content-between">
                     
-                  </div>
+                  </div> -->
                   <div id="collapse-chart-trends" class="collapse show" aria-labelledby="heading-collapsed">
-                    <div class="card-body ">
+                    <div class="card-body">
+                    <center><h5 style="font-weight: bolder;">PROJECT OVERVIEW </h5></center>
+
                                         
                       <project-distribution-by-state class="text-primary"></project-distribution-by-state>
 
@@ -67,10 +68,11 @@
                 </div><!-- row -->
 
                 <div class="card text-black mt-4">
-                  <div class="card-header">
-                      <center><h5>Funding by Source</h5></center>
-                  </div>
+                  <!-- <div class="card-header">
+                  </div> -->
                   <div class="card-body">
+                    <center><h5 class=""><b>Funding by Source</b></h5></center>
+
                     <div v-if="isLoading" class="spinner-border text-warning" role="status">
                       <span class="visually-hidden">Loading...</span>
                     </div>
@@ -91,17 +93,17 @@
                     <div class="row">
                       <div class="col-md-4">
                         <h4>26</h4>
-                        <span class="badge badge-dark" style="color: gray">Local</span>
+                        <span class="badge bg-dark" style="color: #ebecf0">Local</span>
                       </div>
 
                       <div class="col-md-4">
                         <h4>12</h4>
-                        <span class="badge badge-dark" style="color: gray">GOV'T</span>
+                        <span class="badge bg-dark" style="color: #ebecf0">GOV'T</span>
                       </div>
 
                       <div class="col-md-4">
                         <h4>14</h4>
-                        <span class="badge badge-dark" style="color: gray">INT'L</span>
+                        <span class="badge bg-dark" style="color: #ebecf0">INT'L</span>
                       </div>
 
                     </div>
@@ -118,17 +120,17 @@
                     <div class="row">
                       <div class="col-md-4">
                         <h5>${{convertToInternationalCurrencySystem(thisYearFundingTotal)}} </h5>
-                        <span class="badge badge-dark" style="color: gray">2023</span>
+                        <span class="badge bg-dark" style="color: #ebecf0">2023</span>
                       </div>
 
                       <div class="col-md-4">
                         <h5>${{convertToInternationalCurrencySystem(lastYearFundingTotal)}} </h5>
-                        <span class="badge badge-dark" style="color: gray">2022</span>
+                        <span class="badge bg-dark" style="color: #ebecf0">2022</span>
                       </div>
 
                       <div class="col-md-4">
                         <h5>${{convertToInternationalCurrencySystem(previousYearFundingTotal)}} </h5>
-                        <span class="badge badge-dark" style="color: gray">2021</span>
+                        <span class="badge bg-dark" style="color: #ebecf0">2021</span>
                       </div>
 
                     </div>
