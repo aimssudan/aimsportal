@@ -8,6 +8,7 @@ import { mapActions} from 'vuex'
 
 export default {
   name: 'TotalProjectsTrendChart',
+  props: {chartTitle: String},
   data() {
     return {
       chartData: {
@@ -22,6 +23,12 @@ export default {
               }]
           },
           options: {
+            plugins: {
+                  title: {
+                      display: true,
+                      text: this.chartTitle
+                  }
+              },
               scales: {
                   y: {
                       beginAtZero: true
