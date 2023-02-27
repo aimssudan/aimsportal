@@ -2,7 +2,7 @@
   <div class="container">
     <!-- <div class="row"> -->
       <!-- <div class="col-md-3"> -->
-        <span class="ms-2 badge bg-secondary">Proposed</span>
+        <span class="ms-2 badge bg-secondary"> Proposed</span>
         <span class="ms-2 badge bg-secondary">In Progress</span>
         <span class="ms-2 badge bg-secondary">Completed</span>
         <span class="ms-2 badge bg-secondary">Delayed</span>
