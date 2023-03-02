@@ -1086,6 +1086,94 @@
                           </div>
                         </div>
 
+                        <div class="accordion" id="ss_locations_accordion">
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="ss_locations_list">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ss_locations_collapse" aria-expanded="true" aria-controls="ss_locations_collapse">
+                                South Sudan Locations
+                              </button>
+                            </h2>
+                            <div id="ss_locations_collapse" class="accordion-collapse collapse show" aria-labelledby="ss_locations_list" data-bs-parent="#ss_locations_accordion">
+                              <div class="accordion-body">
+                                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#ss_locations_"> + Add  </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="ss_locations_" tabindex="-1" aria-labelledby="ss_locations_Label" aria-hidden="true">
+                                  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="geographic_allocation_Label">Add South Sudan Locations</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row mx-3 mt-3">
+                                          <label for="sector" class="col-sm-4 col-form-label"><small>State</small></label>
+                                          <div class="col-sm-8"> 
+                                            <select v-model="form_locations.state" @change="updateCounties()" class="form-control">
+                                              <option v-for="locState in locationStates" :key="locState.id" :value="locState.id">{{locState.name}}</option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="sector" class="col-sm-4 col-form-label"><small>County (Optional)</small></label>
+                                          <div class="col-sm-8">
+                                            <select v-model="form_locations.county" class="form-control" @change="updatePayam($event)">
+                                              <option v-for="county in location_counties" :key="county.id" :value="county.id">{{county.name}}</option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+                                        <div class="row mx-3 mt-3">
+                                          <label for="sub_sector" class="col-sm-4 col-form-label"><small>Param (optional)</small></label>
+                                          <div class="col-sm-8">
+                                            <select v-model="form_locations.payam" @change="updatePayamName($event)" class="form-control">
+                                              <option v-for="payam in location_payams" :key="payam.id" :value="payam.id">{{payam.name}}</option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button id="close-add-location-modal" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                                        <button @click="addLocationToProject()" type="button" class="btn btn-primary">Save</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> <!-- modal -->
+
+
+                                <div class="table-responsive">
+                                    <table class="table table-responsive">
+                                      <thead>
+                                        <tr>
+                                          <th>State</th>
+                                          <th>County</th>
+                                          <th>Param</th>
+                                          <th>Actions</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr v-for="(location, index) in project_locations" :key="index">
+                                          <td>{{locationStates.find(element => element.id == location.state)?.name}}</td>
+                                          <td>{{location.countyName}}</td>
+                                          <td>{{location.payamName}}</td>
+                                          <td><button @click="removeProjectLocation(index)" class="btn btn-sm btn-danger">X</button></td>
+                                        </tr>
+                                        
+                                        
+                                      </tbody>
+                                      
+                                    </table>
+                                </div>
+                                
+                                
+                              </div>
+                            </div>
+                          </div>
+
+                        </div> <!-- Geographic Allocation List -->
+
                         <div class="accordion" id="geographic_allocation_accordion">
                           <div class="accordion-item">
                             <h2 class="accordion-header" id="geographic_allocation_list">
@@ -1473,6 +1561,17 @@ export default {
       componentAction: "",
       exchange_rate_usd: 1,
       exchange_rate_ssp: 1,
+      project_locations: [],
+      location_counties: [],
+      location_payams: [],
+      form_locations: {
+        state: null,
+        stateName: '',
+        county: null,
+        countyName: '',
+        payam: null,
+        payamName: ''
+      },
 
     }
 
@@ -1481,6 +1580,7 @@ export default {
     ...mapState('project', ['projects']),
     ...mapState('global', ['organisations']),
     ...mapState('auth', ['user']),
+    ...mapState('locations', ['locationStates']),
 
      expenditures () {
       return this.transactions.filter(element => element.transaction_type_code ==4)
@@ -1517,10 +1617,68 @@ export default {
       deleteParticipatingOrg: 'project/deleteParticipatingOrg',
       deleteBudget: 'project/deleteBudget',
       deleteSector: 'project/deleteSector',
+      deleteProjectLocation: 'project/deleteProjectLocation',
       deleteRecipientRegion: 'project/deleteRecipientRegion',
       deleteTransaction: 'project/deleteTransaction',
       convertCurrency: 'global/convertCurrency',
+      getLocationStates: 'locations/getStates',
+      getLocationCounties: 'locations/getCounties',
+      getLocationPayams: 'locations/getPayams',
     }),
+
+    updateCounties() {
+      let payload = {
+        related_id: this.form_locations.state
+      }
+      
+      this.location_counties = [];
+      this.getLocationCounties(payload).then(
+        (response) => {
+          this.location_counties = response.data.locations;
+        },
+        (error) => {
+          console.log(`${error}`)
+        }
+      )
+    },
+
+    updatePayam(event) {
+      let payload ={
+        related_id: this.form_locations.county
+      }
+      this.location_payams = [];
+      this.form_locations.countyName = event.target.options[event.target.options.selectedIndex].text
+      this.getLocationPayams(payload).then(
+        (response) => {
+          this.location_payams = response.data.locations
+        },
+        (error) => {
+          console.log(`${error}`)
+        }
+      )
+    },
+
+    updatePayamName(event) {
+      this.form_locations.payamName = event.target.options[event.target.options.selectedIndex].text
+    }, 
+
+    
+
+    addLocationToProject() {
+      if (this.form_locations.state !== null) {
+        const alreadyAdded = this.project_locations.findIndex(item => item.state == this.form_locations.state && item.county == this.form_locations.county && item.payam == this.form_locations.payam)
+        if (alreadyAdded === -1) {
+          this.project_locations.push({...this.form_locations});
+          this.form_locations.state = null
+          this.form_locations.county = null
+          this.form_locations.payam = null
+          this.form_locations.countyName = '';
+          this.form_locations.payamName = '';
+          document.getElementById("close-add-location-modal").click();
+          
+        }
+      }
+    },
 
     getUSDExchangeRate(isBudget) {
       this.exchange_rate_usd = 1
@@ -1774,6 +1932,37 @@ export default {
       }
     },
 
+    removeProjectLocation(index) {
+      
+      if (confirm("Are you sure you want to delete?")) {
+        if (this.project_locations[index] !== undefined) {
+          const sid = this.project_locations[index]?.sid
+          if (sid !== null) {
+            this.deleteProjectLocation(sid).then(
+              (response) => {
+                //
+                let responseMessage = response.data.data;
+                this.$store.commit('showSnackbar', responseMessage)
+              },
+              (error) => {
+                const resMessage =
+                        (error.response &&
+                          error.response.data &&
+                          error.response.data.message) ||
+                        error.message ||
+                        error.toString();
+                
+                console.log(resMessage)
+                
+
+              }
+            );
+          } 
+          this.project_locations.splice(index, 1); 
+        }
+      }
+    },
+
     addBudget() {
       if (this.form_budget.value_amount !=0 &&
           this.form_budget.period_start !=null &&
@@ -2017,6 +2206,10 @@ export default {
           }
         })
 
+        this.project_locations = this.currentProject.location.map(function(element) {
+          return {sid:element.id, state:element.state, county:element.county, countyName:element.county_name, payam:element.payam, payamName:element.payam_name, in_database:true}
+        })
+
       }
     },
     saveProject() {
@@ -2037,6 +2230,7 @@ export default {
         recipient_countries: this.recipient_countries,
         recipient_regions: this.recipient_regions,
         budgets: this.budgets,
+        transactions: this.transactions,
         participating_organisations: this.participating_organisations,
         project_title : this.project_title,
         project_objective: this.project_objective,
@@ -2048,6 +2242,7 @@ export default {
         organisation_id: this.organisation_id,
         activity_status: this.activity_status,
         status: this.status,
+        locations: this.project_locations
        }
        this.updateProject(payload).then(
           (response) => {
@@ -2089,7 +2284,7 @@ export default {
       this.$store.commit('auth/SET_TOKEN', token);
       this.$store.commit('auth/SET_USER', loggedInUser);
     }
-
+  this.getLocationStates();
     let idParam = this.$route.params.id
   if (idParam) {
     

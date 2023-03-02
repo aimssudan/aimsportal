@@ -83,7 +83,7 @@
                       <a href="#" class="btn btn-outline-primary" :class="{ active: activeTab=='STATE'}" @click.prevent="switchGraph('state')">STATE</a>
                       <a href="#" class="btn btn-outline-primary" :class="{ active: activeTab=='PERIOD'}" @click.prevent="switchGraph('period')">PERIOD</a>
                     </div>
-                    <center><h5 class=""><b>{{activeHeading}}</b></h5></center>
+                    
 
                     <div v-if="isLoading" class="spinner-border text-warning" role="status">
                       <span class="visually-hidden">Loading...</span>
@@ -235,7 +235,9 @@ export default {
       guestLogin: 'auth/guestLogin',
       getFundingTotal: 'reports/getFundingTotal',
       getFundingBySector : 'reports/getFundingBySectorReport',
-      getFundingBySource : 'reports/getFundingBySourceReport'
+      getFundingBySource : 'reports/getFundingBySourceReport',
+      getFundingByState: 'reports/getFundingByStateReport',
+      getFundingTrendReport: 'reports/getFundingTrendReport',
     }),
 
     switchGraph(graphType) {
@@ -251,6 +253,16 @@ export default {
           this.activeHeading = 'Funding By Source'
           this.activeTab = 'SOURCE'
           break;  
+        case 'state':
+          this.updateFundingStateGraph();
+          this.activeHeading = 'Funding By State'
+          this.activeTab = 'STATE'
+          break; 
+        case 'period':
+          this.updateFundingPeriodGraph();
+          this.activeHeading = 'Funding By Period'
+          this.activeTab = 'PERIOD'
+          break;     
         default:
           this.updateFundingSectorGraph();
           this.activeHeading = 'Funding By Sector'
@@ -421,6 +433,47 @@ export default {
         this.$store.commit("showSnackbar", errorMessage)
       }
     )
+    },
+
+    updateFundingStateGraph() {
+      this.dataReady = false;
+      this.chartData = [];
+      this.chartLabel = [];
+      this.getFundingByState().then(
+        (response) => {
+          let chartData = {
+            name: 'Funding By State',
+            data: response.data.map(value => value.data)
+          }
+          this.chartData.push(chartData)
+          this.chartLabel = response.data.map(value => value.state)
+          this.dataReady = true
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
+
+    },
+
+    updateFundingPeriodGraph() {
+      this.dataReady = false;
+      this.chartData = [];
+      this.chartLabel = [];
+      this.getFundingTrendReport().then(
+        (response) => {
+          let chartData = {
+            name: 'Funding By Period',
+            data: response.data.map(value => value.data)
+          }
+          this.chartData.push(chartData)
+          this.chartLabel = response.data.map(value => value.year)
+          this.dataReady = true
+        },
+        (error) => {
+          console.log(error)
+        }
+      )
     },
 
     submit() {
