@@ -67,6 +67,9 @@ export default {
     deleteTransaction(_, id) {
       return axios.delete(`/projects/transaction/${id}`);
     },
+    deleteProjectLocation(_, id) {
+      return axios.delete(`/projects/location/${id}`);
+    },
 
   }
 }
