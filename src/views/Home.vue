@@ -21,7 +21,7 @@
                     <center><h5 style="font-weight: bolder;">PROJECT OVERVIEW </h5></center>
 
                                         
-                      <project-distribution-by-state class="text-primary"></project-distribution-by-state>
+                      <project-distribution-by-state v-if="isMapDataLoaded" :mapData="mapData" class="text-primary"></project-distribution-by-state>
 
                     </div>
                   </div>
@@ -207,7 +207,9 @@ export default {
       chartData: [],
       chartLabel: [],
       activeTab: 'SECTOR',
-      activeHeading: 'Funding By Sector'
+      activeHeading: 'Funding By Sector',
+      mapData: [],
+      isMapDataLoaded: false,
     };
   }, 
   computed: {
@@ -229,6 +231,15 @@ export default {
     }
     this.calculateFundingTotals();
     this.updateFundingSectorGraph();
+    this.getSummaryPerStateReport().then(
+      (response) => {
+        this.mapData = response.data
+        this.isMapDataLoaded = true;
+      },
+      (error) => {
+        console.log(error)
+      }
+    );
   },
 
   methods: {
@@ -240,6 +251,7 @@ export default {
       getFundingBySource : 'reports/getFundingBySourceReport',
       getFundingByState: 'reports/getFundingByStateReport',
       getFundingTrendReport: 'reports/getFundingTrendReport',
+      getSummaryPerStateReport: 'reports/getSummaryPerStateReport',
     }),
 
     switchGraph(graphType) {

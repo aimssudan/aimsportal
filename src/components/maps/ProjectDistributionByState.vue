@@ -37,7 +37,7 @@
               <ul>
                   <li>State: <b>{{toolTip.state}}</b></li>
                   <li>Projects: <span class="badge rounded-pill bg-danger">{{toolTip.projects}}</span></li>
-                  <li>Funding (USD): <span class="badge rounded-pill bg-danger">{{toolTip.funding}} M</span></li>
+                  <li>Funding (USD): <span class="badge rounded-pill bg-danger">{{toolTip.funding}} </span></li>
                   <li>No. of Involved Orgs: <span class="badge rounded-pill bg-danger">{{toolTip.organisations}}</span></li>
               </ul>
           </div>
@@ -63,6 +63,7 @@ const dataMap = require('@/assets/img/ss.svg')
 
 export default {
   name: 'ProjectDistributionByState',
+  props: ['mapData'],
   data() {
     return {
       mapElement: null,
@@ -75,79 +76,6 @@ export default {
         percentage: ''
       },
       isFalse: ref(null),
-      mapData: [
-        {
-            code: "Q491138",
-            projects: 4,
-            funding: 12,
-            organisations: 2,
-            percentage: 2.4
-        },
-        {
-            code: "Q491096",
-            projects: 1,
-            funding: 15,
-            organisations: 4,
-            percentage: 17.2
-        },
-        {
-            code: "Q491111",
-            projects: 65,
-            funding: 39,
-            organisations: 8,
-            percentage: 50.2
-        },
-        {
-            code: "Q319965",
-            projects: 16,
-            funding: 19,
-            organisations: 3,
-            percentage: 18.0
-        },
-        {
-            code: "Q488904",
-            projects: 7,
-            funding: 2,
-            organisations: 3,
-            percentage: 5.0
-        },
-        {
-            code: "Q487702",
-            projects: 1,
-            funding: 0.8,
-            organisations: 1,
-            percentage: 1.8
-        },
-        {
-            code: "Q487709",
-            projects: 1,
-            funding: 0.7,
-            organisations: 1,
-            percentage: 1.7
-        },
-        {
-            code: "Q319979",
-            projects: 1,
-            funding: 0.9,
-            organisations: 1,
-            percentage: 1.9
-        },
-        {
-            code: "Q332095",
-            projects: 1,
-            funding: 0.3,
-            organisations: 1,
-            percentage: 0.9
-        },
-        {
-            code: "Q488519",
-            projects: 1,
-            funding: 0.1,
-            organisations: 1,
-            percentage: 0.1
-        },
-
-      ]
       
     }
   },
@@ -168,9 +96,9 @@ export default {
         if (e.target.nodeName == "path") {
             let details = e.target.attributes;
             this.toolTip.state = details.name.value
-            this.toolTip.projects = this.mapData.find(element => element.code == details.wikidataid.value)?.projects
-            this.toolTip.funding = this.mapData.find(element => element.code == details.wikidataid.value)?.funding
-            this.toolTip.organisations = this.mapData.find(element => element.code == details.wikidataid.value)?.organisations
+            this.toolTip.projects = this.mapData.find(element => element.wikidataid == details.wikidataid.value)?.projects
+            this.toolTip.funding = this.mapData.find(element => element.wikidataid == details.wikidataid.value)?.funding
+            this.toolTip.organisations = this.mapData.find(element => element.wikidataid == details.wikidataid.value)?.organisations
             this.$refs.tooltip.style.transform = `translate(${e.offsetX}px, ${e.offsetY}px)`;
            
             e.target.style.opacity = 0.6
