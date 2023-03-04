@@ -55,5 +55,9 @@ export default {
       return axios.post(`/reports/funding-total`, payload);
      },
 
+     getSummaryPerStateReport(_, payload) {
+      return axios.post(`/reports/summary-per-state`, payload);
+     },
+
   }
 }
