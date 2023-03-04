@@ -5,35 +5,35 @@
         <div class="container"><a class="navbar-brand logo" href="#"> <img src="@/assets/court.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top"> AIMS - South Sudan</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active"  @click="navigate('landing')">{{this.getTranslation("home")}}</a></li>
-                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >{{this.getTranslation("projects")}}</a>
+                    <li class="nav-item"><a class="nav-link active"  @click="navigate('landing')">{{this.getTranslation("Home")}}</a></li>
+                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >{{this.getTranslation("Projects")}}</a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" @click="navigate('projects')">{{this.getTranslation("project")}} {{this.getTranslation("list")}}</a>
-                          <a class="dropdown-item" @click="navigate('reports')">{{this.getTranslation("reports")}}</a>
-                          <a v-if="isEditor" class="dropdown-item" role="button" @click="navigate('new-project')">{{this.getTranslation("add")}} {{this.getTranslation("project")}}</a>
+                          <a class="dropdown-item" @click="navigate('projects')">{{this.getTranslation("Project")}} {{this.getTranslation("List")}}</a>
+                          <a class="dropdown-item" @click="navigate('reports')">{{this.getTranslation("Reports")}}</a>
+                          <a v-if="isEditor" class="dropdown-item" role="button" @click="navigate('new-project')">{{this.getTranslation("Add")}} {{this.getTranslation("Project")}}</a>
                         </div>
                     </li>
                     
                     
-                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("organisations")}}</a>
+                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("Organisations")}}</a>
                         <div class="dropdown-menu">
-                          <a v-if="isadmin" class="dropdown-item" role="button" @click="navigate('organisation-categories')">{{this.getTranslation("categories")}}</a>
-                          <a class="dropdown-item" role="button" @click="navigate('organisations')">{{this.getTranslation("organisations")}}</a>
+                          <a v-if="isadmin" class="dropdown-item" role="button" @click="navigate('organisation-categories')">{{this.getTranslation("Categories")}}</a>
+                          <a class="dropdown-item" role="button" @click="navigate('organisations')">{{this.getTranslation("Organisations")}}</a>
                         </div>
                     </li>
-                    <li v-if="isadmin" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("administation")}}</a>
+                    <li v-if="isadmin" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("Administation")}}</a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" role="button" @click="navigate('system-settings')">{{this.getTranslation("system-settings")}}</a>
+                          <a class="dropdown-item" role="button" @click="navigate('system-settings')">{{this.getTranslation("System-Settings")}}</a>
                           
                         </div>
                     </li>
                     <!-- <li class="nav-item" @click="navigate('contact')"><a class="nav-link" role="button" >Contact Us</a></li> -->
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("account")}}</a>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("Account")}}</a>
                         <div class="dropdown-menu">
-                          <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('login')">{{this.getTranslation("login")}}</a>
-                          <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('register')">{{this.getTranslation("register")}}</a>
-                          <a v-if="profile" class="dropdown-item" role="button" @click="navigate('profile')">{{this.getTranslation("profile")}}</a>
-                          <a v-if="profile" class="dropdown-item" role="button" @click="signout">{{this.getTranslation("logout")}}</a>
+                          <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('login')">{{this.getTranslation("Login")}}</a>
+                          <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('register')">{{this.getTranslation("Register")}}</a>
+                          <a v-if="profile" class="dropdown-item" role="button" @click="navigate('profile')">{{this.getTranslation("Profile")}}</a>
+                          <a v-if="profile" class="dropdown-item" role="button" @click="signout">{{this.getTranslation("Logout")}}</a>
                         </div>
                     </li>
                 </ul>
@@ -58,29 +58,29 @@
                     <h5>{{this.getTranslation("about-us")}} </h5>
                     <ul class="list-unstyled">
                         <li><a href="#">MoFP (GOSS)</a></li>
-                        <li><a href="#">{{this.getTranslation("organisations")}}</a></li>
-                        <li><a href="#">{{this.getTranslation("donors")}}</a></li>
+                        <li><a href="#">{{this.getTranslation("Organisations")}}</a></li>
+                        <li><a href="#">{{this.getTranslation("Donors")}}</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <h5>{{this.getTranslation("support")}}</h5>
+                    <h5>{{this.getTranslation("Support")}}</h5>
                     <ul class="list-unstyled">
-                        <li><a href="contact-us.html">{{this.getTranslation("inquiries")}}</a></li>
-                        <li><a href="#">{{this.getTranslation("help-desk")}}</a></li>
-                        <li><a href="faq.html">{{this.getTranslation("faqs")}}</a></li>
+                        <li><a href="contact-us.html">{{this.getTranslation("Inquiries")}}</a></li>
+                        <li><a href="#">{{this.getTranslation("Help-Desk")}}</a></li>
+                        <li><a href="faq.html">{{this.getTranslation("FAQS")}}</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <h5>{{this.getTranslation("legal")}}</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">{{this.getTranslation("terms-of-use")}}</a></li>
-                        <li><a href="#">{{this.getTranslation("privacy-policy")}}</a></li>
+                        <li><a href="#">{{this.getTranslation("Terms-of-use")}}</a></li>
+                        <li><a href="#">{{this.getTranslation("Privacy-Policy")}}</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="footer-copyright " style="background: rgb(8,16,37);">
-            <p style="color: rgba(126,149,208,0.68);font-size: 12px;">© 2022 AIMS - South Sudan</p>
+            <p style="color: rgba(126,149,208,0.68);font-size: 12px;">© AIMS - South Sudan</p>
         </div>
     </footer>
 
