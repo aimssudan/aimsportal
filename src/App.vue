@@ -6,10 +6,10 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active"  @click="navigate('landing')">{{this.getTranslation("Home")}}</a></li>
-                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" >{{this.getTranslation("Projects")}}</a>
+                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("Projects")}}</a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" @click="navigate('projects')">{{this.getTranslation("Project")}} {{this.getTranslation("List")}}</a>
-                          <a class="dropdown-item" @click="navigate('reports')">{{this.getTranslation("Reports")}}</a>
+                          <a class="dropdown-item" role="button" @click="navigate('projects')">{{this.getTranslation("Project")}} {{this.getTranslation("List")}}</a>
+                          <a class="dropdown-item" role="button" @click="navigate('reports')">{{this.getTranslation("Reports")}}</a>
                           <a v-if="isEditor" class="dropdown-item" role="button" @click="navigate('new-project')">{{this.getTranslation("Add")}} {{this.getTranslation("Project")}}</a>
                         </div>
                     </li>
@@ -55,7 +55,7 @@
                     <p style="color: rgba(255,255,255,0.43);font-size: 16px;">This platform is managed by the Ministry of Finance and Planning - Government of South Sudan.<br></p>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <h5>{{this.getTranslation("about-us")}} </h5>
+                    <h5>{{this.getTranslation("About-us")}} </h5>
                     <ul class="list-unstyled">
                         <li><a href="#">MoFP (GOSS)</a></li>
                         <li><a href="#">{{this.getTranslation("Organisations")}}</a></li>
@@ -71,7 +71,7 @@
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <h5>{{this.getTranslation("legal")}}</h5>
+                    <h5>{{this.getTranslation("Legal")}}</h5>
                     <ul class="list-unstyled">
                         <li><a href="#">{{this.getTranslation("Terms-of-use")}}</a></li>
                         <li><a href="#">{{this.getTranslation("Privacy-Policy")}}</a></li>
