@@ -1,7 +1,7 @@
 <template>
   <main class="page">
     <div class="container" style="min-height: 80vh;">
-      <h1 class="text-primary"> Dashboard</h1>
+      <h1 class="text-primary"> Reports</h1>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item active" aria-current="page">Reports</li>
@@ -42,7 +42,7 @@
               <div id="collapse-chart-trends" class="collapse show" aria-labelledby="heading-collapsed">
                 <div class="card-body ">
                   <h5><span class="badge bg-secondary">Projects Geographic Impact Summary</span></h5>
-                  <project-distribution-by-state></project-distribution-by-state>
+                  <project-distribution-by-state v-if="isMapDataLoaded" :mapData="mapData" ></project-distribution-by-state>
                 </div>
               </div>
               <div class="card-footer"> Map of South Sudan</div>
@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapActions, mapState} from 'vuex'
 import ProjectDistributionByState from '../components/maps/ProjectDistributionByState.vue'
 import FundingBySectorChart from '../components/charts/FundingBySectorChart.vue'
 import ProjectList from '../components/reports/ProjectList.vue'
@@ -72,6 +72,12 @@ export default {
     FundingBySectorChart,  
     ProjectList,
   },
+  data() {
+    return {
+      mapData: [],
+      isMapDataLoaded: false,
+    }
+  },
 created() {
     let isLoggedIn = !!localStorage.getItem("token");
     if(isLoggedIn){
@@ -81,12 +87,26 @@ created() {
       this.$store.commit('auth/SET_TOKEN', token);
       this.$store.commit('auth/SET_USER', loggedInUser);
     }
+    this.getSummaryPerStateReport().then(
+      (response) => {
+        this.mapData = response.data
+        this.isMapDataLoaded = true;
+      },
+      (error) => {
+        console.log(error)
+      }
+    );
   },
   computed: {
     ...mapState('auth', ['user']),
       profile() {
           return this.user;
       },
+  },
+  methods: {
+    ...mapActions({
+      getSummaryPerStateReport: 'reports/getSummaryPerStateReport',
+    })
   }
 }
 </script>

@@ -10,47 +10,7 @@
         </ol>
       </nav>
         <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h5>Project list</h5>
-              </div>
-                <div class="card-body table-responsive">
-                  <div v-if="isLoading" class="spinner-border text-warning" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                  </div>
-                  <flash-error :hasError="apiErrors" :errors="errors" @dismissError="apiErrors = false"></flash-error>
-                    <table class="table table-hover table-striped">
-                      <thead>
-                          <tr>
-                              <th>ID</th>
-                              <th>Name</th>
-                              <th>Funder</th>
-                              <th>Implemetor</th>
-                              <th>Budget(USD)</th>
-                              <th>Progress</th>
-                              <th>Actions</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                        <tr v-for="activity in projects" :key="activity.id">
-                          <td>{{activity.id}}</td>
-                          <td>{{activity.default_title}}</td>
-                          <td></td>
-                          <td></td>
-                          <td>{{Intl.NumberFormat().format(activity.budget
-                                        .map(obj => obj.iati_value_amount)
-                                        .reduce((accumulator, current) => accumulator + current, 0))}}</td>
-                          <td>{{activity.status}}</td>
-                          <td>
-                            <button @click="this.$router.push({ name: 'project', params: { id: activity.id} })" class="btn btn-warning btn-sm">View</button>
-                            <button @click="deleteAProject(activity.id)" class="btn btn-danger btn-sm">Delete</button>
-                          </td>
-                        </tr>
-                      </tbody>
-
-              </table>
-                </div>
-            </div>
+            <project-list></project-list>
         </div>
      </div>
        
@@ -59,13 +19,13 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
-import flashError from '../components/flashError.vue'
+import ProjectList from '../components/reports/ProjectList.vue'
 
 export default {
   
   name: 'project-listing',
   components: {
-    flashError
+    ProjectList
   },
 
   computed: {
