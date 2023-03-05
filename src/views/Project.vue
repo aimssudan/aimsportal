@@ -124,7 +124,7 @@
                             </h2>
                             <div id="participating_organisations_collapse" class="accordion-collapse collapse show" aria-labelledby="geographic_allocation_list" data-bs-parent="#participating_organisations_accordion">
                               <div class="accordion-body">
-                                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#participating_organisations_"> + Add  </button>
+                                <button v-if="isEditor" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#participating_organisations_"> + Add  </button>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="participating_organisations_" tabindex="-1" aria-labelledby="participating_organisations_Label" aria-hidden="true">
@@ -189,7 +189,7 @@
                                       <td>{{organisations.find(element => element.id === org.organisation_id)?.name}}</td>
                                       <td>{{organisation_types.find(element => element.code === org.type)?.name}}</td>
                                       <td>{{organisation_roles.find(element => element.code === org.role)?.name}}</td>
-                                      <td><button @click="removeParticipatingOrg(index)" class="btn-xs btn btn-danger">x</button></td>
+                                      <td><button v-if="isEditor" @click="removeParticipatingOrg(index)" class="btn-xs btn btn-danger">x</button></td>
                                     </tr>
                                     
                                     
@@ -223,7 +223,7 @@
                             <div id="budgets" class="accordion-collapse collapse show" aria-labelledby="budets-header" data-bs-parent="fundingInfoCollapse">
                               <div class="accordion-body">
                                 
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-budget"> + Add  </button>
+                                <button v-if="isEditor" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-budget"> + Add  </button>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="add-budget" tabindex="-1" aria-labelledby="add-budget-label" aria-hidden="true">
@@ -344,7 +344,7 @@
                                       </div>
                                       <div class="modal-footer">
                                         <button id="close-add-budget-modal" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                                        <button @click="addBudget()" type="button" class="btn btn-primary">Add</button>
+                                        <button v-if="isEditor" @click="addBudget()" type="button" class="btn btn-primary">Add</button>
                                       </div>
                                     </div>
                                   </div>
@@ -371,7 +371,7 @@
                                       <td>{{budget.value_currency}}</td>
                                       <td>{{budget.value_amount}}</td>
                                       <td>{{budget.value_date}}</td>
-                                      <td><button @click="removeBudget(index)" class="btn btn-sm btn-danger">X</button></td>
+                                      <td><button v-if="isEditor" @click="removeBudget(index)" class="btn btn-sm btn-danger">X</button></td>
                                     </tr>
                                     
                                     <tr>
@@ -404,7 +404,7 @@
                             <div id="CommitmentInformation" class="accordion-collapse collapse" aria-labelledby="CommitmentInformation-HeadOne" data-bs-parent="fundingInfoCollapse">
                               <div class="accordion-body">
                                 
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCommitmentInformation"> + Add  </button>
+                                <button v-if="isEditor" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCommitmentInformation"> + Add  </button>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="addCommitmentInformation" tabindex="-1" aria-labelledby="addCommitmentInformationLabel" aria-hidden="true">
@@ -594,7 +594,7 @@
                                       </div>
                                       <div class="modal-footer">
                                         <button id="close-add-incoming-funds-modal" type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                                        <button @click="addIncomingFunds" type="button" class="btn btn-primary">Add</button>
+                                        <button v-if="isEditor" @click="addIncomingFunds" type="button" class="btn btn-primary">Add</button>
                                       </div>
                                     </div>
                                   </div>
@@ -621,7 +621,7 @@
                                         <td>{{funding.transaction_date}} </td>
                                         <td>{{Intl.NumberFormat().format(funding.value_amount)}}</td>
                                         <td>{{Intl.NumberFormat().format(funding.value_amount)}}</td>
-                                        <td><button @click="removeTransaction(funding.id)" class="btn btn-sm btn-danger">X
+                                        <td><button v-if="isEditor" @click="removeTransaction(funding.id)" class="btn btn-sm btn-danger">X
                                           </button>
                                           </td>
 
@@ -656,7 +656,7 @@
                             </h2>
                             <div id="expenditureofAidInformation" class="accordion-collapse collapse" aria-labelledby="expenditureofAidInformation-HeadOne" data-bs-parent="fundingInfoCollapse">
                               <div class="accordion-body">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addexpenditureofAidInformation"> + Add  </button>
+                                <button v-if="isEditor" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addexpenditureofAidInformation"> + Add  </button>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="addexpenditureofAidInformation" tabindex="-1" aria-labelledby="addexpenditureofAidInformationLabel" aria-hidden="true">
@@ -872,7 +872,7 @@
                                         <td>{{funding.transaction_date}} </td>
                                         <td>{{Intl.NumberFormat().format(funding.value_amount)}}</td>
                                         <td>{{Intl.NumberFormat().format(funding.value_amount)}}</td>
-                                        <td><button @click="removeTransaction(funding.id)" class="btn btn-sm btn-danger">X
+                                        <td><button v-if="isEditor" @click="removeTransaction(funding.id)" class="btn btn-sm btn-danger">X
                                           </button>
                                           </td>
 
@@ -918,7 +918,7 @@
                             </h2>
                             <div id="sectorsCollapse" class="accordion-collapse collapse show" aria-labelledby="sectorsHeading" data-bs-parent="#sectorContributionCollapse">
                               <div class="accordion-body">
-                                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#sectorContribution"> + Add  </button>
+                                <button v-if="isEditor" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#sectorContribution"> + Add  </button>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="sectorContribution" tabindex="-1" aria-labelledby="sectorContributionLabel" aria-hidden="true">
@@ -985,7 +985,7 @@
                                           <td>{{sector.sector_vocabulary}}</td>
                                           <td>{{sector.sector_code}}</td>
                                           <td>{{sector.sector_percentage}}</td>
-                                          <td><button @click="removeSectorContribution(index)" class="btn btn-sm btn-danger">X</button></td>
+                                          <td><button v-if="isEditor" @click="removeSectorContribution(index)" class="btn btn-sm btn-danger">X</button></td>
                                         </tr>
                                         <tr class="text-muted">
                                           <td>Total</td>
@@ -1095,7 +1095,7 @@
                             </h2>
                             <div id="ss_locations_collapse" class="accordion-collapse collapse show" aria-labelledby="ss_locations_list" data-bs-parent="#ss_locations_accordion">
                               <div class="accordion-body">
-                                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#ss_locations_"> + Add  </button>
+                                <button v-if="isEditor" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#ss_locations_"> + Add  </button>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="ss_locations_" tabindex="-1" aria-labelledby="ss_locations_Label" aria-hidden="true">
@@ -1158,7 +1158,7 @@
                                           <td>{{locationStates.find(element => element.id == location.state)?.name}}</td>
                                           <td>{{location.countyName}}</td>
                                           <td>{{location.payamName}}</td>
-                                          <td><button @click="removeProjectLocation(index)" class="btn btn-sm btn-danger">X</button></td>
+                                          <td><button v-if="isEditor" @click="removeProjectLocation(index)" class="btn btn-sm btn-danger">X</button></td>
                                         </tr>
                                         
                                         
@@ -1183,7 +1183,7 @@
                             </h2>
                             <div id="geographic_allocation_collapse" class="accordion-collapse collapse show" aria-labelledby="geographic_allocation_list" data-bs-parent="#geographic_allocation_accordion">
                               <div class="accordion-body">
-                                <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#geographic_allocation_"> + Add  </button>
+                                <button v-if="isEditor" type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#geographic_allocation_"> + Add  </button>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="geographic_allocation_" tabindex="-1" aria-labelledby="geographic_allocation_Label" aria-hidden="true">
@@ -1251,7 +1251,7 @@
                                           <td>{{region.region_vocabulary}}</td>
                                           <td>{{region.region_code}}</td>
                                           <td>{{region.region_percentage}}</td>
-                                          <td><button @click="removeRecipientRegion(index)" class="btn btn-sm btn-danger">X</button></td>
+                                          <td><button v-if="isEditor" @click="removeRecipientRegion(index)" class="btn btn-sm btn-danger">X</button></td>
                                         </tr>
                                         <tr class="text-muted">
                                           <td>Total</td>
@@ -1303,7 +1303,7 @@
                             <div id="attachmentCollapse" class="accordion-collapse collapse show" aria-labelledby="attachmentCollapseHeadingOne" data-bs-parent="#attachmentAccordion">
                               <div class="accordion-body">
 
-                                <button type="button" class="btn btn-primary mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#AttachmentModal"> + Add  </button>
+                                <button v-if="isEditor" type="button" class="btn btn-primary mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#AttachmentModal"> + Add  </button>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="AttachmentModal" tabindex="-1" aria-labelledby="AttachmentModalLabel" aria-hidden="true">
@@ -1426,7 +1426,7 @@
                       </div> <!-- Notes & Attachments -->
                     <!-- </form> -->
                   </div>
-                  <button @click="saveProject()" class="btn btn-primary">Save</button>
+                  <button v-if="isEditor" @click="saveProject()" class="btn btn-primary">Save</button>
                 </div>
                 
             </div>
@@ -1437,7 +1437,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapGetters } from 'vuex'
 import flashError from '../components/flashError.vue'
 
 export default {
@@ -1581,6 +1581,15 @@ export default {
     ...mapState('global', ['organisations']),
     ...mapState('auth', ['user']),
     ...mapState('locations', ['locationStates']),
+    ...mapGetters({
+        admin: "auth/superadmin",
+        contributor: "auth/contributor",
+        manager: "auth/manager",
+      }),
+
+      isEditor() {
+        return this.contributor || this.admin || this.manager
+      },
 
      expenditures () {
       return this.transactions.filter(element => element.transaction_type_code ==4)

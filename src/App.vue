@@ -6,7 +6,7 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active"  @click="navigate('landing')">{{this.getTranslation("Home")}}</a></li>
-                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("Projects")}}</a>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("Projects")}}</a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" role="button" @click="navigate('projects')">{{this.getTranslation("Project")}} {{this.getTranslation("List")}}</a>
                           <a class="dropdown-item" role="button" @click="navigate('reports')">{{this.getTranslation("Reports")}}</a>
@@ -15,7 +15,7 @@
                     </li>
                     
                     
-                    <li v-if="profile" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("Organisations")}}</a>
+                    <li v-if="isEditor" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("Organisations")}}</a>
                         <div class="dropdown-menu">
                           <a v-if="isadmin" class="dropdown-item" role="button" @click="navigate('organisation-categories')">{{this.getTranslation("Categories")}}</a>
                           <a class="dropdown-item" role="button" @click="navigate('organisations')">{{this.getTranslation("Organisations")}}</a>

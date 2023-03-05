@@ -137,7 +137,7 @@ const routes = [
     component: Projects,
     meta: {
       title: "AIMS ⇾ Projects",
-      middleware: [auth],
+      //middleware: [auth],
     },
   },
   {
@@ -146,7 +146,7 @@ const routes = [
     component: Project,
     meta: {
       title: "AIMS ⇾ Project",
-      middleware: [auth],
+      //middleware: [auth],
     },
   },
   {
@@ -173,7 +173,7 @@ const routes = [
     component: Reports,
     meta: {
       title: "AIMS ⇾ Reports",
-      middleware: [auth, verified]
+     // middleware: [auth, verified]
     },
   },
   {
