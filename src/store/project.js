@@ -37,6 +37,9 @@ export default {
             commit("SET_PROJECTS", response.data.data);
         });
     },
+    filterProjects(_, payload) {
+      return axios.post(`/projects/search`, payload);
+  },
     addProject(_, payload) {
       return axios.post(`/projects`, payload);
     },
