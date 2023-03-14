@@ -399,4 +399,267 @@ div#toolTip ul li {
   float: left;
   margin-right: 5px;
 }
+
+/* Column 3/12 */
+.page
+  div
+  .container
+  .col-md-12
+  .row
+  .col-md-8
+  .card
+  #collapse-chart-trends
+  .card-body
+  .text-primary
+  .row
+  .col-3 {
+  width: 21% !important;
+}
+
+/* Column 7/12 */
+.text-primary .col-7 {
+  width: 495px;
+  max-width: 495px;
+  padding-right: 9px;
+}
+
+/* Badge */
+.text-primary .col-3 .badge:nth-child(1) {
+  margin-bottom: 20px;
+}
+
+/* Badge */
+.text-primary .badge:nth-child(2) {
+  margin-bottom: 20px;
+}
+
+/* Badge */
+.text-primary .badge:nth-child(3) {
+  margin-bottom: 20px;
+}
+
+/* Badge */
+.text-primary .badge:nth-child(4) {
+  margin-bottom: 20px;
+}
+
+/* Badge */
+.text-primary .badge:nth-child(5) {
+  margin-bottom: 20px;
+}
+
+/* Column 3/12 */
+.text-primary .col-3 {
+  padding-top: 30px;
+  padding-left: 0px;
+}
+
+/* Card body */
+#collapse-chart-trends .card-body {
+  transform: translatex(0px) translatey(0px);
+}
+
+/* Row */
+#collapse-chart-trends .card-body .row {
+  padding-bottom: 30px;
+}
+
+@media (max-width: 1199px) {
+  /* Column 3/12 */
+  .text-primary .col-3 {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Column 3/12 */
+  .text-primary .col-3 {
+    max-width: 100%;
+    height: 130px;
+    min-width: 100%;
+  }
+
+  /* Column 3/12 */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .col-3 {
+    width: 479px !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  /* Badge */
+  .text-primary .col-3 .badge {
+    margin-bottom: 15px !important;
+  }
+}
+
+/* Card body */
+#collapse-chart-trends .card-body {
+  transform: translatex(0px) translatey(0px);
+}
+
+/* Row */
+#collapse-chart-trends .card-body .row {
+  padding-bottom: 30px;
+}
+
+@media (max-width: 1199px) {
+  /* Column 7/12 */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .col-7 {
+    width: 100% !important;
+  }
+
+  /* Column 7/12 */
+  .text-primary .col-7 {
+    min-width: 100%;
+    max-width: 100% !important;
+  }
+
+  /* Column 2/12 */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right {
+    width: 100% !important;
+  }
+
+  /* Column 2/12 */
+  .text-primary .right {
+    min-width: 100%;
+  }
+
+  /* Map */
+  #map {
+    width: 100% !important;
+    height: auto !important;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Tool tip */
+#toolTip {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #6d6d6d;
+  font-weight: 500;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.82) !important;
+  box-shadow: 0px 0px 38px 15px rgba(109, 109, 109, 0.22);
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
+
+/* Heading */
+.col-md-8 .row h4 {
+  margin-bottom: 0px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Card body */
+.mb-3 .card .card-body {
+  padding-top: 16px;
+}
+
+/* Column 12/12 */
+.page .mb-3 {
+  margin-top: 7px !important;
+}
+
+@media (min-width: 1200px) {
+  /* Heading */
+  .col-md-8 .row h4 {
+    font-size: 20px;
+  }
+}
+/* Heading */
+.col-md-8 .row h4 {
+  margin-bottom: 0px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Card body */
+.mb-3 .card .card-body {
+  padding-top: 16px;
+}
+
+/* Column 12/12 */
+.page .mb-3 {
+  margin-top: 7px !important;
+}
+
+@media (min-width: 1200px) {
+  /* Heading */
+  .col-md-8 .row h4 {
+    font-size: 20px;
+  }
+}
+/* Heading */
+.col-md-8 .row h4 {
+  margin-bottom: 0px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Card body */
+.mb-3 .card .card-body {
+  padding-top: 16px;
+}
+
+/* Column 12/12 */
+.page .mb-3 {
+  margin-top: 7px !important;
+}
+
+@media (min-width: 1200px) {
+  /* Heading */
+  .col-md-8 .row h4 {
+    font-size: 20px;
+  }
+}
+
+/* Badge */
+.text-primary .col-3 .badge {
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 1px;
+  box-shadow: 0px 0px 15px 0px rgba(119, 119, 119, 0.57);
+}
+
+
 </style>
