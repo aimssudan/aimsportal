@@ -638,4 +638,37 @@ div#toolTip ul li {
     font-size: 20px;
   }
 }
+/* Heading */
+.col-md-8 .row h4 {
+  margin-bottom: 0px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Card body */
+.mb-3 .card .card-body {
+  padding-top: 16px;
+}
+
+/* Column 12/12 */
+.page .mb-3 {
+  margin-top: 7px !important;
+}
+
+@media (min-width: 1200px) {
+  /* Heading */
+  .col-md-8 .row h4 {
+    font-size: 20px;
+  }
+}
+
+/* Badge */
+.text-primary .col-3 .badge {
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 1px;
+  box-shadow: 0px 0px 15px 0px rgba(119, 119, 119, 0.57);
+}
+
+
 </style>
