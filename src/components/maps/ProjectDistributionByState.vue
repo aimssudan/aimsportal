@@ -670,5 +670,10 @@ div#toolTip ul li {
   box-shadow: 0px 0px 15px 0px rgba(119, 119, 119, 0.57);
 }
 
-
+/* Button */
+.page div .active {
+  background-color: #285ba8 !important;
+}
 </style>
+
+/* ---------------------------- space ----------------- */
