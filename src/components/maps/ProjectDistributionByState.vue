@@ -272,7 +272,27 @@
 
       <div class="col-2 right">
         <div class="aside">
-          <h2>Project Stats</h2>
+          <div class="row">
+            <div class="col-3">
+              <h1>26</h1>
+              <p>Projects</p>
+            </div>
+
+            <div class="col-3">
+              <h1>4</h1>
+              <p>Sectors</p>
+            </div>
+
+            <div class="col-3">
+              <h1>7</h1>
+              <p>States</p>
+            </div>
+
+            <div class="col-3">
+              <h1>$1.4M</h1>
+              <p>Total Funds</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -674,6 +694,550 @@ div#toolTip ul li {
 .page div .active {
   background-color: #285ba8 !important;
 }
-</style>
 
-/* ---------------------------- space ----------------- */
+/* Heading */
+.col-md-12 > .row > .col-md-4 > h5 {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+
+/* Heading */
+.col-md-8 .row h4 {
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+/* Column 12/12 */
+.page .mb-3 {
+  margin-top: 10px !important;
+}
+
+/* Row */
+.container .col-md-12 .row .col-md-8 .row:nth-child(4) {
+  margin-top: 30px !important;
+}
+
+@media (max-width: 1199px) {
+  /* Column 3/12 */
+  .text-primary .col-3 {
+    padding-top: 20px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Column 3/12 */
+  .text-primary .col-3 {
+    padding-top: 20px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Column 3/12 */
+  .text-primary .col-3 {
+    padding-top: 20px !important;
+    height: 119px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Heading */
+  #collapse-chart-trends .card-body h5 {
+    font-size: 27px !important;
+  }
+
+  /* Column 3/12 */
+  .text-primary .col-3 {
+    padding-top: 20px !important;
+  }
+}
+
+/* ---------------------------- project stats ----------------- */
+/* Row */
+.text-primary div .row {
+  display: block;
+  float: none;
+  min-height: 410px;
+  position: relative;
+  top: -21px;
+  padding-top: 10px;
+  transform: translatex(0px) translatey(0px);
+}
+
+/* Column 3/12 */
+.text-primary div .row .col-3 {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  transform: translatex(0px) translatey(0px);
+  margin-bottom: 10px;
+}
+
+/* Heading */
+.text-primary div h1 {
+  margin-bottom: 0px;
+  color: #397bde;
+  font-weight: 700;
+  line-height: 45px;
+}
+
+/* Paragraph */
+.text-primary div p {
+  color: #8e8e8e;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Heading */
+.text-primary .col-3:nth-child(1) h1 {
+  line-height: 65px;
+}
+
+/* Paragraph */
+.text-primary .col-3:nth-child(1) p {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+/* Row */
+#collapse-chart-trends .card-body .text-primary > .row {
+  padding-bottom: 0px;
+}
+
+@media (max-width: 1399px) {
+  /* Row */
+  .text-primary div .row {
+    width: 680px;
+    min-height: 100px;
+    height: 100px;
+    display: inline-flex;
+    align-items: stretch;
+    float: left;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 21px;
+  }
+
+  /* Column 3/12 */
+  .text-primary div .col-3:nth-child(4) {
+    max-width: 174px;
+  }
+
+  /* Column 3/12 */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(4) {
+    width: 174px !important;
+  }
+
+  /* Column 3/12 */
+  .text-primary div .row .col-3 {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1199px) {
+  /* Row */
+  .text-primary div .row {
+    width: 563px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 4px !important;
+    height: 109px;
+  }
+
+  /* Column 3/12 */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3 {
+    width: 100px !important;
+  }
+
+  /* Column 3/12 */
+  .text-primary div .row .col-3 {
+    min-width: 20%;
+    max-width: 20%;
+    min-height: 105px;
+    padding-top: 0px !important;
+  }
+
+  /* Column 3/12 */
+  .text-primary div .col-3:nth-child(4) {
+    min-width: 30%;
+  }
+
+  /* Heading */
+  .text-primary .col-3:nth-child(1) h1 {
+    font-size: 71px;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Column 3/12 */
+  .text-primary div .row .col-3 {
+    padding-right: 0px;
+    padding-top: 3px !important;
+    height: 84px;
+    min-height: 70px;
+    max-width: 120px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  /* Row */
+  .text-primary div .row {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    width: 440px;
+    transform: translatex(0px) translatey(27px);
+  }
+
+  /* Column 2/12 */
+  .text-primary .right {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  /* Heading */
+  .text-primary .col-3:nth-child(1) h1 {
+    font-size: 51px !important;
+  }
+
+  /* Paragraph */
+  .text-primary .col-3:nth-child(1) p {
+    font-size: 16px !important;
+  }
+
+  /* Column 3/12 */
+  .text-primary div .col-3:nth-child(4) {
+    margin-right: 1px;
+    width: 120px;
+  }
+
+  /* Column 3/12 */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3 {
+    min-width: 77px !important;
+    width: 77px !important;
+  }
+
+  /* Column 3/12 */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(4) {
+    min-width: 130px !important;
+  }
+
+  /* Column 3/12 */
+  .row .right div .row .col-3:nth-child(1) {
+    width: 104px !important;
+  }
+
+  /* Column 3/12 */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(1) {
+    min-width: 104px !important;
+  }
+
+  /* Heading */
+  .text-primary div h1 {
+    font-size: 31px !important;
+  }
+
+  /* Paragraph */
+  .text-primary div p {
+    font-size: 13px !important;
+    line-height: 1em;
+  }
+
+  /* Heading */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3
+    h1 {
+    line-height: 1.3em !important;
+  }
+
+  /* Heading */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(1)
+    h1 {
+    line-height: 50px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Column 2/12 */
+  .text-primary .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Column 3/12 */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3 {
+    width: 104px !important;
+    min-width: 50px !important;
+  }
+
+  /* Column 3/12 */
+  .text-primary div .row .col-3 {
+    max-width: 50px;
+    height: 81px !important;
+  }
+
+  /* Heading */
+  #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3
+    h1 {
+    font-size: 24px !important;
+  }
+
+  /* Paragraph */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3
+    p {
+    font-size: 10px !important;
+  }
+
+  /* Column 3/12 */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(4) {
+    min-width: 100px !important;
+  }
+
+  /* Heading */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(1)
+    h1 {
+    font-size: 37px !important;
+    line-height: 1em !important;
+  }
+
+  /* Paragraph */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(1)
+    p {
+    font-size: 13px !important;
+  }
+
+  /* Column 3/12 */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(1) {
+    min-width: 80px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Column 3/12 */
+  .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .card
+    #collapse-chart-trends
+    .card-body
+    .text-primary
+    .row
+    .right
+    div
+    .row
+    .col-3 {
+    width: 140px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Column 3/12 */
+  .text-primary div .row .col-3 {
+    padding-top: 1px;
+  }
+
+  /* Heading */
+  .text-primary .col-3:nth-child(1) h1 {
+    font-size: 71px;
+  }
+}
+</style>
