@@ -1174,6 +1174,91 @@ div:nth-child(3) .row:nth-child(4) > div:nth-child(2) {
   }
 }
 /* ------------------------------------------------ */
+/* Heading */
+.col-md-12 > .row > .col-md-4 > h5 {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+
+/* Heading */
+.col-md-8 .row h4 {
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+/* Column 12/12 */
+.page .mb-3 {
+  margin-top: 10px !important;
+}
+
+/* Row */
+.container .col-md-12 .row .col-md-8 .row:nth-child(4) {
+  margin-top: 30px !important;
+}
+
+@media (max-width: 1199px) {
+  /* Column 3/12 */
+  .text-primary .col-3 {
+    padding-top: 20px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Column 3/12 */
+  .text-primary .col-3 {
+    padding-top: 20px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Column 3/12 */
+  .text-primary .col-3 {
+    padding-top: 20px !important;
+    height: 119px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Heading */
+  #collapse-chart-trends .card-body h5 {
+    font-size: 27px !important;
+  }
+
+  /* Column 3/12 */
+  .text-primary .col-3 {
+    padding-top: 20px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Heading */
+  #collapse-chart-trends .card-body h5 {
+    font-size: 22px !important;
+  }
+
+  /* Bold Tag */
+  .page h4 b {
+    font-size: 18px;
+  }
+
+  /* Paragraph */
+  .container .col-md-12 .row .col-md-8 p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Heading */
+  .col-md-8 .row h4 {
+    font-size: 22px;
+  }
+}
+
+/* Bar chart */
+#bar-chart {
+  padding-bottom: 0px !important;
+}
 
 /* ------------------------------------------------ */
 
