@@ -1227,4 +1227,19 @@ div#toolTip ul li {
     font-size: 71px;
   }
 }
+
+/* Map wrapper */
+.text-primary .map-wrapper {
+  position: relative;
+  top: -16px;
+  left: -16px;
+}
+
+@media (max-width: 450px) {
+  /* Tool tip */
+  #toolTip {
+    display: none;
+    visibility: hidden;
+  }
+}
 </style>
