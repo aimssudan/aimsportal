@@ -1434,7 +1434,12 @@ div:nth-child(3) .row:nth-child(4) > div:nth-child(2) {
     margin-bottom: 10px !important;
   }
 }
-/* ------------------------------------------------ */
+/* -------------------Login Button ---------------------- */
+
+/* Small Tag */
+.col-md-12 center small {
+  display: none;
+}
 
 /* -------------------- FOOTER ---------------------- */
 </style>
