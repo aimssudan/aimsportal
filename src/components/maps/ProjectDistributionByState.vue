@@ -1,107 +1,80 @@
 <template>
   <div class="container">
-    <!-- <div class="row"> -->
-    <!-- <div class="col-md-3"> -->
-    <span class="ms-2 badge bg-secondary">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        style="color: white"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-circle-fill"
-        viewBox="0 0 16 16"
-      >
-        <circle cx="8" cy="8" r="8" />
-      </svg>
-      Proposed</span
-    >
-    <span class="ms-2 badge bg-secondary">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        style="color: #0275d8"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-circle-fill"
-        viewBox="0 0 16 16"
-      >
-        <circle cx="8" cy="8" r="8" />
-      </svg>
-      In Progress</span
-    >
-    <span class="ms-2 badge bg-secondary">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        style="color: #5cb85c"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-circle-fill"
-        viewBox="0 0 16 16"
-      >
-        <circle cx="8" cy="8" r="8" />
-      </svg>
-      Completed</span
-    >
-    <span class="ms-2 badge bg-secondary">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        style="color: #f0ad4e"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-circle-fill"
-        viewBox="0 0 16 16"
-      >
-        <circle cx="8" cy="8" r="8" />
-      </svg>
-      Delayed</span
-    >
-    <span class="ms-2 badge bg-secondary">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        style="color: #d9534f"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-circle-fill"
-        viewBox="0 0 16 16"
-      >
-        <circle cx="8" cy="8" r="8" />
-      </svg>
-      Canceled</span
-    >
-    <span class="ms-2 badge bg-secondary">All</span>
-    <!-- </div> -->
-    <!-- <div class="col-md-9">
-        
-      </div> -->
-    <div class="map-wrapper">
-      <div ref="tooltip" id="toolTip">
-        <ul>
-          <li>
-            State: <b>{{ toolTip.state }}</b>
-          </li>
-          <li>
-            Projects:
-            <span class="badge rounded-pill bg-danger">{{
-              toolTip.projects
-            }}</span>
-          </li>
-          <li>
-            Funding (USD):
-            <span class="badge rounded-pill bg-danger"
-              >{{ toolTip.funding }}
-            </span>
-          </li>
-          <li>
-            No. of Involved Orgs:
-            <span class="badge rounded-pill bg-danger">{{
-              toolTip.organisations
-            }}</span>
-          </li>
-        </ul>
+    <div class="row">
+      <div class="col-3">
+        <!-- Badges -->
+        <span class="ms-2 badge bg-secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: white"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <circle cx="8" cy="8" r="8" />
+          </svg>
+          Proposed</span
+        >
+        <span class="ms-2 badge bg-secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: #0275d8"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <circle cx="8" cy="8" r="8" />
+          </svg>
+          In Progress</span
+        >
+        <span class="ms-2 badge bg-secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: #5cb85c"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <circle cx="8" cy="8" r="8" />
+          </svg>
+          Completed</span
+        >
+        <span class="ms-2 badge bg-secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: #f0ad4e"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <circle cx="8" cy="8" r="8" />
+          </svg>
+          Delayed</span
+        >
+        <span class="ms-2 badge bg-secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style="color: #d9534f"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-circle-fill"
+            viewBox="0 0 16 16"
+          >
+            <circle cx="8" cy="8" r="8" />
+          </svg>
+          Canceled</span
+        >
+        <span class="ms-2 badge bg-secondary">All</span>
+        <!-- </div> -->
       </div>
 
       <div class="col-7">
@@ -323,9 +296,8 @@
         </div>
       </div>
     </div>
-
-    <!-- </div> -->
   </div>
+
   <!-- container -->
 </template>
 <script>
@@ -445,7 +417,6 @@ div#toolTip ul li {
   border-bottom-left-radius: 13px !important;
   border-bottom-right-radius: 13px !important;
   background-color: rgba(42, 74, 126, 0.68) !important;
-  margin-bottom: 10px;
 }
 
 /* Circle fill */
