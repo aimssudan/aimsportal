@@ -18,7 +18,6 @@ export default {
     created() {
     let isLoggedIn = !!localStorage.getItem("token");
     if(isLoggedIn){
-      //put user and translations to vuex state 
       let token = localStorage.getItem("token")
       let loggedInUser = JSON.parse(localStorage.getItem('user'))
       this.$store.commit('auth/SET_TOKEN', token);
