@@ -819,6 +819,7 @@ div:nth-child(3) .row:nth-child(4) > div:nth-child(2) {
   padding-bottom: 20px;
 }
 
+/* ----------------  SIDE BAR Login button ----------------- */
 /* Button */
 .page div .btn-outline-primary:nth-child(4) {
   border-top-right-radius: 6px !important;
@@ -878,6 +879,7 @@ div:nth-child(3) .row:nth-child(4) > div:nth-child(2) {
 }
 
 /* ----------------  SIDE BAR MOBILE ----------------- */
+
 @media (max-width: 1199px) {
   /* Button */
   .page .card a {
