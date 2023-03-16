@@ -19,7 +19,7 @@
             </div> -->
           <div class="row">
             <div class="col-md-8">
-              <h4><b>Welcome to The AIMS South Sudan</b></h4>
+              <h4><b>Welcome to The South Sudan AIMS</b></h4>
               <p>
                 The Aid Information Management System (AIMS) web portal from the
                 Ministry of Finance and Planning - Government of South Sudan.
