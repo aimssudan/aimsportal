@@ -48,12 +48,14 @@
               <div class="row mt-4">
                 <h4>In Detail</h4>
                 <div class="col-md-6">
-                    <div class="card" style=" min-height: 50%;">
-                      <div class="card-body" >
-                        <stacked-line-chart chartTitle="IMPLEMENTED VS TOTAL PROJECTS"></stacked-line-chart>
-                      </div>
+                  <div class="card" style="min-height: 50%">
+                    <div class="card-body">
+                      <stacked-line-chart
+                        chartTitle="IMPLEMENTED VS TOTAL PROJECTS"
+                      ></stacked-line-chart>
                     </div>
                   </div>
+                </div>
                 <div class="col-md-6">
                   <div class="card" style="min-height: 50%">
                     <div class="card-body">
@@ -263,7 +265,7 @@ import { mapActions } from "vuex";
 import flashError from "../components/flashError.vue";
 import ProjectDistributionByState from "../components/maps/ProjectDistributionByState.vue";
 import StackedTrendChart from "../components/charts/StackedTrendChart.vue";
-import StackedLineChart from '../components/charts/StackedLineChart.vue'
+import StackedLineChart from "../components/charts/StackedLineChart.vue";
 import BarChartReport from "../components/charts/BarChart.vue";
 
 export default {
@@ -273,7 +275,7 @@ export default {
     ProjectDistributionByState,
     StackedTrendChart,
     BarChartReport,
-    StackedLineChart
+    StackedLineChart,
   },
   data() {
     return {
@@ -1174,7 +1176,41 @@ div:nth-child(3) .row:nth-child(4) > div:nth-child(2) {
     font-size: 40px !important;
   }
 }
+
+@media (max-width: 767px) {
+  /* Column 6/12 */
+  #app
+    #app-content
+    .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-4
+    .row
+    .col-md-6 {
+    margin-top: 0px !important;
+  }
+
+  /* Row */
+  .page div .row:nth-child(3) {
+    margin-top: 55px !important;
+  }
+
+  /* Row */
+  .container .col-md-12 .row .col-md-4 .row:nth-child(4) {
+    margin-bottom: 40px;
+  }
+}
 /* ------------------------------------------------ */
+
+@media (max-width: 767px) {
+  /* Row */
+  .col-md-4:nth-child(2) > .row:nth-child(1) {
+    margin-top: 50px;
+  }
+}
+
 /* Heading */
 .col-md-12 > .row > .col-md-4 > h5 {
   font-weight: 600;
@@ -1261,8 +1297,143 @@ div:nth-child(3) .row:nth-child(4) > div:nth-child(2) {
   padding-bottom: 0px !important;
 }
 
-/* ------------------------------------------------ */
+/* ---------------- stacked graphs ---------------------- */
+@media (max-width: 1199px) {
+  /* Column 6/12 */
+  .col-md-8 .col-md-6 {
+    min-height: 15px !important;
+    height: 170px !important;
+  }
+}
 
+@media (max-width: 991px) {
+  /* Row */
+  .col-md-12 .row .col-md-8 > .row {
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Card body */
+  .page .col-md-6:nth-child(2) .card-body {
+    margin-bottom: 20px;
+  }
+  /* Column 6/12 */
+  .page div .col-md-6:nth-child(3) {
+    margin-top: 15px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Column 6/12 */
+  .page div .container .col-md-12 .row .col-md-4 .row .col-md-6 {
+    margin-top: 30px !important;
+  }
+
+  /* Row */
+  .col-md-12 .row .col-md-8 > .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    float: left;
+    text-align: center;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Column 6/12 */
+  .page div .col-md-6:nth-child(3) {
+    margin-top: 15px !important;
+  }
+
+  /* Card body */
+  .col-md-8 .row .col-md-6 .card .card-body {
+    width: 470px;
+  }
+
+  /* Card */
+  .page .col-md-6 .card {
+    min-height: auto !important;
+    min-width: auto;
+    max-width: auto;
+  }
+
+  /* Card */
+  #app
+    #app-content
+    .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .row
+    .col-md-6
+    .card {
+    height: 602px !important;
+  }
+
+  /* Card body */
+  #app
+    #app-content
+    .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .row
+    .col-md-6
+    .card
+    .card-body {
+    height: 250px !important;
+  }
+
+  /* Column 6/12 */
+  .page div .container .col-md-12 .row .col-md-8 .row .col-md-6 {
+    min-height: 2px !important;
+    height: 260px !important;
+  }
+
+  /* Heading */
+  .col-md-8 .row h4 {
+    margin-bottom: 15px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Card body */
+  .col-md-8 .row .col-md-6 .card .card-body {
+    width: 342px;
+  }
+
+  /* Card */
+  #app
+    #app-content
+    .page
+    div
+    .container
+    .col-md-12
+    .row
+    .col-md-8
+    .row
+    .col-md-6
+    .card {
+    height: 190px !important;
+  }
+
+  /* Column 6/12 */
+  .page div .container .col-md-12 .row .col-md-8 .row .col-md-6 {
+    min-height: 1px !important;
+    height: 190px !important;
+  }
+
+  /* Heading */
+  .col-md-8 .row h4 {
+    margin-bottom: 10px !important;
+  }
+}
 /* ------------------------------------------------ */
 
 /* -------------------- FOOTER ---------------------- */
