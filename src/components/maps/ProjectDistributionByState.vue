@@ -59,20 +59,7 @@
           </svg>
           Delayed</span
         >
-        <span class="ms-2 badge bg-secondary">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            style="color: #d9534f"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-circle-fill"
-            viewBox="0 0 16 16"
-          >
-            <circle cx="8" cy="8" r="8" />
-          </svg>
-          Canceled</span
-        >
+
         <span class="ms-2 badge bg-secondary">All</span>
         <!-- </div> -->
       </div>
@@ -274,7 +261,7 @@
         <div class="aside">
           <div class="row">
             <div class="col-3">
-              <h1>{{toolTip.projects}}</h1>
+              <h1>{{ toolTip.projects }}</h1>
               <p>Projects</p>
             </div>
 
@@ -1238,6 +1225,21 @@ div#toolTip ul li {
   /* Heading */
   .text-primary .col-3:nth-child(1) h1 {
     font-size: 71px;
+  }
+}
+
+/* Map wrapper */
+.text-primary .map-wrapper {
+  position: relative;
+  top: -16px;
+  left: -16px;
+}
+
+@media (max-width: 450px) {
+  /* Tool tip */
+  #toolTip {
+    display: none;
+    visibility: hidden;
   }
 }
 </style>
