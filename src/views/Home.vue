@@ -47,14 +47,14 @@
 
               <div class="row mt-4">
                 <h4>In Detail</h4>
-                <!-- <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="card" style=" min-height: 50%;">
                       <div class="card-body" >
                         <stacked-line-chart chartTitle="IMPLEMENTED VS TOTAL PROJECTS"></stacked-line-chart>
                       </div>
                     </div>
-                  </div> -->
-                <div class="col-md-12 mt-3 mb-3">
+                  </div>
+                <div class="col-md-6">
                   <div class="card" style="min-height: 50%">
                     <div class="card-body">
                       <!-- Bar Graph -->
@@ -263,7 +263,7 @@ import { mapActions } from "vuex";
 import flashError from "../components/flashError.vue";
 import ProjectDistributionByState from "../components/maps/ProjectDistributionByState.vue";
 import StackedTrendChart from "../components/charts/StackedTrendChart.vue";
-// import StackedLineChart from '../components/charts/StackedLineChart.vue'
+import StackedLineChart from '../components/charts/StackedLineChart.vue'
 import BarChartReport from "../components/charts/BarChart.vue";
 
 export default {
@@ -273,6 +273,7 @@ export default {
     ProjectDistributionByState,
     StackedTrendChart,
     BarChartReport,
+    StackedLineChart
   },
   data() {
     return {
