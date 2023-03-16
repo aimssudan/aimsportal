@@ -301,7 +301,7 @@
         <div class="aside">
           <div class="row">
             <div class="col-3">
-              <h1>26</h1>
+              <h1>{{toolTip.projects}}</h1>
               <p>Projects</p>
             </div>
 
@@ -311,12 +311,12 @@
             </div>
 
             <div class="col-3">
-              <h1>7</h1>
+              <h1>10</h1>
               <p>States</p>
             </div>
 
             <div class="col-3">
-              <h1>$1.4M</h1>
+              <h1>{{ toolTip.funding }}</h1>
               <p>Total Funds</p>
             </div>
           </div>
@@ -342,8 +342,8 @@ export default {
       //tooltipElement: null,
       toolTip: {
         state: "",
-        projects: "",
-        funding: "",
+        projects: 0,
+        funding: 0,
         organisations: "",
         percentage: "",
       },
