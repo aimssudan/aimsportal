@@ -146,27 +146,27 @@
 
               <div class="row" style="margin-top: 3rem">
                 <div class="col-md-6">
-                  <h1>54</h1>
+                  <h1>{{ totalOrganisations }}</h1>
                   <small>Total Organizations</small>
                 </div>
                 <div class="col-md-6">
                   <div class="row">
                     <div class="col-md-4">
-                      <h4>26</h4>
+                      <h4>{{ totalLocal }}</h4>
                       <span class="badge bg-dark" style="color: #ebecf0"
                         >Local</span
                       >
                     </div>
 
                     <div class="col-md-4">
-                      <h4>12</h4>
+                      <h4>{{ totalGovernments }}</h4>
                       <span class="badge bg-dark" style="color: #ebecf0"
                         >GOV'T</span
                       >
                     </div>
 
                     <div class="col-md-4">
-                      <h4>14</h4>
+                      <h4>{{ totalInternational }}</h4>
                       <span class="badge bg-dark" style="color: #ebecf0"
                         >INT'L</span
                       >
@@ -304,6 +304,7 @@ export default {
       activeHeading: "Funding By Sector",
       mapData: [],
       isMapDataLoaded: false,
+      organisationCount: [],
     };
   },
   computed: {
@@ -313,6 +314,18 @@ export default {
     computedChartLabels() {
       return this.chartLabel.map((value) => value.organisation);
     },
+    totalOrganisations() {
+      return this.organisationCount.find((item) => item.category == "All")?.count
+    },
+    totalGovernments() {
+      return this.organisationCount.find((item) => item.category == "Government")?.count
+    },
+    totalInternational() {
+      return this.organisationCount.find((item) => item.category == "International")?.count
+    },
+    totalLocal() {
+      return this.organisationCount.find((item) => item.category == "National")?.count
+    }
   },
   created() {
     let isLoggedIn = !!localStorage.getItem("token");
@@ -334,6 +347,15 @@ export default {
         console.log(error);
       }
     );
+    this.getOrganisationsCount().then(
+      (response) => {
+        this.organisationCount = response.data
+        console.log(`organisations ${this.organisationCount}`)
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
   },
 
   methods: {
@@ -346,6 +368,7 @@ export default {
       getFundingByState: "reports/getFundingByStateReport",
       getFundingTrendReport: "reports/getFundingTrendReport",
       getSummaryPerStateReport: "reports/getSummaryPerStateReport",
+      getOrganisationsCount: "reports/getOrganisationsCount"
     }),
 
     switchGraph(graphType) {

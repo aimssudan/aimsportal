@@ -59,5 +59,9 @@ export default {
       return axios.post(`/reports/summary-per-state`, payload);
      },
 
+     getOrganisationsCount(_, payload) {
+      return axios.post(`/reports/organisations-count`, payload);
+     },
+
   }
 }
