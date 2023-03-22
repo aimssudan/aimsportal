@@ -583,4 +583,368 @@ export default {
 .table-stripped tr .btn-warning {
   margin-bottom: 5px;
 }
+/* Column 3/12 */
+#collapse-chart-trends .card-body .container > .row > .col-3 {
+  transform: translatex(0px) translatey(0px);
+  display: none;
+}
+
+/* Column 7/12 */
+#app
+  #app-content
+  .page
+  .container
+  .row
+  .col-md-6
+  .card
+  #collapse-chart-trends
+  .card-body
+  .container
+  .row
+  .col-7 {
+  width: 100% !important;
+}
+
+/* Row */
+.right div .row {
+  min-width: 76%;
+  width: 603px;
+  height: 91px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Column 3/12 */
+.right div .col-3 {
+  min-width: 150px;
+  width: 539px;
+  max-width: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Column 7/12 */
+#collapse-chart-trends .card-body .col-7 {
+  margin-bottom: 40px;
+}
+
+/* Heading */
+#collapse-chart-trends div h1 {
+  margin-bottom: 0px;
+  color: #025eb9;
+}
+
+/* Row */
+#collapse-chart-trends .card-body .container > .row {
+  height: 551px;
+  transform: translatex(0px) translatey(0px);
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+/* Paragraph */
+#collapse-chart-trends div p {
+  color: #969696;
+  font-weight: 600;
+}
+
+@media (max-width: 1399px) {
+  /* Row */
+  .right div .row {
+    min-width: 65%;
+    width: 520px;
+  }
+
+  /* Column 3/12 */
+  .right div .col-3 {
+    min-width: 107px;
+    width: 107px;
+  }
+
+  /* Column 3/12 */
+  .page
+    .container
+    .row
+    .col-md-6
+    .card
+    #collapse-chart-trends
+    .card-body
+    .container
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(4) {
+    width: 167px !important;
+  }
+
+  /* Row */
+  #collapse-chart-trends .card-body .container > .row {
+    height: 489px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 1199px) {
+  /* Row */
+  .right div .row {
+    width: 430px;
+    transform: translatex(0px) translatey(0px);
+    padding-bottom: 0px !important;
+    height: 79px;
+  }
+
+  /* Column 3/12 */
+  .right div .col-3 {
+    min-width: 9px;
+  }
+
+  /* Column 3/12 */
+  .page
+    .container
+    .row
+    .col-md-6
+    .card
+    #collapse-chart-trends
+    .card-body
+    .container
+    .row
+    .right
+    div
+    .row
+    .col-3 {
+    width: 90px !important;
+  }
+
+  /* Column 3/12 */
+  .page div .col-3:nth-child(4) {
+    min-width: 1px;
+  }
+
+  /* Column 3/12 */
+  .page
+    .container
+    .row
+    .col-md-6
+    .card
+    #collapse-chart-trends
+    .card-body
+    .container
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(4) {
+    width: 160px !important;
+  }
+
+  /* Row */
+  #collapse-chart-trends .card-body .container > .row {
+    height: 415px;
+    transform: translatex(0px) translatey(0px);
+  }
+
+  /* Column 7/12 */
+  #collapse-chart-trends .card-body .col-7 {
+    margin-bottom: 20px;
+  }
+
+  /* Card body */
+  #collapse-chart-trends .card-body {
+    transform: translatex(0px) translatey(0px);
+    height: 456px;
+  }
+
+  /* Column 2/12 */
+  #app
+    #app-content
+    .page
+    .container
+    .row
+    .col-md-6
+    .card
+    #collapse-chart-trends
+    .card-body
+    .container
+    .row
+    .right {
+    transform: translatex(0px) translatey(0px) !important;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Column 3/12 */
+  .right div .col-3 {
+    min-width: 2%;
+  }
+
+  /* Row */
+  .right div .row {
+    min-width: 1%;
+    width: 312px;
+  }
+
+  /* Paragraph */
+  #collapse-chart-trends div p {
+    font-size: 13px;
+  }
+
+  /* Heading */
+  #collapse-chart-trends div h1 {
+    font-size: 30px;
+  }
+
+  /* Column 3/12 */
+  .page
+    .container
+    .row
+    .col-md-6
+    .card
+    #collapse-chart-trends
+    .card-body
+    .container
+    .row
+    .right
+    div
+    .row
+    .col-3 {
+    width: 22% !important;
+  }
+
+  /* Column 3/12 */
+  .page
+    .container
+    .row
+    .col-md-6
+    .card
+    #collapse-chart-trends
+    .card-body
+    .container
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(4) {
+    width: 34% !important;
+  }
+
+  /* Row */
+  #collapse-chart-trends .card-body .container > .row {
+    height: 306px;
+  }
+
+  /* Card body */
+  #collapse-chart-trends .card-body {
+    height: 360px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Row */
+  .right div .row {
+    width: 474px;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  /* Card body */
+  .page .col-md-6:nth-child(2) .card-body {
+    height: 497px !important;
+  }
+
+  /* Column 3/12 */
+  .right div .col-3 {
+    transform: translatex(0px) translatey(0px);
+  }
+
+  /* Heading */
+  #collapse-chart-trends div h1 {
+    font-size: 40px;
+  }
+
+  /* Column 3/12 */
+  .page
+    .container
+    .row
+    .col-md-6
+    .card
+    #collapse-chart-trends
+    .card-body
+    .container
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(4) {
+    width: 124px !important;
+  }
+
+  /* Card body */
+  #collapse-chart-trends .card-body {
+    min-height: 506px;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Row */
+  .right div .row {
+    width: 431px;
+  }
+
+  /* Card body */
+  #collapse-chart-trends .card-body {
+    min-height: 46px;
+    height: 465px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Row */
+  .right div .row {
+    height: 79px;
+    width: 320px;
+  }
+
+  /* Column 3/12 */
+  .page
+    .container
+    .row
+    .col-md-6
+    .card
+    #collapse-chart-trends
+    .card-body
+    .container
+    .row
+    .right
+    div
+    .row
+    .col-3 {
+    width: 70px !important;
+  }
+
+  /* Column 3/12 */
+  .page
+    .container
+    .row
+    .col-md-6
+    .card
+    #collapse-chart-trends
+    .card-body
+    .container
+    .row
+    .right
+    div
+    .row
+    .col-3:nth-child(4) {
+    width: 110px !important;
+  }
+
+  /* Card body */
+  #collapse-chart-trends .card-body {
+    height: 378px !important;
+  }
+}
 </style>
