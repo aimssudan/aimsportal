@@ -439,4 +439,68 @@ export default {
     text-align: center;
   }
 }
+
+/* Row */
+.page .container .row {
+  transform: translatex(0px) translatey(0px);
+}
+
+@media (max-width: 1399px) {
+  /* Column 4/12 */
+  .page .col-md-4 {
+    width: 350px;
+  }
+}
+
+@media (max-width: 1199px) {
+  /* Column 4/12 */
+  .page .col-md-4 {
+    width: 300px;
+  }
+
+  /* Right */
+  .page .right {
+    padding-right: 60px !important;
+    transform: translatex(0px) translatey(0px);
+  }
+}
+
+@media (max-width: 991px) {
+  /* Column 4/12 */
+  .page .col-md-4 {
+    width: 100%;
+  }
+
+  /* Left */
+  #app #app-content .page .row .left {
+    width: 280px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Left */
+  .page .left {
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+  }
+}
+
+@media (min-width: 576px) {
+  /* Left */
+  .page .left {
+    max-width: 380px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Left */
+  .page .left {
+    padding-left: 90px !important;
+  }
+
+  /* Right */
+  .page .right {
+    padding-right: 90px !important;
+  }
+}
 </style>
