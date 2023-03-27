@@ -24,156 +24,25 @@
               </li>
             </ol>
           </nav>
+
           <div class="row">
-            <div class="col-md-4">
-              <div class="card border-light">
-                <div class="card-header d-flex justify-content-between">
-                  <h5>Funding trends</h5>
-                  <button
-                    class="btn btn-light btn-sm"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapse-chart-trends"
-                    aria-expanded="false"
-                    aria-controls="collapse-chart-trends"
-                  >
-                    &nbsp;<svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      class="w-5 h-5"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                <div
-                  id="collapse-chart-trends"
-                  class="collapse show"
-                  aria-labelledby="heading-collapsed"
-                >
-                  <div class="card-body">
-                    <funding-trend-chart />
-                  </div>
-                </div>
+            <div class="col-6" style="width: 20%">
+              <div class="container" style="width: 100%">
+                <h1 class="text-center">56</h1>
+              </div>
+              <div class="container" style="width: 100%">
+                <h3>Projects</h3>
+                <button class="btn btn-primary" type="button">View</button>
               </div>
             </div>
-
-            <div class="col-md-4">
-              <div class="card border-light">
-                <div class="card-header d-flex justify-content-between">
-                  <h5>Funding By Source</h5>
-                  <button
-                    class="btn btn-light btn-sm"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapse-chart-trends"
-                    aria-expanded="false"
-                    aria-controls="collapse-chart-trends"
-                  >
-                    &nbsp;<svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      class="w-5 h-5"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                <div
-                  id="collapse-chart-trends"
-                  class="collapse show"
-                  aria-labelledby="heading-collapsed"
-                >
-                  <div class="card-body">
-                    <funding-by-source-chart />
-                  </div>
-                </div>
+            <div class="col-6" style="width: 50%">
+              <div class="container" style="height: 100%">
+                Project Bar Chart
               </div>
             </div>
-
-            <div class="col-md-4">
-              <div class="card border-light">
-                <div class="card-header d-flex justify-content-between">
-                  <h5>Funding By Sector</h5>
-                  <button
-                    class="btn btn-light btn-sm"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapse-chart-trends"
-                    aria-expanded="false"
-                    aria-controls="collapse-chart-trends"
-                  >
-                    &nbsp;<svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      class="w-5 h-5"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                <div
-                  id="collapse-chart-trends"
-                  class="collapse show"
-                  aria-labelledby="heading-collapsed"
-                >
-                  <div class="card-body">
-                    <funding-by-sector-chart />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="card border-light">
-                <div class="card-header d-flex justify-content-between">
-                  <h5>Trend of Total Projects</h5>
-                  <button
-                    class="btn btn-light btn-sm"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapse-chart-trends"
-                    aria-expanded="false"
-                    aria-controls="collapse-chart-trends"
-                  >
-                    &nbsp;<svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      class="w-5 h-5"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                <div
-                  id="collapse-chart-trends"
-                  class="collapse show"
-                  aria-labelledby="heading-collapsed"
-                >
-                  <div class="card-body">
-                    <total-projects-trend-chart></total-projects-trend-chart>
-                  </div>
-                </div>
+            <div class="col-6" style="width: 30%">
+              <div class="container" style="height: 100%; width: 100%">
+                Project Pie Chart
               </div>
             </div>
           </div>
@@ -182,40 +51,6 @@
     </div>
   </main>
 </template>
-
-<script>
-import { mapState } from "vuex";
-import FundingTrendChart from "../components/charts/FundingTrendChart.vue";
-import FundingBySectorChart from "../components/charts/FundingBySectorChart.vue";
-import FundingBySourceChart from "../components/charts/FundingBySourceChart.vue";
-import TotalProjectsTrendChart from "../components/charts/TotalProjectsTrendChart.vue";
-
-export default {
-  name: "dashboard",
-  components: {
-    FundingTrendChart,
-    FundingBySectorChart,
-    FundingBySourceChart,
-    TotalProjectsTrendChart,
-  },
-  created() {
-    let isLoggedIn = !!localStorage.getItem("token");
-    if (isLoggedIn) {
-      //put user and translations to vuex state
-      let token = localStorage.getItem("token");
-      let loggedInUser = JSON.parse(localStorage.getItem("user"));
-      this.$store.commit("auth/SET_TOKEN", token);
-      this.$store.commit("auth/SET_USER", loggedInUser);
-    }
-  },
-  computed: {
-    ...mapState("auth", ["user"]),
-    profile() {
-      return this.user;
-    },
-  },
-};
-</script>
 
 <style scoped>
 .page {
@@ -342,7 +177,363 @@ export default {
 #myMenu li a:hover {
   background-color: #eee;
 }
+/*------------------ munu -------------------*/
 
+/* Left */
+.page .left {
+  padding-top: 30px;
+  transform: translatex(0px) translatey(0px);
+}
+
+/* Menu */
+#myMenu {
+  margin-top: 30px !important;
+}
+
+/* Link */
+#myMenu li a {
+  padding-left: 40px !important;
+  padding-right: 20px !important;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+
+@media (max-width: 1399px) {
+  /* Left */
+  #app #app-content .page .row .left {
+    width: 300px !important;
+    max-width: 300px !important;
+    padding-left: 70px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Left */
+  #app #app-content .page .row .left {
+    width: 250px !important;
+    max-width: 230px !important;
+    padding-left: 44px !important;
+  }
+
+  /* Link */
+  #myMenu li a {
+    padding-left: 20px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Left */
+  #app #app-content .page .row .left {
+    padding-left: 20px !important;
+    max-width: 180px !important;
+  }
+
+  /* Left */
+  .page .left {
+    padding-right: 0px !important;
+  }
+
+  /* Heading */
+  .page .left h2 {
+    font-size: 20px !important;
+    text-align: left;
+  }
+
+  /* Link */
+  #myMenu li a {
+    text-align: left;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Left */
+  #app #app-content .page .row .left {
+    max-width: 100% !important;
+    padding-right: 50px !important;
+    padding-left: 50px !important;
+  }
+
+  /* Left */
+  .page .left {
+    align-self: center;
+  }
+
+  /* Link */
+  #myMenu li a {
+    text-align: center;
+  }
+
+  /* Heading */
+  .page .left h2 {
+    text-align: center;
+  }
+
+  /* Menu */
+  #myMenu {
+    margin-top: 20px !important;
+  }
+}
+
+/*--------------- project overview ------------ */
+
+/* Heading */
+.right h1 {
+  font-weight: 700;
+  color: #007cf9;
+}
+
+/* Heading */
+.right h3 {
+  font-weight: 700;
+  color: #494949;
+}
+
+/* Container */
+.right .row .container {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #ffffff;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  box-shadow: none;
+}
+
+/* Container */
+.page .col-6:nth-child(1) .container:nth-child(1) {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+.page .container:nth-child(2) {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: transparent;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+/* Button */
+.right .btn-primary {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Column 6/12 */
+.page .col-6:nth-child(1) {
+  width: 16% !important;
+}
+
+/* Column 6/12 */
+.page .col-6:nth-child(2) {
+  width: 54% !important;
+}
+
+@media (max-width: 1399px) {
+  /* Heading */
+  .right h1 {
+    font-size: 62px !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  /* Heading */
+  .right h1 {
+    font-size: 58px;
+    margin-bottom: 0px;
+  }
+
+  /* Heading */
+  .right h3 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Heading */
+  .right h1 {
+    font-size: 40px;
+  }
+
+  /* Heading */
+  .right h3 {
+    font-size: 18px;
+  }
+
+  /* Button */
+  .right .btn-primary {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Column 6/12 */
+  .page .col-6:nth-child(1) {
+    width: 25% !important;
+  }
+
+  /* Column 6/12 */
+  .page .col-6:nth-child(2) {
+    width: 75% !important;
+  }
+
+  /* Right */
+  #app #app-content .page .row .right {
+    padding-right: 25px !important;
+  }
+
+  /* Column 6/12 */
+  .right .col-6 {
+    margin-bottom: 20px;
+  }
+
+  /* Column 6/12 */
+  .page .col-6:nth-child(3) {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Heading */
+  .right h1 {
+    font-size: 55px;
+  }
+
+  /* Heading */
+  .right h3 {
+    font-size: 25px;
+  }
+
+  /* Button */
+  .right .btn-primary {
+    transform: translatex(0px) translatey(0px);
+    font-size: 16px;
+  }
+
+  /* Column 6/12 */
+  .page .col-6:nth-child(2) {
+    width: 100% !important;
+  }
+
+  /* Column 6/12 */
+  #app-content .page .row .right .container .row .col-6:nth-child(1) {
+    width: 126px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Heading */
+  .right h1 {
+    font-size: 40px;
+  }
+
+  /* Heading */
+  .right h3 {
+    font-size: 20px;
+  }
+
+  /* Button */
+  .right .btn-primary {
+    font-size: 14px;
+  }
+
+  /* Column 6/12 */
+  #app-content .page .row .right .container .row .col-6:nth-child(1) {
+    width: 101px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Heading */
+  .right h1 {
+    font-size: 70px;
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Heading */
+  .page .row .right .container .row .col-6 .container h1 {
+    font-size: 40px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Container */
+  .page .col-6:nth-child(3) .container {
+    min-height: 150px;
+  }
+
+  /* Container */
+  .page .col-6:nth-child(2) .container {
+    min-width: 15px;
+    min-height: 150px;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Heading */
+  .right h3 {
+    font-size: 19px !important;
+  }
+
+  /* Button */
+  .right .btn-primary {
+    font-size: 13px !important;
+  }
+}
+@media (max-width: 991px) {
+  /* Right */
+  #app #app-content .page .row .right {
+    padding-right: 25px !important;
+  }
+
+  /* Right */
+  .page .right {
+    transform: translatex(0px) translatey(0px);
+  }
+
+  /* Heading */
+  .right h3 {
+    font-size: 17px !important;
+  }
+
+  /* Container */
+  .right .row .container {
+    padding-right: 10px !important;
+  }
+
+  /* Heading */
+  #app #app-content .page .row .right .container .row .col-6 .container h1 {
+    font-size: 43px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Heading */
+  .right h1 {
+    font-size: 37px;
+  }
+
+  /* Heading */
+  #app #app-content .page .row .right .container .row .col-6 .container h1 {
+    font-size: 37px !important;
+  }
+}
 /*-------------- new edit --------------*/
 /* Right */
 .page .right {
@@ -510,4 +701,6 @@ export default {
     padding-right: 15px !important;
   }
 }
+
+/* ---------------- project overview ------------- */
 </style>
