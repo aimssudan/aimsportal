@@ -5,12 +5,12 @@
         <h2>Dashboard</h2>
 
         <ul id="myMenu">
-          <li><a href="#">Overview</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Time Trends</a></li>
+          <li><a href="/dashboard">Overview</a></li>
+          <li><a href="/dashboard-projects">Projects</a></li>
+          <li><a href="#">Funds</a></li>
           <li><a href="#">Locations</a></li>
-          <li><a href="#">Sectors</a></li>
-          <li><a href="#">Budgets</a></li>
+          <li><a href="#">Time Trends</a></li>
+          <li><a href="#">Sectors</a></li>``
         </ul>
       </div>
 
@@ -29,6 +29,7 @@
             <div class="col-6" style="width: 20%">
               <div class="container" style="width: 100%">
                 <h1 class="text-center">56</h1>
+                <p>Total Projects</p>
               </div>
               <div class="container" style="width: 100%">
                 <h3>Projects</h3>
@@ -43,6 +44,96 @@
             <div class="col-6" style="width: 30%">
               <div class="container" style="height: 100%; width: 100%">
                 Project Pie Chart
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <div class="row">
+            <div class="col-6" style="width: 20%">
+              <div class="container" style="width: 100%">
+                <h1 class="text-center">$75.4M</h1>
+                <p>Total Amount</p>
+              </div>
+              <div class="container" style="width: 100%">
+                <h3>Funds</h3>
+                <button class="btn btn-primary" type="button">View</button>
+              </div>
+            </div>
+            <div class="col-6" style="width: 50%">
+              <div class="container" style="height: 100%">Funds Bar Chart</div>
+            </div>
+            <div class="col-6" style="width: 30%">
+              <div class="container" style="height: 100%; width: 100%">
+                Funds Pie Chart
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <div class="row">
+            <div class="col-6" style="width: 20%">
+              <div class="container" style="width: 100%">
+                <h1 class="text-center">12</h1>
+                <p>Total States</p>
+              </div>
+              <div class="container" style="width: 100%">
+                <h3>Locations</h3>
+                <button class="btn btn-primary" type="button">View</button>
+              </div>
+            </div>
+            <div class="col-6" style="width: 50%">
+              <div class="container" style="height: 100%">
+                Locations Bar Chart
+              </div>
+            </div>
+            <div class="col-6" style="width: 30%">
+              <div class="container" style="height: 100%; width: 100%">
+                Locations Pie Chart
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <div class="row">
+            <div class="col-6" style="width: 20%">
+              <div class="container" style="width: 100%">
+                <h3>Time Frames</h3>
+                <button class="btn btn-primary" type="button">View</button>
+              </div>
+            </div>
+            <div class="col-6" style="width: 50%">
+              <div class="container" style="height: 100%">
+                Time Frames Bar Chart
+              </div>
+            </div>
+            <div class="col-6" style="width: 30%">
+              <div class="container" style="height: 100%; width: 100%">
+                Time Frames Pie Chart
+              </div>
+            </div>
+          </div>
+
+          <hr />
+          <div class="row">
+            <div class="col-6" style="width: 20%">
+              <div class="container" style="width: 100%">
+                <h1 class="text-center">17</h1>
+                <p>Key Sectors</p>
+              </div>
+              <div class="container" style="width: 100%">
+                <h3>Sectors</h3>
+                <button class="btn btn-primary" type="button">View</button>
+              </div>
+            </div>
+            <div class="col-6" style="width: 50%">
+              <div class="container" style="height: 100%">
+                Sectors Bar Chart
+              </div>
+            </div>
+            <div class="col-6" style="width: 30%">
+              <div class="container" style="height: 100%; width: 100%">
+                Sectors Pie Chart
               </div>
             </div>
           </div>
@@ -702,5 +793,491 @@
   }
 }
 
-/* ---------------- project overview ------------- */
+/* ---------------- dashboard overview right ------------- */
+/* Right */
+.page .right {
+  padding-top: 30px;
+  padding-bottom: 80px;
+  padding-left: 30px;
+}
+
+@media (max-width: 1199px) {
+  /* Right */
+  .page .right {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Right */
+  .page .right {
+    padding-left: 10px;
+  }
+}
+
+/* Right */
+.page .right {
+  padding-top: 30px;
+  padding-bottom: 80px;
+  padding-left: 30px;
+}
+
+/* Horizontal Rule */
+.right hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* Horizontal Rule */
+.right hr {
+  border-color: #94a6b6;
+}
+
+@media (max-width: 1199px) {
+  /* Right */
+  .page .right {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Right */
+  .page .right {
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Container */
+  .page .row:nth-child(3) .container:nth-child(2) {
+    margin-bottom: 0px;
+  }
+
+  /* Container */
+  .page .row:nth-child(5) .container:nth-child(2) {
+    margin-bottom: 0px;
+  }
+
+  /* Container */
+  .page .row:nth-child(7) .container:nth-child(2) {
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Heading */
+  .right h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Column 6/12 */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .row:nth-child(3)
+    .col-6:nth-child(1) {
+    width: 100% !important;
+  }
+
+  /* Column 6/12 */
+  .page .row:nth-child(3) .col-6:nth-child(1) {
+    display: flex;
+    margin-bottom: 0px;
+  }
+
+  /* Container */
+  .page .row:nth-child(3) .container:nth-child(2) {
+    margin-left: 20px;
+  }
+
+  /* Column 6/12 */
+  .page .row:nth-child(5) .col-6:nth-child(1) {
+    display: flex;
+    margin-bottom: 0px;
+  }
+
+  /* Column 6/12 */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .row:nth-child(5)
+    .col-6:nth-child(1) {
+    width: 100% !important;
+  }
+
+  /* Container */
+  .page .row:nth-child(5) .container:nth-child(2) {
+    margin-left: 20px;
+  }
+
+  /* Column 6/12 */
+  .page .row:nth-child(7) .col-6:nth-child(1) {
+    margin-bottom: 0px;
+    display: flex;
+  }
+
+  /* Column 6/12 */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .row:nth-child(7)
+    .col-6:nth-child(1) {
+    width: 100% !important;
+  }
+
+  /* Container */
+  .page .row:nth-child(7) .container:nth-child(2) {
+    margin-left: 20px;
+  }
+
+  /* Column 6/12 */
+  .page .row:nth-child(9) .col-6:nth-child(1) {
+    margin-bottom: 0px;
+    display: flex;
+  }
+
+  /* Column 6/12 */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .row:nth-child(9)
+    .col-6:nth-child(1) {
+    width: 100% !important;
+  }
+
+  /* Container */
+  .page .row:nth-child(9) .container:nth-child(2) {
+    margin-left: 20px;
+  }
+
+  /* Column 6/12 */
+  .page .row:nth-child(11) .col-6:nth-child(1) {
+    margin-bottom: 0px;
+    display: flex;
+  }
+
+  /* Column 6/12 */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .row:nth-child(11)
+    .col-6:nth-child(1) {
+    width: 100% !important;
+  }
+
+  /* Container */
+  .page .row:nth-child(11) .container:nth-child(2) {
+    margin-left: 20px;
+  }
+}
+
+/* Import Google Fonts */
+@import url("//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+/* Container */
+.page .row:nth-child(3) .col-6:nth-child(1) .container:nth-child(1) {
+  flex-direction: column;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+/* Container */
+.page .row:nth-child(5) .col-6:nth-child(1) .container:nth-child(1) {
+  flex-direction: column;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* Container */
+.page .row:nth-child(7) .col-6:nth-child(1) .container:nth-child(1) {
+  flex-direction: column;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+/* Container */
+.page .row:nth-child(9) .col-6:nth-child(1) .container:nth-child(1) {
+  flex-direction: column;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* Container */
+.page .row:nth-child(11) .col-6:nth-child(1) .container:nth-child(1) {
+  flex-direction: column;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* Paragraph */
+.right p {
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #919191;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 10px;
+}
+
+/* Container */
+.page .row:nth-child(9) .col-6:nth-child(1) .container {
+  background-color: transparent;
+}
+
+/* Button */
+.right .btn-primary {
+  text-align: center;
+}
+
+/* Container */
+.right .row .container {
+  justify-content: normal !important;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+/* Column 6/12 */
+.page .row:nth-child(5) .col-6:nth-child(1) {
+  width: 25% !important;
+}
+
+/* Column 6/12 */
+.page .row:nth-child(5) .col-6:nth-child(2) {
+  width: 45% !important;
+}
+
+@media (max-width: 1399px) {
+  /* Text center */
+  .page .row:nth-child(5) .text-center {
+    font-size: 40px !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  /* Text center */
+  .page .row:nth-child(5) .text-center {
+    font-size: 32px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Text center */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .row:nth-child(5)
+    .col-6
+    .container
+    .text-center {
+    font-size: 25px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Column 6/12 */
+  .page .row:nth-child(5) .col-6:nth-child(1) {
+    width: 40% !important;
+  }
+
+  /* Column 6/12 */
+  .page .row:nth-child(5) .col-6:nth-child(2) {
+    width: 60% !important;
+  }
+
+  /* Heading */
+  .page .row .right .container .row .col-6 .container h1 {
+    font-size: 3px !important;
+  }
+
+  /* Text center */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .row:nth-child(5)
+    .col-6
+    .container
+    .text-center {
+    font-size: 30px !important;
+  }
+
+  /* Paragraph */
+  .right p {
+    margin-bottom: 5px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Column 6/12 */
+  .page .row:nth-child(5) .col-6:nth-child(2) {
+    width: 100% !important;
+  }
+
+  /* Column 6/12 */
+  .right .col-6 {
+    justify-content: normal;
+    align-items: normal;
+  }
+
+  /* Heading */
+  .right h3 {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Text center */
+  .page .row:nth-child(5) .text-center {
+    margin-top: 5px;
+  }
+
+  /* Heading */
+  .right h3 {
+    margin-top: 8px;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Text center */
+  .page .row:nth-child(5) .text-center {
+    font-size: 50px;
+  }
+}
+
+/* Container */
+.page .row:nth-child(9) .col-6:nth-child(2) .container {
+  min-height: 200px;
+}
+
+/* Container */
+.page .row:nth-child(9) .col-6:nth-child(3) .container {
+  min-height: 200px;
+}
+/* Container */
+.right .row .container {
+  text-align: left !important;
+}
+
+/* Container */
+.page .row:nth-child(9) .col-6:nth-child(1) .container {
+  display: block;
+  justify-content: flex-start !important;
+  align-items: normal;
+}
+
+/* Container */
+.right .row .container {
+  text-align: left !important;
+}
+
+/* Container */
+.page .row:nth-child(9) .col-6:nth-child(1) .container {
+  display: block;
+  justify-content: flex-start !important;
+  align-items: normal;
+}
+
+@media (max-width: 450px) {
+  /* Container */
+  .page .row:nth-child(3) .col-6:nth-child(1) .container:nth-child(1) {
+    min-width: auto;
+    max-width: 120px;
+  }
+
+  /* Container */
+  .page .row:nth-child(5) .col-6:nth-child(1) .container:nth-child(1) {
+    max-width: 150px;
+  }
+
+  /* Container */
+  .page .row:nth-child(7) .col-6:nth-child(1) .container:nth-child(1) {
+    max-width: 110px;
+  }
+
+  /* Container */
+  .page .row:nth-child(11) .col-6:nth-child(1) .container:nth-child(1) {
+    max-width: 110px;
+  }
+}
+
+/* Container */
+.right .row .container {
+  box-shadow: 0px 0px 18px 0px rgba(26, 99, 172, 0.14) !important;
+}
+
+/* Container */
+.page .row:nth-child(3) .container:nth-child(2) {
+  box-shadow: none !important;
+}
+
+/* Container */
+.page .row:nth-child(5) .container:nth-child(2) {
+  box-shadow: none !important;
+}
+
+/* Container */
+.page .row:nth-child(7) .container:nth-child(2) {
+  box-shadow: none !important;
+}
+
+/* Container */
+.page .row:nth-child(9) .col-6:nth-child(1) .container {
+  box-shadow: none !important;
+}
+
+/* Container */
+.page .row:nth-child(11) .container:nth-child(2) {
+  box-shadow: none !important;
+}
+
+@media (max-width: 991px) {
+  /* Paragraph */
+  .right p {
+    line-height: 1.3em;
+    font-size: 11px !important;
+  }
+
+  /* Text center */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .row:nth-child(3)
+    .col-6
+    .container
+    .text-center {
+    font-size: 33px !important;
+  }
+
+  /* Heading */
+  .page .row .right .container .row .col-6 .container h3 {
+    font-size: 15px !important;
+  }
+}
 </style>
