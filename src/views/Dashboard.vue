@@ -5,12 +5,12 @@
         <h2>Dashboard</h2>
 
         <ul id="myMenu">
-          <li><a href="#">Overview</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Time Trends</a></li>
+          <li><a href="/dashboard">Overview</a></li>
+          <li><a href="/dashboard-projects">Projects</a></li>
+          <li><a href="#">Funds</a></li>
           <li><a href="#">Locations</a></li>
-          <li><a href="#">Sectors</a></li>
-          <li><a href="#">Budgets</a></li>
+          <li><a href="#">Time Trends</a></li>
+          <li><a href="#">Sectors</a></li>``
         </ul>
       </div>
 
@@ -828,6 +828,11 @@
   margin-bottom: 40px;
 }
 
+/* Horizontal Rule */
+.right hr {
+  border-color: #94a6b6;
+}
+
 @media (max-width: 1199px) {
   /* Right */
   .page .right {
@@ -980,11 +985,6 @@
   /* Container */
   .page .row:nth-child(11) .container:nth-child(2) {
     margin-left: 20px;
-  }
-
-  /* Horizontal Rule */
-  .right hr {
-    border-color: #94a6b6;
   }
 }
 
