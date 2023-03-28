@@ -1253,4 +1253,31 @@
 .page .row:nth-child(11) .container:nth-child(2) {
   box-shadow: none !important;
 }
+
+@media (max-width: 991px) {
+  /* Paragraph */
+  .right p {
+    line-height: 1.3em;
+    font-size: 11px !important;
+  }
+
+  /* Text center */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .row:nth-child(3)
+    .col-6
+    .container
+    .text-center {
+    font-size: 33px !important;
+  }
+
+  /* Heading */
+  .page .row .right .container .row .col-6 .container h3 {
+    font-size: 15px !important;
+  }
+}
 </style>
