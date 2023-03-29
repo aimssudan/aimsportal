@@ -10,7 +10,8 @@
           <li><a href="#">Funds</a></li>
           <li><a href="#">Locations</a></li>
           <li><a href="#">Time Trends</a></li>
-          <li><a href="#">Sectors</a></li>``
+          <li><a href="#">Sectors</a></li>
+          ``
         </ul>
       </div>
 
