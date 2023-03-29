@@ -5,10 +5,10 @@
     <ul id="myMenu">
       <li><a href="/dashboard">Overview</a></li>
       <li><a href="/dashboard-projects">Projects</a></li>
-      <li><a href="#">Funds</a></li>
-      <li><a href="#">Locations</a></li>
-      <li><a href="#">Time Trends</a></li>
-      <li><a href="#">Sectors</a></li>``
+      <li><a href="/dashboard-funds">Funds</a></li>
+      <li><a href="/dashboard-locations">Locations</a></li>
+      <li><a href="/dashboard-time-trends">Time Trends</a></li>
+      <li><a href="/dashboard-sectors">Sectors</a></li>
     </ul>
   </div>
 </template>

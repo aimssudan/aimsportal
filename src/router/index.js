@@ -26,6 +26,13 @@ import Project from '../views/Project.vue'
 import SystemSettings from '../views/SystemSettings.vue'
 import Reports from '../views/Reports.vue'
 
+import DashboardProjects from '../views/DashboardProjects.vue'
+import DashboardFunds from '../views/DashboardFunds.vue'
+import DashboardLocations from '../views/DashboardLocations.vue'
+import DashboardSectors from '../views/DashboardSectors.vue'
+import DashboardTimeTrends from '../views/DashboardTimeTrends.vue'
+
+
 const routes = [
   {
     path: '/',
@@ -182,6 +189,51 @@ const routes = [
     component: SystemSettings,
     meta: {
       title: "AIMS ⇾ System Settings",
+      middleware: [auth, verified, admin],
+    },
+  },
+  {
+    path: '/dashboard-projects',
+    name: 'dashboard-projects',
+    component: DashboardProjects,
+    meta: {
+      title: "AIMS ⇾ Projects Dashboard",
+      middleware: [auth, verified, admin],
+    },
+  },
+  {
+    path: '/dashboard-funds',
+    name: 'dashboard-funds',
+    component: DashboardFunds,
+    meta: {
+      title: "AIMS ⇾ Funds Dashboard",
+      middleware: [auth, verified, admin],
+    },
+  },
+  {
+    path: '/dashboard-locations',
+    name: 'dashboard-locations',
+    component: DashboardLocations,
+    meta: {
+      title: "AIMS ⇾ Locations Dashboard",
+      middleware: [auth, verified, admin],
+    },
+  },
+  {
+    path: '/dashboard-sectors',
+    name: 'dashboard-sectors',
+    component: DashboardSectors,
+    meta: {
+      title: "AIMS ⇾ Sectors Dashboard",
+      middleware: [auth, verified, admin],
+    },
+  },
+  {
+    path: '/dashboard-time-trends',
+    name: 'dashboard-time-trends',
+    component: DashboardTimeTrends,
+    meta: {
+      title: "AIMS ⇾ Time Trends Dashboard",
       middleware: [auth, verified, admin],
     },
   },
