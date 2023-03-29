@@ -28,6 +28,7 @@
             <div class="col-6" style="width: 50%">
               <div class="container" style="height: 100%">
                 Project Bar Chart
+                <projects-bar-chart chartTitle=""></projects-bar-chart>
               </div>
             </div>
             <div class="col-6" style="width: 30%">
@@ -134,11 +135,13 @@
 
 <script>
   import DashboardMenu from "../components/navs/DashboardMenu.vue";
+  import ProjectsBarChart from "../components/charts/ProjectsBarChart.vue";
 
   export default {
     name: "Dashboard",
     components: {
       DashboardMenu,
+      ProjectsBarChart,
     },
     data() {
 
