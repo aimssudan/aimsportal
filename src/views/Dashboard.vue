@@ -1,18 +1,7 @@
 <template>
   <main class="page">
     <div class="row">
-      <div class="left" style="background-color: #bbb">
-        <h2>Dashboard</h2>
-
-        <ul id="myMenu">
-          <li><a href="/dashboard">Overview</a></li>
-          <li><a href="/dashboard-projects">Projects</a></li>
-          <li><a href="#">Funds</a></li>
-          <li><a href="#">Locations</a></li>
-          <li><a href="#">Time Trends</a></li>
-          <li><a href="#">Sectors</a></li>``
-        </ul>
-      </div>
+      <dashboard-menu></dashboard-menu>
 
       <div class="right" style="background-color: #ddd">
         <div class="container" style="min-height: 80vh">
@@ -143,10 +132,28 @@
   </main>
 </template>
 
+<script>
+  import DashboardMenu from "../components/navs/DashboardMenu.vue";
+
+  export default {
+    name: "Dashboard",
+    components: {
+      DashboardMenu,
+    },
+    data() {
+
+    },
+    computed: {
+
+    }
+  }
+</script>
+
 <style scoped>
 .page {
   padding-top: 4em;
   padding-bottom: 4em;
+  overflow-x: hidden;
 }
 /* Card */
 .page .card {
@@ -249,44 +256,6 @@
 .right {
   flex: 65%;
   padding: 15px;
-}
-
-/* Style the navigation menu inside the left column */
-#myMenu {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#myMenu li a {
-  padding: 12px;
-  text-decoration: none;
-  color: black;
-  display: block;
-}
-
-#myMenu li a:hover {
-  background-color: #eee;
-}
-/*------------------ munu -------------------*/
-
-/* Left */
-.page .left {
-  padding-top: 30px;
-  transform: translatex(0px) translatey(0px);
-}
-
-/* Menu */
-#myMenu {
-  margin-top: 30px !important;
-}
-
-/* Link */
-#myMenu li a {
-  padding-left: 40px !important;
-  padding-right: 20px !important;
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
 }
 
 @media (max-width: 1399px) {
