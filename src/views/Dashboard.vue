@@ -6,7 +6,7 @@
 
         <ul id="myMenu">
           <li><a href="/dashboard">Overview</a></li>
-          <li><a href="/dashboard-projects">Projects</a></li>
+          <li><a href="/src/views/dashboard-projects">Projects</a></li>
           <li><a href="#">Funds</a></li>
           <li><a href="#">Locations</a></li>
           <li><a href="#">Time Trends</a></li>

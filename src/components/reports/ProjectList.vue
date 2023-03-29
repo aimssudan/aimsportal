@@ -422,4 +422,142 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+/* Table Row */
+.table-stripped thead tr {
+  background-color: #0056a8;
+  color: #ffffff;
+}
+/* Card body */
+.project-page .card .card-body {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  transform: translatex(0px) translatey(0px);
+  border-color: transparent;
+}
+
+/* Table stripped */
+.project-page .card .table-stripped {
+  margin-top: 0px !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Card */
+.project-page .card {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: transparent;
+  border-style: none;
+}
+
+/* Head Of Table */
+.project-page .card thead {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Table Row */
+.table-stripped thead tr {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Table Data */
+.table-stripped tr td {
+  padding-left: 10px;
+  background-color: #ffffff;
+}
+
+/* Th */
+.table-stripped tr th {
+  border-top-left-radius: 0px;
+}
+
+/* Th */
+.project-page tr th:nth-child(1) {
+  border-top-left-radius: 10px;
+}
+
+/* Th */
+.project-page tr th:nth-child(5) {
+  border-top-right-radius: 10px;
+}
+
+/* Card body */
+.project-page .card:nth-child(2) .card-body {
+  background-color: rgba(255, 255, 255, 0.36);
+  width: 65%;
+  transform: translatex(0px) translatey(0px);
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0px 0px 50px 0px rgba(11, 94, 177, 0.07);
+  border-style: solid;
+  border-color: rgba(124, 165, 206, 0.41);
+  border-width: 1px;
+}
+
+/* Col 1 */
+.project-page .card .col-sm-1 {
+  font-weight: 600;
+  color: #457aaf;
+}
+
+/* Button */
+.project-page .card .btn-info {
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  background-color: #017fda;
+  color: #ffffff;
+}
+
+/* Button */
+.project-page .card .btn-danger {
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+/* Card */
+.project-page .card:nth-child(4) {
+  box-shadow: 0px 0px 16px 0px rgba(43, 101, 160, 0.21);
+  transform: translatex(0px) translatey(0px);
+}
+
+/* Card body */
+.project-page .card:nth-child(4) .card-body {
+  background-color: rgba(255, 255, 255, 0.58);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+@media (max-width: 991px) {
+  /* Card body */
+  .project-page .card:nth-child(2) .card-body {
+    width: 100%;
+  }
+}
+
+/* Card */
+.project-page .card {
+  margin-bottom: 30px;
+}
+</style>
