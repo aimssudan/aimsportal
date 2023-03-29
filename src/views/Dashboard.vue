@@ -34,6 +34,7 @@
             <div class="col-6" style="width: 30%">
               <div class="container" style="height: 100%; width: 100%">
                 Project Pie Chart
+                <projects-pie-chart chartTitle=""></projects-pie-chart>
               </div>
             </div>
           </div>
@@ -136,12 +137,14 @@
 <script>
   import DashboardMenu from "../components/navs/DashboardMenu.vue";
   import ProjectsBarChart from "../components/charts/ProjectsBarChart.vue";
+  import ProjectsPieChart from "../components/charts/ProjectsPieChart.vue";
 
   export default {
     name: "Dashboard",
     components: {
       DashboardMenu,
       ProjectsBarChart,
+      ProjectsPieChart,
     },
     data() {
 
