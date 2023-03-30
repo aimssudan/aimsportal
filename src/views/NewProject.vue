@@ -4195,4 +4195,15 @@ export default {
 #nav-geographic .row {
   margin-bottom: 20px !important;
 }
+
+/* Card body */
+.project-page .card .card-body {
+  background-color: rgba(255, 255, 255, 0.62) !important;
+  transform: translatex(0px) translatey(0px);
+}
+
+/* Row */
+#nav-basic .bg-light {
+  background-color: #e7f1f8 !important;
+}
 </style>
