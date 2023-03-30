@@ -27,14 +27,16 @@
             </div>
             <div class="col-6" style="width: 50%">
               <div class="container" style="height: 100%">
-                Project Bar Chart
-                <projects-bar-chart chartTitle=""></projects-bar-chart>
+                <projects-bar-chart
+                  chartTitle="Project Bar Chart"
+                ></projects-bar-chart>
               </div>
             </div>
             <div class="col-6" style="width: 30%">
               <div class="container" style="height: 100%; width: 100%">
-                Project Pie Chart
-                <projects-pie-chart chartTitle=""></projects-pie-chart>
+                <projects-pie-chart
+                  chartTitle="Project Pie Chart"
+                ></projects-pie-chart>
               </div>
             </div>
           </div>
@@ -135,35 +137,35 @@
 </template>
 
 <script>
-  import { mapState } from "vuex";
-  import DashboardMenu from "../components/navs/DashboardMenu.vue";
-  import ProjectsBarChart from "../components/charts/ProjectsBarChart.vue";
-  import ProjectsPieChart from "../components/charts/ProjectsPieChart.vue";
+import { mapState } from "vuex";
+import DashboardMenu from "../components/navs/DashboardMenu.vue";
+import ProjectsBarChart from "../components/charts/ProjectsBarChart.vue";
+import ProjectsPieChart from "../components/charts/ProjectsPieChart.vue";
 
-  export default {
-    name: "Dashboard",
-    components: {
-      DashboardMenu,
-      ProjectsBarChart,
-      ProjectsPieChart,
-    },
-    data() {
-      let isLoggedIn = !!localStorage.getItem("token");
-      if (isLoggedIn) {
-        //put user and translations to vuex state
-        let token = localStorage.getItem("token");
-        let loggedInUser = JSON.parse(localStorage.getItem("user"));
-        this.$store.commit("auth/SET_TOKEN", token);
-        this.$store.commit("auth/SET_USER", loggedInUser);
-      }
-    },
-    computed: {
-      ...mapState("auth", ["user"]),
-      profile() {
-        return this.user;
-      },
+export default {
+  name: "Dashboard",
+  components: {
+    DashboardMenu,
+    ProjectsBarChart,
+    ProjectsPieChart,
+  },
+  data() {
+    let isLoggedIn = !!localStorage.getItem("token");
+    if (isLoggedIn) {
+      //put user and translations to vuex state
+      let token = localStorage.getItem("token");
+      let loggedInUser = JSON.parse(localStorage.getItem("user"));
+      this.$store.commit("auth/SET_TOKEN", token);
+      this.$store.commit("auth/SET_USER", loggedInUser);
     }
-  }
+  },
+  computed: {
+    ...mapState("auth", ["user"]),
+    profile() {
+      return this.user;
+    },
+  },
+};
 </script>
 
 <style scoped>
