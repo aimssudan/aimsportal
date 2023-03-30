@@ -1,7 +1,6 @@
 <template>
   <main class="page">
     <div class="row">
-      
       <dashboard-menu></dashboard-menu>
 
       <div class="right" style="background-color: #ddd">
@@ -14,6 +13,25 @@
               </li>
             </ol>
           </nav>
+
+          <nav>
+            <label for="touch"><span>Select a State</span></label>
+            <input type="checkbox" id="touch" />
+
+            <ul class="slide">
+              <li><a href="#">Equatoria</a></li>
+              <li><a href="#">Western Equatoria</a></li>
+              <li><a href="#">Eastern Equatoria</a></li>
+              <li><a href="#">Jonglei</a></li>
+              <li><a href="#">Unity</a></li>
+              <li><a href="#">Upper Nile</a></li>
+              <li><a href="#">Lakes</a></li>
+              <li><a href="#">Warrap</a></li>
+              <li><a href="#">Western Bahr el Ghazal</a></li>
+              <li><a href="#">Northern Bahr el Ghazal</a></li>
+            </ul>
+          </nav>
+
           <div class="row">
             <div class="col-md-4">
               <div class="card border-light">
@@ -180,7 +198,6 @@ import FundingBySectorChart from "../components/charts/FundingBySectorChart.vue"
 import FundingBySourceChart from "../components/charts/FundingBySourceChart.vue";
 import TotalProjectsTrendChart from "../components/charts/TotalProjectsTrendChart.vue";
 import DashboardMenu from "../components/navs/DashboardMenu.vue";
-
 
 export default {
   name: "DashboardLocations",
@@ -496,5 +513,148 @@ export default {
   .page .right {
     padding-right: 90px !important;
   }
+}
+
+nav {
+  width: 300px;
+  margin: 40px auto;
+}
+
+span {
+  padding: 30px;
+  font-size: 1.2em;
+  font-variant: small-caps;
+  cursor: pointer;
+  display: block;
+}
+
+span::after {
+  float: right;
+  right: 10%;
+  content: "+";
+}
+
+.slide {
+  clear: both;
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+  text-align: center;
+  transition: height 0.4s ease;
+}
+
+.slide li {
+  padding: 30px;
+}
+
+#touch {
+  position: absolute;
+  opacity: 0;
+  height: 0px;
+}
+
+#touch:checked + .slide {
+  height: 300px;
+}
+
+.slide {
+  max-height: 200px;
+  overflow: scroll;
+}
+.slide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Navigation */
+.page nav {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+}
+
+/* Label */
+#app #app-content .page .row .right .container nav label {
+  width: 100% !important;
+}
+
+/* Span Tag */
+.page nav span {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #2e5b88;
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+/* List Item */
+.page .slide li {
+  padding-left: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* List */
+.page nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+  text-align: left !important;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Navigation */
+#app #app-content .page .row .right .container nav:nth-child(3) {
+  height: auto !important;
+}
+
+/* Navigation */
+.page nav:nth-child(3) {
+  background-color: #ffffff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+/* List */
+.page nav ul {
+  margin-top: -30px;
+  padding-bottom: 20px !important;
+}
+
+/* Navigation */
+.page nav:nth-child(3) {
+  padding-bottom: 0px;
+}
+
+/* Span Tag */
+.page nav span {
+  padding-bottom: 30px !important;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+/* List Item */
+.page .slide li:nth-child(1) {
+  padding-top: 30px;
+}
+
+/* List Item */
+.page .slide li {
+  font-weight: 600;
+}
+
+/* List Item */
+.page .slide li:nth-child(1) {
+  padding-top: 25px !important;
+}
+
+/* Navigation */
+.page nav:nth-child(3) {
+  box-shadow: 0px 0px 17px 0px rgba(14, 81, 148, 0.09);
 }
 </style>
