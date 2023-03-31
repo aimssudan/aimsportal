@@ -124,6 +124,13 @@
           <hr />
 
           <div class="row3">
+            <div class="col-7" style="width: 100%">
+              <div class="container" style="height: 100%">
+                <h2>Location Reports</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row3">
             <div class="col-7" style="width: 70%">
               <div class="container" style="height: 100%">
                 <div class="report-tabs">
@@ -135,7 +142,10 @@
                     checked
                   />
                   <label for="tab1" class="tabs__label">Bar Chart</label>
-                  <div class="tabs__content">CONTENT for Tab #1</div>
+                  <div class="tabs__content">
+                    Disbused & Non-disbursed Funds Stacked Bar Chart (Location
+                    Vs Funds)
+                  </div>
 
                   <input
                     type="radio"
@@ -144,7 +154,10 @@
                     id="tab2"
                   />
                   <label for="tab2" class="tabs__label">Pie Chart</label>
-                  <div class="tabs__content">CONTENT for Tab #2</div>
+                  <div class="tabs__content">
+                    Disbused & Non-disbursed Funds Stacked Pie Chart (Location
+                    Vs Funds)
+                  </div>
 
                   <input
                     type="radio"
@@ -154,7 +167,10 @@
                     checked
                   />
                   <label for="tab3" class="tabs__label">Donut Chart</label>
-                  <div class="tabs__content">CONTENT for Tab #3</div>
+                  <div class="tabs__content">
+                    Disbused & Non-disbursed Funds Stacked Donut Chart (Location
+                    Vs Funds)
+                  </div>
                 </div>
               </div>
             </div>
@@ -187,9 +203,9 @@
               </div>
             </div>
           </div>
-          <hr />
+
           <div class="row">
-            <h2>Projects List</h2>
+            <h3>Projects List</h3>
 
             <table id="project-list">
               <tr>
@@ -2370,6 +2386,51 @@ body {
   /* Heading */
   .page h3 {
     font-size: 20px;
+  }
+}
+
+/* Heading */
+.right .row3 h2 {
+  font-weight: 600;
+  color: #0060c1;
+  margin-bottom: 15px;
+}
+
+/* Heading */
+.right .row h3 {
+  padding-left: 12px;
+}
+
+/* Container */
+.right .col-7 .container {
+  padding-left: 0px;
+}
+
+@media (min-width: 451px) {
+  /* Row */
+  .right .row {
+    transform: translatex(0px) translatey(0px);
+  }
+}
+
+@media (min-width: 576px) {
+  /* Heading */
+  .right .row h3 {
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Heading */
+  .right .row h3 {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Heading */
+  .right .row3 h2 {
+    font-size: 30px;
   }
 }
 </style>
