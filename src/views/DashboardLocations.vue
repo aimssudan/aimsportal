@@ -92,31 +92,32 @@
                 <h5>Population</h5>
               </div>
             </div>
-
             <div class="col-6" style="width: 30%">
-              <div class="container" style="height: 100%; width: 100%">
-                <ul>
-                  <li class="chart-tabs">
-                    <a
-                      href="data:text/html,<p>Project Pie Chart (Active Vs Completed)</p>"
-                      target="tabcontent"
-                      >Projects</a
-                    >
-                  </li>
-
-                  <li class="chart-tabs">
-                    <a
-                      href="data:text/html,<p>Budget Pie Chart (Disbused Vs Nondisbursed)</p>"
-                      target="tabcontent"
-                      >Budgets</a
-                    >
-                  </li>
-                </ul>
-
-                <iframe
-                  src="data:text/html,<h2>HELLO</h2>"
-                  name="tabcontent"
-                ></iframe>
+              <h3>Projects</h3>
+              <div class="column">
+                <div class="container" style="height: 100%; width: 100%">
+                  <h2 class="text-center">7</h2>
+                  <h5>Active</h5>
+                </div>
+              </div>
+              <div class="column">
+                <div class="container" style="height: 100%; width: 100%">
+                  <h2 class="text-center">13</h2>
+                  <h5>Complete</h5>
+                </div>
+              </div>
+              <h3>Funds</h3>
+              <div class="column">
+                <div class="container" style="height: 100%; width: 100%">
+                  <h2 class="text-center">$84.7M</h2>
+                  <h5>Disbursed</h5>
+                </div>
+              </div>
+              <div class="column">
+                <div class="container" style="height: 100%; width: 100%">
+                  <h2 class="text-center">$18.4M</h2>
+                  <h5>Budgeted</h5>
+                </div>
               </div>
             </div>
           </div>
@@ -2433,4 +2434,151 @@ body {
     font-size: 30px;
   }
 }
+
+@media (max-width: 1199px) {
+  /* Heading */
+  .col-8 h3 {
+    font-size: 20px;
+  }
+
+  /* Heading */
+  .right .row h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Column 8/12 */
+  .right .col-8 {
+    margin-bottom: 40px;
+  }
+
+  /* Report tabs */
+  .right .report-tabs {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Button */
+  .page .pdf-button {
+    font-size: 12px !important;
+    padding-right: 20px;
+    margin-left: 10px;
+    margin-right: 0px;
+  }
+
+  /* Button */
+  .page .xml-button {
+    font-size: 12px !important;
+    margin-left: 10px;
+  }
+
+  /* Container */
+  .page .col-8 .container {
+    padding-right: 0px;
+    padding-left: 12px;
+  }
+
+  /* Column 8/12 */
+  .right .col-8 {
+    transform: translatex(0px) translatey(0px);
+  }
+}
+
+/*-----------------------------------------------------*/
+
+/* Column 6/12 */
+.page .row:nth-child(4) .col-6:nth-child(3) {
+  display: flex;
+  align-self: flex-start;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+/* Container */
+.right .column .container {
+  color: #ffffff;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  padding-bottom: 0px;
+  margin-bottom: 10px !important;
+  padding-top: 0px;
+}
+
+/* Text center */
+.page .row .right .container .row .col-6 .column .container .text-center {
+  color: #ffffff !important;
+}
+
+/* Text center */
+.right .column .text-center {
+  font-weight: 700 !important;
+  margin-top: 8px !important;
+}
+
+/* Heading */
+.right .column h5 {
+  padding-top: 2px;
+  padding-bottom: 0px;
+}
+
+/* Heading */
+.page .column:nth-child(3) h5 {
+  color: #fde1cd !important;
+}
+
+/* Container */
+.page .row .right .container .row .col-6 .column .container {
+  background-color: #005bb7 !important;
+}
+
+/* Container */
+.page .row .right .container .row .col-6 .column:nth-child(6) .container {
+  background-color: #f95c43 !important;
+}
+
+/* Container */
+.page .row .right .container .row .col-6 .column:nth-child(3) .container {
+  background-color: #f95c43 !important;
+}
+
+/* Heading */
+.right .col-6 h3 {
+  color: #7f7f7f;
+  font-weight: 700;
+}
+
+/* Heading */
+.page .row .right .container .row .col-6 .column .container h5 {
+  color: rgba(255, 255, 255, 0.59) !important;
+}
+
+@media (min-width: 576px) {
+  /* Heading */
+  .right .col-6 h3 {
+    margin-bottom: 5px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Heading */
+  .right .col-6 h3 {
+    margin-top: 15px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Heading */
+  .right .col-6 h3 {
+    font-size: 17px;
+  }
+
+  /* Text center */
+  .right .column .text-center {
+    font-size: 25px;
+  }
+}                       
 </style>
