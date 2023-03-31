@@ -124,7 +124,7 @@
           <hr />
 
           <div class="row3">
-            <div class="col-8" style="width: 60%">
+            <div class="col-7" style="width: 70%">
               <div class="container" style="height: 100%">
                 <div class="report-tabs">
                   <input
@@ -158,9 +158,30 @@
                 </div>
               </div>
             </div>
-            <div class="col-8" style="width: 40%">
+            <div class="col-8" style="width: 30%">
               <div class="container" style="height: 100%">
                 <h3>Download Report</h3>
+
+                <label class="toggle">
+                  <input class="toggle-checkbox" type="checkbox" />
+                  <div class="toggle-switch"></div>
+                  <span class="toggle-label">Bar Chart</span>
+                </label>
+                <label class="toggle">
+                  <input class="toggle-checkbox" type="checkbox" />
+                  <div class="toggle-switch"></div>
+                  <span class="toggle-label">Pie Chart</span>
+                </label>
+                <label class="toggle">
+                  <input class="toggle-checkbox" type="checkbox" />
+                  <div class="toggle-switch"></div>
+                  <span class="toggle-label">Donut Chart</span>
+                </label>
+                <label class="toggle">
+                  <input class="toggle-checkbox" type="checkbox" />
+                  <div class="toggle-switch"></div>
+                  <span class="toggle-label">Project List</span>
+                </label>
                 <a href="#" class="pdf-button">Download PDF</a>
                 <a href="#" class="xml-button">Download XML</a>
               </div>
@@ -2039,8 +2060,151 @@ span::after {
   }
 }
 
-/* ----------------------------------------*/
+/* -----------------toggles ---------------------*/
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, ".SFNSText-Regular", "Helvetica Neue", "Roboto",
+    "Segoe UI", sans-serif;
+}
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 16px;
+  width: 58px;
+  height: 32px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+.toggle-switch:before,
+.toggle-switch:after {
+  content: "";
+}
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: left 0.25s;
+}
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.toggle-checkbox:checked + .toggle-switch {
+  background: #56c080;
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 30px;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle-label {
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
+}
+/* Import Google Fonts */
+@import url("//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+/* Toggle */
+.page .toggle {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: nowrap;
+  float: left;
+  flex-direction: row;
+  cursor: auto;
+  pointer-events: auto;
+}
+
+/* Label */
+#app #app-content .page .row .right .container .row3 .col-8 .container label {
+  width: 51% !important;
+}
+
+/* Span Tag */
+.page .toggle span {
+  text-transform: lowercase;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 0px;
+  padding-bottom: 8px;
+  transform: translatex(0px) translatey(0px);
+  font-weight: 600;
+  color: #7a7a7a;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1em;
+}
+
+/* Heading */
+.page h3 {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 991px) {
+  /* Column 7/12 */
+  #app #app-content .page .row .right .container .row3 .col-7 {
+    width: 100% !important;
+  }
+
+  /* Row3 */
+  .page .row3 {
+    flex-direction: column;
+  }
+
+  /* Column 8/12 */
+  #app #app-content .page .row .right .container .row3 .col-8 {
+    width: 100% !important;
+  }
+
+  /* Column 8/12 */
+  .page .col-8 {
+    min-width: 100%;
+  }
+
+  /* Column 8/12 */
+  .right .col-8 {
+    transform: translatex(0px) translatey(0px);
+  }
+
+  /* Heading */
+  .page h3 {
+    margin-top: 0px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Heading */
+  .page h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
 /* ----------------------------------------*/
 
 .report-tabs {
@@ -2208,6 +2372,4 @@ span::after {
     font-size: 20px;
   }
 }
-
-
 </style>
