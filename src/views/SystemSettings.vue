@@ -193,7 +193,7 @@ export default {
 
 /* Card */
 .project-page .card {
-  width: 630px;
+  width: 820px;
   box-shadow: 0px 0px 16px 0px rgba(22, 86, 150, 0.14);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -208,6 +208,17 @@ export default {
   padding-bottom: 30px;
 }
 
+/* Form control */
+.table-striped tr .form-control {
+  width: 473px !important;
+}
+
+@media (min-width: 992px) {
+  /* Select */
+  .table-striped tr select {
+    width: 408px !important;
+  }
+}
 @media (max-width: 991px) {
   /* Card */
   #app #app-content .project-page .container .col-md-12 .card {
@@ -234,6 +245,53 @@ export default {
   /* Th */
   .table-striped tr th {
     font-size: 15px;
+  }
+}
+
+/* Card body */
+.project-page .card .card-body {
+  background-color: rgba(255, 255, 255, 0.65);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Select */
+.table-striped tr select {
+  width: 460px;
+}
+
+@media (max-width: 991px) {
+  /* Select */
+  #app
+    #app-content
+    .project-page
+    .container
+    .col-md-12
+    .card
+    .card-body
+    .table-striped
+    tbody
+    tr
+    td
+    select {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Table Data */
+  .table-striped tr td {
+    font-size: 12px !important;
+  }
+
+  /* Select */
+  .table-striped tr select {
+    font-size: 12px !important;
+  }
+
+  /* Form control */
+  .table-striped tr .form-control {
+    font-size: 12px !important;
   }
 }
 </style>
