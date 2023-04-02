@@ -343,6 +343,9 @@
               </tr>
             </table>
           </div>
+
+          <hr />
+
           <div class="row">
             <div class="col-md-4">
               <div class="card border-light">
@@ -1811,10 +1814,6 @@ span::after {
 
 /* --------------- hide graphs ------------- */
 
-/* Row */
-.page .row:nth-child(11) {
-  display: none;
-}
 /* ------------------------------ */
 
 /* --------------- table ------------- */
@@ -2580,5 +2579,81 @@ body {
   .right .column .text-center {
     font-size: 25px;
   }
-}                       
+}
+
+/* Column 6/12 */
+.page .row:nth-child(4) .col-6:nth-child(3) {
+  background-color: #ffffff;
+  max-width: 291px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+@media (max-width: 1199px) {
+  /* Row */
+  .right .row {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Text center */
+  .right .column .text-center {
+    font-size: 26px !important;
+  }
+
+  /* Heading */
+  .right .col-6 h3 {
+    font-size: 16px !important;
+    margin-top: 5px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Column 6/12 */
+  .page .row:nth-child(4) .col-6:nth-child(3) {
+    margin-left: 12px;
+    max-width: 98% !important;
+    margin-right: 12px;
+  }
+
+  /* Column 6/12 */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .row:nth-child(4)
+    .col-6:nth-child(3) {
+    width: 95% !important;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Column 6/12 */
+  .page .row:nth-child(4) .col-6:nth-child(3) {
+    max-width: 95% !important;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Column 6/12 */
+  .page .row:nth-child(4) .col-6:nth-child(3) {
+    max-width: 94% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Column 6/12 */
+  .page .row:nth-child(4) .col-6:nth-child(3) {
+    width: 291px;
+  }
+}
 </style>
