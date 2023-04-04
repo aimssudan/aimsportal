@@ -33,6 +33,7 @@
                           <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('login')">{{this.getTranslation("Login")}}</a>
                           <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('register')">{{this.getTranslation("Register")}}</a>
                           <a v-if="profile" class="dropdown-item" role="button" @click="navigate('profile')">{{this.getTranslation("Profile")}}</a>
+                          <a v-if="profile" class="dropdown-item" href="/dashboard">Dashboard</a>
                           <a v-if="profile" class="dropdown-item" role="button" @click="signout">{{this.getTranslation("Logout")}}</a>
                         </div>
                     </li>
