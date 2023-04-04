@@ -50,7 +50,7 @@
         <div class="col-md-6">
           <div class="card border-light">
             <div class="card-header d-flex justify-content-between">
-              <h5>State Map Distibution</h5>
+              <h5>Projects Bar Chart</h5>
               <button
                 class="btn btn-light btn-sm"
                 type="button"
@@ -84,10 +84,7 @@
                     >Projects Geographic Impact Summary</span
                   >
                 </h5>
-                <project-distribution-by-state
-                  v-if="isMapDataLoaded"
-                  :mapData="mapData"
-                ></project-distribution-by-state>
+                <projects-bar-chart chart-title="" ></projects-bar-chart>
               </div>
             </div>
             <div class="card-footer">Map of South Sudan</div>
@@ -103,14 +100,14 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-import ProjectDistributionByState from "../components/maps/ProjectDistributionByState.vue";
+import ProjectsBarChart from "../components/charts/ProjectsBarChart.vue";
 import FundingBySectorChart from "../components/charts/FundingBySectorChart.vue";
 import ProjectList from "../components/reports/ProjectList.vue";
 
 export default {
   name: "dashboard",
   components: {
-    ProjectDistributionByState,
+    ProjectsBarChart,
     FundingBySectorChart,
     ProjectList,
   },
