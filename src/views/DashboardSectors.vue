@@ -68,6 +68,7 @@
               <div class="col-5a">
                 <div class="col-5b">
                   <h3 class="s-card-title">Sector Title</h3>
+                  <h5 class="s-card-title">Sub Sector Title</h5>
                 </div>
                 <div class="col-5c">
                   <div class="container">
@@ -611,6 +612,24 @@ export default {
   margin-right: 0px !important;
 }
 
+/* Card title */
+.col-5a .col-5b h5.s-card-title {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* Card title */
+.col-5a .col-5b h3.s-card-title {
+  color: #148dff;
+}
+
+@media (min-width: 1200px) {
+  /* Card title */
+  .col-5a .col-5b h3.s-card-title {
+    font-size: 25px;
+  }
+}
+
 /* --------------------- Button Dropdown ------------------ */
 
 a {
@@ -702,6 +721,68 @@ a:hover {
 }
 
 /* ------------------------------------------------------- */
+
+/* Import Google Fonts */
+@import url("//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+/* Button */
+.col-1b .dropdown .dd-button {
+  transform: translatex(0px) translatey(0px);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-style: none;
+  box-shadow: 0px 0px 18px 0px rgba(44, 62, 80, 0.06);
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Button */
+.col-2a .dropdown .dd-button {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0px 0px 16px 0px rgba(44, 62, 80, 0.06);
+  border-style: none;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* List */
+.col-1b .dropdown ul {
+  background-color: rgba(255, 255, 255, 0.93);
+  box-shadow: 0px 0px 50px 11px rgba(5, 129, 223, 0.1);
+  border-style: none;
+  border-color: transparent;
+}
+
+/* List Item */
+.col-1b .dd-menu li {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* List Item */
+.right .container .container .row-1 .col-1a .col-1b .dropdown .dd-menu li {
+  font-family: "Open Sans" !important;
+}
+
+/* List Item */
+.col-2a .dd-menu li {
+  font-family: "Open Sans", sans-serif;
+  color: #6d6d6d;
+  font-size: 14px;
+}
+
+/* List */
+.col-2a .dropdown ul {
+  box-shadow: 0px 0px 39px 0px rgba(5, 129, 223, 0.1);
+  border-style: none;
+  background-color: rgba(255, 255, 255, 0.91);
+}
+
 /* --------------------- new Rows & Columns ------------------ */
 
 /* ------------------------------------------------------- */
@@ -831,6 +912,399 @@ a:hover {
   /* Menu */
   #myMenu {
     margin-top: 20px !important;
+  }
+}
+
+/* ------------------------------------------------ */
+
+/* ----------------- mobile css ------------------- */
+
+@media (max-width: 991px) {
+  /* Left */
+  #app #app-content .page .row .left {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0px !important;
+  }
+
+  /* Left */
+  .page .left {
+    min-width: 100%;
+    display: flex;
+    transform: translatex(0px) translatey(0px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px !important;
+  }
+
+  /* Menu */
+  #myMenu {
+    display: flex;
+    margin-top: 0px !important;
+  }
+
+  /* Right */
+  .page .right {
+    padding-left: 0px !important;
+    transform: translatex(0px) translatey(0px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Right */
+  #app #app-content .page .row .right {
+    padding-right: 0px !important;
+  }
+
+  /* Container */
+  .page .row .right > .container {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 540px;
+    transform: translatex(0px) translatey(0px);
+  }
+
+  /* Container */
+  .col-1c .col-4a .container {
+    margin-left: 0px !important;
+  }
+
+  /* Heading */
+  .col-6d h2 {
+    font-size: 25px;
+  }
+
+  /* Heading */
+  .col-7d h2 {
+    font-size: 25px;
+  }
+
+  /* Heading */
+  .col-6e h2 {
+    font-size: 25px;
+  }
+
+  /* Heading */
+  .col-7e h2 {
+    font-size: 25px;
+  }
+
+  /* Card title */
+  .col-5a .col-5b h3.s-card-title {
+    font-size: 22px !important;
+  }
+
+  /* Card title */
+  .col-5a .col-5b h5.s-card-title {
+    font-size: 16px !important;
+  }
+
+  /* Paragraph */
+  .col-5c p {
+    font-size: 14px;
+  }
+
+  /* Column 5/12 */
+  .right .col-5a {
+    max-width: 50% !important;
+  }
+
+  /* Column 6/12 */
+  .right .col-6 {
+    max-width: 40%;
+    margin-left: 30px;
+    justify-content: normal !important;
+  }
+
+  /* Paragraph */
+  .col-7d p {
+    font-size: 15px;
+  }
+
+  /* Paragraph */
+  .col-7e p {
+    font-size: 15px;
+  }
+
+  /* Paragraph */
+  .col-6e p {
+    font-size: 15px;
+  }
+
+  /* Paragraph */
+  .col-6d p {
+    font-size: 15px;
+  }
+
+  /* Heading */
+  .col-3a h1 {
+    font-size: 35px;
+  }
+
+  /* Heading */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .container
+    .row-1
+    .col-1c
+    .col-3a
+    .container
+    h1 {
+    font-size: 35px !important;
+  }
+
+  /* Heading */
+  .right .container .container .row-1 .col-1c .col-4a .container h1 {
+    font-size: 35px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Column 6/12 */
+  .right .col-6 {
+    max-width: 40%;
+    justify-content: normal !important;
+    margin-left: 9px;
+  }
+
+  /* Column 6/12 */
+  .page .col-6a {
+    max-width: 50%;
+  }
+
+  /* Column 7/12 */
+  .page .col-7a {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Row 1 */
+  .page .row-1 {
+    flex-direction: column;
+  }
+
+  /* Column 1/12 */
+  #app #app-content .page .row .right .container .container .row-1 .col-1a {
+    width: 100% !important;
+  }
+
+  /* Column 1/12 */
+  .page .col-1a {
+    min-width: 100%;
+  }
+
+  /* Column 1/12 */
+  .right .col-1c {
+    min-width: 100%;
+    justify-content: center !important;
+  }
+
+  /* Column 1/12 */
+  .right .col-1a {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  /* Container */
+  .col-1c .col-4a .container {
+    align-items: center !important;
+  }
+
+  /* Container */
+  .col-1c .col-3a .container {
+    align-items: center !important;
+  }
+
+  /* Container */
+  .page .row .right > .container {
+    align-items: center;
+  }
+
+  /* Menu */
+  #myMenu {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Left */
+  #app #app-content .page .row .left {
+    padding-left: 0px !important;
+  }
+
+  /* Left */
+  .page .left {
+    padding-top: 20px;
+    transform: translatex(0px) translatey(0px);
+  }
+
+  /* Right */
+  .page .right {
+    padding-left: 25px !important;
+    padding-right: 25px;
+  }
+
+  /* Row 2 */
+  .right .row-2 {
+    flex-direction: column;
+    transform: translatex(0px) translatey(0px);
+  }
+
+  /* Column 5/12 */
+  #app #app-content .page .row .right .container .container .row-2 .col-5a {
+    width: 100% !important;
+  }
+
+  /* Column 5/12 */
+  .right .col-5a {
+    min-width: 100%;
+  }
+
+  /* Column 6/12 */
+  .right .col-6 {
+    min-width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+  }
+
+  /* Column 6/12 */
+  .page .col-6a {
+    min-width: 50%;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  /* Column 7/12 */
+  .page .col-7a {
+    min-width: 50%;
+    margin-left: 0px !important;
+    margin-top: 0px !important;
+  }
+
+  /* Container */
+  .col-7c .col-7d .container {
+    margin-left: 0px;
+    min-width: 0px !important;
+    max-width: 90%;
+    margin-right: 0px;
+    align-items: center !important;
+  }
+
+  /* Container */
+  .col-6c .col-6d .container {
+    max-width: 90%;
+    margin-left: 0px;
+    margin-right: 0px;
+    align-items: center !important;
+  }
+
+  /* Container */
+  .col-7c .col-7e .container {
+    max-width: 90%;
+    margin-left: 0px;
+    margin-right: 0px;
+    align-items: center !important;
+  }
+
+  /* Container */
+  .col-6a .col-6e .container {
+    max-width: 90%;
+    margin-left: 0px;
+    margin-right: 0px;
+    align-items: center !important;
+  }
+
+  /* Column 7/12 */
+  .col-7a .col-7c .col-7d {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Column 7/12 */
+  .col-7a .col-7c .col-7e {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Column 6/12 */
+  .col-6a .col-6c .col-6d {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  /* Column 6/12 */
+  .page .col-6a .col-6e {
+    transform: translatex(0px) translatey(0px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Heading */
+  .col-7a .col-7b h3 {
+    text-align: center !important;
+  }
+
+  /* Heading */
+  .col-6a .col-6b h3 {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 450px) {
+  /* Column 5/12 */
+  .right .col-5a {
+    margin-right: 20px !important;
+    margin-left: 0px;
+  }
+
+  /* Left */
+  #app #app-content .page .row .left {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  /* Row 2 */
+  .right .row-2 {
+    margin-right: 10px;
+    margin-left: 0px;
+  }
+
+  /* Heading */
+  .col-6d h2 {
+    font-size: 30px;
+  }
+
+  /* Heading */
+  .col-7d h2 {
+    font-size: 30px;
+  }
+
+  /* Heading */
+  .col-6e h2 {
+    font-size: 30px;
+  }
+
+  /* Heading */
+  .col-7e h2 {
+    font-size: 30px;
   }
 }
 
