@@ -111,6 +111,7 @@ export default {
   methods: {
     ...mapActions({
       deleteOrg: "global/deleteOrganisation",
+      getOrganisations : 'global/getOrganisations',
     }),
     deleteItem(organisation) {
       if (confirm("Are you sure ?")) {
@@ -153,6 +154,7 @@ export default {
       this.$store.commit("auth/SET_TOKEN", token);
       this.$store.commit("auth/SET_USER", loggedInUser);
     }
+    this.getOrganisations();
   },
 };
 </script>
