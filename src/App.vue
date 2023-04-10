@@ -104,7 +104,7 @@ export default {
       this.$store.commit('auth/SET_TOKEN', isLoggedIn);      
       this.$store.commit('auth/SET_USER', loggedInUser);
     }
-    this.getOrganisations()
+   // this.getOrganisations()
     this.getCategories();
     this.getLanguages();
     this.getTranslations();

@@ -86,7 +86,7 @@
                 <div class="col-md-6 mb-3">
                   <multiselect
                     @input="updateSelectedOrganisation"
-                    class="form-select"
+                    class="form-select ss-aims-block"
                     v-model="form._o"
                     track-by="id"
                     label="name"
@@ -192,6 +192,7 @@ export default {
       this.$store.commit("auth/SET_TOKEN", token);
       this.$store.commit("auth/SET_USER", loggedInUser);
     }
+    this.getOrganisations();
   },
   computed: {
     ...mapState("global", ["organisations", "organisationCategories"]),
@@ -201,6 +202,7 @@ export default {
     ...mapActions({
       signup: "auth/register",
       otp: "auth/sendOtp",
+      getOrganisations : 'global/getOrganisations',
     }),
     sendOtp() {
       this.apiErrors = false;
@@ -267,6 +269,10 @@ export default {
 };
 </script>
 <style scoped>
+.ss-aims-block {
+  overflow-y: scroll;
+}
+
 .login-page {
   padding-top: 4em;
   padding-bottom: 4em;
