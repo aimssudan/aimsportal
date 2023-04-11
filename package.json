@@ -25,6 +25,7 @@
     "vue-chartjs": "^5.2.0",
     "vue-multiselect": "^3.0.0-alpha.2",
     "vue-router": "^4.0.0-0",
+    "vue-svg-pan-zoom": "^2.1.0",
     "vue3-apexcharts": "^1.4.1",
     "vuex": "^4.0.0-0"
   },

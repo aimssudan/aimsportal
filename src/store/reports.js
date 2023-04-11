@@ -59,6 +59,10 @@ export default {
       return axios.post(`/reports/summary-per-state`, payload);
      },
 
+     getSummaryPerCountyReport(_, payload) {
+      return axios.post(`/reports/summary-per-county`, payload);
+     },
+
      getOrganisationsCount(_, payload) {
       return axios.post(`/reports/organisations-count`, payload);
      },
