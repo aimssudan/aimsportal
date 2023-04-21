@@ -3853,8 +3853,8 @@ export default {
             tied_status_code: element.iati_tied_status_code,
             aid_types: [
               {
-                vocabulary: element.aid_types?.[0].iati_vocabulary,
-                code: element.aid_types?.[0].iati_code,
+                vocabulary: element.aid_types?.[0]?.iati_vocabulary,
+                code: element.aid_types?.[0]?.iati_code,
               },
             ],
             sectors: [],
