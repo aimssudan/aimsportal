@@ -33,6 +33,7 @@ import DashboardSectors from '../views/DashboardSectors.vue'
 import DashboardTimeTrends from '../views/DashboardTimeTrends.vue'
 import EmailReset from '../views/EmailReset.vue'
 import PasswordReset from '../views/PasswordReset.vue'
+import GeneralError from '../views/Error.vue'
 
 
 const routes = [
@@ -255,6 +256,15 @@ const routes = [
     meta: {
       title: "AIMS ⇾ Time Trends Dashboard",
       middleware: [guest],
+    },
+  },
+  {
+    path: '/error',
+    name: 'error',
+    component: GeneralError,
+    meta: {
+      title: "AIMS ⇾ Error",
+     // middleware: [auth, unverified],
     },
   },
 ]
