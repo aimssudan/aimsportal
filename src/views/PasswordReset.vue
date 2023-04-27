@@ -1,7 +1,7 @@
 <template>
   <main class="page px-3 login-page" style="min-height: 80vh">
     <div class="col-md-6 offset-md-3">
-      <h1 class="text-primary">Login</h1>
+      <h1 class="text-primary">Change Password</h1>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
         <div class="col-md-10">
           <div class="card">
             <div class="card-header">
-              <h5>Authenticate</h5>
+              <h5>Reset</h5>
             </div>
             <div class="card-body">
               <div
@@ -31,38 +31,25 @@
               <form class="needs-validation" novalidate>
                 <div class="form-floating mb-3">
                   <input
-                    type="email"
-                    v-model="form.email"
-                    class="form-control"
-                    id="floatingInput"
-                    placeholder="email@example.com"
-                  />
-                  <label for="floatingInput">Email Address</label>
-                </div>
-                <div class="form-floating mb-3 mt-4">
-                  <input
                     type="password"
                     v-model="form.password"
                     class="form-control"
                     id="floatingInput"
-                    placeholder="*******"
+                    placeholder="****"
                   />
                   <label for="floatingInput">Password</label>
                 </div>
-                <div class="mb-3 form-check">
+                <div class="form-floating mb-3 mt-4">
                   <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="exampleCheck1"
+                    type="password"
+                    v-model="form.password_confirmation"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="*******"
                   />
-                  <label class="form-check-label" for="exampleCheck1"
-                    >Keep me logged in or
-                    <router-link :to="{ name: 'register' }"
-                      >Register</router-link
-                    ></label                    
-                  >
-                  <label><router-link :to="{ name: 'reset-password'}" >Reset Password</router-link></label>
+                  <label for="floatingInput">Password Confirmation</label>
                 </div>
+                
                 <button class="btn btn-primary" @click.prevent="submit">
                   Submit
                 </button>
@@ -80,10 +67,11 @@ import { mapActions } from "vuex";
 import flashError from "../components/flashError.vue";
 
 export default {
-  name: "login",
+  name: "PasswordReset",
   components: {
     flashError,
   },
+  props: {user: {type: String, required: true}},
   data() {
     return {
       showAlert: false,
@@ -95,9 +83,9 @@ export default {
       validationErrors: false,
       apiLoading: true,
       form: {
-        email: "",
         password: "",
-        device_name: "browser",
+        password_confirmation: "",
+        user_id: null,
       },
       errors: [],
     };
@@ -105,18 +93,13 @@ export default {
 
   created() {
     let isLoggedIn = !!localStorage.getItem("token");
-    if (isLoggedIn) {
-      //put user and translations to vuex state
-      let token = localStorage.getItem("token");
-      let loggedInUser = JSON.parse(localStorage.getItem("user"));
-      this.$store.commit("auth/SET_TOKEN", token);
-      this.$store.commit("auth/SET_USER", loggedInUser);
-    }
+    this.form.user_id = this.$route.params.user
+    
   },
 
   methods: {
     ...mapActions({
-      login: "auth/login",
+      resetPassword: "auth/resetPassword",
     }),
 
     submit() {
@@ -125,24 +108,25 @@ export default {
       this.isLoading = true;
       //  this.validationErrors = false;
 
-      this.login(this.form).then(
+      this.resetPassword(this.form).then(
         (response) => {
           //
           this.isLoading = false;
-          let apiMessage = response ?? "success";
+          let apiMessage = response?.data?.data;
           this.$store.commit("showSnackbar", apiMessage);
-          this.$router.push({ name: "dashboard" });
+          this.$router.push({ name: "login" });
         },
         (error) => {
           const resMessage =
             (error.response &&
               error.response.data &&
               error.response.data.errors) ||
-            error.message ||
+            error.response ||
             error.toString();
           this.isLoading = false;
           this.apiErrors = true;
           this.errors = resMessage;
+          console.log(resMessage)
         }
       );
     },

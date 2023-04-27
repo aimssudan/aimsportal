@@ -31,6 +31,8 @@ import DashboardFunds from '../views/DashboardFunds.vue'
 import DashboardLocations from '../views/DashboardLocations.vue'
 import DashboardSectors from '../views/DashboardSectors.vue'
 import DashboardTimeTrends from '../views/DashboardTimeTrends.vue'
+import EmailReset from '../views/EmailReset.vue'
+import PasswordReset from '../views/PasswordReset.vue'
 
 
 const routes = [
@@ -235,6 +237,24 @@ const routes = [
     meta: {
       title: "AIMS ⇾ Time Trends Dashboard",
       middleware: [auth, verified, admin],
+    },
+  },
+  {
+    path: '/reset-password',
+    name: 'reset-password',
+    component: EmailReset,
+    meta: {
+      title: "AIMS ⇾ Time Trends Dashboard",
+      middleware: [guest],
+    },
+  },
+  {
+    path: '/reset/password/:user',
+    name: 'change-password',
+    component: PasswordReset,
+    meta: {
+      title: "AIMS ⇾ Time Trends Dashboard",
+      middleware: [guest],
     },
   },
 ]
