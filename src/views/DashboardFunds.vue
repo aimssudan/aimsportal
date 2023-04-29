@@ -55,23 +55,23 @@
                 <div class="col-4a">
                   <div class="col-4a1">
                     <div class="container" style="width: 100%">
-                      <h1>168</h1>
+                      <p>Pich Chart (Budgeted vs Disbursed)</p>
                     </div>
                   </div>
                   <div class="col-4a2">
-                    <h4>Total Projects</h4>
+                    <h4>Total Funds</h4>
                     <p>Undertaken in the selected Financial Year (FY).</p>
                   </div>
                 </div>
                 <div class="col-4b">
                   <div class="col-4b1">
-                    <h2 class="text-center">131</h2>
-                    <h5>Active</h5>
+                    <h2 class="text-center">$281.3M</h2>
+                    <h5>Budgeted</h5>
                     <hr />
                   </div>
                   <div class="col-4b2">
-                    <h2 class="text-center">37</h2>
-                    <h5>Complete</h5>
+                    <h2 class="text-center">$137.8M</h2>
+                    <h5>Disbursed</h5>
                   </div>
                 </div>
               </div>
@@ -3156,6 +3156,47 @@ span::after {
 /* Heading */
 .col-4b .col-4b2 h2 {
   font-size: 37px;
+}
+
+/* Container */
+#app
+  #app-content
+  .page
+  .row
+  .right
+  .container
+  .container
+  .row-2
+  .col-4
+  .col-4a
+  .col-4a1
+  .container {
+  height: 503px !important;
+}
+
+/* Container */
+.col-4a .col-4a1 .container {
+  min-height: 132px;
+}
+/* Container */
+.col-4a .col-4a1 .container {
+  display: flex;
+  margin-top: 0px !important;
+}
+
+/* Container */
+.col-4a .col-4a1 .container {
+  max-width: 1433px;
+}
+
+/* Heading */
+.col-4b .col-4b1 h2 {
+  font-size: 30px !important;
+}
+
+/* Heading */
+.col-4b .col-4b2 h2 {
+  font-size: 30px !important;
 }
 
 /* ------------------- Mobile -------------------- */
