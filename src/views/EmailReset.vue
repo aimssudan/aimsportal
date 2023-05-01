@@ -1,7 +1,7 @@
 <template>
   <main class="page px-3 login-page" style="min-height: 80vh">
     <div class="col-md-6 offset-md-3">
-      <h1 class="text-primary">Login</h1>
+      <h1 class="text-primary">Reset Password</h1>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -13,7 +13,7 @@
         <div class="col-md-10">
           <div class="card">
             <div class="card-header">
-              <h5>Authenticate</h5>
+              <h5>Reset</h5>
             </div>
             <div class="card-body">
               <div
@@ -32,37 +32,15 @@
                 <div class="form-floating mb-3">
                   <input
                     type="email"
-                    v-model="form.email"
+                    v-model="email"
                     class="form-control"
                     id="floatingInput"
                     placeholder="email@example.com"
+                    :disabled="disabled"
                   />
                   <label for="floatingInput">Email Address</label>
                 </div>
-                <div class="form-floating mb-3 mt-4">
-                  <input
-                    type="password"
-                    v-model="form.password"
-                    class="form-control"
-                    id="floatingInput"
-                    placeholder="*******"
-                  />
-                  <label for="floatingInput">Password</label>
-                </div>
-                <div class="mb-3 form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="exampleCheck1"
-                  />
-                  <label class="form-check-label" for="exampleCheck1"
-                    >Keep me logged in or
-                    <router-link :to="{ name: 'register' }"
-                      >Register</router-link
-                    ></label                    
-                  >
-                  <label><router-link :to="{ name: 'reset-password'}" >Reset Password</router-link></label>
-                </div>
+                
                 <button class="btn btn-primary" @click.prevent="submit">
                   Submit
                 </button>
@@ -80,7 +58,7 @@ import { mapActions } from "vuex";
 import flashError from "../components/flashError.vue";
 
 export default {
-  name: "login",
+  name: "EmailReset",
   components: {
     flashError,
   },
@@ -94,29 +72,22 @@ export default {
       generalError: false,
       validationErrors: false,
       apiLoading: true,
-      form: {
-        email: "",
-        password: "",
-        device_name: "browser",
-      },
+      email: "",
       errors: [],
+      disabled: false
     };
   },
 
   created() {
     let isLoggedIn = !!localStorage.getItem("token");
     if (isLoggedIn) {
-      //put user and translations to vuex state
-      let token = localStorage.getItem("token");
-      let loggedInUser = JSON.parse(localStorage.getItem("user"));
-      this.$store.commit("auth/SET_TOKEN", token);
-      this.$store.commit("auth/SET_USER", loggedInUser);
+      //redirect to dash
     }
   },
 
   methods: {
     ...mapActions({
-      login: "auth/login",
+      sendPasswordReset: "auth/sendPasswordReset",
     }),
 
     submit() {
@@ -125,13 +96,14 @@ export default {
       this.isLoading = true;
       //  this.validationErrors = false;
 
-      this.login(this.form).then(
+      this.sendPasswordReset({email: this.email}).then(
         (response) => {
           //
           this.isLoading = false;
-          let apiMessage = response ?? "success";
+          let apiMessage = response?.data?.data ;
           this.$store.commit("showSnackbar", apiMessage);
-          this.$router.push({ name: "dashboard" });
+          this.disabled = true;
+          //this.$router.push({ name: "dashboard" });
         },
         (error) => {
           const resMessage =

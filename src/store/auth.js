@@ -46,6 +46,12 @@ export default {
     sendOtp(_, email) {
       return axios.post('/users/validate-email', email)
     },
+    sendPasswordReset(_, email) {
+      return axios.post('users/reset-password', email)
+    },
+    resetPassword(_, payload) {
+      return axios.post(`users/update-password/${payload.user_id}`, payload)
+    },
     async login({ dispatch }, credentials) {
 
       let response = await axios.post('/users/login', credentials)

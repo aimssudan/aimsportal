@@ -33,6 +33,7 @@
                           <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('login')">{{this.getTranslation("Login")}}</a>
                           <a v-if="!profile" class="dropdown-item" role="button" @click="navigate('register')">{{this.getTranslation("Register")}}</a>
                           <a v-if="profile" class="dropdown-item" role="button" @click="navigate('profile')">{{this.getTranslation("Profile")}}</a>
+                          <a v-if="profile" class="dropdown-item" href="/dashboard">Dashboard</a>
                           <a v-if="profile" class="dropdown-item" role="button" @click="signout">{{this.getTranslation("Logout")}}</a>
                         </div>
                     </li>
@@ -103,7 +104,7 @@ export default {
       this.$store.commit('auth/SET_TOKEN', isLoggedIn);      
       this.$store.commit('auth/SET_USER', loggedInUser);
     }
-    this.getOrganisations()
+   // this.getOrganisations()
     this.getCategories();
     this.getLanguages();
     this.getTranslations();

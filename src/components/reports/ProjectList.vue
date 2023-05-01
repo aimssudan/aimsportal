@@ -191,9 +191,11 @@
             </td>
           </tr>
           <tr>
-            <nav aria-label="Page navigation example">
-              <ul class="pagination">
-                <li class="page-item">
+            <!-- <nav aria-label="Page navigation example"> -->
+             
+                <td colspan="5">
+              <ul class="pagination" style="max-width: 300px; overflow-x: scroll;">
+                <li class="page-item" >
                   <a class="page-link" href="#" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                   </a>
@@ -214,7 +216,9 @@
                   </a>
                 </li>
               </ul>
-            </nav>
+              </td>
+              
+            <!-- </nav> -->
           </tr>
         </tbody>
       </table>

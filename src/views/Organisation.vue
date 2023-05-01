@@ -29,6 +29,7 @@
                         <label for="floatingCategory">Category</label>
                     </div>
                 </div>
+                
                 <div class="col-md-4 mb-3">
                     <div class="form-floating">
                         <input :disabled="editingDisabled" type="text"  class="form-control" id="floatingName" v-model="organisation.name" placeholder="Name">
@@ -72,6 +73,28 @@
                     <div class="form-floating">
                         <textarea  :disabled="editingDisabled" maxlength="100" class="form-control" v-model="organisation.description" placeholder="Leave Company description here" id="floatingTextarea"></textarea>
                         <label for="floatingTextarea">Description</label>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="form-floating">
+                        <select :disabled="editingDisabled"  class="form-select" id="floatingPersonName" v-model="organisation.iati_org_type" >
+                          <option v-for="orgType in organisationTypes" :key="orgType.code" :value="orgType.code">{{orgType.name}}</option>
+                        </select>
+                        <label for="floatingCategory">IATI Category</label>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="form-floating">
+                        <input :disabled="editingDisabled" type="text"  class="form-control" id="floatingName" v-model="organisation.iati_org_id" placeholder="SS-RRC-000">
+                        <label for="floatingName">IATI id (optional)</label>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="form-floating">
+                        <select :disabled="editingDisabled"  class="form-select" id="floatingPersonName" v-model="organisation.country" >
+                          <option v-for="country in countries" :key="country.code" :value="country.code">{{country.name}}</option>
+                        </select>
+                        <label for="floatingCategory">Country</label>
                     </div>
                 </div>
               </div>
@@ -138,9 +161,12 @@ export default {
         contact_person_email: '',
         description: '',
         category_id: 1,
-        approved: 0
+        approved: 0,
+        country: 'SS'
       },
-      organisationUsers: []
+      organisationUsers: [],
+      organisationTypes: [],
+      countries: []
     }
   },
   computed: {
@@ -164,7 +190,8 @@ export default {
       updateOrg: 'global/updateOrganisation',
       getOrg: 'global/fetchOrganisation',
       getOrgUsers: 'global/fetchOrganisationUsers',
-      updateUserStatus : 'auth/updateUserStatus'
+      updateUserStatus : 'auth/updateUserStatus',
+      getCodelistOptions: "codelists/fetchCodelistOptions",
       }),
     canApprove(user) {
       if(this.admin) {
@@ -306,6 +333,47 @@ export default {
     this.$store.commit('auth/SET_TOKEN', token);
     this.$store.commit('auth/SET_USER', loggedInUser);
   }
+
+  this.getCodelistOptions({
+      codelist: "OrganisationType",
+      language: this.user?.language,
+    }).then(
+      (response) => {
+        //
+        this.organisationTypes = response.data;
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        console.log(resMessage);
+      }
+  );
+
+  this.getCodelistOptions({
+      codelist: "Country",
+      language: this.user?.language,
+    }).then(
+      (response) => {
+        //
+        this.countries = response.data;
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        console.log(resMessage);
+      }
+  );
+
   let editableOrg = this.$route.params.id
   if (editableOrg) {
     this.isLoading = true;
