@@ -7,20 +7,18 @@
       <li><a href="/dashboard-projects">Projects</a></li>
       <li><a href="/dashboard-funds">Funds</a></li>
       <li><a href="/dashboard-locations">Locations</a></li>
-      <li><a href="/dashboard-time-trends">Time Trends</a></li>
       <li><a href="/dashboard-sectors">Sectors</a></li>
     </ul>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'DashboardMenu'
-  }
+export default {
+  name: "DashboardMenu",
+};
 </script>
 
 <style scoped>
-
 /* Style the navigation menu inside the left column */
 #myMenu {
   list-style-type: none;
@@ -90,6 +88,5 @@
   #myMenu {
     margin-top: 20px !important;
   }
-
 }
 </style>

@@ -44,8 +44,8 @@
               <div class="col-0b">
                 <div class="col-3">
                   <div class="container">
-                    <h1 class="text-center">$194.3M</h1>
-                    <h4>Total Funds</h4>
+                    <h1 class="text-center">421</h1>
+                    <h4>Total Projects</h4>
                   </div>
                 </div>
               </div>
@@ -55,11 +55,11 @@
                 <div class="col-4a">
                   <div class="col-4a1">
                     <div class="container" style="width: 100%">
-                      <p>Pich Chart (Budgeted vs Disbursed)</p>
+                      <h1 class="text-center">194.3M</h1>
                     </div>
                   </div>
                   <div class="col-4a2">
-                    <h4>Total Funds</h4>
+                    <h4>US Dollars</h4>
                     <p>Undertaken in the selected Financial Year (FY).</p>
                   </div>
                 </div>
@@ -3974,6 +3974,210 @@ span::after {
   /* Paragraph */
   .col-4a .col-4a2 p {
     font-size: 15px !important;
+  }
+}
+
+/* Container */
+.col-4a .col-4a1 .container {
+  min-height: 80px !important;
+  height: 80px;
+}
+
+@media (max-width: 450px) {
+  /* Container */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .container
+    .row-2
+    .col-4
+    .col-4a
+    .col-4a1
+    .container {
+    height: 105px !important;
+    min-height: 50px !important;
+  }
+
+  /* Container */
+  .col-4a .col-4a1 .container {
+    max-height: 60px;
+  }
+
+  /* Heading */
+  .right .container .container .row-2 .col-4 .col-4a .col-4a2 h4 {
+    font-size: 25px !important;
+  }
+}
+
+/* Container */
+.right .container .container .row-2 .col-4 .col-4a .col-4a1 .container {
+  max-height: 80px !important;
+}
+
+/* Container */
+#app
+  #app-content
+  .page
+  .row
+  .right
+  .container
+  .container
+  .row-2
+  .col-4
+  .col-4a
+  .col-4a1
+  .container {
+  height: 8px !important;
+}
+
+/* Heading */
+.col-4a .col-4a2 h4 {
+  color: #007cf9 !important;
+}
+
+/* Heading */
+.col-4a1 h1 {
+  color: #007cf9;
+}
+
+@media (max-width: 1199px) {
+  /* Heading */
+  .right .container .container .row-2 .col-4 .col-4a .col-4a1 .container h1 {
+    font-size: 50px !important;
+  }
+
+  /* Heading */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .container
+    .row-2
+    .col-4
+    .col-4b
+    .col-4b1
+    h2 {
+    font-size: 25px !important;
+  }
+
+  /* Heading */
+  .col-4b .col-4b2 h2 {
+    font-size: 25px;
+  }
+
+  /* Heading */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .container
+    .row-2
+    .col-4
+    .col-4b
+    .col-4b2
+    h2 {
+    font-size: 25px !important;
+  }
+
+  /* Container */
+  .right .container .container .row-2 .col-4 .col-4a .col-4a1 .container {
+    max-height: 70px !important;
+  }
+
+  /* Paragraph */
+  .col-4a .col-4a2 p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 991px) {
+  /* Heading */
+  .col-4a1 h1 {
+    font-size: 50px;
+  }
+
+  /* Heading */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .container
+    .row-2
+    .col-4
+    .col-4a
+    .col-4a1
+    .container
+    h1 {
+    font-size: 50px !important;
+  }
+
+  /* Container */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .container
+    .row-2
+    .col-4
+    .col-4a
+    .col-4a1
+    .container {
+    max-height: 60px !important;
+  }
+
+  /* Heading */
+  .col-4b .col-4b1 h2 {
+    font-size: 20px;
+  }
+
+  /* Heading */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .container
+    .row-2
+    .col-4
+    .col-4b
+    .col-4b1
+    h2 {
+    font-size: 20px !important;
+  }
+
+  /* Heading */
+  #app
+    #app-content
+    .page
+    .row
+    .right
+    .container
+    .container
+    .row-2
+    .col-4
+    .col-4b
+    .col-4b2
+    h2 {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Heading */
+  .col-4a .col-4a2 h4 {
+    font-size: 34px !important;
   }
 }
 </style>

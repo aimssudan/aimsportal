@@ -80,27 +80,23 @@
                   <div class="col-5a2">
                     <div class="col-5a2a">
                       <h2 class="text-center">65</h2>
-                      <h5>1st Quarter</h5>
-                      <p>Jan - Mar</p>
+                      <h5>Organizations</h5>
                     </div>
                     <div class="col-5a2b">
-                      <h2 class="text-center">25</h2>
-                      <h5>2nd Quarter</h5>
-                      <p>Apr - Jun</p>
+                      <h2 class="text-center">32</h2>
+                      <h5>Sectors</h5>
                     </div>
                   </div>
                 </div>
                 <div class="col-5b">
                   <div class="col-5b2">
                     <div class="col-5b2a">
-                      <h2 class="text-center">54</h2>
-                      <h5>3rd Quarter</h5>
-                      <p>Jul - Sep</p>
+                      <h2 class="text-center">12</h2>
+                      <h5>States</h5>
                     </div>
                     <div class="col-5b2b">
-                      <h2 class="text-center">39</h2>
-                      <h5>4th Quarter</h5>
-                      <p>Oct - Dec</p>
+                      <h2 class="text-center">122</h2>
+                      <h5>Counties</h5>
                     </div>
                   </div>
                 </div>
@@ -3934,5 +3930,195 @@ span::after {
   .col-4a .col-4a2 p {
     font-size: 15px !important;
   }
+}
+
+@media (max-width:  1199px)  {
+   /* Heading */
+   .col-5b2 .col-5b2b h2  {
+      font-size:  40px !important;
+   }
+
+   /* Heading */
+   .col-5a2 .col-5a2b h2  {
+      font-size:  40px !important;
+   }
+
+   /* Heading */
+   .col-5a2 .col-5a2a h2  {
+      font-size:  40px !important;
+   }
+
+   /* Heading */
+   .col-5b2 .col-5b2a h2  {
+      font-size:  40px !important;
+   }
+}
+
+@media (max-width:  991px)  {
+   /* Heading */
+   .right .container .container .row-2 .col-5 .col-5a .col-5a2 .col-5a2a h2  {
+      font-size:  50px !important;
+   }
+
+
+  /* Heading */
+   .right .container .container .row-2 .col-5 .col-5b .col-5b2 .col-5b2a h2  {
+      font-size:  50px !important;
+   }
+
+
+  /* Heading */
+   .right .container .container .row-2 .col-5 .col-5a .col-5a2 .col-5a2b h2  {
+      font-size:  50px !important;
+   }
+
+
+  /* Heading */
+   .right .container .container .row-2 .col-5 .col-5b .col-5b2 .col-5b2b h2  {
+      font-size:  50px !important;
+   }
+
+
+  /* Heading */
+   #app
+   
+    #app-content
+   
+    .page
+ 
+      .row
+
+       .right
+
+       .container
+
+       .container
+
+       .row-2
+
+       .col-5
+
+       .col-5b
+
+       .col-5b2
+
+       .col-5b2a
+
+       h5  {
+      font-size:  14px !important;
+   }
+
+
+  /* Heading */
+   #app
+   
+    #app-content
+   
+    .page
+   
+    .row
+   
+    .right
+   
+    .container
+   
+    .container
+   
+    .row-2
+   
+    .col-5
+   
+    .col-5a
+
+       .col-5a2
+
+       .col-5a2a
+
+       h5  {
+      font-size:  14px !important;
+   }
+
+   /* Heading */
+   #app
+
+       #app-content
+
+       .page
+
+       .row
+
+       .right
+
+       .container
+
+       .container
+
+       .row-2
+
+       .col-5
+
+       .col-5a
+
+       .col-5a2
+
+       .col-5a2b
+
+       h5  {
+      font-size:  14px !important;
+   }
+
+   /* Heading */
+   #app
+
+       #app-content
+
+       .page
+   
+    .row
+   
+    .right
+   
+    .container
+   
+    .container
+   
+    .row-2
+   
+    .col-5
+   
+    .col-5b
+   
+    .col-5b2
+   
+    .col-5b2b
+   
+    h5  {
+      font-size:  14px !important;
+   }
+}
+
+@media (min-width:  1200px)  {
+   /* Heading */
+   .col-5a2 .col-5a2a h2  {
+      font-size:  35px !important;
+   }
+
+
+  /* Heading */
+   .col-5a2 .col-5a2b h2  {
+      font-size:  35px !important;
+   }
+
+
+  /* Heading */
+   .col-5b2 .col-5b2a h2  {
+      font-size:  35px !important;
+   }
+
+
+  /* Heading */
+   .col-5b2 .col-5b2b h2  {
+      font-size:  35px !important;
+   }
 }
 </style>
