@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <template>
   <main class="page">
     <div class="row">
@@ -4651,8 +4651,7 @@ export default {
   }
 
   /* Left */
-  #app #app-content .page .row .left {
-    width: 280px !important;
+  #app #app-conten
   }
 }
 
