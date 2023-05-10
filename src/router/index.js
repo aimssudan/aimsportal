@@ -13,6 +13,10 @@ import Profile from '../views/Profile.vue'
 import Register from '../views/Register.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Contact from '../views/Contact.vue'
+import Inquiries from '../views/Inquiries.vue'
+import HelpDesk from '../views/HelpDesk.vue'
+import TermsOfUse from '../views/TermsOfUse.vue'
+import PrivacyPolicy from '../views/PrivacyPolicy.vue'
 import About from '../views/About.vue'
 import Faq from '../views/Faq.vue'
 import Unauthorized from '../views/Unauthorized.vue'
@@ -94,6 +98,38 @@ const routes = [
     component: Contact,
     meta: {
       title: "AIMS ⇾ Contact",
+    },
+  },
+  {
+    path: '/inquiries',
+    name: 'inquiries',
+    component: Inquiries,
+    meta: {
+      title: "AIMS ⇾ Inquiries",
+    },
+  },
+  {
+    path: '/helpdesk',
+    name: 'helpdesk',
+    component: HelpDesk,
+    meta: {
+      title: "AIMS ⇾ Help Desk",
+    },
+  },
+  {
+    path: '/termsofuse',
+    name: 'termsofuse',
+    component: TermsOfUse,
+    meta: {
+      title: "AIMS ⇾ Terms of Use",
+    },
+  },
+  {
+    path: '/privacypolicy',
+    name: 'privacypolicy',
+    component: PrivacyPolicy,
+    meta: {
+      title: "AIMS ⇾ Privacy Policy",
     },
   },
   {
