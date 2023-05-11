@@ -9,7 +9,18 @@ import { mapActions} from 'vuex'
 
 export default {
   name: 'BarChartReport',
-  props: ['chartData', 'chartLabels'],
+  props: {
+    chartData: {
+      type: Array,
+    },
+    chartLabels: {
+      type: Array
+    },
+    yAxisTitle: {
+      type: String,
+      default: "amount (millions)"
+    }
+  },
   data() {
     return {
       series: [],
@@ -48,6 +59,21 @@ export default {
         //   title: {
         //     text: '$ (thousands)'
         //   }
+        decimalsInFloat: 0,
+        forceNiceScale: true,
+        title: {
+          text: this.yAxisTitle,
+          rotate: -90,
+          offsetX: 0,
+          offsetY: 0,
+          style: {
+              // color: undefined,
+              // fontSize: '12px',
+              // fontFamily: 'Helvetica, Arial, sans-serif',
+              // fontWeight: 600,
+              // cssClass: 'apexcharts-yaxis-title',
+          },
+      },
         },
         fill: {
             opacity: 1
