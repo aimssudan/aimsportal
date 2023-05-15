@@ -284,6 +284,7 @@ export default {
       getLocationPayams: "locations/getPayams",
       getCodelistOptions: "codelists/fetchCodelistOptions",
       getCodelistValue: "codelists/fetchCodelistValue",
+      getOrganisations : 'global/getOrganisations',
     }),
     deleteAProject(id) {
       if (confirm("Are you sure ?")) {
@@ -402,6 +403,7 @@ export default {
       this.$store.commit("auth/SET_USER", loggedInUser);
     }
     this.getLocationStates();
+    this.getOrganisations();
     this.searchProjects();
     this.getCodelistOptions({
       codelist: "SectorVocabulary",
