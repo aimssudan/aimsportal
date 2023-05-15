@@ -182,7 +182,7 @@
                 View
               </button>
               <button
-                v-if="isEditor"
+                v-if="activity.editable"
                 @click="deleteAProject(activity.id)"
                 class="btn btn-danger btn-sm"
               >
