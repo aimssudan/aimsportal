@@ -2989,7 +2989,19 @@
               class="btn btn-primary"
             >
               Save
-            </button>
+            </button> |
+            <button
+                v-if="currentProject.auditable"
+                @click="
+                  this.$router.push({
+                    name: 'project-edits',
+                    params: { id: currentProject.id },
+                  })
+                "
+                class="btn btn-warning btn"
+              >
+                View recent edits
+              </button>
           </div>
         </div>
       </div>
