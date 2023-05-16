@@ -38,6 +38,8 @@ import DashboardTimeTrends from '../views/DashboardTimeTrends.vue'
 import EmailReset from '../views/EmailReset.vue'
 import PasswordReset from '../views/PasswordReset.vue'
 import GeneralError from '../views/Error.vue'
+import SuperAdminUsers from '../views/SuperAdminUsers.vue'
+import SuperAdminUser from '../views/SuperAdminUser.vue'
 
 
 const routes = [
@@ -301,6 +303,24 @@ const routes = [
     meta: {
       title: "AIMS ⇾ Error",
      // middleware: [auth, unverified],
+    },
+  },
+  {
+    path: '/systemadministrators',
+    name: 'system-administrators',
+    component: SuperAdminUsers,
+    meta: {
+      title: "AIMS ⇾ System Admins",
+      middleware: [auth, verified, admin],
+    },
+  },
+  {
+    path: '/systemadministrator/:id?',
+    name: 'system-administrator',
+    component: SuperAdminUser,
+    meta: {
+      title: "AIMS ⇾ Organisation Category",
+      middleware: [auth, verified, admin],
     },
   },
 ]
