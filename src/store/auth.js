@@ -103,6 +103,22 @@ export default {
      async guestLogin({dispatch}) {      
       let response = await axios.post('/users/guest-login', {}, AXIOS_HEADERS)
       return dispatch('attempt', response.data.data.token)
+     },
+
+     deleteUser(_, id) {
+      return axios.delete(`users/delete/${id}`)
+     },
+
+     fetchUser(_, id) {
+      return axios.get(`users/${id}`)
+     },
+
+     fetchSupers() {
+      return axios.get('users/supers')
+     },
+
+     createSuper(_, payload) {
+      return axios.post(`/users/super`, payload, AXIOS_HEADERS);
      }
 
   }

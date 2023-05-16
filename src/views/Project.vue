@@ -3146,7 +3146,7 @@ export default {
 
     isEditor() {
       //return this.contributor || this.admin || this.manager;
-      return this.currentProject.editable
+      return this.currentProject?.editable
     },
 
     expenditures() {
@@ -3923,8 +3923,8 @@ export default {
         (response) => {
           //
           this.isLoading = false;
-          let savedProject = JSON.parse(response.data.data);
-          this.$store.commit("project/ADD_PROJECT", savedProject);
+          let savedProject = response.data.data;
+          this.$store.commit("project/UPDATE_PROJECT", savedProject);
           this.$store.commit("showSnackbar", "success");
           this.$router.push({ name: "projects" });
         },

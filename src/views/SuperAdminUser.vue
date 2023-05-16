@@ -1,20 +1,20 @@
 <template>
   <main class="page login-page" style="min-height: 80vh">
     <div class="col-md-6 offset-md-3">
-      <h1 class="text-primary">{{ this.getTranslation("profile") }}</h1>
+      <h1 class="text-primary">{{ this.getTranslation("Super Administrator") }}</h1>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="/dashboard">{{ this.getTranslation("dashboard") }}</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            {{ this.getTranslation("profile") }}
+            {{ this.getTranslation("Super Admin") }}
           </li>
         </ol>
       </nav>
       <div class="card">
         <div class="card-header">
-          <h5>{{ profile.name }} 's {{ this.getTranslation("profile") }}</h5>
+          <h5>{{ (isEdit) ? admin.name : 'New Administrator' }} </h5>
         </div>
         <div class="card-body">
           <div
@@ -58,65 +58,89 @@
                 }}</label>
               </div>
             </div>
-            <div v-if="isEditor" class="col-md-6 mb-3">
+            <div class="col-md-6 mb-3">
               <div class="form-floating">
                 <input
                   type="email"
                   class="form-control"
                   id="floatingPassword"
-                  :value="profile.email"
-                  placeholder="Password"
+                  v-model="form.email"
+                  placeholder="Email"
                 />
                 <label for="floatingPassword">{{
                   this.getTranslation("email-address")
                 }}</label>
               </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div v-if="!isEdit" class="col-md-6 mb-3">
               <div class="form-floating">
                 <input
-                  disabled
-                  type="text"
+                  type="password"
                   class="form-control"
                   id="floatingPassword"
-                  :value="profile?.organisation?.name"
+                  v-model="form.password"
                   placeholder="Password"
                 />
                 <label for="floatingPassword">{{
-                  this.getTranslation("organisation")
+                  this.getTranslation("Password")
                 }}</label>
               </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div v-if="!isEdit" class="col-md-6 mb-3">
               <div class="form-floating">
                 <input
-                  disabled
-                  type="text"
+                  type="password"
                   class="form-control"
                   id="floatingPassword"
-                  :value="profile.status"
+                  v-model="form.password_confirmation"
                   placeholder="Password"
                 />
                 <label for="floatingPassword">{{
-                  this.getTranslation("status")
+                  this.getTranslation("Password Confirmation")
                 }}</label>
               </div>
             </div>
+
             <div class="col-md-6 mb-3">
               <div class="form-floating">
-                <input
-                  disabled
-                  type="text"
-                  class="form-control"
-                  id="floatingPassword"
-                  :value="profile?.roles[0]?.name"
-                  placeholder="Password"
-                />
+                <select class="form-control" v-model="form.status"
+                :disabled="!isEdit"
+                >
+                  <option
+                    v-for="status in statuses"
+                    :key="status.id"
+                    :value="status.id"
+                  >
+                    {{ status.name }}
+                  </option>
+                </select>
+
                 <label for="floatingPassword">{{
-                  this.getTranslation("role")
+                  this.getTranslation("Status")
                 }}</label>
               </div>
             </div>
+
+            <div class="col-md-6 mb-3">
+              <div class="form-floating">
+                <select class="form-control" v-model="form.role"
+                :disabled="!isEdit"
+                >
+                  <option
+                    v-for="role in roles"
+                    :key="role.id"
+                    :value="role.id"
+                  >
+                    {{ role.name }}
+                  </option>
+                </select>
+
+                <label for="floatingPassword">{{
+                  this.getTranslation("Roles")
+                }}</label>
+              </div>
+            </div>
+
             <div class="col-md-6 mb-3">
               <div class="form-floating">
                 <select class="form-control" v-model="form.language">
@@ -135,8 +159,8 @@
               </div>
             </div>
           </div>
-          <button v-if="isEditor" @click="submit" class="btn btn-primary">
-            {{ this.getTranslation("update") }}
+          <button v-if="isadmin" @click="submit" class="btn btn-primary">
+            {{ (isEdit) ? this.getTranslation("update") : 'Save' }}
           </button>
         </div>
       </div>
@@ -148,7 +172,7 @@
 import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
-  name: "profile",
+  name: "SuperAdminUser",
   components: {},
   data() {
     return {
@@ -160,13 +184,39 @@ export default {
       generalError: false,
       validationErrors: false,
       apiLoading: true,
+      isEdit: false,
       form: {
         id: null,
         name: "",
+        email: "",
+        status: 'approved',
         organisation: null,
-        role: null,
+        role: 'Super Administrator',
         language: "en",
+        password: "",
+        password_confirmation: ""
       },
+      admin: null,
+      statuses: [
+        {
+          id: 'approved',
+          name: 'Approved',
+        },
+        {
+          id: 'blocked',
+          name: 'Banned',
+        }
+      ],
+      roles: [
+        {
+          id: 'Super Administrator',
+          name: 'Super Administrator',
+        },
+        {
+          id: 'Manager',
+          name: 'Manager',
+        }
+      ],
       errors: [],
     };
   },
@@ -182,42 +232,58 @@ export default {
     }
     this.getLanguages();
     this.getTranslations();
-    this.updateForm();
+    
+    const userId = this.$route.params.id;
+    if (userId) {
+      this.getUser(userId).then(
+        (response) => {
+          this.admin = response.data.data
+          this.isEdit = true;
+          this.updateForm();
+        },
+        (error) => {
+          const errorMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+          console.log(errorMessage);
+        }
+      )
+    }
+    
   },
   computed: {
     ...mapState("auth", ["user"]),
     ...mapState("global", ["languages", "translations"]),
-    profile() {
-      return this.user;
-    },
+    
     ...mapGetters({
-      admin: "auth/superadmin",
-      contributor: "auth/contributor",
-      manager: "auth/manager",
+      superadmin: "auth/superadmin",
       authenticated: "auth/authenticated",
       getTranslation: "global/getTranslation",
     }),
     isadmin() {
-      return this.admin;
-    },
-    isEditor() {
-      return this.contributor || this.admin || this.manager;
-    },
+      return this.superadmin;
+    }
   },
 
   methods: {
     ...mapActions({
       updateUser: "auth/updateUser",
+      getUser: "auth/fetchUser",
+      createSuper: "auth/createSuper",
       getLanguages: "global/getLanguages",
       getTranslations: "global/getTranslations",
     }),
 
     updateForm() {
-      this.form.id = this.user.id;
-      this.form.name = this.user.name;
-      this.form.organisation = this.user?.organisation?.id;
-      this.form.role = this.user?.roles[0]?.name;
-      this.form.language = this.user.language;
+      this.form.id = this.admin.id;
+      this.form.name = this.admin.name;
+      this.form.email = this.admin.email;
+      this.form.organisation = this.admin?.organisation?.id;
+      this.form.role = this.admin?.roles[0]?.name;
+      this.form.language = this.admin.language;
     },
     submit() {
       this.apiErrors = false;
@@ -225,30 +291,61 @@ export default {
       this.isLoading = true;
       this.validationErrors = false;
 
-      this.updateUser(this.form).then(
-        (response) => {
-          //
-          this.isLoading = false;
-          this.$store.commit("showSnackbar", "success");
-          this.$store.commit("auth/SET_USER", response.data.data);
-          this.getLanguages();
-          this.getTranslations();
-          this.updateForm();
-        },
-        (error) => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.errors) ||
-            error.message ||
-            error.toString();
-          this.isLoading = false;
-          this.apiErrors = true;
-          this.generalError = true;
-          this.errors = resMessage;
-          this.$store.commit("showSnackbar", resMessage);
-        }
-      );
+
+      if (this.isEdit) {
+        this.updateUser(this.form).then(
+          (response) => {
+            //
+            this.isLoading = false;
+            this.$store.commit("showSnackbar", "success");
+            this.admin = response.data.data;
+            this.getLanguages();
+            this.getTranslations();
+            this.updateForm();
+          },
+          (error) => {
+            const resMessage =
+              (error.response &&
+                error.response.data &&
+                error.response.data.errors) ||
+              error.message ||
+              error.toString();
+            this.isLoading = false;
+            this.apiErrors = true;
+            this.generalError = true;
+            this.errors = resMessage;
+            this.$store.commit("showSnackbar", resMessage);
+          }
+        );
+      }
+
+      if (!this.isEdit) {
+        this.createSuper(this.form).then(
+          (response) => {
+            //
+            this.isLoading = false;
+            this.$store.commit("showSnackbar", "success");
+            this.admin = response.data.data;
+            this.isEdit = true;
+            this.getLanguages();
+            this.getTranslations();
+            this.updateForm();
+          },
+          (error) => {
+            const resMessage =
+              (error.response &&
+                error.response.data &&
+                error.response.data.errors) ||
+              error.message ||
+              error.toString();
+            this.isLoading = false;
+            this.apiErrors = true;
+            this.generalError = true;
+            this.errors = resMessage;
+            
+          }
+        );
+      }
     },
   },
 };
