@@ -182,6 +182,18 @@
                 View
               </button>
               <button
+                v-if="activity.auditable"
+                @click="
+                  this.$router.push({
+                    name: 'project-edits',
+                    params: { id: activity.id },
+                  })
+                "
+                class="btn btn-info btn-sm"
+              >
+                View Changes
+              </button>
+              <button
                 v-if="activity.editable"
                 @click="deleteAProject(activity.id)"
                 class="btn btn-danger btn-sm"

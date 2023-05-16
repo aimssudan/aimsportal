@@ -40,6 +40,7 @@ import PasswordReset from '../views/PasswordReset.vue'
 import GeneralError from '../views/Error.vue'
 import SuperAdminUsers from '../views/SuperAdminUsers.vue'
 import SuperAdminUser from '../views/SuperAdminUser.vue'
+import ProjectChanges from '../views/ProjectChanges.vue'
 
 
 const routes = [
@@ -195,6 +196,15 @@ const routes = [
     meta: {
       title: "AIMS ⇾ Project",
       //middleware: [auth],
+    },
+  },
+  {
+    path: '/project/:id?/changes',
+    name: 'project-edits',
+    component: ProjectChanges,
+    meta: {
+      title: "AIMS ⇾ Project Edits",
+      middleware: [auth, verified],
     },
   },
   {
