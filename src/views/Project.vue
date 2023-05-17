@@ -249,6 +249,24 @@
                 </div>
 
                 <div class="mb-3 row mt-3">
+                  <div class="col-sm-8">
+                    <div class="row">
+                      <label
+                        for="revision-status"
+                        class="col-sm-4 col-form-label"
+                        ><small>Humanitarian / Development</small></label
+                      >
+                      <div class="col-sm-8">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" v-model="humanitarian" type="checkbox" id="flexSwitchCheckDefault">
+                          <label class="form-check-label" for="flexSwitchCheckDefault">{{ (humanitarian)? 'Humanitarian' : 'Development'}}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3 row mt-3">
                   <div
                     class="accordion"
                     id="participating_organisations_accordion"
@@ -2991,7 +3009,7 @@
               Save
             </button> |
             <button
-                v-if="currentProject.auditable"
+                v-if="currentProject?.auditable"
                 @click="
                   this.$router.push({
                     name: 'project-edits',
@@ -3043,6 +3061,7 @@ export default {
       organisation_id: 1,
       activity_status: 1,
       status: "active",
+      humanitarian: false,
       form_participating_org: {
         type: null,
         organisation_id: null,
@@ -3158,7 +3177,7 @@ export default {
 
     isEditor() {
       //return this.contributor || this.admin || this.manager;
-      return this.currentProject?.editable
+      return this.currentProject && this.currentProject.editable
     },
 
     expenditures() {
@@ -3763,6 +3782,7 @@ export default {
 
     fillFormModels() {
       if (this.currentProject !== undefined || this.currentProject !== null) {
+        this.humanitarian = !!this.currentProject.humanitarian
         this.project_title = this.currentProject.default_title;
         this.project_objective =
           this.currentProject.description[0].narratives.find(
@@ -3913,6 +3933,7 @@ export default {
 
       let payload = {
         id: this.currentProject.id,
+        humanitarian: this.humanitarian,
         sectors: this.sectors,
         recipient_countries: this.recipient_countries,
         recipient_regions: this.recipient_regions,

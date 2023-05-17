@@ -46,6 +46,10 @@ export default {
       return axios.post(`/reports/total-projects-completed-trend`, payload);
      },
 
+     getProjectCount() {
+      return axios.post(`/reports/projects-count`)
+     },
+
      getBudgetingTrendReport(_, payload) {
       return axios.post(`/reports/budgets-trend`, payload);
      },

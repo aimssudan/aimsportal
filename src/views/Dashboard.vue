@@ -17,7 +17,7 @@
           <div class="row">
             <div class="col-6" style="width: 20%">
               <div class="container" style="width: 100%">
-                <h1 class="text-center">56</h1>
+                <h1 class="text-center">{{ (totalProjects.length > 0) ? totalProjects.find( (element) => element.code == 0 )?.data : '0'}}</h1>
                 <p>Total Projects</p>
               </div>
               <div class="container" style="width: 100%">
@@ -28,14 +28,14 @@
             <div class="col-6" style="width: 50%">
               <div class="container" style="height: 100%">
                 <projects-bar-chart
-                  chartTitle="Project Bar Chart"
+                  chartTitle="Number of Projects (Bar Chart)"
                 ></projects-bar-chart>
               </div>
             </div>
             <div class="col-6" style="width: 30%">
               <div class="container" style="height: 100%; width: 100%">
                 <projects-pie-chart
-                  chartTitle="Project Pie Chart"
+                  chartTitle="Number of Projects (Pie Chart)"
                 ></projects-pie-chart>
               </div>
             </div>
@@ -137,7 +137,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 import DashboardMenu from "../components/navs/DashboardMenu.vue";
 import ProjectsBarChart from "../components/charts/ProjectsBarChart.vue";
 import ProjectsPieChart from "../components/charts/ProjectsPieChart.vue";
@@ -150,6 +150,13 @@ export default {
     ProjectsPieChart,
   },
   data() {
+    return {
+      isLoading: false,
+      totalProjects: []
+    };
+  },
+  
+  created() {
     let isLoggedIn = !!localStorage.getItem("token");
     if (isLoggedIn) {
       //put user and translations to vuex state
@@ -158,6 +165,11 @@ export default {
       this.$store.commit("auth/SET_TOKEN", token);
       this.$store.commit("auth/SET_USER", loggedInUser);
     }
+    this.getTotalProjects().then(
+      (response) => {
+        this.totalProjects = response.data
+      }
+    )
   },
   computed: {
     ...mapState("auth", ["user"]),
@@ -165,6 +177,13 @@ export default {
       return this.user;
     },
   },
+
+  methods: {
+    ...mapActions({
+      getTotalProjects: "reports/getProjectCount"
+    }),
+
+  }
 };
 </script>
 
