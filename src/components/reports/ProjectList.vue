@@ -182,7 +182,19 @@
                 View
               </button>
               <button
-                v-if="isEditor"
+                v-if="activity.auditable"
+                @click="
+                  this.$router.push({
+                    name: 'project-edits',
+                    params: { id: activity.id },
+                  })
+                "
+                class="btn btn-info btn-sm"
+              >
+                View Changes
+              </button>
+              <button
+                v-if="activity.editable"
                 @click="deleteAProject(activity.id)"
                 class="btn btn-danger btn-sm"
               >
@@ -284,6 +296,7 @@ export default {
       getLocationPayams: "locations/getPayams",
       getCodelistOptions: "codelists/fetchCodelistOptions",
       getCodelistValue: "codelists/fetchCodelistValue",
+      getOrganisations : 'global/getOrganisations',
     }),
     deleteAProject(id) {
       if (confirm("Are you sure ?")) {
@@ -402,6 +415,7 @@ export default {
       this.$store.commit("auth/SET_USER", loggedInUser);
     }
     this.getLocationStates();
+    this.getOrganisations();
     this.searchProjects();
     this.getCodelistOptions({
       codelist: "SectorVocabulary",

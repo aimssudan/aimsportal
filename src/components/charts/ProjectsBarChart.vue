@@ -31,7 +31,8 @@ export default {
               },
               scales: {
                   y: {
-                      beginAtZero: true
+                      beginAtZero: true,
+                      decimalsInFloat: 0,
                   }
               }
           }

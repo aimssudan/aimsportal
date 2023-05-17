@@ -13,6 +13,10 @@ import Profile from '../views/Profile.vue'
 import Register from '../views/Register.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Contact from '../views/Contact.vue'
+import Inquiries from '../views/Inquiries.vue'
+import HelpDesk from '../views/HelpDesk.vue'
+import TermsOfUse from '../views/TermsOfUse.vue'
+import PrivacyPolicy from '../views/PrivacyPolicy.vue'
 import About from '../views/About.vue'
 import Faq from '../views/Faq.vue'
 import Unauthorized from '../views/Unauthorized.vue'
@@ -34,6 +38,9 @@ import DashboardTimeTrends from '../views/DashboardTimeTrends.vue'
 import EmailReset from '../views/EmailReset.vue'
 import PasswordReset from '../views/PasswordReset.vue'
 import GeneralError from '../views/Error.vue'
+import SuperAdminUsers from '../views/SuperAdminUsers.vue'
+import SuperAdminUser from '../views/SuperAdminUser.vue'
+import ProjectChanges from '../views/ProjectChanges.vue'
 
 
 const routes = [
@@ -97,6 +104,38 @@ const routes = [
     },
   },
   {
+    path: '/inquiries',
+    name: 'inquiries',
+    component: Inquiries,
+    meta: {
+      title: "AIMS ⇾ Inquiries",
+    },
+  },
+  {
+    path: '/helpdesk',
+    name: 'helpdesk',
+    component: HelpDesk,
+    meta: {
+      title: "AIMS ⇾ Help Desk",
+    },
+  },
+  {
+    path: '/termsofuse',
+    name: 'termsofuse',
+    component: TermsOfUse,
+    meta: {
+      title: "AIMS ⇾ Terms of Use",
+    },
+  },
+  {
+    path: '/privacypolicy',
+    name: 'privacypolicy',
+    component: PrivacyPolicy,
+    meta: {
+      title: "AIMS ⇾ Privacy Policy",
+    },
+  },
+  {
     path: '/verify',
     name: 'verify',
     component: Unauthorized,
@@ -157,6 +196,15 @@ const routes = [
     meta: {
       title: "AIMS ⇾ Project",
       //middleware: [auth],
+    },
+  },
+  {
+    path: '/project/:id?/changes',
+    name: 'project-edits',
+    component: ProjectChanges,
+    meta: {
+      title: "AIMS ⇾ Project Edits",
+      middleware: [auth, verified],
     },
   },
   {
@@ -267,10 +315,28 @@ const routes = [
      // middleware: [auth, unverified],
     },
   },
+  {
+    path: '/systemadministrators',
+    name: 'system-administrators',
+    component: SuperAdminUsers,
+    meta: {
+      title: "AIMS ⇾ System Admins",
+      middleware: [auth, verified, admin],
+    },
+  },
+  {
+    path: '/systemadministrator/:id?',
+    name: 'system-administrator',
+    component: SuperAdminUser,
+    meta: {
+      title: "AIMS ⇾ Organisation Category",
+      middleware: [auth, verified, admin],
+    },
+  },
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(), // process.env.BASE_URL
   routes
 })
 

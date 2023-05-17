@@ -856,7 +856,7 @@
                         <div
                           class="modal fade"
                           id="addCommitmentInformation"
-                          tabindex="-1"
+                          
                           aria-labelledby="addCommitmentInformationLabel"
                           aria-hidden="true"
                         >
@@ -2989,7 +2989,19 @@
               class="btn btn-primary"
             >
               Save
-            </button>
+            </button> |
+            <button
+                v-if="currentProject.auditable"
+                @click="
+                  this.$router.push({
+                    name: 'project-edits',
+                    params: { id: currentProject.id },
+                  })
+                "
+                class="btn btn-warning btn"
+              >
+                View recent edits
+              </button>
           </div>
         </div>
       </div>
@@ -3145,7 +3157,8 @@ export default {
     }),
 
     isEditor() {
-      return this.contributor || this.admin || this.manager;
+      //return this.contributor || this.admin || this.manager;
+      return this.currentProject?.editable
     },
 
     expenditures() {
@@ -3192,6 +3205,7 @@ export default {
       getLocationStates: "locations/getStates",
       getLocationCounties: "locations/getCounties",
       getLocationPayams: "locations/getPayams",
+      getOrganisations : 'global/getOrganisations',
     }),
 
     updateCounties() {
@@ -3891,11 +3905,11 @@ export default {
       this.isLoading = true;
       this.validationErrors = false;
       //recipient country
-      let recipient_country = {
-        country_code: "SS",
-        country_percentage: this.countrywide_contribution == 1 ? 100 : null,
-      };
-      this.recipient_countries.push(recipient_country);
+      // let recipient_country = {
+      //   country_code: "SS",
+      //   country_percentage: this.countrywide_contribution == 1 ? 100 : null,
+      // };
+      // this.recipient_countries.push(recipient_country);
 
       let payload = {
         id: this.currentProject.id,
@@ -3921,8 +3935,8 @@ export default {
         (response) => {
           //
           this.isLoading = false;
-          let savedProject = JSON.parse(response.data.data);
-          this.$store.commit("project/ADD_PROJECT", savedProject);
+          let savedProject = response.data.data;
+          this.$store.commit("project/UPDATE_PROJECT", savedProject);
           this.$store.commit("showSnackbar", "success");
           this.$router.push({ name: "projects" });
         },
@@ -3952,6 +3966,7 @@ export default {
       this.$store.commit("auth/SET_USER", loggedInUser);
     }
     this.getLocationStates();
+    this.getOrganisations();
     let idParam = this.$route.params.id;
     if (idParam) {
       this.getProject(idParam).then(
@@ -4267,4 +4282,5 @@ export default {
   padding-top: 4em;
   padding-bottom: 4em;
 }
+
 </style>

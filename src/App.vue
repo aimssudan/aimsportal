@@ -24,7 +24,7 @@
                     <li v-if="isadmin" class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="">{{this.getTranslation("Administation")}}</a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" role="button" @click="navigate('system-settings')">{{this.getTranslation("System-Settings")}}</a>
-                          
+                          <a class="dropdown-item" role="button" @click="navigate('system-administrators')">{{this.getTranslation("System Administrators")}}</a>
                         </div>
                     </li>
                     <!-- <li class="nav-item" @click="navigate('contact')"><a class="nav-link" role="button" >Contact Us</a></li> -->
@@ -58,24 +58,24 @@
                 <div class="col-md-3 col-sm-6">
                     <h5>{{this.getTranslation("About-us")}} </h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">MoFP (GOSS)</a></li>
-                        <li><a href="#">{{this.getTranslation("Organisations")}}</a></li>
-                        <li><a href="#">{{this.getTranslation("Donors")}}</a></li>
+                        <li><a href="https://mofp.gov.ss/">MoFP (GOSS)</a></li>
+                        <li><a href="/about">About AIMS SS</a></li>
+                        <li><a href="/organisations">Organizations</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <h5>{{this.getTranslation("Support")}}</h5>
                     <ul class="list-unstyled">
-                        <li><a href="contact-us.html">{{this.getTranslation("Inquiries")}}</a></li>
-                        <li><a href="#">{{this.getTranslation("Help-Desk")}}</a></li>
-                        <li><a href="faq.html">{{this.getTranslation("FAQS")}}</a></li>
+                        <li><a href="/inquiries">Inquiries</a></li>
+                        <li><a href="/helpdesk">Help Desk</a></li>
+                        <li><a href="/faq">FAQs</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <h5>{{this.getTranslation("Legal")}}</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">{{this.getTranslation("Terms-of-use")}}</a></li>
-                        <li><a href="#">{{this.getTranslation("Privacy-Policy")}}</a></li>
+                        <li><a href="/termsofuse">{{this.getTranslation("Terms-of-use")}}</a></li>
+                        <li><a href="/privacypolicy">{{this.getTranslation("Privacy-Policy")}}</a></li>
                     </ul>
                 </div>
             </div>
