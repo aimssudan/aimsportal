@@ -249,6 +249,24 @@
                 </div>
 
                 <div class="mb-3 row mt-3">
+                  <div class="col-sm-8">
+                    <div class="row">
+                      <label
+                        for="revision-status"
+                        class="col-sm-4 col-form-label"
+                        ><small>Humanitarian / Development</small></label
+                      >
+                      <div class="col-sm-8">
+                        <div class="form-check form-switch">
+                          <input class="form-check-input" v-model="humanitarian" type="checkbox" id="flexSwitchCheckDefault">
+                          <label class="form-check-label" for="flexSwitchCheckDefault">{{ (humanitarian)? 'Humanitarian' : 'Development'}}</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3 row mt-3">
                   <div
                     class="accordion"
                     id="participating_organisations_accordion"
@@ -3003,6 +3021,7 @@ export default {
       organisation_id: 1,
       activity_status: 1,
       status: "active",
+      humanitarian: false,
       form_participating_org: {
         type: null,
         organisation_id: null,
@@ -3583,6 +3602,7 @@ export default {
       this.recipient_countries.push(recipient_country);
 
       let payload = {
+        humanitarian: this.humanitarian,
         sectors: this.sectors,
         recipient_countries: this.recipient_countries,
         recipient_regions: this.recipient_regions,
