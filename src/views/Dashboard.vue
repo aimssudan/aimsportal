@@ -84,7 +84,7 @@
               </div>
               <div class="container" style="width: 100%">
                 <h3>Locations</h3>
-                <button class="btn btn-primary" type="button">View</button>
+                <button @click="this.$router.push({ name: 'dashboard-locations' })" class="btn btn-primary" type="button">View</button>
               </div>
             </div>
             <div class="col-6" style="width: 50%">
@@ -120,7 +120,7 @@
               </div>
               <div class="container" style="width: 100%">
                 <h3>Sectors</h3>
-                <button class="btn btn-primary" type="button">View</button>
+                <button @click="this.$router.push({ name: 'dashboard-sectors' })" class="btn btn-primary" type="button">View</button>
               </div>
             </div>
             <div class="col-6" style="width: 50%">
