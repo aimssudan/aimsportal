@@ -17,12 +17,12 @@
           <div class="row">
             <div class="col-6" style="width: 20%">
               <div class="container" style="width: 100%">
-                <h1 class="text-center">{{ (totalProjects.length > 0) ? totalProjects.find( (element) => element.code == 0 )?.data : '0'}}</h1>
+                <h1 class="text-center">{{ (totalProjects.length > 0) ? totalProjects.find( (element) => element.code == 0 )?.data : '0' }}</h1>
                 <p>Total Projects</p>
               </div>
               <div class="container" style="width: 100%">
                 <h3>Projects</h3>
-                <button class="btn btn-primary" type="button">View</button>
+                <button @click="this.$router.push({ name: 'projects' })" class="btn btn-primary" type="button">View</button>
               </div>
             </div>
             <div class="col-6" style="width: 50%">
@@ -45,20 +45,32 @@
           <div class="row">
             <div class="col-6" style="width: 20%">
               <div class="container" style="width: 100%">
-                <h1 class="text-center">$75.4M</h1>
+                <h1 class="text-center">${{ convertToInternationalCurrencySystem(allTimeFundingTotal)}}</h1>
                 <p>Total Amount</p>
               </div>
               <div class="container" style="width: 100%">
-                <h3>Funds</h3>
-                <button class="btn btn-primary" type="button">View</button>
+                <h3>Funds</h3>                
+                <button @click="this.$router.push({ name: 'dashboard-funds' })" class="btn btn-primary" type="button">View</button>
               </div>
             </div>
             <div class="col-6" style="width: 50%">
-              <div class="container" style="height: 100%">Funds Bar Chart</div>
+              <div class="container" style="height: 100%">
+                Funding per year (Bar Chart)
+                <bar-chart-report
+                    v-if="dataForYearsReady"
+                    :chartData="chartDataByYear"
+                    :chartLabels="chartLabelByYear"
+                ></bar-chart-report>
+              </div>
             </div>
             <div class="col-6" style="width: 30%">
               <div class="container" style="height: 100%; width: 100%">
-                Funds Pie Chart
+                Funding per year (Pie Chart)
+                <pie-chart-report
+                    v-if="dataForYearsReady"
+                    :chartData="chartDataByYear"
+                    :chartLabels="chartLabelByYear"
+                ></pie-chart-report>
               </div>
             </div>
           </div>
@@ -67,7 +79,7 @@
           <div class="row">
             <div class="col-6" style="width: 20%">
               <div class="container" style="width: 100%">
-                <h1 class="text-center">12</h1>
+                <h1 class="text-center">10</h1>
                 <p>Total States</p>
               </div>
               <div class="container" style="width: 100%">
@@ -77,41 +89,33 @@
             </div>
             <div class="col-6" style="width: 50%">
               <div class="container" style="height: 100%">
-                Locations Bar Chart
+                Funding per state (Bar Chart)
+                <bar-chart-report
+                    v-if="dataForLocationsReady"
+                    :chartData="chartDataLocations"
+                    :chartLabels="chartLabelLocations"
+                ></bar-chart-report>
               </div>
             </div>
             <div class="col-6" style="width: 30%">
               <div class="container" style="height: 100%; width: 100%">
-                Locations Pie Chart
+                Funding per state (Pie Chart)
+                <pie-chart-report
+                    v-if="dataForLocationsReady"
+                    :chartData="chartDataLocations"
+                    :chartLabels="chartLabelLocations"
+                ></pie-chart-report>
               </div>
             </div>
           </div>
 
           <hr />
-          <div class="row">
-            <div class="col-6" style="width: 20%">
-              <div class="container" style="width: 100%">
-                <h3>Time Frames</h3>
-                <button class="btn btn-primary" type="button">View</button>
-              </div>
-            </div>
-            <div class="col-6" style="width: 50%">
-              <div class="container" style="height: 100%">
-                Time Frames Bar Chart
-              </div>
-            </div>
-            <div class="col-6" style="width: 30%">
-              <div class="container" style="height: 100%; width: 100%">
-                Time Frames Pie Chart
-              </div>
-            </div>
-          </div>
 
           <hr />
           <div class="row">
             <div class="col-6" style="width: 20%">
               <div class="container" style="width: 100%">
-                <h1 class="text-center">17</h1>
+                <h1 class="text-center">11</h1>
                 <p>Key Sectors</p>
               </div>
               <div class="container" style="width: 100%">
@@ -121,12 +125,22 @@
             </div>
             <div class="col-6" style="width: 50%">
               <div class="container" style="height: 100%">
-                Sectors Bar Chart
+                Funding per sector (Bar Chart)
+                <bar-chart-report
+                    v-if="dataForSectorsReady"
+                    :chartData="chartDataSectors"
+                    :chartLabels="chartLabelSectors"
+                ></bar-chart-report>
               </div>
             </div>
             <div class="col-6" style="width: 30%">
               <div class="container" style="height: 100%; width: 100%">
-                Sectors Pie Chart
+                Funding per sector (Pie Chart)
+                <pie-chart-report
+                    v-if="dataForSectorsReady"
+                    :chartData="chartDataSectors"
+                    :chartLabels="chartLabelSectors"
+                ></pie-chart-report>
               </div>
             </div>
           </div>
@@ -141,6 +155,8 @@ import { mapState, mapActions } from "vuex";
 import DashboardMenu from "../components/navs/DashboardMenu.vue";
 import ProjectsBarChart from "../components/charts/ProjectsBarChart.vue";
 import ProjectsPieChart from "../components/charts/ProjectsPieChart.vue";
+import BarChartReport from "../components/charts/BarChart.vue";
+import PieChartReport from "../components/charts/PieChart.vue";
 
 export default {
   name: "Dashboard",
@@ -148,11 +164,23 @@ export default {
     DashboardMenu,
     ProjectsBarChart,
     ProjectsPieChart,
+    BarChartReport,
+    PieChartReport,
   },
   data() {
     return {
       isLoading: false,
-      totalProjects: []
+      dataForLocationsReady: false,
+      dataForYearsReady:false,
+      dataForSectorsReady:false,
+      totalProjects: [],
+      chartDataByYear: [],
+      chartLabelByYear: [],
+      chartDataLocations: [],
+      chartLabelLocations: [],
+      chartDataSectors: [],
+      chartLabelSectors: [],
+      allTimeFundingTotal: 0,
     };
   },
   
@@ -170,6 +198,10 @@ export default {
         this.totalProjects = response.data
       }
     )
+    this.updateFundingPeriodGraph()
+    this.updateFundingStateGraph()
+    this.updateFundingSectorGraph()
+    this.getTotalFunding()
   },
   computed: {
     ...mapState("auth", ["user"]),
@@ -180,8 +212,114 @@ export default {
 
   methods: {
     ...mapActions({
-      getTotalProjects: "reports/getProjectCount"
+      getTotalProjects: "reports/getProjectCount",
+      getFundingTotal: "reports/getFundingTotal",
+      getFundingBySector: "reports/getFundingBySectorReport",
+      getFundingBySource: "reports/getFundingBySourceReport",
+      getFundingByState: "reports/getFundingByStateReport",
+      getFundingTrendReport: "reports/getFundingTrendReport",
+      getSummaryPerStateReport: "reports/getSummaryPerStateReport",
+      getOrganisationsCount: "reports/getOrganisationsCount"
     }),
+
+    convertToInternationalCurrencySystem(labelValue) {
+      // Nine Zeroes for Billions
+      return Math.abs(Number(labelValue)) >= 1.0e9
+        ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(1) + "B"
+        : // Six Zeroes for Millions
+        Math.abs(Number(labelValue)) >= 1.0e6
+        ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(1) + "M"
+        : // Three Zeroes for Thousands
+        Math.abs(Number(labelValue)) >= 1.0e3
+        ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(1) + "K"
+        : Math.abs(Number(labelValue));
+    },
+
+    updateFundingPeriodGraph() {
+      this.dataForYearsReady = false;
+      this.chartDataByYear = [];
+      this.chartLabelByYear = [];
+      this.getFundingTrendReport().then(
+        (response) => {
+          let chartData = {
+            name: "Funding By Period",
+            data: response.data.map((value) => value.data),
+          };
+          this.chartDataByYear.push(chartData);
+          this.chartLabelByYear = response.data.map((value) => value.year);
+          this.dataForYearsReady = true;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
+
+    updateFundingStateGraph() {
+      this.dataForLocationsReady = false;
+      this.chartDataLocations = [];
+      this.chartLabelLocations = [];
+      this.getFundingByState().then(
+        (response) => {
+          let chartData = {
+            name: "Funding By State",
+            data: response.data.map((value) => value.data),
+          };
+          this.chartDataLocations.push(chartData);
+          this.chartLabelLocations = response.data.map((value) => value.state);
+          this.dataForLocationsReady = true;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
+
+    updateFundingSectorGraph() {
+      this.dataForSectorsReady = false;
+      this.chartDataSectors = [];
+      this.chartLabelSectors = [];
+      this.getFundingBySector().then(
+        (response) => {
+          let chartData = {
+            name: "Funding by Sector",
+            data: response.data.map((value) => value.data),
+          };
+          this.chartDataSectors.push(chartData);
+          const label = response.data.map((value) => value.sector);
+          this.chartLabelSectors = JSON.parse(JSON.stringify(label));
+          this.dataForSectorsReady = true;
+        },
+        (error) => {
+          const errorMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+          this.$store.commit("showSnackbar", errorMessage);
+        }
+      );
+    },
+    getTotalFunding() {
+      this.getFundingTotal().then(
+          (result) => {
+            console.log(result.data);
+            this.allTimeFundingTotal = result.data;
+          },
+          (error) => {
+            const resMessage =
+              (error.response &&
+                error.response.data &&
+                error.response.data.errors) ||
+              error.message ||
+              error.toString();
+
+            console.log(resMessage);
+          }
+        );
+    }
 
   }
 };
