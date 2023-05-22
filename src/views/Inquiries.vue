@@ -5,7 +5,7 @@
         <div class="container">
           <form id="contact" action="" method="post">
             <h2 class="text-primary">Inquiries</h2>
-            <h4>Contact us for custom quote</h4>
+            <h4>Send us a quick message</h4>
             <fieldset>
               <input
                 placeholder="Your name"
