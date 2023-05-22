@@ -1,5 +1,5 @@
 <template>
-  <main class="page project-page" style="min-height: 80vh">
+  <main class="page pp-page" style="min-height: 80vh">
     <div class="container">
       <h1 class="text-primary">Add Project</h1>
       <nav aria-label="breadcrumb">
@@ -3921,40 +3921,23 @@ export default {
 </script>
 
 <style scoped>
-.project-page {
+.pp-page {
   padding-top: 4em;
   padding-bottom: 4em;
 }
 
 /* Card header */
-.project-page .card .card-header {
+.card .card-header {
   background-color: rgba(0, 41, 117, 0.87);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  color: #fff;
 }
 
-/* Heading */
-.card .card-header h5 {
-  color: #ffffff;
-  font-weight: 600;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-size: 22px;
-}
 
-/* Card body */
-.project-page .card .card-body {
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-top: 20px;
-  padding-bottom: 40px;
-  transform: translatex(0px) translatey(0px);
-}
 
 /* Card */
-.project-page .card {
+.card {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -4217,13 +4200,14 @@ export default {
 }
 
 /* Card body */
-.project-page .card .card-body {
+.oldproject-page .card .card-body {
   background-color: rgba(255, 255, 255, 0.62) !important;
-  transform: translatex(0px) translatey(0px);
+  /* transform: translatex(0px) translatey(0px); */
 }
 
 /* Row */
 #nav-basic .bg-light {
   background-color: #e7f1f8 !important;
 }
+
 </style>
