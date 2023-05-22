@@ -23,8 +23,10 @@
                     <input type="checkbox" id="touch" />
 
                     <ul class="slide">
-                      <li><a href="#">2023</a></li>
-                      <li><a href="#">2022</a></li>
+                      <li v-for="(year, index) in financialYears" :key="index">
+                        <a @click.prevent="updateStatistics(year)" href="#">{{year}}</a>
+                      </li>
+                      <!-- <li><a href="#">2022</a></li>
                       <li><a href="#">2021</a></li>
                       <li><a href="#">2020</a></li>
                       <li><a href="#">2019</a></li>
@@ -36,9 +38,16 @@
                       <li><a href="#">2013</a></li>
                       <li><a href="#">2012</a></li>
                       <li><a href="#">2011</a></li>
-                      <li><a href="#">2010</a></li>
+                      <li><a href="#">2010</a></li> -->
                     </ul>
                   </nav>
+                  <div
+                v-if="isLoading"
+                    class="spinner-border text-warning"
+                    role="status"
+                  >
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
                 </div>
               </div>
               <div class="col-0b">
@@ -60,8 +69,8 @@
                   </div>
                   <div class="col-4a2">
                     <h4>Total Projects</h4>
-                    <p>Undertaken in the selected Financial Year (FY).</p>
-                  </div>
+                    <p>Undertaken in the {{ selectedYear }} Financial Year (FY).</p>
+                  </div> 
                 </div>
                 <div class="col-4b">
                   <div class="col-4b1">
@@ -110,13 +119,20 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 import DashboardMenu from "../components/navs/DashboardMenu.vue";
 
 export default {
   name: "DashboardProjects",
   components: {
     DashboardMenu,
+  },
+  data() {
+    return {
+      isLoading: false,
+      financialYears: [],
+      selectedYear: null
+    }
   },
   created() {
     let isLoggedIn = !!localStorage.getItem("token");
@@ -127,6 +143,7 @@ export default {
       this.$store.commit("auth/SET_TOKEN", token);
       this.$store.commit("auth/SET_USER", loggedInUser);
     }
+    this.generateYears()
   },
   computed: {
     ...mapState("auth", ["user"]),
@@ -134,6 +151,25 @@ export default {
       return this.user;
     },
   },
+  methods: {
+    ...mapActions({
+
+    }),
+    generateYears() {
+      let thisYear = parseInt(new Date().getFullYear())
+      
+      for (let index = 0; index < 10; index++) {
+        this.financialYears.push(thisYear-index);
+        
+      }
+
+    },
+
+    updateStatistics(year) {
+      this.isLoading = true;
+      this.selectedYear = year
+    }
+  }
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <main class="page project-page" style="min-height: 80vh">
+  <main class="page p-page" style="min-height: 80vh">
     <div class="container">
       <h1 class="text-primary">View Project</h1>
       <nav aria-label="breadcrumb">
@@ -4299,9 +4299,27 @@ export default {
 </script>
 
 <style scoped>
-.project-page {
+.p-page {
   padding-top: 4em;
   padding-bottom: 4em;
+}
+
+.card .card-header {
+  background-color: rgba(0, 41, 117, 0.87);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: #fff;
+}
+
+.card {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-color: #93c1e0;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0px 0px 16px 0px rgba(44, 62, 80, 0.21);
 }
 
 </style>
