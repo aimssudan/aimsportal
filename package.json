@@ -1,6 +1,7 @@
 {
   "name": "aimsportal-frontend",
   "version": "0.1.0",
+  "homepage":"https://southsudanaims.org",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
