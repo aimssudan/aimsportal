@@ -18,23 +18,32 @@
                 </div>
             </div> -->
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
               <h4><b>Welcome to The South Sudan AIMS</b></h4>
               <p>
                 The Aid Information Management System (AIMS) web portal from the
                 Ministry of Finance and Planning - Government of South Sudan.
               </p>
+              
+              
+            </div>
+            <div class="col-md-12">
+              <SupersetDashboard/>
+            </div>
+            </div>
+            <div class="row">
+            
+            <div class="col-md-8">
+              
               <div class="card border-light">
-                <!-- <div class="card-header d-flex justify-content-between">
-                    
-                  </div> -->
+                
                 <div
                   id="collapse-chart-trends"
                   class="collapse show"
                   aria-labelledby="heading-collapsed"
                 >
                   <div class="card-body">
-                    <h5 style="font-weight: bolder">PROJECT OVERVIEW</h5>
+                    <h5 style="font-weight: bolder">MAP OVERVIEW</h5>
 
                     <project-distribution-by-state
                       v-if="isMapDataLoaded"
@@ -45,7 +54,7 @@
                 </div>
               </div>
 
-              <div class="row mt-4">
+              <!-- <div class="row mt-4">
                 <h4>In Detail</h4>
                 <div class="col-md-6">
                   <div class="card" style="min-height: 50%">
@@ -59,14 +68,14 @@
                 <div class="col-md-6">
                   <div class="card" style="min-height: 50%">
                     <div class="card-body">
-                      <!-- Bar Graph -->
+                      
                       <stacked-trend-chart
                         chartTitle="COMMITTED VS BUDGETED"
                       ></stacked-trend-chart>
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <!-- <center><a href="/login" class="btn btn-primary">Log In</a></center> <center><a href="/register" class="btn btn-success mt-4 mb-4">Register</a></center> -->
             </div>
@@ -88,7 +97,7 @@
               </div>
               <!-- row -->
 
-              <div class="card text-black mt-4">
+              <!-- <div class="card text-black mt-4">
                 <div class="card-body">
                   <div class="btn-group" style="width: 100%">
                     <a
@@ -134,7 +143,7 @@
                     @dismissError="apiErrors = false"
                   ></flash-error>
 
-                  <!-- Other Graphs -->
+                 
 
                   <bar-chart-report
                     v-if="dataReady"
@@ -142,9 +151,9 @@
                     :chartLabels="chartLabel"
                   ></bar-chart-report>
                 </div>
-              </div>
+              </div> -->
 
-              <div class="row" style="margin-top: 3rem">
+              <!-- <div class="row" style="margin-top: 3rem">
                 <div class="col-md-6">
                   <h1>{{ totalOrganisations }}</h1>
                   <small>Total Organizations</small>
@@ -174,9 +183,9 @@
                   </div>
                 </div>
                 <hr style="margin-top: 1rem" />
-              </div>
+              </div> -->
 
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-md-5">
                   <h1>
                     ${{
@@ -228,7 +237,7 @@
                   </div>
                 </div>
                 <hr style="margin-top: 1rem" />
-              </div>
+              </div> -->
 
               <!-- <div class="row mt-4" id="additional_text">
                   <div class="col-md-12" style="text-align: justify;">
@@ -267,6 +276,7 @@ import ProjectDistributionByState from "../components/maps/ProjectDistributionBy
 import StackedTrendChart from "../components/charts/StackedTrendChart.vue";
 import StackedLineChart from "../components/charts/StackedLineChart.vue";
 import BarChartReport from "../components/charts/BarChart.vue";
+import SupersetDashboard from '../components/SupersetDashboard.vue';
 
 export default {
   name: "Home",
@@ -276,6 +286,7 @@ export default {
     StackedTrendChart,
     BarChartReport,
     StackedLineChart,
+    SupersetDashboard,
   },
   data() {
     return {
@@ -305,6 +316,7 @@ export default {
       mapData: [],
       isMapDataLoaded: false,
       organisationCount: [],
+      dashboardContainer: null,
     };
   },
   computed: {
@@ -633,6 +645,7 @@ export default {
         }
       );
     },
+    
   },
 };
 </script>
@@ -641,6 +654,7 @@ export default {
   /* padding-top:3.5em; */
   /* background-image: url("../assets/img/4266.webp"); */
 }
+
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   /* smartphones, iPhone, portrait 480x320 phones */

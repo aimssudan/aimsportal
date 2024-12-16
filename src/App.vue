@@ -43,7 +43,7 @@
     </nav>
     <div id="app-content">
   <snackbar />
-  <router-view/>
+  <RouterView />
     </div>
 
   <footer class="page-footer dark footer mt-auto" style="background: rgb(22,42,81);" id="main-footer">        
@@ -87,13 +87,14 @@
 
 </template>
 <script>
-// import $ from 'jquery'
+import { RouterView } from 'vue-router'
 import {mapState, mapGetters, mapActions } from 'vuex'
+import Snackbar from '@/components/Snackbar.vue';
 // import Logo from './views/Logo.vue';
 export default {
   name: 'App',
   components: {
-    'snackbar': require('@/components/Snackbar.vue').default,
+    Snackbar,
   },
   created() {
     
