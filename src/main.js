@@ -11,10 +11,16 @@ import VueApexCharts from 'vue3-apexcharts';
 
 import axios from 'axios'
 
-axios.defaults.baseURL = process.env.VUE_APP_API_URL
-require('@/store/subscriber')
+axios.defaults.baseURL = import.meta.env.VITE_APP_API_URL
+const app = createApp(App);
+
+app.component('font-awesome-icon', FontAwesomeIcon);
+app.use(router);
+app.use(store);
+app.mount('#app');
+//require('@/store/subscriber')
 // Add VueJS library
 // library.add(faHatWizard)
 // Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-createApp(App).use(store).use(router).use(VueApexCharts).mount('#app')
+//createApp(App).use(store).use(router).use(VueApexCharts).mount('#app')

@@ -290,7 +290,9 @@
 <script>
 import { ref } from "vue";
 //const tooltip = ref(null);
-const dataMap = require("@/assets/img/ss.svg");
+//const dataMap = require("@/assets/img/ss.svg");
+const dataMap = '/assets/img/ss.svg';
+
 
 export default {
   name: "ProjectDistributionByState",
