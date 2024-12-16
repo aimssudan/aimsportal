@@ -2416,7 +2416,7 @@
                                   <label
                                     for="sub_sector"
                                     class="col-sm-4 col-form-label"
-                                    ><small>Param (optional)</small></label
+                                    ><small>Payam (optional)</small></label
                                   >
                                   <div class="col-sm-8">
                                     <select
